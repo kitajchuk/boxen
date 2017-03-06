@@ -1,0 +1,10 @@
+.main {
+    min-height: 100vh;
+    overflow: hidden;
+    width: 100%;
+    transition: opacity $base-duration $ease;
+
+    &.is-inactive {
+        opacity: 0;
+        }
+    }

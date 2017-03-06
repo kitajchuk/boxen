@@ -1,0 +1,26 @@
+.screen {
+    background-color: $white;
+    bottom: 0;
+    left: 0;
+    opacity: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: fixed;
+    right: 0;
+    top: 0;
+    transition: opacity $fast-duration $ease,
+                z-index $fast-duration $ease,
+                visibility $fast-duration $ease;
+    visibility: hidden;
+    z-index: $z_layer_behind;
+
+    &.is-active {
+        opacity: 1;
+        visibility: visible;
+        z-index: $z_layer_infront;
+        -webkit-overflow-scrolling: touch;
+        }
+    }
+.screen--dark {
+    background-color: $black;
+    }

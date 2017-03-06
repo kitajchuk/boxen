@@ -1,0 +1,112 @@
+/******************************************************************************
+ * Fonts: Util
+*******************************************************************************/
+@mixin font-normal() {
+    font-stretch: normal;
+    font-style: normal;
+}
+
+
+
+/******************************************************************************
+ * Fonts: Sans-serif
+*******************************************************************************/
+@mixin font-sans-text() {
+    font-family: $sans-serif-text;
+    font-weight: 400;
+    @include font-normal();
+}
+@mixin font-sans-text-bold() {
+    font-weight: 700;
+}
+
+
+
+/******************************************************************************
+ * Fonts: Serif
+*******************************************************************************/
+@mixin font-serif-text() {
+    font-family: $serif-text;
+    font-weight: 400;
+    @include font-normal();
+}
+@mixin font-serif-text-bold() {
+    font-weight: 700;
+}
+@mixin font-serif-text-thin() {
+    font-weight: 100;
+}
+@mixin font-serif-text-light() {
+    font-weight: 300;
+}
+
+
+
+/******************************************************************************
+ * Type
+*******************************************************************************/
+@mixin btn() {
+    background: none;
+    border: 0;
+    cursor: pointer;
+    font-size: $btn-size;
+    line-height: 1;
+    outline: 0;
+    padding: 0;
+    text-transform: uppercase;
+    -webkit-appearance: none;
+    @include font-sans-text();
+    @include font-sans-text-bold();
+}
+@mixin meta() {
+    color: $grey;
+    font-size: $meta-size;
+    line-height: 1;
+    @include font-sans-text();
+}
+@mixin b() {
+    font-weight: 700;
+}
+@mixin p() {
+    font-size: $p-size;
+    line-height: 1.5;
+    max-width: 700px;
+    @include font-serif-text();
+}
+@mixin pp() {
+    margin-top: 50px;
+}
+@mixin a() {
+    color: $black;
+    display: inline;
+    font-size: $p-size;
+    line-height: 1.5;
+    text-decoration: none;
+    @include font-serif-text();
+}
+@mixin li() {
+    padding-left: 20px;
+    @include p();
+}
+@mixin ol-li() {
+    list-style: decimal;
+}
+@mixin ul-li() {
+    list-style: disc;
+}
+@mixin h1() {
+    font-size: $h1-size;
+    line-height: 1;
+    @include font-sans-text();
+}
+@mixin h2() {
+    font-size: $h2-size;
+    line-height: 1.1428571429;
+    @include font-sans-text();
+}
+@mixin h3() {
+    font-size: $h3-size;
+    line-height: 1.5;
+    @include font-sans-text();
+    @include font-sans-text-bold();
+}

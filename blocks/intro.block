@@ -1,0 +1,5 @@
+<div class="intro js-intro screen is-active -text--center ghost">
+    <div class="ghost__child">
+        {@|apply logo.block}
+    </div>
+</div>

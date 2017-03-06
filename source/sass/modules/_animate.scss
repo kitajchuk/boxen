@@ -1,0 +1,20 @@
+/******************************************************************************
+ * Animations
+*******************************************************************************/
+.animate {
+    opacity: 0;
+    transition: opacity $base-duration $ease-three;
+
+    &.is-animate {
+        opacity: 1;
+        transform: translate3d( 0, 0, 0 );
+        }
+    &.is-static {
+        transition-duration: 0ms;
+        }
+}
+.animate--lift {
+    transform: translate3d( 0, $expander-two, 0 );
+    transition: opacity $long-duration $ease,
+                transform $long-duration $ease;
+    }

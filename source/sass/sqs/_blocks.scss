@@ -1,0 +1,96 @@
+/******************************************************************************
+ * Squarespace Block Spacing
+*******************************************************************************/
+[class*=sqs-col] {
+    display: inline-block;
+    float: none !important;
+    }
+.sqs-block {
+    padding: 0 !important;
+    }
+.sqs-layout > .sqs-row {
+    margin: 0 !important;
+    }
+
+
+
+// Need to EXCLUDE inline block-fields
+// <squarespace:block-field ... />
+.sqs-layout:not( [data-type="block-field"] ) {
+    
+}
+
+
+
+.sqs-block {
+    h1 {
+        @include h1();
+        }
+    h2 {
+        @include h2();
+        }
+    h3 {
+        @include h3();
+        }
+    h1,
+    h2,
+    h3 {
+        strong {
+            @include b();
+            }
+    }
+
+
+    em {
+        @include b();
+        }
+
+
+    ol,
+    ul {
+        @include li();
+
+        strong {
+            @include b();
+            }
+    }
+    ol li {
+        @include ol-li();
+        }
+    ul li {
+        @include ul-li();
+        }
+
+
+    p {
+        @include p();
+
+        & + p {
+            @include pp();
+            }
+
+        strong {
+            @include b();
+            }
+    }
+
+
+    p,
+    li {
+        a {
+            border-bottom: 1px solid $green-dark;
+            color: $green-dark;
+            }
+    }
+}
+
+
+
+.sqs-block-quote {}
+.sqs-block-code {}
+.sqs-block-html {}
+.sqs-block-audio {}
+.sqs-block-image {}
+.sqs-block-gallery {}
+.sqs-block-video {}
+.sqs-block-spacer {}

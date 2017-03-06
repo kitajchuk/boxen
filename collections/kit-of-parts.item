@@ -1,0 +1,7 @@
+<section class="kit-of-parts">
+    <div class="kit-of-parts__parts">
+        {.section item}
+            {@|apply kit-of-parts-part.block}
+        {.end}
+    </div>
+</section>

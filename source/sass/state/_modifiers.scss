@@ -1,0 +1,96 @@
+/******************************************************************************
+ * Display
+*******************************************************************************/
+.-exp {
+    padding-bottom: $expander-two;
+    padding-top: $expander-two;
+    }
+.-exp-t {
+    padding-top: $expander-two;
+    }
+.-exp-b {
+    padding-bottom: $expander-two;
+    }
+.-wrap {
+    padding-left: $expander-one;
+    padding-right: $expander-one;
+    }
+.-wrap-dub {
+    padding-left: $expander-dub;
+    padding-right: $expander-dub;
+    }
+.-wrap-copy,
+.-wrap-block {
+    display: inline-block;
+    width: 100%;
+    }
+.-wrap-l {
+    padding-left: $expander-one;
+    }
+.-wrap-r {
+    padding-right: $expander-one;
+    }
+.-vtop {
+    vertical-align: top;
+    }
+.-vbot {
+    vertical-align: bottom;
+    }
+.-full {
+    width: 100%;
+    }
+.-tall {
+    height: 100%;
+    }
+
+
+
+/******************************************************************************
+ * Background Images
+*******************************************************************************/
+.-cover {
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+.-cover--top {
+    background-position: 50% 0;
+    }
+.-cover--right {
+    background-position: 100% 50%;
+    }
+.-cover--bottom {
+    background-position: 50% 100%;
+    }
+.-cover--left {
+    background-position: 0 50%;
+    }
+
+
+
+/******************************************************************************
+ * Typography
+*******************************************************************************/
+.-text--center {
+    text-align: center;
+    }
+.-text--right {
+    text-align: right;
+    }
+.-text--left {
+    text-align: left;
+    }
+.-light {
+    color: $white;
+    }
+.-grey {
+    color: $grey;
+
+    a,
+    strong {
+        color: $black;
+        }
+    }
+.-fzero {
+    font-size: 0;
+    }
