@@ -1,0 +1,3 @@
+<a href="{buttonLink}" class="btn btn--{buttonSize}" {.if newWindow}target="_blank"{.end}>
+    {buttonText}
+</a>

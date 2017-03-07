@@ -4,17 +4,23 @@
 .btn {
     @include btn();
     }
-.btn--primary,
-.btn--secondary {
+.btn--small,
+.btn--medium,
+.btn--large {
     color: $white;
-    padding: 20px;
     transition: background-color $base-duration $ease;
     }
-.btn--primary {
-    background-color: $black;
+.btn--large {
+    background-color: $green-dark;
+    padding: 20px;
     }
-.btn--secondary {
-    background-color: $grey;
+.btn--medium {
+    background-color: $black;
+    padding: 16px;
+    }
+.btn--small {
+    background-color: $black;
+    padding: 12px;
     }
 .btn__icon {
     margin-right: 10px;

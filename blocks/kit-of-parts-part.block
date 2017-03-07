@@ -1,6 +1,4 @@
-<div class="kit-of-parts__part -wrap" data-content-field="main-content">
-    <div class="wrapper">
-        <span class="kit-of-parts__part__label meta"><a href="{fullUrl}">{title}</a></span>
-        {body}
-    </div>
+<div class="kit-of-parts__part -exp" data-content-field="main-content">
+    <div class="kit-of-parts__label meta"><a href="{fullUrl}">{title}</a></div>
+    {body}
 </div>

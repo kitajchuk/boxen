@@ -1,7 +1,5 @@
 <section class="kit-of-parts">
-    <div class="kit-of-parts__parts">
-        {.repeated section items}
-            {@|apply kit-of-parts-part.block}
-        {.end}
-    </div>
+    {.repeated section items}
+        {@|apply kit-of-parts-part.block}
+    {.end}
 </section>

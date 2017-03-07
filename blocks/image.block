@@ -1,9 +1,19 @@
 {.section item}
     <figure class="figure">
         <img class="figure__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" />
+        {.if info.description}
+            <figcaption class="figure__cap">
+                <div class="meta -grey">{info.description|safe}</div>
+            </figcaption>
+        {.end}
     </figure>
 {.or}
     <figure class="figure">
         <img class="figure__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" />
+        {.if info.description}
+            <figcaption class="figure__cap">
+                <div class="meta -grey">{info.description|safe}</div>
+            </figcaption>
+        {.end}
     </figure>
 {.end}

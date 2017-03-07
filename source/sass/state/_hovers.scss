@@ -1,9 +1,10 @@
 .is-hoverable {
 
-    .btn--primary:hover {
+    .btn--large:hover {
         background-color: $grey;
         }
-    .btn--secondary:hover {
+    .btn--small:hover,
+    .btn--medium:hover {
         background-color: $black;
         }
 

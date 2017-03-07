@@ -61,7 +61,7 @@
 @mixin meta() {
     color: $grey;
     font-size: $meta-size;
-    line-height: 1;
+    line-height: 1.2;
     @include font-sans-text();
 }
 @mixin b() {

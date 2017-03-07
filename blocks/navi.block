@@ -1,4 +1,4 @@
-<navi class="navi js-navi -text--right" data-content-field="navigation-navi">
+<navi class="navi js-navi -wrap" data-content-field="navigation-navi">
     <ul class="navi__ul">
         {.repeated section items}
             {.section collection}
