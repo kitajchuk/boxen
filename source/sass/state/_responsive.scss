@@ -1,0 +1,11 @@
+@media only screen and ( max-width: $break-mobile-full ) {
+    .-wrap {
+        padding-left: $expander-mobile;
+        padding-right: $expander-mobile;
+        }
+    .figure__cap {
+        padding-left: $expander-mobile / 2;
+        padding-right: $expander-mobile / 2;
+        padding-top: $expander-mobile / 2;
+        }
+}

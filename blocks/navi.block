@@ -1,5 +1,5 @@
-<navi class="navi js-navi -wrap" data-content-field="navigation-navi">
-    <ul class="navi__ul">
+<navi class="navi js-navi ghost -wrap" data-content-field="navigation-navi">
+    <ul class="navi__ul ghost__child">
         {.repeated section items}
             {.section collection}
                 <li class="navi__li"><a class="navi__a btn" href="{fullUrl}">{title}</a></li>

@@ -1,0 +1,9 @@
+@media only screen and ( max-width: $break-mobile-full ) {
+    [class*=sqs-col] {
+        display: block;
+        width: 100% !important;
+        }
+    [class*=sqs-col] + [class*=sqs-col] {
+        margin-top: $expander-mobile;
+        }
+}

@@ -1,28 +1,34 @@
 /******************************************************************************
  * Squarespace Block Spacing
 *******************************************************************************/
-[class*=sqs-col] {
-    display: inline-block;
-    float: none !important;
-    }
-.sqs-block {
-    padding: 0 !important;
-    }
+
+// Layout handling
 .sqs-layout > .sqs-row {
     margin: 0 !important;
     }
 
-
-
-// Need to EXCLUDE inline block-fields
-// <squarespace:block-field ... />
-.sqs-layout:not( [data-type="block-field"] ) {
-    
+// Grid handling
+[class*=sqs-col] {
+    display: inline-block;
+    float: none !important;
+    padding: 0 !important;
+}
+[class*="sqs-col"]:not( .sqs-col-12 ) {
+    .sqs-block-content {
+        padding-left: $expander-mobile / 2;
+        padding-right: $expander-mobile / 2;
+        }
 }
 
-
-
+// Block / Row handling
+.sqs-block + .sqs-row,
+.sqs-row + .sqs-block,
+.sqs-block + .sqs-block {
+    margin-top: $expander-mobile;
+    }
 .sqs-block {
+    padding: 0 !important;
+
     h1 {
         @include h1();
         }
@@ -84,13 +90,7 @@
     }
 }
 
-
-
-.sqs-block-quote {}
-.sqs-block-code {}
-.sqs-block-html {}
-.sqs-block-audio {}
-.sqs-block-image {}
-.sqs-block-gallery {}
-.sqs-block-video {}
-.sqs-block-spacer {}
+// Block specific
+.sqs-block-map {
+    border: 1px solid $grey-rule;
+    }
