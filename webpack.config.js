@@ -1,7 +1,7 @@
 const path = require( "path" );
 const root = path.resolve( __dirname );
 const source = path.join( root, "source" );
-const nodeModules = path.join( root, "node_modules" );
+const nodeModules = "node_modules";
 const webpack = require( "webpack" );
 const autoprefixer = require( "autoprefixer" );
 const execSync = require( "child_process" ).execSync;

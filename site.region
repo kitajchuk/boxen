@@ -16,7 +16,11 @@
         </main>
         {@|apply footer.block}
         {@|apply intro.block}
-        <script type="text/javascript" src="/scripts/app.js"></script>
+        {.if authenticatedAccount}
+            <script type="text/javascript" src="/scripts/app.js"></script>
+        {.or}
+            <script type="text/javascript" src="/scripts/app.min.js"></script>
+        {.end}
         {squarespace-footers}
     </body>
 </html>
