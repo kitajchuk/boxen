@@ -10,8 +10,8 @@
     "postinstall": "cd ./node_modules/properjs-hobo && npm install && npm run build -- 'is eq not attr filter detach remove append'",
     "build": "./node_modules/.bin/squarespace assemble && webpack --display-modules",
     "watch": "./node_modules/.bin/squarespace assemble --watch & webpack --watch --hide-modules",
-    "server": "./node_modules/.bin/squarespace runserver",
-    "authserver": "./node_modules/.bin/squarespace runserver --auth",
+    "server": "./node_modules/.bin/squarespace runserver --auto-reload",
+    "authserver": "./node_modules/.bin/squarespace runserver --auth --auto-reload",
     "start": "./node_modules/.bin/squarespace setup && (npm run watch & npm run authserver)",
     "deploy": "./node_modules/.bin/squarespace setup && squarespace deploy"
   },
