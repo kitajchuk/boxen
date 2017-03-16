@@ -14,7 +14,6 @@ import log from "./log";
 import cache from "./cache";
 import emitter from "./emitter";
 //import mediabox from "./mediabox";
-import resizes from "./resizes";
 
 
 export {
@@ -26,6 +25,5 @@ export {
     log,
     cache,
     emitter,
-    //mediabox,
-    resizes
+    //mediabox
 };

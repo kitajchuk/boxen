@@ -1,4 +1,3 @@
-import log from "./log";
 import dom from "./dom";
 
 
@@ -39,8 +38,6 @@ const detect = {
         } else {
             dom.html.addClass( "is-hoverable" );
         }
-
-        log( "detect initialized" );
     },
 
 
