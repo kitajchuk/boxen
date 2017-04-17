@@ -3,20 +3,20 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="apple-touch-icon" sizes="57x57" href="/assets/touch/apple-touch-icon-57x57.png" />
-        <link rel="apple-touch-icon" sizes="60x60" href="/assets/touch/apple-touch-icon-60x60.png" />
-        <link rel="apple-touch-icon" sizes="72x72" href="/assets/touch/apple-touch-icon-72x72.png" />
-        <link rel="apple-touch-icon" sizes="76x76" href="/assets/touch/apple-touch-icon-76x76.png" />
-        <link rel="apple-touch-icon" sizes="114x114" href="/assets/touch/apple-touch-icon-114x114.png" />
-        <link rel="apple-touch-icon" sizes="120x120" href="/assets/touch/apple-touch-icon-120x120.png" />
-        <link rel="apple-touch-icon" sizes="144x144" href="/assets/touch/apple-touch-icon-144x144.png" />
-        <link rel="apple-touch-icon" sizes="152x152" href="/assets/touch/apple-touch-icon-152x152.png" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/assets/touch/apple-touch-icon-180x180.png" />
-        <link rel="icon" type="image/png" href="/assets/touch/android-chrome-192x192.png" sizes="192x192" />
-        <meta name="msapplication-square70x70logo" content="/assets/touch/smalltile.png" />
-        <meta name="msapplication-square150x150logo" content="/assets/touch/mediumtile.png" />
-        <meta name="msapplication-wide310x150logo" content="/assets/touch/widetile.png" />
-        <meta name="msapplication-square310x310logo" content="/assets/touch/largetile.png" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/assets/touch/apple-touch-icon-57x57.png?v={squarespace.template-revision}" />
+        <link rel="apple-touch-icon" sizes="60x60" href="/assets/touch/apple-touch-icon-60x60.png?v={squarespace.template-revision}" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/assets/touch/apple-touch-icon-72x72.png?v={squarespace.template-revision}" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/assets/touch/apple-touch-icon-76x76.png?v={squarespace.template-revision}" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/assets/touch/apple-touch-icon-114x114.png?v={squarespace.template-revision}" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/assets/touch/apple-touch-icon-120x120.png?v={squarespace.template-revision}" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/assets/touch/apple-touch-icon-144x144.png?v={squarespace.template-revision}" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/assets/touch/apple-touch-icon-152x152.png?v={squarespace.template-revision}" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/touch/apple-touch-icon-180x180.png?v={squarespace.template-revision}" />
+        <link rel="icon" type="image/png" href="/assets/touch/android-chrome-192x192.png?v={squarespace.template-revision}" sizes="192x192" />
+        <meta name="msapplication-square70x70logo" content="/assets/touch/smalltile.png?v={squarespace.template-revision}" />
+        <meta name="msapplication-square150x150logo" content="/assets/touch/mediumtile.png?v={squarespace.template-revision}" />
+        <meta name="msapplication-wide310x150logo" content="/assets/touch/widetile.png?v={squarespace.template-revision}" />
+        <meta name="msapplication-square310x310logo" content="/assets/touch/largetile.png?v={squarespace.template-revision}" />
         {squarespace-headers}
     </head>
     <body>
@@ -27,11 +27,7 @@
         </main>
         {@|apply footer.block}
         {@|apply intro.block}
-        {.if authenticatedAccount}
-            <script type="text/javascript" src="/scripts/app.js"></script>
-        {.or}
-            <script type="text/javascript" src="/scripts/app.min.js"></script>
-        {.end}
+        <script type="text/javascript" src="/scripts/app.js?v={squarespace.template-revision}"></script>
         {squarespace-footers}
     </body>
 </html>

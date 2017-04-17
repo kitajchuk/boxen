@@ -84,13 +84,13 @@
     p,
     li {
         a {
-            border-bottom: 1px solid $green-dark;
-            color: $green-dark;
+            border-bottom: 1px solid $black;
+            color: $black;
             }
     }
 }
 
 // Block specific
 .sqs-block-map {
-    border: 1px solid $grey-rule;
+    border: 1px solid $grey-light;
     }

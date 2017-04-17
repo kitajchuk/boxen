@@ -6,10 +6,9 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
-    "minjs": "./node_modules/.bin/uglifyjs build/scripts/app.js -c -m -o build/scripts/app.min.js",
     "postinstall": "cd ./node_modules/properjs-hobo && npm install && npm run build -- 'is eq not attr filter detach remove append'",
-    "build": "./node_modules/.bin/squarespace assemble && webpack --display-modules",
-    "watch": "./node_modules/.bin/squarespace assemble --watch & webpack --watch --hide-modules",
+    "build": "./node_modules/.bin/squarespace assemble && ./node_modules/.bin/webpack --env=production --progress --profile --display-modules --colors -p",
+    "watch": "./node_modules/.bin/squarespace assemble --watch & ./node_modules/.bin/webpack --env=sandbox --hide-modules --colors --watch",
     "server": "./node_modules/.bin/squarespace runserver --auto-reload",
     "authserver": "./node_modules/.bin/squarespace runserver --auth --auto-reload",
     "start": "./node_modules/.bin/squarespace setup && (npm run watch & npm run authserver)",
@@ -36,7 +35,6 @@
     "fg-loadjs": "^1.0.0",
     "file-loader": "^0.10.1",
     "node-sass": "^4.5.0",
-    "on-build-webpack": "^0.1.0",
     "paramalama": "~0.2",
     "postcss": "^5.2.15",
     "postcss-cssnext": "^2.9.0",
@@ -56,7 +54,6 @@
     "properjs-throttle": "^0.3.0",
     "properjs-tween": "~0.2",
     "sass-loader": "^6.0.2",
-    "uglifyjs": "^2.4.10",
     "webpack": "^2.2.1"
   }
 }
