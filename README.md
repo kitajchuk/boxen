@@ -1,7 +1,7 @@
-kitajchuk-template-squarespace
-==============================
+boxen
+=====
 
-> Boilerplate template and scaffold for Squarespace projects.
+> A Squarespace template scaffold.
 
 
 

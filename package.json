@@ -1,7 +1,7 @@
 {
-  "name": "kitajchuk-template-squarespace",
-  "version": "1.0.0",
-  "description": "Boilerplate template and scaffold for Squarespace projects.",
+  "name": "boxen",
+  "version": "0.1.0",
+  "description": "A Squarespace template scaffold.",
   "author": "Brandon Lee Kitajchuk",
   "license": "Apache-2.0",
   "private": true,
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "ssh://git@github.com:kitajchuk/kitajchuk-template-squarespace.git"
+    "url": "ssh://git@github.com:kitajchuk/boxen.git"
   },
   "dependencies": {
     "@squarespace/core": "^0.1.5"
