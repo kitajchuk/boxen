@@ -12,7 +12,7 @@
     "server": "./node_modules/.bin/squarespace runserver --auto-reload",
     "authserver": "./node_modules/.bin/squarespace runserver --auth --auto-reload",
     "start": "./node_modules/.bin/squarespace setup && (npm run watch & npm run authserver)",
-    "deploy": "npm run build && ./node_modules/.bin/squarespace setup && squarespace deploy"
+    "deploy": "npm run build && ./node_modules/.bin/squarespace setup && ./node_modules/.bin/squarespace deploy"
   },
   "repository": {
     "type": "git",

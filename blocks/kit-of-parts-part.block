@@ -1,4 +1,0 @@
-<div class="kit-of-parts__part -exp" data-content-field="main-content">
-    <div class="kit-of-parts__label meta"><a href="{fullUrl}">{title}</a></div>
-    {body}
-</div>

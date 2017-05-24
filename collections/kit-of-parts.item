@@ -1,5 +1,0 @@
-<section class="kit-of-parts">
-    {.section item}
-        {@|apply kit-of-parts-part.block}
-    {.end}
-</section>

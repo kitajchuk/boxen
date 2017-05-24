@@ -1,5 +1,0 @@
-<section class="kit-of-parts">
-    {.repeated section items}
-        {@|apply kit-of-parts-part.block}
-    {.end}
-</section>

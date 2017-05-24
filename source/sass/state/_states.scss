@@ -10,3 +10,15 @@
 
 .is-scrolling-down {
 }
+
+.is-hoverable {
+
+    .btn--large:hover {
+        background-color: $grey;
+        }
+    .btn--small:hover,
+    .btn--medium:hover {
+        background-color: $black;
+        }
+
+}

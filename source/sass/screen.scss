@@ -9,30 +9,39 @@
 /******************************************************************************
  * Core
 *******************************************************************************/
-@import "core/reset";
 @import "core/fonts";
-@import "core/icons";
+@import "core/reset";
 @import "core/document";
-@import "core/grid";
 @import "core/typography";
-@import "core/images";
+
 
 
 
 /******************************************************************************
  * Modules
 *******************************************************************************/
-@import "modules/screens";
-@import "modules/classes";
 @import "modules/animate";
-@import "modules/kit-of-parts";
+@import "modules/images";
+@import "modules/grid";
+@import "modules/header";
+@import "modules/main";
+@import "modules/icons";
+@import "modules/cms";
+@import "modules/svg";
+
+
+
+// Screens + Extended
+@import "modules/screens";
+@import "modules/navi";
+@import "modules/intro";
+
 
 
 
 /******************************************************************************
- * Squarespace Hacks
+ * Squarespace
 *******************************************************************************/
-@import "sqs/hacks";
 @import "sqs/blocks";
 @import "sqs/responsive";
 
@@ -42,6 +51,5 @@
  * UI State
 *******************************************************************************/
 @import "state/states";
-@import "state/hovers";
 @import "state/modifiers";
 @import "state/responsive";
