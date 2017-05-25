@@ -71,14 +71,55 @@
     p {
         @include p();
 
-        & + p {
-            @include pp();
-            }
-
         strong {
             @include b();
             }
     }
+
+
+    p + p,
+    p + ul,
+    p + ol,
+    p + h1,
+    p + h2,
+    p + h3,
+
+    ul + p,
+    ul + ul,
+    ul + ol,
+    ul + h1,
+    ul + h2,
+    ul + h3,
+
+    ol + p,
+    ol + ol,
+    ol + ul,
+    ol + h1,
+    ol + h2,
+    ol + h3,
+
+    h1 + p,
+    h1 + ul,
+    h1 + ol,
+    h1 + h1,
+    h1 + h2,
+    h1 + h3,
+
+    h2 + p,
+    h2 + ul,
+    h2 + ol,
+    h2 + h1,
+    h2 + h2,
+    h2 + h3,
+
+    h3 + p,
+    h3 + ul,
+    h3 + ol,
+    h3 + h1,
+    h3 + h2,
+    h3 + h3 {
+        @include pp();
+        }
 
 
     p,

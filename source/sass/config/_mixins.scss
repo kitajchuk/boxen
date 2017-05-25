@@ -7,106 +7,73 @@
 }
 
 
-
 /******************************************************************************
- * Fonts: Sans-serif
+ * Fonts: Styles
 *******************************************************************************/
-@mixin font-sans-text() {
-    font-family: $sans-serif-text;
-    font-weight: 400;
+@mixin font-sans() {
+    font-family: $font-family-sans;
     @include font-normal();
 }
-@mixin font-sans-text-bold() {
-    font-weight: 700;
-}
-
-
-
-/******************************************************************************
- * Fonts: Serif
-*******************************************************************************/
-@mixin font-serif-text() {
-    font-family: $serif-text;
-    font-weight: 400;
-    @include font-normal();
-}
-@mixin font-serif-text-bold() {
-    font-weight: 700;
-}
-@mixin font-serif-text-thin() {
-    font-weight: 100;
-}
-@mixin font-serif-text-light() {
-    font-weight: 300;
-}
-
 
 
 /******************************************************************************
  * Type
 *******************************************************************************/
-@mixin btn() {
-    background: none;
-    border: 0;
-    cursor: pointer;
-    font-size: $btn-size;
-    line-height: 1;
-    outline: 0;
-    padding: 0;
-    text-transform: uppercase;
-    -webkit-appearance: none;
-    @include font-sans-text();
-    @include font-sans-text-bold();
-}
-@mixin meta() {
-    color: $grey;
-    font-size: $meta-size;
-    line-height: 1.2;
-    @include font-sans-text();
-}
-@mixin b() {
-    font-weight: 700;
-}
 @mixin p() {
     font-size: $p-size;
-    line-height: 1.5;
-    max-width: 700px;
-    @include font-serif-text();
-}
-@mixin pp() {
-    margin-top: 50px;
+    line-height: $p-line;
+    @include font-sans();
 }
 @mixin a() {
-    color: $black;
     display: inline;
-    font-size: $p-size;
-    line-height: 1.5;
     text-decoration: none;
-    @include font-serif-text();
-}
-@mixin li() {
-    padding-left: 20px;
-    @include p();
-}
-@mixin ol-li() {
-    list-style: decimal;
-}
-@mixin ul-li() {
-    list-style: disc;
+    @include font-sans();
 }
 @mixin h1() {
     font-size: $h1-size;
-    line-height: 1;
-    @include font-sans-text();
+    line-height: $h1-line;
+    @include font-sans();
 }
 @mixin h2() {
     font-size: $h2-size;
-    line-height: 1.1428571429;
-    @include font-sans-text();
+    line-height: $h2-line;
+    @include font-sans();
 }
 @mixin h3() {
     font-size: $h3-size;
-    line-height: 1.5;
-    @include font-sans-text();
-    @include font-sans-text-bold();
+    line-height: $h3-line;
+    @include font-sans();
+}
+@mixin h4() {
+    font-size: $h4-size;
+    line-height: $h4-line;
+    @include font-sans();
+}
+@mixin h5() {
+    font-size: $h5-size;
+    line-height: $h5-line;
+    @include font-sans();
+}
+@mixin h6() {
+    font-size: $h6-size;
+    line-height: $h6-line;
+    @include font-sans();
+}
+
+
+/******************************************************************************
+ * Wraps
+*******************************************************************************/
+@mixin wrap () {
+    padding-left: $padding-wrap;
+    padding-right: $padding-wrap;
+}
+@mixin wrap-copy () {
+    display: inline-block;
+    max-width: $wrap-copy;
+    width: 100%;
+}
+@mixin wrap-index () {
+    padding-left: $padding-index;
+    padding-right: $padding-index;
 }

@@ -1,18 +1,19 @@
 /******************************************************************************
  * Fonts
 *******************************************************************************/
-$serif-text: "Georgia";
-$sans-serif-text: "Helvetica";
+$font-family-sans: "Helvetica";
 
 
 
 /******************************************************************************
  * Colors
 *******************************************************************************/
+$blue: #1bbcef;
 $black: #000;
+$charcoal: #333;
+$medium: #555;
 $white: #fff;
-$grey: #555;
-$grey-light: #d7d7d7;
+$grey: #eee;
 
 
 
@@ -31,7 +32,8 @@ $expander-one: 80px;
 $expander-two: 160px;
 $expander-three: 240px;
 $expander-mobile: 40px;
-$expander-dub: $expander-two + 20px;
+$padding-index: 10vw;
+$padding-wrap: 5vw;
 
 
 
@@ -39,7 +41,8 @@ $expander-dub: $expander-two + 20px;
  * Sizes
 *******************************************************************************/
 $wrap-copy: 700px;
-$logo-width: 256px;
+$logo-width: 480px;
+$header-height: 160px;
 
 
 
@@ -47,12 +50,20 @@ $logo-width: 256px;
 /******************************************************************************
  * Typography
 *******************************************************************************/
-$p-size: 16px; // 24
-$h1-size: 48px; // 48
-$h2-size: 28px; // 32
-$h3-size: 16px; // 24
-$btn-size: 13px; // 21
-$meta-size: 13px; // 13
+$p-size: 20px;
+$p-line: 1.5;
+$h1-size: 64px;
+$h1-line: 1.5;
+$h2-size: 56px;
+$h2-line: 1.5;
+$h3-size: 48px;
+$h3-line: 1.5;
+$h4-size: 40px;
+$h4-line: 1.5;
+$h5-size: 32px;
+$h5-line: 1;
+$h6-size: 24px;
+$h6-line: 1;
 
 
 
@@ -77,12 +88,8 @@ $break-mobile-small: 320px;
  * Animations
 *******************************************************************************/
 $ease: cubic-bezier( 0.25, 0.1, 0.25, 1 );
-$ease-one: cubic-bezier( 0.9, 0, 0.1, 1 );
-$ease-two: cubic-bezier( 0.14, 1, 0.34, 1 );
-$ease-three: cubic-bezier( 0, 0, 0.2, 1 );
 $long-duration: 600ms;
 $base-duration: 400ms;
-$midi-duration: 300ms;
 $fast-duration: 200ms;
 
 

@@ -1,98 +1,67 @@
 /******************************************************************************
- * Button / Labels
-*******************************************************************************/
-.btn {
-    @include btn();
-    }
-.btn--small,
-.btn--medium,
-.btn--large {
-    color: $white;
-    transition: background-color $base-duration $ease;
-    }
-.btn--large {
-    background-color: $black;
-    padding: 20px;
-    }
-.btn--medium {
-    background-color: $black;
-    padding: 16px;
-    }
-.btn--small {
-    background-color: $black;
-    padding: 12px;
-    }
-.btn__icon {
-    margin-right: 10px;
-    }
-.btn__icon,
-.btn__label {
-    display: inline-block;
-    vertical-align: middle;
-    }
-
-
-
-/******************************************************************************
- * Meta
-*******************************************************************************/
-.meta {
-    @include meta();
-    }
-
-
-
-/******************************************************************************
- * Emphasis
-*******************************************************************************/
-.em {
-    @include b();
-    }
-
-
-
-/******************************************************************************
  * Paragraphs
 *******************************************************************************/
-.p {
+.p,
+.cms p,
+.li,
+.cms li {
     @include p();
+
+    a {
+        border-bottom: 1px solid inherit;
+        font-weight: bold;
+        }
+    em {
+        font-style: italic;
+        }
+    strong {
+        font-weight: bold;
+        }
     }
-
-
-
-/******************************************************************************
- * Buttons
-*******************************************************************************/
-
-
+.cms li {
+    line-height: 1.5;
+    }
 
 
 /******************************************************************************
  * Links
 *******************************************************************************/
-.a {
+.a,
+.cms a {
+    border-bottom: 1px solid transparent;
+    transition: border-bottom-color $fast-duration $ease;
     @include a();
-    }
 
+    &:hover {
+        border-bottom-color: $black;
+        }
+    }
 
 
 /******************************************************************************
  * Headlines
 *******************************************************************************/
 .h1,
-.h2,
-.h3 {
-    strong {
-        @include b();
-        }
-}
-
-.h1 {
+.cms h1 {
     @include h1();
     }
-.h2 {
+.h2,
+.cms h2 {
     @include h2();
     }
-.h3 {
+.h3,
+.cms h3 {
     @include h3();
+    }
+.h4,
+.cms h4 {
+    @include h4();
+    }
+.h5,
+.cms h5 {
+    @include h5();
+    }
+.h6,
+.cms h6 {
+    @include h6();
     }

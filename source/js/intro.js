@@ -19,15 +19,22 @@ const intro = {
      *
      */
     init () {
+        this.element = core.dom.intro;
+        this.duration = 2000;
         core.emitter.on( "app--intro-teardown", this.teardown.bind( this ) );
     },
 
 
     teardown () {
         setTimeout( () => {
-            core.dom.intro.removeClass( "is-active" );
+            this.element.removeClass( "is-active" );
 
-        }, 1000 );
+        }, this.duration );
+
+        setTimeout( () => {
+            this.element.remove();
+
+        }, (this.duration + core.util.getTransitionDuration( this.element[ 0 ] )) );
     }
 };
 

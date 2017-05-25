@@ -1,0 +1,9 @@
+.main {
+    padding-top: $header-height;
+    transition: opacity $fast-duration $ease;
+
+    &.is-inactive {
+        opacity: 0;
+        pointer-events: none;
+        }
+}

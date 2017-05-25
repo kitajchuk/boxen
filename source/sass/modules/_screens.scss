@@ -1,10 +1,11 @@
 .screen {
-    background-color: $white;
+    background-color: transparent;
     bottom: 0;
     left: 0;
     opacity: 0;
     overflow-x: hidden;
     overflow-y: scroll;
+    pointer-events: none;
     position: fixed;
     right: 0;
     top: 0;
@@ -19,8 +20,15 @@
         visibility: visible;
         z-index: $z_layer_infront;
         -webkit-overflow-scrolling: touch;
+
+        .screen__wrap {
+            pointer-events: auto;
+            }
         }
     }
 .screen--dark {
     background-color: $black;
+    }
+.screen--light {
+    background-color: $white;
     }

@@ -1,5 +1,5 @@
-<div class="intro js-intro screen is-active -text--center ghost">
+<div class="intro js-intro screen screen--light ghost -wrap -fzero -text--center is-active">
     <div class="ghost__child">
-        <!-- Logo image or svg here... -->
+        <img class="intro__logo" src="{website.logoImageUrl}" />
     </div>
 </div>

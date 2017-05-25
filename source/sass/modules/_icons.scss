@@ -1,13 +1,54 @@
 /******************************************************************************
  * Icons
 *******************************************************************************/
+.icon-wrap {
+    cursor: pointer;
+    display: inline-block;
+    margin: -20px;
+    padding: 20px;
+    }
 .icon {
+    cursor: pointer;
     display: inline-block;
     line-height: 1;
     position: relative;
     text-align: center;
     vertical-align: middle;
-    }
-.icon--logo svg {
-    width: $logo-width;
-    }
+
+    span {
+        display: inline-block;
+        }
+}
+.icon--list {
+    height: 18px;
+    width: 32px;
+
+    span {
+        background-color: $white;
+        height: 2px;
+        left: 0;
+        position: absolute;
+        transition: background-color $fast-duration $ease,
+                    opacity $fast-duration $ease,
+                    transform $fast-duration $ease;
+        width: 100%;
+        }
+
+    .top {
+        top: 0;
+        }
+    .mid {
+        top: 50%;
+        transform: translateY( -50% );
+        }
+    .bot {
+        bottom: 0;
+        }
+
+    .ex1,
+    .ex2 {
+        opacity: 0;
+        top: 50%;
+        transform: translateY( -50% );
+        }
+}

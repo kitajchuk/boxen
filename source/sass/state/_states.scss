@@ -1,24 +1,22 @@
 /******************************************************************************
- * Document
+ * Document States
 *******************************************************************************/
-.is-scrolling {
-    pointer-events: none;
-}
-
-.is-scrolling-up {
-}
-
-.is-scrolling-down {
-}
-
-.is-hoverable {
-
-    .btn--large:hover {
-        background-color: $grey;
-        }
-    .btn--small:hover,
-    .btn--medium:hover {
-        background-color: $black;
-        }
-
+.is-navi-open {
+    .icon--list {
+        .top,
+        .mid,
+        .bot {
+            opacity: 0;
+            }
+        .ex1,
+        .ex2 {
+            opacity: 1;
+            }
+        .ex1 {
+            transform: rotate( -45deg );
+            }
+        .ex2 {
+            transform: rotate( 45deg );
+            }
+    }
 }

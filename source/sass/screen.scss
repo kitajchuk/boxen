@@ -16,40 +16,29 @@
 
 
 
-
 /******************************************************************************
  * Modules
 *******************************************************************************/
-@import "modules/animate";
-@import "modules/images";
-@import "modules/grid";
-@import "modules/header";
-@import "modules/main";
-@import "modules/icons";
 @import "modules/cms";
 @import "modules/svg";
-
-
-
-// Screens + Extended
-@import "modules/screens";
+@import "modules/main";
 @import "modules/navi";
+@import "modules/grid";
+@import "modules/icons";
 @import "modules/intro";
+@import "modules/images";
+@import "modules/header";
+@import "modules/screens";
+@import "modules/animate";
 
+// Project specific:
 
-
-
-/******************************************************************************
- * Squarespace
-*******************************************************************************/
-@import "sqs/blocks";
-@import "sqs/responsive";
 
 
 
 /******************************************************************************
  * UI State
 *******************************************************************************/
-@import "state/states";
 @import "state/modifiers";
+@import "state/states";
 @import "state/responsive";

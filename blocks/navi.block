@@ -1,8 +1,10 @@
-<navi class="navi js-navi ghost -wrap" data-content-field="navigation-navi">
-    <ul class="navi__ul ghost__child">
+<navi class="navi js-navi screen -exp-2 -wrap -fzero" data-content-field="navigation-navi">
+    <ul class="navi__ul screen__wrap">
         {.repeated section items}
             {.section collection}
-                <li class="navi__li"><a class="navi__a btn" href="{fullUrl}">{title}</a></li>
+                <li class="navi__li navi__li--{title|slugify}">
+                    <a class="navi__a navi__a--{title|slugify} js-navi-a js-navi--{title|slugify}" href="{fullUrl}">{title}</a>
+                </li>
             {.end}
         {.end}
     </ul>

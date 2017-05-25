@@ -11,6 +11,40 @@ boxen
 
 
 
+### Roadmap
+
+#### Basic
+ * Quote
+ * Text
+ * Image
+ * Spacer
+ * Line
+ * Button
+ * Audio
+#### Image Layouts
+ * Poster
+ * Card
+ * Overlap
+ * Collage
+ * Stack
+#### Gallery
+ * Slideshow
+ * Carousel
+ * Grid
+ * Stack
+#### Summary
+ * Wall
+ * Carousel
+ * List
+ * Grid
+#### Filters & Lists
+ * Search
+ * Content Link
+ * Archive
+ * Tag Cloud
+
+
+
 ### Getting Started
 
 Install the Squarespace dev sever by running `npm install -g @squarespace/server`.

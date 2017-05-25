@@ -1,34 +1,25 @@
 /******************************************************************************
- * User Agent
-*******************************************************************************/
-::-moz-selection {
-    background-color: $black;
-    color: $white;
-    }
-::selection {
-    background-color: $black;
-    color: $white;
-    }
-
-
-/******************************************************************************
  * Document
 *******************************************************************************/
 html {
-    background-color: $white;
+    background-color: $blue;
     box-sizing: border-box;
-    overflow-x: hidden;
-    overflow-y: auto;
     }
 body {
-    background-color: $white;
-    color: $black;
+    background-color: transparent;
+    color: $white;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-tap-highlight-color: rgba( 0, 0, 0, 0 );
     -webkit-touch-callout: none;
-    @include font-sans-text();
+    @include font-sans();
     }
+// html,
+// body {
+//     height: 100%;
+//     max-height: 100%;
+//     overflow: hidden;
+//     }
 a {
     color: inherit;
     text-decoration: none;
@@ -43,3 +34,12 @@ a {
 *:after {
     box-sizing: inherit;
     }
+
+
+
+/******************************************************************************
+ * User Agent
+*******************************************************************************/
+// ::-webkit-scrollbar {
+//     display: none;
+//     }
