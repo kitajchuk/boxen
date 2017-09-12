@@ -1,8 +1,8 @@
 import $ from "properjs-hobo";
 import PageController from "properjs-pagecontroller";
-import ImageController from "./class/ImageController";
-import AnimateController from "./class/AnimateController";
+import Controllers from "./class/Controllers";
 import * as core from "./core";
+import navi from "./navi";
 
 
 /**
@@ -22,13 +22,198 @@ const router = {
      *
      */
     init () {
-        this.pageDuration = core.util.getTransitionDuration( core.dom.main[ 0 ] );
+        this.pageClass = "";
+        this.pageDuration = core.util.getElementDuration( core.dom.main[ 0 ] );
+        this.controllers = new Controllers({
+            el: core.dom.main,
+            cb: () => {
+                core.emitter.fire( "app--page-teardown" );
+            }
+        });
         this.bindEmpty();
         this.initPages();
 
-        core.log( "[Router initialized]" );
+        core.emitter.on( "app--page-teardown", () => this.topper() );
+
+        core.log( "[Router initialized]", this );
     },
 
+
+    /**
+     *
+     * @public
+     * @method bindEmpty
+     * @memberof router
+     * @description Suppress #hash links.
+     *
+     */
+    bindEmpty () {
+        core.dom.body.on( "click", "[href^='#']", ( e ) => e.preventDefault() );
+    },
+
+
+    /**
+     *
+     * @public
+     * @method initPages
+     * @memberof router
+     * @description Create the PageController instance.
+     *
+     */
+    initPages () {
+        this.controller = new PageController({
+            transitionTime: this.pageDuration
+        });
+
+        this.controller.setConfig([
+            "/",
+            ":view",
+            ":view/:uid"
+        ]);
+
+        // this.controller.setModules( [] );
+
+        //this.controller.on( "page-controller-router-samepage", () => {} );
+        this.controller.on( "page-controller-router-transition-out", this.changePageOut.bind( this ) );
+        this.controller.on( "page-controller-router-refresh-document", this.changeContent.bind( this ) );
+        this.controller.on( "page-controller-router-transition-in", this.changePageIn.bind( this ) );
+        this.controller.on( "page-controller-initialized-page", this.initPage.bind( this ) );
+
+        this.controller.initPage();
+    },
+
+
+    /**
+     *
+     * @public
+     * @method initPage
+     * @param {object} data The PageController data object
+     * @memberof router
+     * @description Cache the initial page load.
+     *
+     */
+    initPage ( data ) {
+        this.changeClass( data );
+        this.controllers.exec();
+    },
+
+
+    /**
+     *
+     * @public
+     * @method parseDoc
+     * @param {string} html The responseText to parse out
+     * @memberof router
+     * @description Get the DOM information to cache for a request.
+     * @returns {object}
+     *
+     */
+    parseDoc ( html ) {
+        let doc = document.createElement( "html" );
+        let main = null;
+
+        doc.innerHTML = html;
+
+        doc = $( doc );
+        main = doc.find( core.config.mainSelector );
+
+        return {
+            doc: doc,
+            main: main,
+            html: main[ 0 ].innerHTML,
+            data: main.data()
+        };
+    },
+
+
+    /**
+     *
+     * @public
+     * @method changeClass
+     * @param {object} data The PageController data object
+     * @memberof router
+     * @description Handle document className swapping by page section.
+     *
+     */
+    changeClass ( data ) {
+        if ( this.view ) {
+            core.dom.html.removeClass( `is-${this.view}-page is-uid-page` );
+        }
+
+        if ( this.uid ) {
+            core.dom.html.removeClass( "is-uid-page" );
+        }
+
+        this.view = (data.request.params.view || core.config.homepage);
+        this.uid = (data.request.params.uid || null);
+
+        core.dom.html.addClass( `is-${this.view}-page` );
+
+        if ( this.uid ) {
+            core.dom.html.addClass( "is-uid-page" );
+        }
+
+        navi.active( this.view );
+    },
+
+
+    /**
+     *
+     * @public
+     * @method changePageOut
+     * @param {object} data The PageController data object
+     * @memberof router
+     * @description Trigger transition-out animation.
+     *
+     */
+    changePageOut ( /* data */ ) {
+        core.dom.html.addClass( "is-routing" );
+        core.dom.main.addClass( "is-inactive" );
+
+        navi.close();
+        this.controllers.destroy();
+    },
+
+
+    /**
+     *
+     * @public
+     * @method changeContent
+     * @param {object} data The PageController data object
+     * @memberof router
+     * @description Swap the new content into the DOM.
+     *
+     */
+    changeContent ( data ) {
+        const doc = this.parseDoc( data.response );
+
+        core.dom.main[ 0 ].innerHTML = doc.html;
+
+        core.emitter.fire( "app--analytics-pageview", doc );
+
+        // Ensure topout prior to preload being done...
+        this.topper();
+
+        this.changeClass( data );
+    },
+
+
+    /**
+     *
+     * @public
+     * @method changePageIn
+     * @param {object} data The PageController data object
+     * @memberof router
+     * @description Trigger transition-in animation.
+     *
+     */
+    changePageIn ( /* data */ ) {
+        core.dom.html.removeClass( "is-routing" );
+        core.dom.main.removeClass( "is-inactive" );
+
+        this.controllers.exec();
+        this.execSquarespace();
+    },
 
     /**
      *
@@ -62,175 +247,26 @@ const router = {
     /**
      *
      * @public
-     * @method initPages
+     * @method topper
      * @memberof router
-     * @description Create the PageController instance.
+     * @description Set scroll position and clear scroll classNames.
      *
      */
-    initPages () {
-        this.controller = new PageController({
-            transitionTime: this.pageDuration
-        });
-
-        this.controller.setConfig([
-            "*"
-        ]);
-
-        this.controller.setModules( [] );
-
-        //this.controller.on( "page-controller-router-samepage", () => {} );
-        this.controller.on( "page-controller-router-transition-out", this.changePageOut.bind( this ) );
-        this.controller.on( "page-controller-router-refresh-document", this.changeContent.bind( this ) );
-        this.controller.on( "page-controller-router-transition-in", this.changePageIn.bind( this ) );
-        this.controller.on( "page-controller-initialized-page", this.initPage.bind( this ) );
-
-        this.controller.initPage();
-    },
-
-
-    /**
-     *
-     * @public
-     * @method initPage
-     * @param {object} data The PageController data object
-     * @memberof router
-     * @description Cache the initial page load.
-     *
-     */
-    initPage ( /* data */ ) {
-        this.execControllers();
-    },
-
-
-    /**
-     *
-     * @public
-     * @method parseDoc
-     * @param {string} html The responseText to parse out
-     * @memberof router
-     * @description Get the DOM information to cache for a request.
-     * @returns {object}
-     *
-     */
-    parseDoc ( html ) {
-        let doc = document.createElement( "html" );
-        let main = null;
-
-        doc.innerHTML = html;
-
-        doc = $( doc );
-        main = doc.find( core.config.mainSelector );
-
-        return {
-            $doc: doc,
-            $main: main,
-            mainData: main.data(),
-            mainHtml: main[ 0 ].innerHTML
-        };
-    },
-
-
-    /**
-     *
-     * @public
-     * @method bindEmpty
-     * @memberof router
-     * @description Suppress #hash links.
-     *
-     */
-    bindEmpty () {
-        core.dom.body.on( "click", "[href^='#']", ( e ) => e.preventDefault() );
-    },
-
-
-    /**
-     *
-     * @public
-     * @method changePageOut
-     * @param {object} data The PageController data object
-     * @memberof router
-     * @description Trigger transition-out animation.
-     *
-     */
-    changePageOut ( /* data */ ) {
-        core.dom.html.addClass( "is-routing" );
-        core.dom.main.addClass( "is-inactive" );
-
-        this.destroyControllers();
-    },
-
-
-    /**
-     *
-     * @public
-     * @method changeContent
-     * @param {object} data The PageController data object
-     * @memberof router
-     * @description Swap the new content into the DOM.
-     *
-     */
-    changeContent ( data ) {
-        const doc = this.parseDoc( data.response );
-
-        core.dom.main[ 0 ].innerHTML = doc.mainHtml;
-
-        core.emitter.fire( "app--analytics-push", doc );
-    },
-
-
-    /**
-     *
-     * @public
-     * @method changePageIn
-     * @param {object} data The PageController data object
-     * @memberof router
-     * @description Trigger transition-in animation.
-     *
-     */
-    changePageIn ( /* data */ ) {
-        core.dom.html.removeClass( "is-routing" );
-        core.dom.main.removeClass( "is-inactive" );
-
-        this.execControllers();
-        this.execSquarespace();
-    },
-
-
-    execControllers () {
-        this.anims = core.dom.main.find( core.config.animSelector );
-        this.images = core.dom.main.find( core.config.lazyImageSelector );
-
-        this.imageController = new ImageController( this.images );
-        this.imageController.on( "preloaded", () => {
-            if ( this.anims.length ) {
-                this.animController = new AnimateController( this.anims );
-            }
-
-            core.emitter.fire( "app--intro-teardown" );
-        });
-    },
-
-
-    destroyControllers () {
-        if ( this.imageController ) {
-            this.imageController.destroy();
-            this.imageController = null;
-        }
-
-        if ( this.animController ) {
-            this.animController.destroy();
-            this.animController = null;
-        }
+    topper () {
+        window.scrollTo( 0, 0 );
     },
 
 
     // Initialize core sqs blocks after ajax routing
     execSquarespace () {
-        window.Squarespace.initializeCommerce( window.Y );
-        window.Squarespace.initializeVideoBlock( window.Y );
-        window.Squarespace.initializeFormBlocks( window.Y );
-        window.Squarespace.initializeLayoutBlocks( window.Y );
-        window.Squarespace.initializeSummaryV2Block( window.Y );
+        setTimeout(() => {
+            window.Squarespace.initializeVideo( window.Y );
+            window.Squarespace.initializeCommerce( window.Y );
+            window.Squarespace.initializeFormBlocks( window.Y );
+            window.Squarespace.initializeLayoutBlocks( window.Y );
+            window.Squarespace.initializeSummaryV2Block( window.Y );
+
+        }, 0 );
     }
 };
 

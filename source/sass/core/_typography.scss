@@ -2,24 +2,31 @@
  * Paragraphs
 *******************************************************************************/
 .p,
-.cms p,
-.li,
-.cms li {
+.cms p {
     @include p();
 
     a {
         border-bottom: 1px solid inherit;
-        font-weight: bold;
         }
     em {
-        font-style: italic;
+        @include em();
         }
+    b,
     strong {
-        font-weight: bold;
+        @include b();
         }
     }
+.li,
 .cms li {
-    line-height: 1.5;
+    @include li();
+    }
+.ol .li,
+.cms ol li {
+    @include ol-li();
+    }
+.ul .li,
+.cms ul li {
+    @include ul-li();
     }
 
 
@@ -28,13 +35,10 @@
 *******************************************************************************/
 .a,
 .cms a {
-    border-bottom: 1px solid transparent;
-    transition: border-bottom-color $fast-duration $ease;
     @include a();
-
-    &:hover {
-        border-bottom-color: $black;
-        }
+    border-bottom: 1px solid transparent;
+    transition: color $fast-duration $ease,
+                border-bottom-color $fast-duration $ease;
     }
 
 

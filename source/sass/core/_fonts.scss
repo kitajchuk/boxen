@@ -1,3 +1,19 @@
 /******************************************************************************
  * Font Declarations
+ *
+ * Use `$font-path` which is determined in `webpack.config.js`
 *******************************************************************************/
+
+// Font example...
+// @font-face {
+//     font-family: $font-family-sans;
+//     src: url( "#{$font-path}NameOfSansFontFile.woff" ) format( "woff" );
+//     font-style: normal;
+//     font-stretch: normal;
+// }
+// @font-face {
+//     font-family: $font-family-serif;
+//     src: url( "#{$font-path}NameOfSerifFontFile.woff" ) format( "woff" );
+//     font-style: normal;
+//     font-stretch: normal;
+// }

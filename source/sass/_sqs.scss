@@ -15,8 +15,8 @@
 }
 [class*="sqs-col"]:not( .sqs-col-12 ) {
     .sqs-block-content {
-        padding-left: $expander-mobile / 2;
-        padding-right: $expander-mobile / 2;
+        padding-left: $expander-1 / 2;
+        padding-right: $expander-1 / 2;
         }
 }
 
@@ -24,7 +24,7 @@
 .sqs-block + .sqs-row,
 .sqs-row + .sqs-block,
 .sqs-block + .sqs-block {
-    margin-top: $expander-mobile;
+    margin-top: $expander-1;
     }
 .sqs-block {
     padding: 0 !important;
@@ -118,7 +118,7 @@
     h3 + h1,
     h3 + h2,
     h3 + h3 {
-        @include pp();
+        margin-top: $p-bump;
         }
 
 
@@ -133,5 +133,17 @@
 
 // Block specific
 .sqs-block-map {
-    border: 1px solid $grey-light;
+    border: 1px solid $grey;
     }
+
+
+
+@media only screen and ( max-width: $break-mobile-full ) {
+    [class*=sqs-col] {
+        display: block;
+        width: 100% !important;
+        }
+    [class*=sqs-col] + [class*=sqs-col] {
+        margin-top: $expander-1 / 2;
+        }
+}

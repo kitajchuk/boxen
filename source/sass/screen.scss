@@ -19,26 +19,38 @@
 /******************************************************************************
  * Modules
 *******************************************************************************/
+@import "modules/screens";
+@import "modules/animate";
+@import "modules/grid";
+@import "modules/icons";
 @import "modules/cms";
 @import "modules/svg";
 @import "modules/main";
 @import "modules/navi";
-@import "modules/grid";
-@import "modules/icons";
 @import "modules/intro";
-@import "modules/images";
+@import "modules/media";
 @import "modules/header";
-@import "modules/screens";
-@import "modules/animate";
 
-// Project specific:
 
+
+/******************************************************************************
+ * New project imports go here
+*******************************************************************************/
+// @import "foo/bar";
+
+
+
+/******************************************************************************
+ * Squarespace layout-engine mods here
+*******************************************************************************/
+@import "sqs";
 
 
 
 /******************************************************************************
  * UI State
+ *
+ * These are last as they should be honored above all else.
 *******************************************************************************/
-@import "state/modifiers";
-@import "state/states";
-@import "state/responsive";
+@import "app/states";
+@import "app/modifiers";

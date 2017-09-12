@@ -2,6 +2,7 @@
  * Fonts
 *******************************************************************************/
 $font-family-sans: "Helvetica";
+$font-family-serif: "Georgia";
 
 
 
@@ -28,12 +29,11 @@ $grid-columns: 12 11 10 9 8 7 6 5 4 3 2 1;
 /******************************************************************************
  * Spacing
 *******************************************************************************/
-$expander-one: 80px;
-$expander-two: 160px;
-$expander-three: 240px;
-$expander-mobile: 40px;
-$padding-index: 10vw;
-$padding-wrap: 5vw;
+$expander-1: 8vw;
+$expander-2: 16vw;
+$expander-3: 32vw;
+$padding-1: 8vw;
+$padding-2: 16vw;
 
 
 
@@ -41,8 +41,8 @@ $padding-wrap: 5vw;
  * Sizes
 *******************************************************************************/
 $wrap-copy: 700px;
-$logo-width: 480px;
-$header-height: 160px;
+$logo-width: 256px;
+$header-height: 100px;
 
 
 
@@ -50,6 +50,7 @@ $header-height: 160px;
 /******************************************************************************
  * Typography
 *******************************************************************************/
+$p-bump: 40px;
 $p-size: 20px;
 $p-line: 1.5;
 $h1-size: 64px;
@@ -97,15 +98,8 @@ $fast-duration: 200ms;
 /******************************************************************************
  * Layering
 *******************************************************************************/
-$z_layer_10: 100;
-$z_layer_09: 90;
-$z_layer_08: 80;
-$z_layer_07: 70;
-$z_layer_06: 60;
-$z_layer_05: 50;
-$z_layer_04: 40;
-$z_layer_03: 30;
-$z_layer_02: 20;
-$z_layer_01: 10;
 $z_layer_behind: -1;
-$z_layer_infront: 1000;
+$z_layer_menu: 1000;
+$z_layer_screen: 1001;
+$z_layer_header: 1002;
+$z_layer_intro: 1003;

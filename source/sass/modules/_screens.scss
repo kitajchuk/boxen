@@ -18,7 +18,7 @@
     &.is-active {
         opacity: 1;
         visibility: visible;
-        z-index: $z_layer_infront;
+        z-index: $z_layer_screen;
         -webkit-overflow-scrolling: touch;
 
         .screen__wrap {

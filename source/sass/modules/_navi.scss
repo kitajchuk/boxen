@@ -1,6 +1,4 @@
 .navi {
-    background-color: transparent;
-
     &.is-active {
         pointer-events: none;
 
@@ -10,6 +8,5 @@
     }
 }
 .navi__a {
-    font-size: 10vh;
-    line-height: 1;
+    color: $blue;
     }

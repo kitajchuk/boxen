@@ -13,6 +13,17 @@ const config = {
     /**
      *
      * @public
+     * @member homepage
+     * @memberof core.config
+     * @description The default homepage slug.
+     *
+     */
+    homepage: "home",
+
+
+    /**
+     *
+     * @public
      * @member defaultEasing
      * @memberof core.config
      * @description The default easing function for javascript Tweens.
@@ -57,6 +68,39 @@ const config = {
     /**
      *
      * @public
+     * @member mainSelector
+     * @memberof core.config
+     * @description The string selector used for <main> node.
+     *
+     */
+    mainSelector: ".js-main",
+
+
+    /**
+     *
+     * @public
+     * @member introSelector
+     * @memberof core.config
+     * @description The string selector used for <intro> node.
+     *
+     */
+    introSelector: ".js-intro",
+
+
+    /**
+     *
+     * @public
+     * @member naviSelector
+     * @memberof core.config
+     * @description The string selector used for <navi> node.
+     *
+     */
+    naviSelector: ".js-navi",
+
+
+    /**
+     *
+     * @public
      * @member lazyImageSelector
      * @memberof core.config
      * @description The string selector used for images deemed lazy-loadable.
@@ -79,12 +123,12 @@ const config = {
     /**
      *
      * @public
-     * @member mainSelector
+     * @member coverSelector
      * @memberof core.config
-     * @description The string selector used for <main> node.
+     * @description The string selector used for covers.
      *
      */
-    mainSelector: ".js-main",
+    coverSelector: ".js-cover",
 
 
     /**

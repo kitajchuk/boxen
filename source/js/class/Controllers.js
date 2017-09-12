@@ -11,54 +11,73 @@ import QueryController from "./QueryController";
  * @global
  * @class Controllers
  * @classdesc Handle controller functions.
+ * @param {object} options Optional config
  *
  */
 class Controllers {
-    constructor () {}
+    constructor ( options ) {
+        this.element = options.el;
+        this.callback = options.cb;
+        this.controllers = [];
+    }
+
+
+    push ( id, elements, controller, conditions ) {
+        this.controllers.push({
+            id: id,
+            elements: elements,
+            instance: null,
+            Controller: controller,
+            conditions: conditions
+        });
+    }
+
+
+    init () {
+        this.controllers.forEach(( controller ) => {
+            if ( controller.elements.length && controller.conditions ) {
+                controller.instance = new controller.Controller( controller.elements );
+            }
+        });
+    }
+
+
+    kill () {
+        this.controllers.forEach(( controller ) => {
+            if ( controller.instance ) {
+                controller.instance.destroy();
+            }
+        });
+
+        this.controllers = [];
+    }
 
 
     exec () {
-        this.images = core.dom.main.find( core.config.lazyImageSelector );
-        this.animates = core.dom.main.find( core.config.animSelector );
-        this.cover = core.dom.main.find( core.config.coverSelector );
+        this.controllers = [];
 
-        if ( this.animates.length ) {
-            this.animateController = new AnimateController( this.animates );
-        }
+        this.push( "animates", this.element.find( core.config.animSelector ), AnimateController, true );
+        this.push( "cover", this.element.find( core.config.coverSelector ), CoverController, true );
+        this.push( "query", ["q"], QueryController, true );
 
+        this.images = this.element.find( core.config.lazyImageSelector );
         this.imageController = new ImageController( this.images );
         this.imageController.on( "preloaded", () => {
-            core.emitter.fire( "app--intro-teardown" );
+            this.init();
+
+            if ( this.callback ) {
+                this.callback();
+            }
         });
-
-        if ( this.cover.length ) {
-            this.coverController = new CoverController( this.cover );
-        }
-
-        this.queryController = new QueryController();
     }
 
 
     destroy () {
         if ( this.imageController ) {
             this.imageController.destroy();
-            this.imageController = null;
         }
 
-        if ( this.animateController ) {
-            this.animateController.destroy();
-            this.animateController = null;
-        }
-
-        if ( this.coverController ) {
-            this.coverController.destroy();
-            this.coverController = null;
-        }
-
-        if ( this.queryController ) {
-            this.queryController.destroy();
-            this.queryController = null;
-        }
+        this.kill();
     }
 }
 

@@ -123,7 +123,7 @@ class Video {
                 this.video[ 0 ].play();
                 this.fill.removeClass( "is-transition" );
 
-            }, core.util.getTransitionDuration( this.fill[ 0 ] ) );
+            }, core.util.getElementDuration( this.fill[ 0 ] ) );
         });
 
         this.hammer = new Hammer( this.bar[ 0 ], core.util.getDefaultHammerOptions() );

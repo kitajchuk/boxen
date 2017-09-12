@@ -19,7 +19,7 @@ let _instance = null;
 class Analytics {
     constructor () {
         if ( !_instance ) {
-            core.emitter.on( "app--analytics-push", this.pushTrack.bind( this ) );
+            core.emitter.on( "app--analytics-pageview", this.pushTrack.bind( this ) );
 
             core.log( "Analytics initialized" );
 
@@ -42,9 +42,9 @@ class Analytics {
      *
      */
     pushTrack ( doc ) {
-        const mainTitle = (doc.mainData.itemTitle || doc.mainData.collectionTitle);
-        const websiteId = doc.mainData.websiteId;
-        const mainData = doc.mainData.itemId ? { itemId: doc.mainData.itemId } : { collectionId: doc.mainData.collectionId };
+        const mainTitle = (doc.data.itemTitle || doc.data.collectionTitle);
+        const websiteId = doc.data.websiteId;
+        const mainData = doc.data.itemId ? { itemId: doc.data.itemId } : { collectionId: doc.data.collectionId };
 
         // Squarespace Metrics
         if ( core.env.isProd() ) {

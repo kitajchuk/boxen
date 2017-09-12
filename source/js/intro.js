@@ -20,21 +20,23 @@ const intro = {
      */
     init () {
         this.element = core.dom.intro;
-        this.duration = 2000;
-        core.emitter.on( "app--intro-teardown", this.teardown.bind( this ) );
+        this.logo = this.element.find( ".js-intro-logo" );
+        core.emitter.on( "app--page-teardown", this.teardown );
     },
 
 
     teardown () {
-        setTimeout( () => {
-            this.element.removeClass( "is-active" );
+        core.emitter.off( "app--page-teardown", intro.teardown );
 
-        }, this.duration );
+        intro.logo.on( "animationend", () => {
+            intro.element.removeClass( "is-active" );
+        });
 
-        setTimeout( () => {
-            this.element.remove();
+        intro.element.on( "transitionend", () => {
+            intro.element.remove();
 
-        }, (this.duration + core.util.getTransitionDuration( this.element[ 0 ] )) );
+            core.emitter.fire( "app--intro-teardown" );
+        });
     }
 };
 

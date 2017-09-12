@@ -47,20 +47,20 @@ const dom = {
     /**
      *
      * @public
-     * @member navi
+     * @member intro
      * @memberof core.dom
-     * @description The cached <header> node.
+     * @description The cached intro node.
      *
      */
-    header: $( ".js-header" ),
+    intro: $( config.introSelector ),
 
 
     /**
      *
      * @public
-     * @member views
+     * @member main
      * @memberof core.dom
-     * @description The cached <main> node.
+     * @description The cached main node.
      *
      */
     main: $( config.mainSelector ),
@@ -69,34 +69,12 @@ const dom = {
     /**
      *
      * @public
-     * @member views
+     * @member navi
      * @memberof core.dom
-     * @description The cached <navi> node.
+     * @description The cached <nav> nodes.
      *
      */
-    navi: $( ".js-navi" ),
-
-
-    /**
-     *
-     * @public
-     * @member views
-     * @memberof core.dom
-     * @description The cached <intro> node.
-     *
-     */
-    intro: $( ".js-intro" ),
-
-
-    /**
-     *
-     * @public
-     * @member views
-     * @memberof core.dom
-     * @description The cached <footer> node.
-     *
-     */
-    footer: $( ".js-footer" )
+    navi: $( config.naviSelector )
 };
 
 

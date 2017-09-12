@@ -23,8 +23,29 @@
     height: 18px;
     width: 32px;
 
+    @include state( "navi", "open" ) {
+        span {
+            background-color: $blue;
+            }
+        .top,
+        .mid,
+        .bot {
+            opacity: 0;
+            }
+        .ex1,
+        .ex2 {
+            opacity: 1;
+            }
+        .ex1 {
+            transform: rotate( -45deg );
+            }
+        .ex2 {
+            transform: rotate( 45deg );
+            }
+    }
+
     span {
-        background-color: $white;
+        background-color: $black;
         height: 2px;
         left: 0;
         position: absolute;
