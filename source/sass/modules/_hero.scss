@@ -1,0 +1,48 @@
+.hero {
+    background-color: $charcoal;
+    height: 100vh;
+    overflow: hidden;
+    width: 100vw;
+    }
+.hero__img,
+.hero__vid {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    }
+.hero__vid {
+    pointer-events: none;
+
+    .embed {
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translateX( -50% ) translateY( -50% );
+        }
+}
+.hero__title {
+    opacity: 0;
+    transition: opacity $fast-duration $ease,
+                transform $fast-duration $ease;
+    transform: translate3d( 0, 50%, 0 );
+}
+.hero__item.is-exiting {
+    .hero__title {
+        opacity: 0;
+        transform: translate3d( 0, -50%, 0 );
+        }
+}
+.hero__item.is-entering {
+    .hero__title {
+        transition-delay: $base-duration;
+        }
+}
+.hero__item.is-active,
+.hero__item.is-entering {
+    .hero__title {
+        opacity: 1;
+        transform: translate3d( 0, 0, 0 );
+        }
+}

@@ -1,0 +1,7 @@
+<div class="page -wrap -exp-1" data-uid="{urlId}">
+    {.if mainContent}
+        {mainContent}
+    {.or}
+        {squarespace.main-content}
+    {.end}
+</div>

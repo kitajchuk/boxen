@@ -1,0 +1,5 @@
+{.if collection.homepage}
+    {@|apply index-home.block}
+{.or}
+    {@|apply index-page.block}
+{.end}

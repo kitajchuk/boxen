@@ -23,10 +23,15 @@
         {@|apply header.block}
         <squarespace:navigation navigationId="navi" template="navi" />
         <main class="main js-main" data-content-field="main-content" data-website-id="{website.id}" {.section collection}data-collection-id="{collection.id}" data-collection-title="{.if collection.homepage}{website.siteTitle}{.or}{collection.title} – {website.siteTitle}{.end}"{.end} {.section item}data-item-id="{item.id}" data-item-title="{item.title} – {collection.title} – {website.siteTitle}"{.end}>
-            <div class="cms -wrap">
+            {.equal? collection.typeName "page"}
+                {.section collection}
+                    {@|apply page.block}
+                {.end}
+            {.or}
                 {squarespace.main-content}
-            </div>
+            {.end}
         </main>
+        {@|apply footer.block}
         {@|apply intro.block}
         <script type="text/javascript" src="/scripts/app.js?v={squarespace.template-revision}"></script>
         {@|apply google.block}

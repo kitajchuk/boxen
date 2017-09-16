@@ -1,0 +1,11 @@
+.form__input {
+    background-color: transparent;
+    border: 0;
+    box-sizing: border-box;
+    color: inherit;
+    line-height: 1;
+    outline: 0;
+    -webkit-appearance: none;
+    width: 100%;
+    @include p();
+    }

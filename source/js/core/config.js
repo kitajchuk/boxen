@@ -134,6 +134,28 @@ const config = {
     /**
      *
      * @public
+     * @member carouselSelector
+     * @memberof core.config
+     * @description The string selector used for carousels.
+     *
+     */
+    carouselSelector: ".js-carousel",
+
+
+    /**
+     *
+     * @public
+     * @member formSelector
+     * @memberof core.config
+     * @description The string selector used for <forms>.
+     *
+     */
+    formSelector: ".js-form",
+
+
+    /**
+     *
+     * @public
      * @member lazyImageAttr
      * @memberof core.config
      * @description The string attribute for lazy image source URLs.

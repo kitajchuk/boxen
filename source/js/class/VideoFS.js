@@ -8,44 +8,25 @@ import ResizeController from "properjs-resizecontroller";
  * @global
  * @class VideoFS
  * @param {Element} video The dom element to work with.
- * @param {string} source The url of the video file
+ * @param {string} data The data for the video file
  * @classdesc Handle fullbleed cover video.
  *
  */
 class VideoFS {
-    constructor ( video, source ) {
+    constructor ( container, video, data ) {
         this.video = video;
-        this.source = source;
+        this.data = data;
         this.container = this.video[ 0 ].parentNode;
         this.resizer = new ResizeController();
+        this.videoRatio = this.data.width / this.data.height;
 
         this.bind();
+        this.onresize();
     }
 
 
     bind () {
-        this.video.on( "loadedmetadata", () => {
-            this.videoRatio = this.video[ 0 ].videoWidth / this.video[ 0 ].videoHeight;
-            this.video.attr( "data-videoloaded", "true" );
-            this.onresize();
-        });
-        this.video[ 0 ].src = this.source;
-        this.video[ 0 ].muted = true;
-        this.video[ 0 ].load();
-
-        this._onresize = this.onresize.bind( this );
-
-        this.resizer.on( "resize", this._onresize );
-    }
-
-
-    stop () {
-        this.video[ 0 ].pause();
-    }
-
-
-    play () {
-        this.video[ 0 ].play();
+        this.resizer.on( "resize", this.onresize.bind( this ) );
     }
 
 
@@ -67,20 +48,10 @@ class VideoFS {
     }
 
 
-    /**
-     *
-     * @instance
-     * @description Stop the animation frame
-     * @memberof VideoFS
-     * @method destroy
-     *
-     */
     destroy () {
-        if ( this._onresize ) {
-            this.resizer.off( "resize", this._onresize );
-            this.resizer.destroy();
-            this.resizer = null;
-        }
+        this.resizer.off( "resize" );
+        this.resizer.destroy();
+        this.resizer = null;
     }
 }
 

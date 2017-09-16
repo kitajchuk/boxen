@@ -3,6 +3,8 @@ import ImageController from "./ImageController";
 import AnimateController from "./AnimateController";
 import CoverController from "./CoverController";
 import QueryController from "./QueryController";
+import CarouselController from "./CarouselController";
+import FormController from "./FormController";
 
 
 /**
@@ -56,8 +58,10 @@ class Controllers {
     exec () {
         this.controllers = [];
 
-        this.push( "animates", this.element.find( core.config.animSelector ), AnimateController, true );
+        this.push( "animate", this.element.find( core.config.animSelector ), AnimateController, true );
         this.push( "cover", this.element.find( core.config.coverSelector ), CoverController, true );
+        this.push( "carousel", this.element.find( core.config.carouselSelector ), CarouselController, true );
+        this.push( "form", core.dom.body.find( core.config.formSelector ), FormController, true );
         this.push( "query", ["q"], QueryController, true );
 
         this.images = this.element.find( core.config.lazyImageSelector );
