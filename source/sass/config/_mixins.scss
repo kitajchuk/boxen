@@ -90,6 +90,11 @@
         @content;
     }
 }
+@mixin hover() {
+    .is-hoverable &:hover {
+        @content;
+    }
+}
 
 
 

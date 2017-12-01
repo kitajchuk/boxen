@@ -12,11 +12,10 @@ import Controller from "properjs-controller";
  *
  */
 class CoverController extends Controller {
-    constructor ( element ) {
+    constructor ( elements ) {
         super();
 
-        this.element = element;
-        this.coverType = this.element.data( "cover" ) || "default";
+        this.elements = elements;
         this.isActive = false;
 
         this.start();
@@ -34,15 +33,23 @@ class CoverController extends Controller {
     start () {
         // Call on parent cycle
         this.go(() => {
-            if ( core.util.isElementVisible( this.element[ 0 ] ) && !this.isActive ) {
-                this.isActive = true;
-                core.dom.html.addClass( `is-cover is-cover--${this.coverType}` );
-                core.log( `[CoverController::Activate ${this.coverType}]` );
+            let isCover = false;
 
-            } else if ( !core.util.isElementVisible( this.element[ 0 ] ) && this.isActive ) {
+            this.elements.forEach(( el ) => {
+                const bounds = el.getBoundingClientRect();
+
+                if ( bounds.top <= 0 && bounds.bottom > 0 ) {
+                    isCover = true;
+                }
+            });
+
+            if ( isCover && !this.isActive ) {
+                this.isActive = true;
+                core.dom.html.addClass( "is-cover-view" );
+
+            } else if ( !isCover && this.isActive ) {
                 this.isActive = false;
-                core.dom.html.removeClass( `is-cover is-cover--${this.coverType}` );
-                core.log( `[CoverController::Deactivate ${this.coverType}]` );
+                core.dom.html.removeClass( "is-cover-view" );
             }
         });
     }
@@ -57,8 +64,7 @@ class CoverController extends Controller {
      *
      */
     destroy () {
-        core.dom.html.removeClass( `is-cover is-cover--${this.coverType}` );
-
+        core.dom.html.removeClass( "is-cover-view" );
         this.stop();
     }
 }

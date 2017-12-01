@@ -1,4 +1,4 @@
-import * as core from "../core";
+// import * as core from "../core";
 import ResizeController from "properjs-resizecontroller";
 
 
@@ -43,7 +43,7 @@ class VideoFS {
             videoWidth = nodeRect.width;
         }
 
-        this.video[ 0 ].style.width = core.util.px( videoWidth );
+        this.video[ 0 ].style.width = `${videoWidth}px`;
         this.video[ 0 ].width = videoWidth;
     }
 

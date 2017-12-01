@@ -1,10 +1,11 @@
 import * as core from "../core";
 import ImageController from "./ImageController";
-import AnimateController from "./AnimateController";
-import CoverController from "./CoverController";
-import QueryController from "./QueryController";
-import CarouselController from "./CarouselController";
-import FormController from "./FormController";
+// import AnimateController from "./AnimateController";
+// import CarouselController from "./CarouselController";
+// import VideoController from "./VideoController";
+// import AspectController from "./AspectController";
+// import ShopController from "./ShopController";
+// import CoverController from "./CoverController";
 
 
 /**
@@ -58,12 +59,14 @@ class Controllers {
     exec () {
         this.controllers = [];
 
-        this.push( "animate", this.element.find( core.config.animSelector ), AnimateController, true );
-        this.push( "cover", this.element.find( core.config.coverSelector ), CoverController, true );
-        this.push( "carousel", this.element.find( core.config.carouselSelector ), CarouselController, true );
-        this.push( "form", core.dom.body.find( core.config.formSelector ), FormController, true );
-        this.push( "query", ["q"], QueryController, true );
+        // this.push( "video", this.element.find( core.config.videoSelector ), VideoController, true );
+        // this.push( "carousel", this.element.find( core.config.carouselSelector ), CarouselController, true );
+        // this.push( "animate", core.dom.body.find( core.config.animSelector ), AnimateController, true );
+        // this.push( "shop", core.dom.body.find( core.config.shopSelector ), ShopController, true );
+        // this.push( "cover", core.dom.body.find( core.config.coverSelector ), CoverController, true );
 
+        // this.aspect = this.element.find( core.config.aspectSelector );
+        // this.aspectController = new AspectController( this.aspect );
         this.images = this.element.find( core.config.lazyImageSelector );
         this.imageController = new ImageController( this.images );
         this.imageController.on( "preloaded", () => {
@@ -77,6 +80,10 @@ class Controllers {
 
 
     destroy () {
+        // if ( this.aspectController ) {
+        //     this.aspectController.destroy();
+        // }
+
         if ( this.imageController ) {
             this.imageController.destroy();
         }
