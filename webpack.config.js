@@ -28,7 +28,7 @@ module.exports = ( env ) => {
             // First build opens localhost for you
             if ( !isOpen ) {
                 isOpen = true;
-                open( local );
+                open( `${local}` );
 
             // Subsequent builds trigger SQS reloads
             } else {
@@ -42,6 +42,9 @@ module.exports = ( env ) => {
     }
 
     return {
+        mode: "none",
+
+
         devtool: "source-map",
 
 
@@ -68,7 +71,7 @@ module.exports = ( env ) => {
         module: {
             rules: [
                 { test: /source\/js\/.*\.js$/, exclude: /node_modules/, use: ["eslint-loader"], enforce: "pre" },
-                { test: /source\/js\/.*\.js$/, exclude: /node_modules/, use: [{ loader: "babel-loader", options: { presets: ["es2015"] } }] },
+                { test: /source\/js\/.*\.js$/, exclude: /node_modules/, use: [{ loader: "babel-loader", options: { presets: ["env"] } }] },
                 { test: /(hobo|hobo.build)\.js$/, use: ["expose-loader?hobo"] },
                 { test: /\.(sass|scss)$/, exclude: /node_modules/, use: ["file-loader?name=../styles/[name].css", "postcss-loader", "sass-loader"] },
                 { test: /svg-.*\.block$|\.svg$/, exclude: /node_modules/, use: ["svg-inline-loader"] }

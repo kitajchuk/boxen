@@ -1,4 +1,4 @@
-<nav class="navi js-navi screen screen--dark -exp-2 -wrap -fzero" data-content-field="navigation-navi">
+<nav class="navi js-navi screen screen--dark -exp -wrap" data-content-field="navigation-navi">
     <ul class="navi__ul screen__wrap">
         {.repeated section items}
             {.section collection}

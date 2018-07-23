@@ -14,11 +14,12 @@ local
 node_modules
 npm-debug.log
 npm-debug.log*
+sandbox
 
 
 
 # Squarespace
 sftp-config.json
 build
-.npmrc
+#.npmrc
 .env

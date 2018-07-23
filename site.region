@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="is-{collection.title|slugify}-page {.if item}is-uid-page {.if item.customContent.darkTheme}is-darkside{.end}{.end}">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,10 +19,10 @@
         <meta name="msapplication-square310x310logo" content="/assets/touch/largetile.png?v={squarespace.template-revision}" />
         {squarespace-headers}
     </head>
-    <body>
+    <body class="-fzero">
         {@|apply header.block}
         <squarespace:navigation navigationId="navi" template="navi" />
-        <main class="main js-main" data-content-field="main-content" data-website-id="{website.id}" {.section collection}data-collection-id="{collection.id}" data-collection-title="{.if collection.homepage}{website.siteTitle}{.or}{collection.title} – {website.siteTitle}{.end}"{.end} {.section item}data-item-id="{item.id}" data-item-title="{item.title} – {collection.title} – {website.siteTitle}"{.end}>
+        <main class="main js-main" data-content-field="main-content" data-website-id="{website.id}" {.section collection}data-collection-id="{collection.id}" data-collection-title="{.if collection.homepage}{website.siteTitle}{.or}{collection.title} – {website.siteTitle}{.end}"{.end} {.section item}data-item-id="{item.id}" data-item-title="{item.title} – {collection.title} – {website.siteTitle}" {.if item.customContent.darkTheme}data-darkside="true"{.end}{.end}>
             {.equal? collection.typeName "page"}
                 {.section collection}
                     {@|apply page.block}
@@ -34,7 +34,6 @@
         {@|apply footer.block}
         {@|apply intro.block}
         <script type="text/javascript" src="/scripts/app.js?v={squarespace.template-revision}"></script>
-        {@|apply google.block}
         {squarespace-footers}
     </body>
 </html>

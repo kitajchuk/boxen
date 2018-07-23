@@ -197,7 +197,7 @@
         ],
         //"id-match": [2, "^[a-z]+([A-Z][a-z]+)*$", {"properties": false}],
         "indent": [
-            2,
+            1,
             4
         ],
         "key-spacing": [

@@ -1,13 +1,22 @@
 boxen
 =====
 
-> A Squarespace template scaffold.
+> A Squarespace template SDK.
 
 
 
-### Website Example
+### Example
 
 [This](https://boxen.squarespace.com) is the current WIP Squarespace site for boxen. Expect great things here soon... ;)
+
+
+
+### Install
+This walks through creating your new Boxen project.
+
+* Install the [clutch-cli](https://github.com/kitajchuk/clutch-cli) by running `npm i -g clutch-cli`;
+* Wherever you keep projects on your computer, make a new directory for `your.new.project`
+* Then `cd` into that directory and run `clutch init -s boxen`
 
 
 

@@ -1,7 +1,10 @@
-<div class="page -wrap -exp-1" data-uid="{urlId}">
-    {.if mainContent}
-        {mainContent}
-    {.or}
-        {squarespace.main-content}
-    {.end}
+{.if collection.mainContent}
+    {.var @content collection.mainContent}
+
+{.or}
+    {.var @content squarespace.main-content}
+{.end}
+
+<div class="page js-page" data-uid="{collection.urlId}">
+    {@content}
 </div>

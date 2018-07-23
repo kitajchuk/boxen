@@ -1,4 +1,4 @@
-<header class="header js-header ghost -wrap -fzero">
+<header class="header js-header ghost -wrap">
     <div class="ghost__child -full">
         <div class="-column -column--2of4">
             <div class="icon-wrap js-controller--navi">

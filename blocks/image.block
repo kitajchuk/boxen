@@ -1,19 +1,41 @@
-{.section item}
-    <figure class="figure">
-        <img class="figure__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" />
-        {.if info.description}
-            <figcaption class="figure__cap">
-                <div class="meta -grey">{info.description|safe}</div>
-            </figcaption>
-        {.end}
-    </figure>
+{.if item}
+    {.var @media item}
 {.or}
-    <figure class="figure">
-        <img class="figure__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" />
-        {.if info.description}
-            <figcaption class="figure__cap">
-                <div class="meta -grey">{info.description|safe}</div>
-            </figcaption>
+    {.var @media @}
+{.end}
+
+{.if @media.customContent.mobileImage}
+    {.var @mobile @media.customContent.mobileImage}
+{.end}
+
+{.if info}
+    {.var @caption info.description|safe}
+    {.var @card info.designLayout}
+    {.var @overlap info.designLayout}
+    {.var @imagePos info.imagePosition}
+{.or}
+    {.var @caption false}
+    {.var @card false}
+    {.var @overlap false}
+    {.var @imagePos false}
+    {.var @wrap false}
+{.end}
+
+{.equal? @card "card"}
+    <div class="media media--card media--{@imagePos} js-media -wrap">
+        <img class="media__node js-media-node image js-lazy-image" data-img-src="{@media.assetUrl}" data-variants="{@media.systemDataVariants}" data-original-size="{@media.originalSize}" {.if @mobile}data-mobile="{@mobile|json|htmlattr}"{.end} />
+        <div class="media__text h3">{info.subtitle|safe}</div>
+    </div>
+{.or equal? @overlap "overlap"}
+    <div class="media media--overlap media--{@imagePos} js-media -wrap">
+        <img class="media__node js-media-node image js-lazy-image" data-img-src="{@media.assetUrl}" data-variants="{@media.systemDataVariants}" data-original-size="{@media.originalSize}" {.if @mobile}data-mobile="{@mobile|json|htmlattr}"{.end} />
+        <div class="media__text h2 -wrap">{info.title|safe}</div>
+    </div>
+{.or}
+    <div class="media js-media {.if info}{.if info.stretch}{.or}-wrap2{.end}{.end}">
+        <img class="media__node js-media-node image js-lazy-image" data-img-src="{@media.assetUrl}" data-variants="{@media.systemDataVariants}" data-original-size="{@media.originalSize}" {.if @mobile}data-mobile="{@mobile|json|htmlattr}"{.end} />
+        {.if @caption}
+            <div class="media__cap m -grey">{@caption}</div>
         {.end}
-    </figure>
+    </div>
 {.end}
