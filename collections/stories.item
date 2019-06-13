@@ -1,0 +1,5 @@
+<article data-item-id="{item.id}" class="story story--detail js-story">
+    <div class="story__blocks">
+        {item.body}
+    </div>
+</article>

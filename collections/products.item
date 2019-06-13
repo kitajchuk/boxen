@@ -1,0 +1,3 @@
+<div class="product js-product">
+    <script type="application/json">{item|json}</script>
+</div>

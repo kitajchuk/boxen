@@ -1,0 +1,36 @@
+.footer {
+    padding-bottom: $expander-1;
+
+    p {
+        color: $grey-dark;
+    }
+
+    .sqs-block-html .sqs-block-content {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .sqs-block-horizontalrule hr {
+        .is-home-page & {
+            margin-top: 0;
+        }
+    }
+}
+.footer__wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.footer__main,
+.footer__socials {
+    @include respond( $tablet-breakpoint ) {
+        width: 100%;
+        text-align: center;
+    }
+}
+.footer__main {
+    @include respond( $tablet-breakpoint ) {
+        margin-bottom: $expander-1 / 2;
+    }
+}

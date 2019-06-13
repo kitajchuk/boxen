@@ -1,39 +1,70 @@
 <!DOCTYPE html>
-<html class="is-{collection.title|slugify}-page {.if item}is-uid-page {.if item.customContent.darkTheme}is-darkside{.end}{.end}">
+<html class="is-{collection.title|slugify}-page {.if item}is-uid-page{.end}">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="apple-touch-icon" sizes="57x57" href="/assets/touch/apple-touch-icon-57x57.png?v={squarespace.template-revision}" />
-        <link rel="apple-touch-icon" sizes="60x60" href="/assets/touch/apple-touch-icon-60x60.png?v={squarespace.template-revision}" />
-        <link rel="apple-touch-icon" sizes="72x72" href="/assets/touch/apple-touch-icon-72x72.png?v={squarespace.template-revision}" />
-        <link rel="apple-touch-icon" sizes="76x76" href="/assets/touch/apple-touch-icon-76x76.png?v={squarespace.template-revision}" />
-        <link rel="apple-touch-icon" sizes="114x114" href="/assets/touch/apple-touch-icon-114x114.png?v={squarespace.template-revision}" />
-        <link rel="apple-touch-icon" sizes="120x120" href="/assets/touch/apple-touch-icon-120x120.png?v={squarespace.template-revision}" />
-        <link rel="apple-touch-icon" sizes="144x144" href="/assets/touch/apple-touch-icon-144x144.png?v={squarespace.template-revision}" />
-        <link rel="apple-touch-icon" sizes="152x152" href="/assets/touch/apple-touch-icon-152x152.png?v={squarespace.template-revision}" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/assets/touch/apple-touch-icon-180x180.png?v={squarespace.template-revision}" />
-        <link rel="icon" type="image/png" href="/assets/touch/android-chrome-192x192.png?v={squarespace.template-revision}" sizes="192x192" />
-        <meta name="msapplication-square70x70logo" content="/assets/touch/smalltile.png?v={squarespace.template-revision}" />
-        <meta name="msapplication-square150x150logo" content="/assets/touch/mediumtile.png?v={squarespace.template-revision}" />
-        <meta name="msapplication-wide310x150logo" content="/assets/touch/widetile.png?v={squarespace.template-revision}" />
-        <meta name="msapplication-square310x310logo" content="/assets/touch/largetile.png?v={squarespace.template-revision}" />
+        <link rel="apple-touch-icon" sizes="57x57" href="/assets/icons/apple-icon-57x57.png?v={squarespace.template-revision}" />
+        <link rel="apple-touch-icon" sizes="60x60" href="/assets/icons/apple-icon-60x60.png?v={squarespace.template-revision}" />
+        <link rel="apple-touch-icon" sizes="72x72" href="/assets/icons/apple-icon-72x72.png?v={squarespace.template-revision}" />
+        <link rel="apple-touch-icon" sizes="76x76" href="/assets/icons/apple-icon-76x76.png?v={squarespace.template-revision}" />
+        <link rel="apple-touch-icon" sizes="114x114" href="/assets/icons/apple-icon-114x114.png?v={squarespace.template-revision}" />
+        <link rel="apple-touch-icon" sizes="120x120" href="/assets/icons/apple-icon-120x120.png?v={squarespace.template-revision}" />
+        <link rel="apple-touch-icon" sizes="144x144" href="/assets/icons/apple-icon-144x144.png?v={squarespace.template-revision}" />
+        <link rel="apple-touch-icon" sizes="152x152" href="/assets/icons/apple-icon-152x152.png?v={squarespace.template-revision}" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-icon-180x180.png?v={squarespace.template-revision}" />
+        <link rel="icon" type="image/png" sizes="192x192"  href="/assets/icons/android-icon-192x192.png?v={squarespace.template-revision}" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/icons/favicon-32x32.png?v={squarespace.template-revision}" />
+        <link rel="icon" type="image/png" sizes="96x96" href="/assets/icons/favicon-96x96.png?v={squarespace.template-revision}" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/assets/icons/favicon-16x16.png?v={squarespace.template-revision}" />
+        <link rel="manifest" href="/assets/icons/manifest.json?v={squarespace.template-revision}" />
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="msapplication-TileImage" content="/assets/icons/ms-icon-144x144.png?v={squarespace.template-revision}" />
+        <meta name="theme-color" content="#000000" />
         {squarespace-headers}
     </head>
     <body class="-fzero">
-        {@|apply header.block}
-        <squarespace:navigation navigationId="navi" template="navi" />
-        <main class="main js-main" data-content-field="main-content" data-website-id="{website.id}" {.section collection}data-collection-id="{collection.id}" data-collection-title="{.if collection.homepage}{website.siteTitle}{.or}{collection.title} – {website.siteTitle}{.end}"{.end} {.section item}data-item-id="{item.id}" data-item-title="{item.title} – {collection.title} – {website.siteTitle}" {.if item.customContent.darkTheme}data-darkside="true"{.end}{.end}>
-            {.equal? collection.typeName "page"}
-                {.section collection}
-                    {@|apply page.block}
+        <squarespace:navigation navigationId="navi--mobile" template="navi--mobile" />
+        <header class="header js-header -wrap">
+            <div class="header__logo">
+                <a href="/">
+                    {@|apply svg-logo.block}
+                </a>
+            </div>
+            <div class="header__navi">
+                <squarespace:navigation navigationId="navi" template="navi" />
+            </div>
+        </header>
+        {# Handled by ProperJS router #}
+        <main class="main js-main" data-content-field="main-content"></main>
+        <main class="router js-router" style="display:none;" data-revision="{squarespace.template-revision}" data-website-id="{website.id}" {.section collection}data-collection-id="{collection.id}" data-collection-title="{.if collection.homepage}{website.siteTitle}{.or}{collection.title} – {website.siteTitle}{.end}"{.end} {.section item}data-item-id="{item.id}" data-item-title="{item.title} – {collection.title} – {website.siteTitle}"{.end}>
+            {# Dev Cart #}
+                {.equal? collection.urlId "dev-cart"}
+                    {@|apply dev-cart.block}
+            {# Main Content #}
+                {.or}
+                    {squarespace.main-content}
                 {.end}
-            {.or}
-                {squarespace.main-content}
-            {.end}
         </main>
-        {@|apply footer.block}
-        {@|apply intro.block}
-        <script type="text/javascript" src="/scripts/app.js?v={squarespace.template-revision}"></script>
+        <div class="intro js-intro screen screen--dark is-active">
+            <header class="header -wrap">
+                <div class="header__logo">
+                    {@|apply svg-logo.block}
+                </div>
+                <div class="header__navi">&nbsp;</div>
+            </header>
+        </div>
+        <footer class="footer js-footer">
+            <div class="sqs-block-horizontalrule"><hr /></div>
+            <div class="footer__wrap -wrap">
+                <div class="footer__main">
+                    <squarespace:block-field id="boxen--footer-main" columns="12" />
+                </div>
+                <div class="footer__socials">
+                    <squarespace:block-field id="boxen--footer-socials" columns="12" />
+                </div>
+            </div>
+        </footer>
+        <script type="text/javascript" src="/scripts/boxen.js?v={squarespace.template-revision}"></script>
         {squarespace-footers}
     </body>
 </html>

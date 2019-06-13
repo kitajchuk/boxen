@@ -1,0 +1,80 @@
+.cssicon {
+    cursor: pointer;
+    display: block;
+}
+.cssicon--list {
+    position: relative;
+    width: 32px;
+    height: 23px;
+
+    div {
+        background-color: $black;
+        width: 100%;
+        position: absolute;
+        left: 50%;
+        height: 3px;
+        border-radius: 1.5px;
+        top: 0;
+        transform: translate3d( -50%, 0, 0 );
+        transform-origin: 50% 50%;
+        transition: opacity $base-duration $ease,
+                    transform $base-duration $ease,
+                    background-color $base-duration $ease,
+                    top $base-duration $ease;
+
+        .is-navi-mobile & {
+            background-color: $white;
+        }
+
+        .is-uid-page & {
+            background-color: $white;
+        }
+
+        &:nth-child( 1 ) {
+            .is-navi-mobile & {
+                opacity: 0;
+            }
+        }
+
+        &:nth-child( 2 ) {
+            top: 50%;
+            transform: translate3d( -50%, -50%, 0 );
+
+            .is-navi-mobile & {
+                opacity: 0;
+            }
+        }
+
+        &:nth-child( 3 ) {
+            top: 100%;
+            transform: translate3d( -50%, -100%, 0 );
+
+            .is-navi-mobile & {
+                opacity: 0;
+            }
+        }
+
+        &:nth-child( 4 ),
+        &:nth-child( 5 ) {
+            opacity: 0;
+            top: 50%;
+            transform: translate3d( -50%, -50%, 0 );
+        }
+
+        &:nth-child( 4 ) {
+            .is-navi-mobile & {
+                opacity: 1;
+                transform: translate3d( -50%, -50%, 0 ) rotate( 45deg );
+
+            }
+        }
+
+        &:nth-child( 5 ) {
+            .is-navi-mobile & {
+                opacity: 1;
+                transform: translate3d( -50%, -50%, 0 ) rotate( -45deg );
+
+            }
+        }
+    }
+}

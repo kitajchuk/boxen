@@ -1,0 +1,39 @@
+<div class="newsletter js-newsletter">
+    <script type="application/json">{@|json}</script>
+    <input type="text" name="" value="{description.html|safe}" />
+    <button type="button" name="button">{form.submitButtonText}</button>
+    <style class="js-sqs-config-style">
+        .squarespace-config .body-block .newsletter {
+            font-size: 0;
+        }
+        .squarespace-config .body-block .newsletter input,
+        .sqs-frontend-overlay-editor-widget-host .newsletter input {
+            border: 1px solid #d8d8d8;
+            font-size: 12px;
+            padding: 0 16px;
+            line-height: 1;
+            width: 66.666666%;
+            display: inline-block;
+            -webkit-appearance: none;
+            vertical-align: middle;
+            height: 48px;
+        }
+        .squarespace-config .body-block .newsletter button,
+        .sqs-frontend-overlay-editor-widget-host .newsletter button {
+            border: 1px solid black;
+            font-size: 12px;
+            padding: 0 16px;
+            line-height: 1;
+            -webkit-appearance: none;
+            color: white;
+            background-color: black;
+            width: 33.333333%;
+            display: inline-block;
+            vertical-align: middle;
+            height: 48px;
+        }
+        .newsletter-block:not( .rendered ) {
+            opacity: 1 !important;
+        }
+    </style>
+</div>

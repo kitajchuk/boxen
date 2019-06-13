@@ -1,0 +1,41 @@
+/******************************************************************************
+ * Font Declarations
+*******************************************************************************/
+@font-face {
+    font-family: $font-sans-regular;
+    src: url( "/assets/fonts/#{$font-sans-regular}.woff" ) format( "woff" ),
+         url( "/assets/fonts/#{$font-sans-regular}.woff2" ) format( "woff2" );
+    font-style: normal;
+    font-stretch: normal;
+}
+@font-face {
+    font-family: $font-sans-bold;
+    src: url( "/assets/fonts/#{$font-sans-bold}.woff" ) format( "woff" ),
+         url( "/assets/fonts/#{$font-sans-bold}.woff2" ) format( "woff2" );
+    font-style: normal;
+    font-stretch: normal;
+}
+@font-face {
+    font-family: $font-monospace;
+    src: url( "/assets/fonts/#{$font-monospace}.woff" ) format( "woff" );
+    font-style: normal;
+    font-stretch: normal;
+}
+@font-face {
+    font-family: $font-monospace-italic;
+    src: url( "/assets/fonts/#{$font-monospace-italic}.woff" ) format( "woff" );
+    font-style: normal;
+    font-stretch: normal;
+}
+@font-face {
+    font-family: $font-monospace-bold;
+    src: url( "/assets/fonts/#{$font-monospace-bold}.woff" ) format( "woff" );
+    font-style: normal;
+    font-stretch: normal;
+}
+@font-face {
+    font-family: $font-monospace-bold-italic;
+    src: url( "/assets/fonts/#{$font-monospace-bold-italic}.woff" ) format( "woff" );
+    font-style: normal;
+    font-stretch: normal;
+}

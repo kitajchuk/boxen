@@ -1,3 +1,13 @@
-<a href="{buttonLink}" class="btn btn--{buttonSize}" {.if newWindow}target="_blank"{.end}>
-    {buttonText}
-</a>
+<a class="btn js-btn" href="{buttonLink}" {.if newWindow}target="_blank"{.end}><span class="btn__a">{buttonText}</span></a>
+<style class="js-sqs-config-style">
+    .squarespace-config .body-block .btn {
+        height: 64px;
+        width: 256px;
+        background: black;
+        color: white;
+        border-bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+</style>

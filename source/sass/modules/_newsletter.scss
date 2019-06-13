@@ -1,0 +1,66 @@
+/******************************************************************************
+ * Newsletter
+*******************************************************************************/
+.newsletter {
+    .system-blocks__newsletter & {
+        left: auto;
+        margin-left: 0;
+        display: block;
+    }
+}
+.newsletter--block {
+    display: none;
+}
+.newsletter__loading {
+    display: none;
+    height: $input-height;
+    align-items: center;
+    justify-content: flex-start;
+
+    .is-sending & {
+        display: flex;
+    }
+}
+.newsletter__form {}
+.newsletter__success {
+    display: none;
+    height: $input-height;
+    align-items: center;
+    justify-content: flex-start;
+
+    .is-success & {
+        display: flex;
+    }
+}
+.newsletter__entry {
+    position: relative;
+    width: 100%;
+
+    .inp {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .btn {
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity $base-duration $ease;
+
+        .is-valid & {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+
+    .is-sending &,
+    .is-success & {
+        display: none;
+    }
+}
+.newsletter__btn {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate3d( 0, -50%, 0 );
+}
+.newsletter__input {}

@@ -1,0 +1,113 @@
+/******************************************************************************
+ * Buttons
+*******************************************************************************/
+.btn {
+    @include m();
+    background-color: $teal;
+    padding: 0 40px;
+    line-height: 1;
+    color: $black;
+    cursor: pointer;
+    -webkit-appearance: none;
+    outline: 0;
+    border: 0;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    height: $input-height;
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    transition: background-color $base-duration $ease;
+
+    .is-hoverable &:hover {
+        background-color: mix( black, $teal, 25% );
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        height: $input-height-m;
+    }
+
+    .btn__a {}
+}
+.btn--green {
+    background-color: $green;
+    color: mix( black, $green, 90% );
+
+    .is-hoverable &:hover {
+        background-color: mix( black, $green, 25% );
+    }
+}
+.btn--yellow {
+    background-color: $yellow;
+    color: mix( black, $yellow, 90% );
+
+    .is-hoverable &:hover {
+        background-color: mix( black, $yellow, 25% );
+    }
+}
+.btn--red {
+    background-color: $red;
+    color: mix( black, $red, 90% );
+
+    .is-hoverable &:hover {
+        background-color: mix( black, $red, 25% );
+    }
+}
+.btn--pink {
+    background-color: $pink;
+    color: mix( black, $pink, 90% );
+
+    .is-hoverable &:hover {
+        background-color: mix( black, $pink, 25% );
+    }
+}
+.btn--purple {
+    background-color: $purple;
+    color: mix( black, $purple, 90% );
+
+    .is-hoverable &:hover {
+        background-color: mix( black, $purple, 25% );
+    }
+}
+.btn--blue {
+    background-color: $blue;
+    color: mix( black, $blue, 90% );
+
+    .is-hoverable &:hover {
+        background-color: mix( black, $blue, 25% );
+    }
+}
+.inp {
+    @include m();
+    @include placeholder( $grey-dark );
+    line-height: 1;
+    padding: 0 40px;
+    -webkit-appearance: none;
+    outline: 0;
+    border: 3px solid $purple;
+    background-color: transparent;
+    color: $white;
+    padding: 0;
+    width: 480px;
+    max-width: 100%;
+    height: $input-height;
+    border-radius: 0;
+    display: inline-block;
+    vertical-align: middle;
+    transition: color $base-duration $ease,
+                border-color $base-duration $ease;
+
+    @include respond( $mobile-breakpoint ) {
+        height: $input-height-m;
+    }
+
+    &.is-invalid {
+        border-color: $red;
+    }
+
+    &.is-valid {
+        border-color: $green;
+    }
+}

@@ -1,0 +1,18 @@
+.main {
+    transition: opacity $fast-duration $ease;
+
+    .is-menu-open & {
+        pointer-events: none;
+    }
+
+    .is-tranny & {
+        opacity: 0;
+    }
+
+    .is-coverpage & {
+        padding-top: 0 !important;
+    }
+}
+.router {
+    display: none;
+}

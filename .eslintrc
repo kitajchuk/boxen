@@ -53,7 +53,7 @@
         ],
         "eqeqeq": 2,
         "guard-for-in": 2,
-        "no-alert": 2,
+        "no-alert": 1,
         "no-debugger": 0,
         "no-caller": 2,
         "no-div-regex": 2,

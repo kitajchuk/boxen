@@ -1,7 +1,157 @@
-<div class="gallery js-gallery" data-uid="{collection.urlId}">
-    {.repeated section items}
-        <div class="gallery__item js-item -column -column--1of3">
-            {@|apply image.block}
+{.equal? options.design "grid"}
+    {.var @length items|count}
+
+    {.equal? @length 2}
+        <div class="diptych">
+            {.repeated section items}
+                <div class="diptych__item">
+                    <div class="media js-media">
+                        <div class="media__wrap">
+                            <img class="image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
+                            <div class="js-sqs-config-image"></div>
+                            {.if body}
+                                <div class="media__cap m">{body}</div>
+                            {.end}
+                        </div>
+                    </div>
+                </div>
+            {.end}
         </div>
+        <style class="js-sqs-config-style">
+            .squarespace-config .body-block .diptych {
+                font-size: 0;
+                margin: 0 -5px;
+            }
+            .squarespace-config .body-block .diptych__item {
+                display: inline-block;
+                width: 50%;
+                vertical-align: top;
+                padding: 5px;
+                box-sizing: border-box;
+            }
+            .squarespace-config .body-block .diptych__item .js-sqs-config-image {
+                position: relative;
+                width: 100%;
+                padding-bottom: 100%;
+            }
+            .squarespace-config .body-block .diptych__item .js-sqs-config-image:after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                background-size: cover;
+                background-position: 50% 50%;
+            }
+            {.repeated section items}
+                .squarespace-config .diptych__item:nth-child( {@index} ) .js-sqs-config-image:after {
+                    background-image: url( {assetUrl} );
+                }
+            {.end}
+        </style>
+    {.or equal? @length 3}
+        <div class="grid">
+            {.repeated section items}
+                <div class="grid__item">
+                    <div class="media js-media">
+                        <div class="media__wrap">
+                            <img class="image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
+                            <div class="js-sqs-config-image"></div>
+                            {.if body}
+                                <div class="media__cap m">{body}</div>
+                            {.end}
+                        </div>
+                    </div>
+                </div>
+            {.end}
+        </div>
+        <style class="js-sqs-config-style">
+            .squarespace-config .body-block .grid {
+                font-size: 0;
+                margin: 0 -5px;
+            }
+            .squarespace-config .body-block .grid__item {
+                display: inline-block;
+                width: 33.333333%;
+                vertical-align: top;
+                padding: 5px;
+                box-sizing: border-box;
+            }
+            .squarespace-config .body-block .grid__item .js-sqs-config-image {
+                position: relative;
+                width: 100%;
+                padding-bottom: 100%;
+            }
+            .squarespace-config .body-block .grid__item .js-sqs-config-image:after {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                background-size: cover;
+                background-position: 50% 50%;
+            }
+            {.repeated section items}
+                .squarespace-config .grid__item:nth-child( {@index} ) .js-sqs-config-image:after {
+                    background-image: url( {assetUrl} );
+                }
+            {.end}
+        </style>
     {.end}
-</div>
+{.or equal? options.design "slider"}
+    <div class="slider js-slider">
+        <div class="slider__wrap js-slider-belt">
+            {.repeated section items}
+                <div class="slider__item js-slider-item">
+                    <div class="media js-media">
+                        <div class="media__wrap">
+                            <img class="image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
+                            <div class="js-sqs-config-image"></div>
+                            {.if body}
+                                <div class="media__cap m">{body}</div>
+                            {.end}
+                        </div>
+                    </div>
+                </div>
+            {.end}
+        </div>
+    </div>
+    <style class="js-sqs-config-style">
+        .squarespace-config .body-block .slider {
+            white-space: nowrap;
+        }
+        .squarespace-config .body-block .slider__wrap {
+            font-size: 0;
+            margin: 0 -5px;
+        }
+        .squarespace-config .body-block .slider__item {
+            display: inline-block;
+            width: 33.333333%;
+            vertical-align: top;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        .squarespace-config .body-block .slider__item .js-sqs-config-image {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%;
+        }
+        .squarespace-config .body-block .slider__item .js-sqs-config-image:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+        {.repeated section items}
+            .squarespace-config .slider__item:nth-child( {@index} ) .js-sqs-config-image:after {
+                background-image: url( {assetUrl} );
+            }
+        {.end}
+    </style>
+{.end}

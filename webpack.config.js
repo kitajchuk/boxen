@@ -58,7 +58,7 @@ module.exports = ( env ) => {
 
 
         entry: {
-            "app": path.resolve( __dirname, "source/js/app.js" )
+            "boxen": path.resolve( __dirname, "source/js/boxen.js" )
         },
 
 

@@ -1,0 +1,42 @@
+/******************************************************************************
+ * Document
+*******************************************************************************/
+html {
+    background-color: $black;
+    color: $white;
+    transition: color $base-duration $ease,
+                background-color $base-duration $ease;
+
+    &.is-intro,
+    &.is-tranny {
+        overflow: hidden;
+    }
+}
+body {
+    // OpenType features
+    @include font-family-sans();
+    background-color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-tap-highlight-color: rgba( 0, 0, 0, 0 );
+    -webkit-touch-callout: none;
+
+    &.is-intro,
+    &.is-tranny {
+        overflow: hidden;
+    }
+}
+html,
+body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+
+
+/******************************************************************************
+ * User Agent
+*******************************************************************************/
+::-webkit-scrollbar {
+    display: none;
+    }

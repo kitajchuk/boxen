@@ -1,0 +1,44 @@
+.header {
+    position: relative;
+    z-index: $z_layer_header;
+    background-color: $white;
+    height: $header-height;
+    padding-bottom: $header-padding;
+    width: 100%;
+    z-index: $z_layer_header;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    pointer-events: none;
+    transition: transform $base-duration $ease,
+                opacity $base-duration $ease,
+                background-color $base-duration $ease,
+                height $base-duration $ease,
+                padding-bottom $base-duration $ease,
+                align-items $base-duration $ease;
+
+    .intro & {
+        background-color: transparent;
+    }
+
+    .is-uid-page & {
+        background-color: $black;
+        height: $header-height-detail;
+        padding-bottom: 0;
+        align-items: center;
+    }
+
+    .is-navi-mobile & {
+        background-color: $black;
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        height: $header-height-mobile;
+        padding-bottom: 0;
+        align-items: center;
+    }
+}
+.header__logo,
+.header__navi {
+    pointer-events: auto;
+}

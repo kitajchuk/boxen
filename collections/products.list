@@ -1,0 +1,3 @@
+<div class="shop js-shop">
+    <script type="application/json">{items|json}</script>
+</div>

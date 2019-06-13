@@ -1,0 +1,73 @@
+/******************************************************************************
+ * CSS Reset
+ * Add / Remove / Tweak this for your project.
+ * The philosophy behind the CSS Reset is personal application customization.
+ *
+ * This approach is preferred over options like Normalize, which make way
+ * too many assumptions and apply styles on top of the basic property resets.
+ *
+ * Though this CSS Reset is very basic and has not been updated in quite some
+ * time, since 2011, it serves as a great starting point.
+ *
+ * Know what you are resetting and have piloted conrtol of your web app ;-)
+ *
+ *
+ * http://meyerweb.com/eric/tools/css/reset/
+ * v2.0 | 20110126
+ * License: none (public domain)
+*******************************************************************************/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font: inherit;
+    font-size: 100%;
+    vertical-align: baseline;
+    }
+
+html {
+    line-height: 1;
+    box-sizing: border-box;
+    }
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+    }
+
+a {
+    color: inherit;
+    text-decoration: none;
+    }
+
+ol, ul {
+    list-style: none;
+    }
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    }
+
+caption, th, td {
+    text-align: left;
+    font-weight: normal;
+    vertical-align: middle;
+    }
+
+q, blockquote {
+    quotes: none;
+    }
+
+q:before, q:after, blockquote:before, blockquote:after {
+    content: "";
+    content: none;
+    }
+
+a img {
+    border: none;
+    }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, main {
+    display: block;
+    }

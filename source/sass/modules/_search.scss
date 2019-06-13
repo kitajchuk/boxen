@@ -1,0 +1,78 @@
+/******************************************************************************
+ * Search
+*******************************************************************************/
+.search {
+    @include wrap();
+}
+.search--block {
+    display: none;
+}
+.search__btn {
+    opacity: 0;
+    transition: opacity $base-duration $ease;
+    margin-left: $padding-m;
+
+    &.is-active {
+        opacity: 1;
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        display: none;
+    }
+}
+.results {
+    .results__loading {
+        @include wrap();
+        opacity: 0;
+        transition: opacity $base-duration $ease;
+        height: 0;
+
+        &.is-active {
+            opacity: 1;
+            height: auto;
+        }
+    }
+
+    .lds-ellipsis {
+        transform: translateX( -6px );
+    }
+
+    .grid {
+        opacity: 0;
+        transform: translate3d( 0, 16px, 0 );
+        transition: transform $ease-menu-1 $base-duration,
+                    opacity $ease-menu-1 $base-duration;
+
+        &.is-active {
+            opacity: 1;
+            transform: translate3d( 0, 0, 0 );
+        }
+    }
+}
+.filters {
+    @include wrap();
+    @include expt();
+
+    .is-tagged &,
+    .is-keytext & {
+        display: none;
+    }
+}
+.tags {}
+.tags__label {
+    color: $grey;
+    padding-bottom: $padding-m;
+}
+.tags__tag {
+    line-height: 1.65;
+
+    span {
+        display: inline-block;
+        cursor: pointer;
+        transition: color $base-duration $ease;
+
+        .is-hoverable &:hover {
+            color: $grey;
+        }
+    }
+}

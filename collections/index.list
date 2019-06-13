@@ -1,3 +1,7 @@
-{.if collection.homepage}
-{.or}
+{.section collection}
+    {.repeated section collections}
+        {.if mainContent}
+            {mainContent}
+        {.end}
+    {.end}
 {.end}

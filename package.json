@@ -1,7 +1,7 @@
 {
   "name": "boxen",
   "version": "0.2.0",
-  "description": "A Squarespace template scaffold.",
+  "description": "A content-driven Squarespace developer SDK",
   "author": "Brandon Lee Kitajchuk",
   "license": "Apache-2.0",
   "private": true,
@@ -46,7 +46,7 @@
     "properjs-controller": "~0.2",
     "properjs-debounce": "^0.2.0",
     "properjs-easing": "~0.2",
-    "properjs-hobo": "^0.3.18",
+    "properjs-hobo": "^0.3.26",
     "properjs-imageloader": ">=0.3.1",
     "properjs-lager": "^0.1.2",
     "properjs-mediabox": "~0.3",

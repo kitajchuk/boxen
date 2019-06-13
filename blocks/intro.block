@@ -1,5 +1,0 @@
-<div class="intro js-intro screen screen--dark ghost -wrap -text--center is-active">
-    <div class="ghost__child">
-        <img class="intro__logo js-intro-logo" src="{website.logoImageUrl}" />
-    </div>
-</div>

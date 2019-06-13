@@ -1,0 +1,340 @@
+/******************************************************************************
+ * Functions
+*******************************************************************************/
+@function sqs-calc( $expression ) {
+    @return #{"~\"calc( #{$expression} )\""};
+}
+
+
+/******************************************************************************
+ * Fonts: Util
+*******************************************************************************/
+@mixin font-normal() {
+    font-stretch: normal;
+    font-style: normal;
+}
+
+
+/******************************************************************************
+ * Fonts: Styles
+*******************************************************************************/
+@mixin font-family-sans() {
+    font-family: $font-sans-regular;
+    @include font-normal();
+}
+@mixin font-family-sans-bold() {
+    font-family: $font-sans-bold;
+    @include font-normal();
+}
+@mixin font-family-monospace() {
+    font-family: $font-monospace;
+    @include font-normal();
+}
+@mixin font-family-monospace-italic() {
+    font-family: $font-monospace-italic;
+    @include font-normal();
+}
+@mixin font-family-monospace-bold() {
+    font-family: $font-monospace-bold;
+    @include font-normal();
+}
+@mixin font-family-monospace-bold-italic() {
+    font-family: $font-monospace-bold-italic;
+    @include font-normal();
+}
+
+
+/******************************************************************************
+ * Typography: Hierarchy
+*******************************************************************************/
+@mixin p() {
+    font-size: $p-size-mobile;
+    line-height: $p-line;
+    @include font-family-sans-bold();
+    max-width: $text-width;
+
+    @include respond-min( $mobile-breakpoint ) {
+        font-size: $p-size;
+    }
+}
+@mixin m() {
+    font-size: $m-size-mobile;
+    line-height: $m-line;
+    @include font-family-sans-bold();
+    max-width: $text-width;
+
+    @include respond-min( $mobile-breakpoint ) {
+        font-size: $m-size;
+    }
+}
+@mixin h1() {
+    font-size: $h1-size-mobile;
+    line-height: $h1-line;
+    @include font-family-sans-bold();
+    max-width: $text-width-2;
+
+    @include respond-min( $mobile-breakpoint ) {
+        font-size: $h1-size;
+    }
+}
+@mixin h2() {
+    font-size: $h2-size-mobile;
+    line-height: $h2-line;
+    @include font-family-sans-bold();
+    max-width: $text-width;
+
+    @include respond-min( $mobile-breakpoint ) {
+        font-size: $h2-size;
+    }
+}
+@mixin h3() {
+    font-size: $h3-size-mobile;
+    line-height: $h3-line;
+    @include font-family-sans-bold();
+    max-width: $text-width;
+
+    @include respond-min( $mobile-breakpoint ) {
+        font-size: $h3-size;
+    }
+}
+@mixin sqs-alert-button() {
+    font-family: $font-sans-bold !important;
+    font-size: $m-size-mobile !important;
+    line-height: $m-line !important;
+
+    @include respond-min( $mobile-breakpoint ) {
+        font-size: $m-size !important;
+    }
+
+    @include respond-min( $desktop-breakpoint ) {
+        font-size: $m-size !important;
+    }
+}
+
+
+/******************************************************************************
+ * Typography: Children
+*******************************************************************************/
+@mixin a( $color ) {
+    color: $color;
+    border-bottom: 1px solid $color;
+    transition: border-bottom-color $base-duration $ease,
+                color $base-duration $ease;
+
+    &.is-active,
+    .is-hoverable &:hover,
+    .is-hoverable &.is-active:hover {
+        border-bottom-color: transparent;
+        color: mix( black, $color, 25% );
+    }
+}
+@mixin placeholder( $color ) {
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: $color;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+        color: $color;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+        color: $color;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+        color: $color;
+    }
+    &::placeholder { /* Future standard */
+        color: $color;
+    }
+}
+
+
+
+/******************************************************************************
+ * Typography: UI
+*******************************************************************************/
+@mixin nbsp() {
+    &:before {
+        position: relative;
+        display: inline-block;
+        content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
+
+        @include respond( $mobile-breakpoint ) {
+            content: "\00a0\00a0\00a0\00a0";
+        }
+    }
+}
+
+
+/******************************************************************************
+ * Layout: Containers
+*******************************************************************************/
+@mixin wrap() {
+    padding-left: $padding-1;
+    padding-right: $padding-1;
+
+    @include respond( $laptop-breakpoint ) {
+        padding-left: $expander-0;
+        padding-right: $expander-0;
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        padding-left: $padding-m;
+        padding-right: $padding-m;
+    }
+}
+@mixin wrapr() {
+    padding-right: $padding-1;
+
+    @include respond( $laptop-breakpoint ) {
+        padding-right: $expander-0;
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        padding-right: $padding-m;
+    }
+}
+@mixin wrapl() {
+    padding-left: $padding-1;
+
+    @include respond( $laptop-breakpoint ) {
+        padding-left: $expander-0;
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        padding-left: $padding-m;
+    }
+}
+@mixin wrap-imp() {
+    padding-left: $padding-1 !important;
+    padding-right: $padding-1 !important;
+
+    @include respond( $laptop-breakpoint ) {
+        padding-left: $expander-0 !important;
+        padding-right: $expander-0 !important;
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        padding-left: $padding-m !important;
+        padding-right: $padding-m !important;
+    }
+}
+@mixin exp() {
+    padding-top: $expander-1;
+    padding-bottom: $expander-1;
+
+    @include respond( $mobile-breakpoint ) {
+        padding-top: $expander-m;
+        padding-bottom: $expander-m;
+    }
+}
+@mixin expt() {
+    padding-top: $expander-1;
+
+    @include respond( $mobile-breakpoint ) {
+        padding-top: $expander-m;
+    }
+}
+@mixin expb() {
+    padding-bottom: $expander-1;
+
+    @include respond( $mobile-breakpoint ) {
+        padding-bottom: $expander-m;
+    }
+}
+@mixin p1-cols() {
+    .image-col {
+        @include diptych();
+
+        @include respond( $tablet-breakpoint ) {
+            width: 100%;
+        }
+    }
+
+    .text-col {
+        width: sqs-calc( "100% - #{$tall-width-0}" );
+
+        &:first-child {
+            @include wrapr();
+
+            @include respond( $mobile-breakpoint ) {
+                padding-right: 0;
+            }
+        }
+
+        &:last-child {
+            @include wrapl();
+
+            @include respond( $mobile-breakpoint ) {
+                padding-left: 0;
+            }
+        }
+
+        @include respond( $tablet-breakpoint ) {
+            width: 100%;
+        }
+    }
+}
+
+
+/******************************************************************************
+ * Layout: Maximums
+*******************************************************************************/
+// @mixin text() {
+//     width: 100%;
+//     max-width: $text-width;
+//     position: relative;
+//
+//     @include respond( $text-breakpoint ) {
+//         left: auto;
+//         margin-left: auto;
+//         display: block;
+//     }
+//
+//     @include respond( $laptop-breakpoint ) {
+//         max-width: $text-width - 200px;
+//     }
+// }
+// @mixin media() {
+//     display: inline-block;
+//     max-width: $media-width-0;
+//     width: 100%;
+// }
+// @mixin media-tall() {
+//     display: inline-block;
+//     max-width: $text-width;
+//     width: 100%;
+// }
+@mixin diptych() {
+    width: $tall-width-0;
+    max-width: 100%;
+}
+
+
+/******************************************************************************
+ * Layout: UI
+*******************************************************************************/
+@mixin icon-play-size() {
+    max-width: 23px;
+    width: 0.8984375vw;
+    min-width: 16px;
+    max-height: 27px;
+    height: 1.0546875vw;
+    min-height: 19px;
+}
+
+
+
+/******************************************************************************
+ * Media queries
+ *
+ * @see ../config/_variables.scss for Breakpoints
+*******************************************************************************/
+@mixin respond( $width ) {
+    @media only screen and ( max-width: $width ) {
+        @content;
+    }
+}
+@mixin respond-min( $width ) {
+    @media only screen and ( min-width: $width ) {
+        @content;
+    }
+}

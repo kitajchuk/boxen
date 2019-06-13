@@ -1,0 +1,42 @@
+<div class="stories" data-collection-id="{collection.id}">
+    <div class="grid">
+        {.repeated section items}
+            {.if starred}
+                {.var @clickUrl fullUrl}
+                {.var @clickId id}
+                <div class="pinned grid__pinned">
+                    <a class="pinned__info" href="{fullUrl}" data-item-id="{id}">
+                        <div class="grid__title" data-content-field="title">{title}</div>
+                        {.if customContent.ctaTextValue}
+                            <div class="grid__meta">
+                                <span class="h6">{customContent.ctaTextValue}</span>
+                            </div>
+                        {.end}
+                    </a>
+                    {.section customContent.pinnedImage}
+                        <a class="pinned__image" href="{@clickUrl}" data-item-id="{@clickId}">
+                            <img class="image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
+                        </a>
+                    {.end}
+                </div>
+            {.end}
+        {.end}
+        {.repeated section items}
+            {.if starred}{.or}
+                <div class="grid__item js-lazy-anim">
+                    <a class="grid__link grid__anim" href="{fullUrl}" data-item-id="{id}">
+                        <img class="grid__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
+                        <div class="grid__info">
+                            <div class="grid__title" data-content-field="title">{title}</div>
+                            {.if customContent.ctaTextValue}
+                                <div class="grid__meta">
+                                    <span class="m">{customContent.ctaTextValue}</span>
+                                </div>
+                            {.end}
+                        </div>
+                    </a>
+                </div>
+            {.end}
+        {.end}
+    </div>
+</div>

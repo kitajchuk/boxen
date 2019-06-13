@@ -1,0 +1,4 @@
+<div class="_audio js-audio">
+    <script type="application/json">{@|json}</script>
+    <audio class="_audio__node" controls="" src="{audioAssetUrl}"></audio>
+</div>

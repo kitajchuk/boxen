@@ -1,0 +1,130 @@
+/******************************************************************************
+ * Fonts
+*******************************************************************************/
+$font-sans: "Calamity";
+$font-sans-regular: "#{$font-sans}-Regular";
+$font-sans-bold: "#{$font-sans}-Bold";
+$font-monospace: "panicsans";
+$font-monospace-italic: "#{$font-monospace}italic";
+$font-monospace-bold: "#{$font-monospace}bold";
+$font-monospace-bold-italic: "#{$font-monospace}bolditalic";
+
+
+
+/******************************************************************************
+ * Colors
+*******************************************************************************/
+$black: #000;
+$white: #FFFDE4;
+$grey: #959595;
+$grey-dark: #333;
+$green: #10FF59;
+$yellow: #EEFD02;
+$red: #F30541;
+$pink: #F49AC1;
+$purple: #6441A4;
+$blue: #1795D4;
+$teal: #2AFFEA;
+
+
+
+/******************************************************************************
+ * Spacing
+*******************************************************************************/
+$padding-m: 20px;
+$padding-1: 65px;
+$padding-2: 130px;
+$padding-g: 55px;
+$expander-1: 100px;
+$expander-0: 36px;
+$expander-m: 65px;
+
+
+
+/******************************************************************************
+ * Sizes
+*******************************************************************************/
+$text-width: 960px;
+$text-width-2: 1140px;
+$slider-width: 62.5vw;
+$slider-height: 41.40625vw;
+$input-height: 64px;
+$input-height-m: 48px;
+$tall-width-0: 620px;
+$header-height: 315px;
+$header-padding: 29px;
+$header-height-detail: 160px;
+$header-height-mobile: 100px;
+
+
+
+/******************************************************************************
+ * Typography
+*******************************************************************************/
+$h1-size-mobile: 28px;
+$h1-size: 36px;
+$h1-line: 52 / 36;
+
+$h2-size-mobile: 24px;
+$h2-size: 32px;
+$h2-line: 42 / 32;
+
+$h3-size-mobile: 18px;
+$h3-size: 28px;
+$h3-line: 38 / 28;
+
+$p-size-mobile: 16px;
+$p-size: 24px;
+$p-line: 36 / 24;
+
+$m-size-mobile: 14px;
+$m-size: 18px;
+$m-line: 28 / 18;
+
+
+
+/******************************************************************************
+ * Breakpoints
+*******************************************************************************/
+$break-desktop-full: 2560px;
+$break-desktop-medium: 1920px;
+$break-laptop-full: 1680px;
+$break-laptop-medium: 1440px;
+$break-ipad-pro-width: 1366px;
+$break-tablet-full: 1280px;
+$break-tablet-medium: 1024px;
+$break-tablet-small: 768px;
+$break-mobile-full: 640px;
+$break-mobile-medium: 480px;
+$break-mobile-small: 320px;
+
+// App usage
+$mobile-breakpoint: $break-mobile-full;
+$tablet-breakpoint: $break-tablet-medium;
+$laptop-breakpoint: $break-laptop-medium;
+$desktop-breakpoint: $break-desktop-full;
+
+
+
+/******************************************************************************
+ * Animations
+*******************************************************************************/
+$ease: ease;
+$ease-menu-0: cubic-bezier( 0.4, 0.7, 0.2, 1 );
+$ease-menu-1: cubic-bezier( 0.8, 0, 0.1, 1 );
+$ease-lift: cubic-bezier( 0.23, 1, 0.32, 1 );
+$slow-duration: 1000ms;
+$long-duration: 750ms;
+$base-duration: 500ms;
+$fast-duration: 300ms;
+
+
+
+/******************************************************************************
+ * Layering
+*******************************************************************************/
+$z_layer_behind: -1;
+$z_layer_menu: 1000;
+$z_layer_screen: 1001;
+$z_layer_header: 1002;
+$z_layer_intro: 1003;

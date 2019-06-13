@@ -1,0 +1,218 @@
+/******************************************************************************
+ * SQS Layout
+*******************************************************************************/
+[class*=sqs-col] {
+    float: none;
+    display: inline-block;
+}
+[class*=sqs-col] .sqs-block {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0;
+    padding-bottom: 0;
+    box-shadow: none;
+}
+
+
+.sqs-layout .sqs-row {
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.sqs-layout > .sqs-row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.sqs-row:before,
+.sqs-row:after {
+    display: none;
+}
+
+
+
+/******************************************************************************
+ * SQS Commerce
+*******************************************************************************/
+#sqs-cart-root {
+    @include exp();
+    @include wrap();
+}
+.sqs-widgets-confirmation {
+    .title,
+    .message {
+        @include m();
+    }
+
+    .confirmation-button {
+        @include sqs-alert-button();
+    }
+}
+
+
+
+/******************************************************************************
+ * SQS Blocks
+*******************************************************************************/
+.sqs-block-spacer {
+    .sqs-block-content {
+        height: $expander-1 !important;
+    }
+}
+.sqs-block-horizontalrule {
+    hr {
+        background-color: $grey-dark;
+        height: 1px;
+        margin-top: $expander-1;
+        margin-bottom: $expander-1;
+    }
+}
+.sqs-block-newsletter {
+    .sqs-block-content {}
+}
+.sqs-block-tagcloud {
+    .sqs-block-content {}
+}
+.sqs-block-summary-v2 {
+    .sqs-block-content {}
+}
+.sqs-block-product {
+    .sqs-block-content {}
+}
+.sqs-block-audio {
+    .sqs-block-content {}
+}
+.sqs-block-gallery {
+    .sqs-block-content {}
+}
+.sqs-block-image {
+    .sqs-block-content {}
+}
+.sqs-block-video {
+    .sqs-block-content {}
+}
+.sqs-block-html {
+    .sqs-block-content {
+        @include wrap();
+
+        blockquote {
+            p {
+                @include m();
+
+                @include respond( $mobile-breakpoint ) {
+                    display: inline;
+                }
+            }
+        }
+
+        blockquote + p,
+        blockquote + h1,
+        blockquote + h2,
+        blockquote + h3,
+        blockquote + blockquote {
+            margin-top: $expander-0;
+        }
+    }
+}
+.sqs-block-button{
+    .sqs-block-content {
+        @include wrap();
+        margin-top: $expander-0;
+    }
+}
+.sqs-block-code {
+    .sqs-block-content {
+        @include wrap();
+
+        .btn {
+            margin-top: $expander-0;
+        }
+    }
+}
+
+
+
+/******************************************************************************
+ * SQS Overrides
+*******************************************************************************/
+.sqs-layout:not(.sqs-editing) > .sqs-row:first-child > [class*="sqs-col"]:first-child > .sqs-block:last-child,
+.sqs-layout:not(.sqs-editing) .sqs-block + .sqs-row .sqs-block:not(.float):last-child {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.newsletter-block:not(.rendered) {
+    opacity: 1 !important;
+}
+ul[data-rte-list] li > *:first-child::before,
+ol[data-rte-list] li > *:first-child::before {
+    margin-left: 0;
+    min-width: 0;
+    width: 0;
+    content: "";
+    padding-right: 0;
+    text-align: left;
+    display: none;
+}
+ul[data-rte-list] li > *, ol[data-rte-list] li > * {
+    margin: 0!important;
+}
+.sqs-layout:not(.sqs-editing) .sqs-block + .sqs-row .sqs-block:not(.float):first-child {
+    padding-top: 0!important;
+}
+.sqs-block-gallery {
+    .sqs-intrinsic {
+        padding-bottom: 0 !important;
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+    }
+
+    .sqs-intrinsic .sqs-intrinsic-content {
+        position: relative !important;
+        top: auto;
+        left: auto;
+        height: auto;
+        max-width: none;
+        width: 100%;
+    }
+}
+input.inp:focus {
+    box-shadow: none !important;
+}
+.sqs-use--icon, .sqs-use--mask {
+    transition: fill $base-duration $ease;
+}
+.social-icons-color-white.social-icons-style-regular .sqs-use--icon {
+    fill: $teal;
+}
+.social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
+.social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover ._svg {
+    fill: mix( black, $teal, 50% );
+}
+.social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
+.social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg {
+    fill: $teal;
+}
+.social-icons-style-regular .sqs-svg-icon--wrapper.npm-unauth > div,
+.social-icons-style-regular .sqs-svg-icon--wrapper.tabi-unauth > div {
+    transform: none !important;
+}
+.social-icons-size-extra-large.social-icons-style-regular .sqs-svg-icon--wrapper.npm-unauth,
+.social-icons-size-medium:not(.social-icons-style-regular) .sqs-svg-icon--wrapper.npm-unauth {
+    width: 64px !important;
+    height: 20.48px !important;
+}
+.social-icons-size-extra-large.social-icons-style-regular .sqs-svg-icon--wrapper.tabi-unauth,
+.social-icons-size-medium:not(.social-icons-style-regular) .sqs-svg-icon--wrapper.tabi-unauth {
+    width: 43px !important;
+    height: 29px !important;
+}
+.sqs-svg-icon--wrapper {
+    vertical-align: middle;
+}
+.social-icons-size-extra-large.social-icons-style-regular.social-icon-alignment-center .sqs-svg-icon--wrapper {
+    @include respond( $mobile-breakpoint ) {
+        margin: 9px;
+    }
+}

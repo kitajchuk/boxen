@@ -21,5 +21,4 @@ sandbox
 # Squarespace
 sftp-config.json
 build
-#.npmrc
 .env

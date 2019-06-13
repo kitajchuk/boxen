@@ -1,0 +1,259 @@
+/******************************************************************************
+ * Media: ALL
+ * .media--audio {}
+ * .media--stretch {}
+ * .media--embed {}
+ * .media--tall {}
+*******************************************************************************/
+.media {
+    position: relative;
+    width: 100%;
+}
+.media__wrap {
+    display: inline-block;
+    width: 100%;
+}
+.media__cap {
+    text-align: left;
+    padding-top: $padding-m;
+    max-width: $text-width;
+}
+
+
+
+/******************************************************************************
+ * Image nodes
+*******************************************************************************/
+.image {
+    width: 100%;
+}
+
+
+
+/******************************************************************************
+ * Audio block
+*******************************************************************************/
+._audio {
+    max-width: $text-width;
+    width: 100%;
+
+    .h6 {
+        color: $black;
+    }
+}
+._audio__node {
+    display: none;
+}
+._audio__station {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+._audio__controls {
+    // @include button-pseudo();
+}
+._audio__controls--onboard {
+    cursor: pointer;
+}
+._audio__controls--utility {
+    display: none;
+
+    ._audio__pp {
+        .has-audio-played & {
+            padding: 0 $padding-m;
+
+            @include respond( $laptop-breakpoint ) {
+                padding: 0 ($padding-m / 2);
+            }
+        }
+    }
+
+    .has-audio-played & {
+        display: flex;
+    }
+}
+._audio__ellapsed {
+    padding-left: $padding-m;
+}
+._audio__skip {
+    z-index: 1;
+}
+._audio__pp {
+    z-index: 1;
+    padding: 0 20px 0 0;
+    box-sizing: content-box;
+    @include icon-play-size();
+    z-index: 1;
+
+    @include respond( $laptop-breakpoint ) {
+        padding: 0 ($padding-m / 2) 0 0;
+    }
+
+    ._svg--play {
+        display: block;
+
+        .is-audio-playing & {
+            display: none;
+        }
+    }
+
+    ._svg--pause {
+        display: none;
+
+        .is-audio-playing & {
+            display: block;
+        }
+    }
+}
+._audio__state {
+    z-index: 1;
+
+    span:nth-child( 1 ) {
+        display: inline-block;
+
+        .is-audio-playing & {
+            display: none;
+        }
+    }
+
+    span:nth-child( 2 ) {
+        display: none;
+
+        .is-audio-playing & {
+            display: inline-block;
+        }
+    }
+}
+._audio__global {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    padding-left: $padding-1;
+    padding-bottom: $padding-1;
+    z-index: $z_layer_intro;
+    pointer-events: none;
+    opacity: 0;
+    transform: translate3d( 0, 100%, 0 );
+    transition: transform $ease-menu-1 $base-duration,
+                opacity $ease-menu-1 $base-duration;
+    z-index: $z_layer_menu;
+
+    .is-audio-offscreen & {
+        opacity: 1;
+        transform: translate3d( 0, 0, 0 );
+        pointer-events: auto;
+    }
+
+    .is-audio-offscreen.is-audio-collider & {
+        opacity: 0;
+        transform: translate3d( 0, 100%, 0 );
+        pointer-events: none;
+    }
+
+    .is-menu-open & {
+        opacity: 0;
+        transform: translate3d( 0, 100%, 0 );
+        pointer-events: none;
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        padding-left: $padding-m;
+        padding-bottom: $padding-m;
+    }
+
+    ._audio__controls--onboard {
+        .has-audio-played & {
+            display: none;
+        }
+    }
+
+    ._audio__controls:before {
+        background-color: $black;
+    }
+
+    ._audio__state {
+        color: $white;
+    }
+
+    ._svg {
+        fill: $white;
+    }
+}
+
+
+
+/******************************************************************************
+ * Video embed block
+*******************************************************************************/
+.embed {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    text-align: left;
+}
+.embed__aspect {
+    background-color: $black;
+    position: relative;
+    width: 100%;
+}
+.embed__poster,
+.embed__element {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+}
+.embed__poster {
+    transition: opacity $base-duration $ease;
+
+    .is-embed-playing & {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+.embed__playbtn {
+    cursor: pointer;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transform: translate3d( -50%, -50%, 0 );
+    transition: opacity $base-duration $ease;
+
+    ._svg {
+        transition: transform $base-duration $ease;
+    }
+
+    .is-hoverable &:hover {
+        ._svg {
+            transform: scale( 1.10 );
+        }
+    }
+
+    .is-embed-playing & {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+.embed__metadata {
+    color: $white;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    padding-right: $padding-1;
+    padding-bottom: $padding-1;
+    transition: opacity $base-duration $ease;
+
+    .is-embed-playing & {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        padding-right: $padding-m;
+        padding-bottom: $padding-m;
+    }
+}

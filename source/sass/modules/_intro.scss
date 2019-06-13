@@ -1,0 +1,11 @@
+.intro {
+    pointer-events: auto;
+    z-index: $z_layer_intro;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    &.is-active {
+        z-index: $z_layer_intro;
+    }
+}

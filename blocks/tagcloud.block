@@ -1,0 +1,8 @@
+<div class="tagcloud js-tagcloud">
+    <div class="tagcloud__label h6">Tags:</div>
+    <div class="tagcloud__list h6">
+        {.repeated section items}
+            <a class="tagcloud__link" href="{url}"><span>{name}</span></a><br />
+        {.end}
+    </div>
+</div>

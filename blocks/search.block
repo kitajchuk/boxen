@@ -1,0 +1,10 @@
+<div class="search js-search" data-results=".js-search-results">
+    <script type="application/json">{@|json}</script>
+</div>
+<div class="filters js-search-filters"></div>
+<div class="results js-search-results -exp">
+    <div class="results__loading js-search-loader">
+        <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+    </div>
+    <div class="results__content js-search-display"></div>
+</div>

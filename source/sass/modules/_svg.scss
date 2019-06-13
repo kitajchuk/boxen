@@ -1,0 +1,43 @@
+._svg {
+    transition: fill $base-duration $ease;
+    cursor: pointer;
+    fill: $black;
+}
+._svg--logo {
+    width: 128px;
+    height: 108px;
+    transition: fill $base-duration $ease,
+                width $base-duration $ease,
+                height $base-duration $ease;
+
+    .header & {
+        @include respond( $mobile-breakpoint ) {
+            width: 64px;
+            height: 54px;
+        }
+    }
+
+    .intro & {
+        fill: $white;
+    }
+
+    .is-navi-mobile & {
+        fill: $white;
+    }
+
+    .is-uid-page & {
+        fill: $white;
+        width: 114px;
+        height: 96.19px;
+    }
+}
+._svg--npm {
+    width: 64px !important;
+    height: 20.48px !important;
+    fill: $teal;
+}
+._svg--tabi {
+    width: 43px !important;
+    height: 29px !important;
+    fill: $teal;
+}
