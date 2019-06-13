@@ -1,11 +1,5 @@
-.story {
-    padding-top: $expander-1;
-}
-.stories {
-    .grid {
-        justify-content: space-between;
-    }
-}
+.story {}
+.stories {}
 
 
 
@@ -14,38 +8,38 @@
     display: flex;
     justify-content: flex-start;
     flex-wrap: wrap;
-    padding-left: $padding-1 / 2;
-    padding-right: $padding-1 / 2;
+    padding-left: $padding-g / 2;
+    padding-right: $padding-g / 2;
 
     @include respond( $mobile-breakpoint ) {
         padding-left: $padding-m;
         padding-right: $padding-m;
     }
 }
-.grid--length-2 {
-    justify-content: space-between;
-
-    .grid__item {
-        width: $tall-width-0;
-        max-width: $text-width;
-        box-sizing: content-box;
-
-        @include respond( $tablet-breakpoint ) {
-            width: 50%;
-            max-width: 50%;
-            box-sizing: border-box;
-        }
-
-        @include respond( $mobile-breakpoint ) {
-            width: 100%;
-            max-width: 100%;
-        }
-    }
-}
+// .grid--length-2 {
+//     justify-content: space-between;
+//
+//     .grid__item {
+//         width: $tall-width-0;
+//         max-width: $text-width;
+//         box-sizing: content-box;
+//
+//         @include respond( $tablet-breakpoint ) {
+//             width: 50%;
+//             max-width: 50%;
+//             box-sizing: border-box;
+//         }
+//
+//         @include respond( $mobile-breakpoint ) {
+//             width: 100%;
+//             max-width: 100%;
+//         }
+//     }
+// }
 .grid__item {
-    padding-left: $padding-1 / 2;
-    padding-right: $padding-1 / 2;
-    padding-bottom: $expander-1;
+    padding-left: $padding-g / 2;
+    padding-right: $padding-g / 2;
+    padding-bottom: $expander-m;
     width: 33.333333%;
 
     @include respond( $tablet-breakpoint ) {
@@ -59,23 +53,12 @@
     }
 }
 .grid__info {
-    padding-top: $padding-m / 2;
+    padding-top: $expander-0;
 }
 .grid__title {
-    @include p();
-
-    @include respond( $mobile-breakpoint ) {
-        @include p();
-    }
+    @include m();
 }
-.grid__meta {
-    padding-top: $padding-m / 2;
-    display: block;
-
-    span {
-        @include a( $black );
-    }
-}
+.grid__meta {}
 
 
 

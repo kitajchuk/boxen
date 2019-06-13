@@ -19,8 +19,13 @@
     line-height: 1;
     color: $black;
 
+    .is-boxen-page &,
     .is-uid-page & {
         color: $white;
+    }
+
+    &.is-active {
+        color: $purple;
     }
 }
 
@@ -58,6 +63,10 @@
 .navi-mobile__a {
     color: $white;
     line-height: 42 / 24;
+
+    &.is-active {
+        color: $purple;
+    }
 }
 .navi-mobile__socials {
     margin-top: $expander-1 / 2;

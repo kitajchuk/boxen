@@ -64,7 +64,8 @@ const router = {
             this.controller.setConfig([
                 "/",
                 ":view",
-                ":view/:uid"
+                ":view/:uid",
+                ":view/:uid/:uid2"
             ]);
 
             // this.controller.setModules( [] );
@@ -106,7 +107,7 @@ const router = {
     initPage ( data ) {
         this.setDoc( data );
         this.setState( "now", data );
-        this.setState( "future", null );
+        this.setState( "future", data );
         this.setClass();
         navi.setActive( this.state.now.view );
         core.dom.main[ 0 ].innerHTML = this.doc.html;
@@ -160,6 +161,7 @@ const router = {
         this.state[ time ] = {
             raw: data && data || null,
             uid: data && data.request.params.uid || null,
+            uid2: data && data.request.params.uid2 || null,
             view: data && data.request.params.view || core.config.homepage,
             cat: data && data.request.query.category || null,
             tag: data && data.request.query.tag || null
@@ -174,6 +176,10 @@ const router = {
 
         if ( this.state.future.uid ) {
             core.dom.html.addClass( `is-uid-page` );
+        }
+
+        if ( this.state.future.uid2 ) {
+            core.dom.html.addClass( `is-uid2-page` );
         }
 
         if ( this.state.future.cat ) {
@@ -193,6 +199,10 @@ const router = {
 
         if ( this.state.now.uid && !this.state.future.uid ) {
             core.dom.html.removeClass( `is-uid-page` );
+        }
+
+        if ( this.state.now.uid2 && !this.state.future.uid2 ) {
+            core.dom.html.removeClass( `is-uid2-page` );
         }
 
         if ( this.state.now.cat && !this.state.future.cat ) {

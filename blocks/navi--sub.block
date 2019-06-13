@@ -1,0 +1,17 @@
+{.var @itemsCount items|count}
+{.if @itemsCount}
+    <div class="sqs-block-horizontalrule"><hr /></div>
+    <nav class="navi-sub js-navi-sub -wrap" data-content-field="navigation-navi--sub">
+        <ul class="navi-sub__ul">
+            {.repeated section items}
+                {.if collection}
+                    {.var @title collection.title}
+                    {.var @url collection.fullUrl}
+                {.end}
+                <li class="navi-sub__li navi__li--{@title|slugify}">
+                    <a class="navi-sub__a navi-sub__a--{@title|slugify} js-navi-a js-navi--{@title|slugify} m" href="{@url}">{@title}</a>
+                </li>
+            {.end}
+        </ul>
+    </nav>
+{.end}

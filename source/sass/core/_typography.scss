@@ -42,3 +42,33 @@ p, h1, h2, h3 {
         @include a( $teal );
     }
 }
+
+
+
+/******************************************************************************
+ * Colors
+*******************************************************************************/
+.teal {
+    color: $teal;
+}
+.green {
+    color: $green;
+}
+.yellow {
+    color: $yellow;
+}
+.red {
+    color: $red;
+}
+.pink {
+    color: $pink;
+}
+.purple {
+    color: $purple;
+}
+.blue {
+    color: $blue;
+}
+.grey {
+    color: $grey;
+}

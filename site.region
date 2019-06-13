@@ -42,7 +42,9 @@
                     {@|apply dev-cart.block}
             {# Main Content #}
                 {.or}
+                    <squarespace:folder-navigation template="navi--cover" />
                     {squarespace.main-content}
+                    <squarespace:folder-navigation template="navi--sub" />
                 {.end}
         </main>
         <div class="intro js-intro screen screen--dark is-active">

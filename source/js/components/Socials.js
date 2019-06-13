@@ -17,10 +17,16 @@ class Socials {
         this.elements = elements;
         this.blit = new Controller();
         this.tick = 0;
-        this.test = {
-            npm: /npmjs\.com/,
-            tabi: /tabinohana\.com/
-        };
+        this.tests = [
+            {
+                name: "npm",
+                regex: /npmjs\.com/
+            },
+            {
+                name: "tabi",
+                regex: /tabinohana\.com/
+            }
+        ];
 
         this.init();
     }
@@ -28,6 +34,19 @@ class Socials {
 
     init () {
         this.blit.go( this.handle.bind( this ) );
+    }
+
+
+    testLink ( link ) {
+        let ret = null;
+
+        this.tests.forEach(( test ) => {
+            if ( test.regex.test( link.href ) ) {
+                ret = test;
+            }
+        });
+
+        return ret;
     }
 
 
@@ -49,8 +68,10 @@ class Socials {
 
                     if ( unLinked.length ) {
                         unLinked.forEach(( link, ii ) => {
-                            if ( this.test.npm.test( link.href ) || this.test.tabi.test( link.href ) ) {
-                                link.innerHTML = socialsView( this, unLinked.eq( ii ) );
+                            const tested = this.testLink( link );
+
+                            if ( tested ) {
+                                link.innerHTML = socialsView( this, tested, unLinked.eq( ii ) );
                             }
                         });
                     }

@@ -129,6 +129,14 @@
         .btn {
             margin-top: $expander-0;
         }
+
+        pre {
+            @include mono();
+            white-space: pre;
+            overflow: auto;
+            padding-top: $expander-0;
+            padding-bottom: $expander-0;
+        }
     }
 }
 

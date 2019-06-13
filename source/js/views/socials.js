@@ -1,19 +1,15 @@
 // import $ from "properjs-hobo";
-const svgNpm = require( `../../../blocks/svg-npm.block` );
-const svgTabi = require( `../../../blocks/svg-tabi.block` );
+const svgMap = {
+    npm: require( `../../../blocks/svg-npm.block` ),
+    tabi: require( `../../../blocks/svg-tabi.block` )
+};
 
 
 
-export default ( instance, link ) => {
-    if ( instance.test.npm.test( link[ 0 ].href ) ) {
-        link.addClass( "npm-unauth" );
-    }
-
-    if ( instance.test.tabi.test( link[ 0 ].href ) ) {
-        link.addClass( "tabi-unauth" );
-    }
+export default ( instance, test, link ) => {
+    link.addClass( `${test.name}-unauth` );
 
     return `<div>
-        ${instance.test.npm.test( link[ 0 ].href ) ? `${svgNpm}` : instance.test.tabi.test( link[ 0 ].href ) ? `${svgTabi}` : ``}
+        ${svgMap[ test.name ]}
     </div>`;
 };

@@ -1,0 +1,12 @@
+<div class="cover">
+    {.section mainImage}
+        <div class="cover__image media js-media">
+            <div class="media__wrap">
+                <img class="media__node image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
+            </div>
+        </div>
+    {.end}
+    <div class="cover__title -wrap -exp">
+        <h1>{title} &mdash; {description|safe}</h1>
+    </div>
+</div>
