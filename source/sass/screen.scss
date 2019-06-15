@@ -40,13 +40,14 @@
 /******************************************************************************
  * Squarespace layout-engine mods here
 *******************************************************************************/
-@import "sqs";
+@import "sqs/layout";
+@import "sqs/commerce";
+@import "sqs/blocks";
+@import "sqs/overrides";
 
 
 
 /******************************************************************************
- * UI State
- *
- * These are last as they should be honored above all else.
+ * Utility modifiers
 *******************************************************************************/
 @import "modifiers";

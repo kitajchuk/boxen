@@ -33,12 +33,27 @@
     }
 }
 ._svg--npm {
-    width: 64px !important;
-    height: 20.48px !important;
+    width: 64px;
+    height: 20.48px;
     fill: $teal;
 }
 ._svg--tabi {
-    width: 43px !important;
-    height: 29px !important;
+    width: 43px;
+    height: 29px;
     fill: $teal;
+}
+._svg--cyborg {
+    width: 197px;
+    height: 515px;
+    fill: $grey-dark;
+}
+._svg--robot {
+    width: 493px;
+    height: 438px;
+    fill: $grey-dark;
+}
+._svg--fallgirl {
+    width: 383px;
+    height: 465px;
+    fill: $grey-dark;
 }

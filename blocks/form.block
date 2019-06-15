@@ -1,4 +1,3 @@
-<div class="_form js-form">
+<form class="form js-form">
     <script type="application/json">{@|json}</script>
-    <script>console.log({@|json-pretty});</script>
-</div>
+</form>

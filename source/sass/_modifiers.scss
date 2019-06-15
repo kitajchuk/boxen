@@ -3,10 +3,10 @@
 *******************************************************************************/
 .-wrap {
     @include wrap();
-    }
+}
 .-exp {
     @include exp();
-    }
+}
 
 
 
@@ -17,19 +17,19 @@
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
-    }
+}
 .-cover--top {
     background-position: 50% 0;
-    }
+}
 .-cover--right {
     background-position: 100% 50%;
-    }
+}
 .-cover--bottom {
     background-position: 50% 100%;
-    }
+}
 .-cover--left {
     background-position: 0 50%;
-    }
+}
 
 
 
@@ -38,22 +38,13 @@
 *******************************************************************************/
 .-text--center {
     text-align: center;
-    }
+}
 .-text--right {
     text-align: right;
-    }
+}
 .-text--left {
     text-align: left;
-    }
-.-dark {
-    color: $black;
-    }
-.-light {
-    color: $white;
-    }
-.-grey {
-    color: $grey;
-    }
+}
 .-fzero {
     font-size: 0;
-    }
+}

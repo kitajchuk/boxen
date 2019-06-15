@@ -5,13 +5,17 @@
  * .media--embed {}
  * .media--tall {}
 *******************************************************************************/
-.media {
+.media {}
+.media__wrap {
     position: relative;
     width: 100%;
 }
-.media__wrap {
-    display: inline-block;
+.media__node {
+    position: absolute;
+    left: 0;
+    top: 0;
     width: 100%;
+    height: 100%;
 }
 .media__cap {
     text-align: left;
@@ -26,7 +30,7 @@
  * Image nodes
 *******************************************************************************/
 .image {
-    width: 100%;
+    max-width: 100%;
 }
 
 

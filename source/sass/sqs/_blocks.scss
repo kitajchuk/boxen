@@ -1,0 +1,91 @@
+/******************************************************************************
+ * SQS Blocks
+*******************************************************************************/
+.sqs-block-spacer {
+    .sqs-block-content {
+        height: $expander-1 !important;
+    }
+}
+.sqs-block-horizontalrule {
+    hr {
+        background-color: $grey-dark;
+        height: 1px;
+        margin-top: $expander-1;
+        margin-bottom: $expander-1;
+    }
+}
+.sqs-block-form {
+    .sqs-block-content {
+        @include wrap();
+    }
+}
+.sqs-block-newsletter {
+    .sqs-block-content {}
+}
+.sqs-block-tagcloud {
+    .sqs-block-content {}
+}
+.sqs-block-summary-v2 {
+    .sqs-block-content {}
+}
+.sqs-block-product {
+    .sqs-block-content {}
+}
+.sqs-block-audio {
+    .sqs-block-content {}
+}
+.sqs-block-gallery {
+    .sqs-block-content {}
+}
+.sqs-block-image {
+    .sqs-block-content {}
+}
+.sqs-block-video {
+    .sqs-block-content {}
+}
+.sqs-block-html {
+    .sqs-block-content {
+        @include wrap();
+
+        blockquote {
+            p {
+                @include m();
+
+                @include respond( $mobile-breakpoint ) {
+                    display: inline;
+                }
+            }
+        }
+
+        blockquote + p,
+        blockquote + h1,
+        blockquote + h2,
+        blockquote + h3,
+        blockquote + blockquote {
+            margin-top: $expander-0;
+        }
+    }
+}
+.sqs-block-button{
+    .sqs-block-content {
+        @include wrap();
+        margin-top: $expander-0;
+    }
+}
+.sqs-block-code {
+    .sqs-block-content {
+        @include wrap();
+
+        .btn {
+            margin-top: $expander-0;
+        }
+
+        pre {
+            @include mono();
+            white-space: pre;
+            overflow: auto;
+            padding-top: $expander-0;
+            padding-bottom: $expander-0;
+        }
+    }
+}

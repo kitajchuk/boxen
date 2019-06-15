@@ -1,4 +1,0 @@
-<div class="_quote js-quote">
-    <script type="application/json">{@|json}</script>
-    <script>console.log({@|json-pretty});</script>
-</div>

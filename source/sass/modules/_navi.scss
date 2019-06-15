@@ -1,8 +1,13 @@
 .navi {}
-.navi__li {
+.navi__li,
+.navi-sub__li {
     display: inline-block;
     vertical-align: middle;
     margin-left: $header-padding;
+
+    &:nth-child( 1 ) {
+        margin-left: 0;
+    }
 
     @include respond( $mobile-breakpoint ) {
         display: none;

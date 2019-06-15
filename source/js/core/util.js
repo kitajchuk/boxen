@@ -151,8 +151,10 @@ const loadImages = function ( images, handler ) {
     // Normalize the images
     images = (images || dom.main.find( config.lazyImageSelector ));
 
+    // Process the images
     images.forEach(( el, i ) => {
         const image = images.eq( i );
+        const parent = image.parent();
         const data = image.data();
 
         // Normalize for mobile media asset
@@ -174,9 +176,10 @@ const loadImages = function ( images, handler ) {
             const dims = getOriginalDims( data.originalSize );
             const ratio = (dims.height / dims.width) * 100;
 
+            parent[ 0 ].style.paddingBottom = `${ratio}%`;
+
             if ( ratio > 100 ) {
                 image.addClass( "image--tall" );
-                image.closest( ".js-media" ).addClass( "media--tall" );
 
             } else if ( ratio >= 75 ) {
                 image.addClass( "image--box" );

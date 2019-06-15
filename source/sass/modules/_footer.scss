@@ -34,3 +34,40 @@
         margin-bottom: $expander-1 / 2;
     }
 }
+.footer__graphics {
+    display: none;
+
+    .robot,
+    .cyborg,
+    .fallgirl {
+        display: none;
+    }
+
+    .robot,
+    .cyborg {
+        @include wrapr();
+    }
+
+    .cyborg {
+        .is-hire-page & {
+            display: flex;
+            justify-content: flex-end;
+
+            @include respond( $tablet-breakpoint ) {
+                margin-top: $expander-m;
+                justify-content: center;
+            }
+        }
+
+        ._svg {
+            @include respond( $tablet-breakpoint ) {
+                width: auto;
+                height: $break-mobile-small;
+            }
+        }
+    }
+
+    .is-hire-page & {
+        display: block;
+    }
+}

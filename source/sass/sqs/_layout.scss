@@ -1,0 +1,32 @@
+/******************************************************************************
+ * SQS Layout
+*******************************************************************************/
+[class*=sqs-col] {
+    float: none;
+    display: inline-block;
+}
+[class*=sqs-col] .sqs-block {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-top: 0;
+    padding-bottom: 0;
+    box-shadow: none;
+}
+
+
+.sqs-layout .sqs-row {
+    margin-left: 0;
+    margin-right: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.sqs-layout > .sqs-row {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+.sqs-row:before,
+.sqs-row:after {
+    display: none;
+}

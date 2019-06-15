@@ -11,7 +11,7 @@ let _instance = null;
  *
  * @public
  * @class Metrics
- * @classdesc Handles Squarespace Metrics and Google Analytics.
+ * @classdesc Handles Squarespace Metrics ( Analytics ).
  *
  */
 class Metrics {
@@ -20,8 +20,6 @@ class Metrics {
             core.emitter.on( "app--metrics-pageview", this.pushTrack.bind( this ) );
 
             core.log( "Metrics initialized" );
-
-            this.apiEndpoint = "/api/census/RecordHit";
 
             _instance = this;
         }
@@ -109,7 +107,7 @@ class Metrics {
         }
 
         return $.ajax({
-            url: `${this.apiEndpoint}?crumb=${Store.crumb}`,
+            url: `/api/census/RecordHit?crumb=${Store.crumb}`,
             method: "POST",
             data: {
                 event: "View",

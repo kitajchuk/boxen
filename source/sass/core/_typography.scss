@@ -32,10 +32,18 @@ h3, .h3, h3 p {
 p, h1, h2, h3 {
     em {
         color: $teal;
+
+        strong {
+            color: $blue;
+        }
     }
 
     strong {
         color: $grey;
+
+        em {
+            color: $pink;
+        }
     }
 
     a {

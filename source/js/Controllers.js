@@ -2,7 +2,6 @@ import * as core from "./core";
 import debounce from "properjs-debounce";
 import ResizeController from "properjs-resizecontroller";
 import ImageController from "./controllers/ImageController";
-// import AnimateController from "./controllers/AnimateController";
 import BaseController from "./controllers/BaseController";
 // import Newsletter from "./services/Newsletter";
 // import Search from "./services/Search";
@@ -12,6 +11,7 @@ import BaseController from "./controllers/BaseController";
 // import Slider from "./components/Slider";
 // import Issue from "./components/Issue";
 import Socials from "./components/Socials";
+import Form from "./services/Form";
 
 
 
@@ -76,6 +76,7 @@ class Controllers {
         // this.push( "audio", this.element.find( ".js-audio" ), BaseController, Audio );
         // this.push( "slider", this.element.find( ".js-slider" ), BaseController, Slider );
         // this.push( "commerce", this.element.find( ".js-shop, .js-product, #sqs-cart-root" ), BaseController, Commerce );
+        this.push( "forms", core.dom.body.find( ".js-form" ), BaseController, Form );
 
         // Hinge on Squarespace selectors...
         // this.push( "video", this.element.find( ".sqs-block-video" ), BaseController, Video );
@@ -83,16 +84,12 @@ class Controllers {
 
         this.init();
 
-        // this.animController = new AnimateController( this.element );
-
         this.images = this.element.find( core.config.lazyImageSelector );
         this.imageController = new ImageController( this.images );
         this.imageController.on( "preloaded", () => {
             if ( this.callback ) {
                 this.callback();
             }
-
-            // this.animController.start();
         });
 
         this.resizeController = new ResizeController();
@@ -113,10 +110,6 @@ class Controllers {
         if ( this.resizeController ) {
             this.resizeController.destroy();
         }
-
-        // if ( this.animController ) {
-        //     this.animController.destroy();
-        // }
 
         this.kill();
     }

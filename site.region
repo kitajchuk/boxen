@@ -47,15 +47,12 @@
                     <squarespace:folder-navigation template="navi--sub" />
                 {.end}
         </main>
-        <div class="intro js-intro screen screen--dark is-active">
-            <header class="header -wrap">
-                <div class="header__logo">
-                    {@|apply svg-logo.block}
-                </div>
-                <div class="header__navi">&nbsp;</div>
-            </header>
-        </div>
         <footer class="footer js-footer">
+            <div class="footer__graphics">
+                <div class="cyborg">{@|apply svg-cyborg.block}</div>
+                <div class="robot">{@|apply svg-robot.block}</div>
+                <div class="fallgirl">{@|apply svg-fallgirl.block}</div>
+            </div>
             <div class="sqs-block-horizontalrule"><hr /></div>
             <div class="footer__wrap -wrap">
                 <div class="footer__main">
@@ -66,6 +63,14 @@
                 </div>
             </div>
         </footer>
+        <div class="intro js-intro screen screen--dark is-active">
+            <header class="header -wrap">
+                <div class="header__logo">
+                    {@|apply svg-logo.block}
+                </div>
+                <div class="header__navi">&nbsp;</div>
+            </header>
+        </div>
         <script type="text/javascript" src="/scripts/boxen.js?v={squarespace.template-revision}"></script>
         {squarespace-footers}
     </body>

@@ -1,33 +1,112 @@
 /******************************************************************************
+ * Forms
+*******************************************************************************/
+.form {
+    width: 100%;
+    max-width: $form-width;
+
+    &.is-success {
+        max-width: $text-width;
+    }
+}
+.form__entry {
+    .is-success & {
+        display: none;
+    }
+}
+.form__message {
+    display: none;
+    padding: 20px;
+    border-radius: 10px;
+    border: 3px solid $purple;
+
+    p:last-child {
+        margin-top: $expander-0;
+    }
+
+    .is-success & {
+        display: block;
+    }
+}
+.form__fieldset {
+    margin-bottom: 20px;
+}
+.form__checks {
+    label {
+        display: flex;
+        align-items: center;
+    }
+
+    span {
+        display: inline-block;
+        margin-left: 20px;
+    }
+}
+
+
+
+
+/******************************************************************************
  * Buttons
 *******************************************************************************/
-.btn {
-    @include m();
-    background-color: $teal;
-    padding: 0 40px;
-    line-height: 1;
-    color: $black;
-    cursor: pointer;
-    -webkit-appearance: none;
-    outline: 0;
-    border: 0;
-    display: inline-block;
-    cursor: pointer;
-    text-align: center;
-    height: $input-height;
-    display: inline-flex;
-    align-items: center;
-    box-sizing: border-box;
+.inp {
+    @include input();
+}
+.area {
+    @include textarea();
+}
+.sel {
+    @include select();
+}
+.sel-wrap {
     position: relative;
-    transition: background-color $base-duration $ease;
 
-    .is-hoverable &:hover {
-        background-color: mix( black, $teal, 25% );
+    &.is-error:before {
+        background-color: $red;
     }
 
-    @include respond( $mobile-breakpoint ) {
-        height: $input-height-m;
+    &.is-success:before {
+        background-color: $green;
     }
+
+    &:before {
+        content: "";
+        width: $input-height;
+        height: $input-height;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform:translate3d( 0, -50%, 0 );
+        background-color: $purple;
+        pointer-events: none;
+        transition: background-color $base-duration $ease;
+
+        @include respond( $mobile-breakpoint ) {
+            height: $input-height-m;
+            width: $input-height-m;
+        }
+    }
+
+    &:after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 10px 10px 0 10px;
+        border-color: $white transparent transparent transparent;
+        pointer-events: none;
+        position: absolute;
+        right: $input-height / 2;
+        top: 50%;
+        transform: translate3d( 50%, -40%, 0 );
+
+        @include respond( $mobile-breakpoint ) {
+            right: $input-height-m / 2;
+        }
+    }
+}
+.btn {
+    @include button();
 
     .btn__a {}
 }
@@ -77,37 +156,5 @@
 
     .is-hoverable &:hover {
         background-color: mix( black, $blue, 25% );
-    }
-}
-.inp {
-    @include m();
-    @include placeholder( $grey-dark );
-    line-height: 1;
-    padding: 0 40px;
-    -webkit-appearance: none;
-    outline: 0;
-    border: 3px solid $purple;
-    background-color: transparent;
-    color: $white;
-    padding: 0;
-    width: 480px;
-    max-width: 100%;
-    height: $input-height;
-    border-radius: 0;
-    display: inline-block;
-    vertical-align: middle;
-    transition: color $base-duration $ease,
-                border-color $base-duration $ease;
-
-    @include respond( $mobile-breakpoint ) {
-        height: $input-height-m;
-    }
-
-    &.is-invalid {
-        border-color: $red;
-    }
-
-    &.is-valid {
-        border-color: $green;
     }
 }

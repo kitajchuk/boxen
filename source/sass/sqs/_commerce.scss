@@ -1,0 +1,17 @@
+/******************************************************************************
+ * SQS Commerce
+*******************************************************************************/
+#sqs-cart-root {
+    @include exp();
+    @include wrap();
+}
+.sqs-widgets-confirmation {
+    .title,
+    .message {
+        @include m();
+    }
+
+    .confirmation-button {
+        @include sqs-alert-button();
+    }
+}

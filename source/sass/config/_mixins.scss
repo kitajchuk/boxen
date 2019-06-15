@@ -161,6 +161,107 @@
 /******************************************************************************
  * Typography: UI
 *******************************************************************************/
+@mixin button() {
+    @include m();
+    background-color: $teal;
+    padding: 0 40px;
+    line-height: 1;
+    color: $black;
+    cursor: pointer;
+    -webkit-appearance: none;
+    outline: 0;
+    border: 0;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    height: $input-height;
+    display: inline-flex;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+    transition: background-color $base-duration $ease;
+
+    .is-hoverable &:hover {
+        background-color: mix( black, $teal, 25% );
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        height: $input-height-m;
+    }
+}
+@mixin input() {
+    @include m();
+    @include placeholder( $grey-dark );
+    line-height: 1;
+    padding: 0 20px;
+    -webkit-appearance: none;
+    outline: 0;
+    border: 3px solid $purple;
+    background-color: transparent;
+    color: $white;
+    width: 100%;
+    max-width: $form-width;
+    height: $input-height;
+    border-radius: 0;
+    display: inline-block;
+    vertical-align: middle;
+    transition: color $base-duration $ease,
+                border-color $base-duration $ease;
+
+    &.is-error {
+        border-color: $red;
+    }
+
+    &.is-success {
+        border-color: $green;
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        height: $input-height-m;
+    }
+}
+@mixin textarea() {
+    @include input();
+    height: $textarea-height;
+    padding-top: 20px;
+
+    @include respond( $mobile-breakpoint ) {
+        height: $textarea-height;
+    }
+}
+@mixin select() {
+    @include m();
+    color: $grey-dark;
+    line-height: 1;
+    padding: 0 20px;
+    -webkit-appearance: none;
+    outline: 0;
+    border: 3px solid $purple;
+    background-color: transparent;
+    width: 100%;
+    max-width: $form-width;
+    height: $input-height;
+    border-radius: 0;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+
+    @include respond( $mobile-breakpoint ) {
+        height: $input-height-m;
+    }
+
+    &.is-error {
+        border-color: $red;
+    }
+
+    &.is-success {
+        border-color: $green;
+    }
+
+    &.is-selected {
+        color: $white;
+    }
+}
 @mixin nbsp() {
     &:before {
         position: relative;
@@ -181,7 +282,7 @@
     padding-left: $padding-1;
     padding-right: $padding-1;
 
-    @include respond( $laptop-breakpoint ) {
+    @include respond( $tablet-breakpoint ) {
         padding-left: $expander-0;
         padding-right: $expander-0;
     }
@@ -194,7 +295,7 @@
 @mixin wrapr() {
     padding-right: $padding-1;
 
-    @include respond( $laptop-breakpoint ) {
+    @include respond( $tablet-breakpoint ) {
         padding-right: $expander-0;
     }
 
@@ -205,7 +306,7 @@
 @mixin wrapl() {
     padding-left: $padding-1;
 
-    @include respond( $laptop-breakpoint ) {
+    @include respond( $tablet-breakpoint ) {
         padding-left: $expander-0;
     }
 
@@ -217,7 +318,7 @@
     padding-left: $padding-1 !important;
     padding-right: $padding-1 !important;
 
-    @include respond( $laptop-breakpoint ) {
+    @include respond( $tablet-breakpoint ) {
         padding-left: $expander-0 !important;
         padding-right: $expander-0 !important;
     }
