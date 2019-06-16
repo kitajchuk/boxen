@@ -4,8 +4,6 @@
 
 
 export default ( instance ) => {
-    console.log( instance );
-
     const getField = ( field ) => {
         let ret = ``;
 

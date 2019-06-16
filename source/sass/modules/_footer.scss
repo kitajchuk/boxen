@@ -1,17 +1,14 @@
 .footer {
     padding-bottom: $expander-1;
 
-    p {
-        color: $grey-dark;
-    }
-
     .sqs-block-html .sqs-block-content {
         padding-left: 0;
         padding-right: 0;
     }
 
     .sqs-block-horizontalrule hr {
-        .is-home-page & {
+        .is-home-page &,
+        .is-colophon-page & {
             margin-top: 0;
         }
     }
@@ -21,6 +18,10 @@
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+
+    p {
+        color: $grey-dark;
+    }
 }
 .footer__main,
 .footer__socials {
@@ -33,6 +34,9 @@
     @include respond( $tablet-breakpoint ) {
         margin-bottom: $expander-1 / 2;
     }
+}
+.footer__signup {
+    margin-bottom: $expander-0;
 }
 .footer__graphics {
     display: none;
@@ -67,7 +71,28 @@
         }
     }
 
-    .is-hire-page & {
+    .fallgirl {
+        .is-colophon-page & {
+            display: flex;
+            justify-content: flex-end;
+            padding-top: $expander-1 * 2;
+            transform: translate3d( 1px, 1px, 0 );
+
+            @include respond( $mobile-breakpoint ) {
+                padding-top: $expander-1;
+            }
+        }
+
+        ._svg {
+            @include respond( $tablet-breakpoint ) {
+                width: auto;
+                height: $break-mobile-small;
+            }
+        }
+    }
+
+    .is-hire-page &,
+    .is-colophon-page & {
         display: block;
     }
 }

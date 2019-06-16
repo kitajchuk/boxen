@@ -1,3 +1,3 @@
-<form class="form js-form" data-block="form">
+<form class="form js-form" data-block="newsletter">
     <script type="application/json">{@|json}</script>
 </form>

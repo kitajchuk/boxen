@@ -76,11 +76,11 @@ class Controllers {
         // this.push( "audio", this.element.find( ".js-audio" ), BaseController, Audio );
         // this.push( "slider", this.element.find( ".js-slider" ), BaseController, Slider );
         // this.push( "commerce", this.element.find( ".js-shop, .js-product, #sqs-cart-root" ), BaseController, Commerce );
-        this.push( "forms", core.dom.body.find( ".js-form" ), BaseController, Form );
+        this.push( "forms", this.element.find( ".js-form" ), BaseController, Form );
 
         // Hinge on Squarespace selectors...
         // this.push( "video", this.element.find( ".sqs-block-video" ), BaseController, Video );
-        this.push( "socials", core.dom.body.find( ".sqs-block-socialaccountlinks-v2" ), BaseController, Socials );
+        this.push( "socials", this.element.find( ".sqs-block-socialaccountlinks-v2" ), BaseController, Socials );
 
         this.init();
 

@@ -1,12 +1,51 @@
 /******************************************************************************
  * Forms
 *******************************************************************************/
+$email-width: 375px;
+
+
+
 .form {
     width: 100%;
     max-width: $form-width;
 
     &.is-success {
         max-width: $text-width;
+    }
+
+    &[data-block="newsletter"] {
+        max-width: $mobile-breakpoint;
+
+        input[type="name"] {
+            display: none;
+        }
+
+        input[type="email"] {
+            max-width: $email-width;
+
+            @include respond( $mobile-breakpoint ) {
+                display: block;
+                text-align: center;
+                max-width: $form-width;
+            }
+        }
+
+        button {
+            @include respond( $mobile-breakpoint ) {
+                display: block;
+                width: 100%;
+                max-width: $form-width;
+            }
+        }
+
+        .form__message {
+            max-width: $form-width;
+        }
+
+        @include respond( $tablet-breakpoint ) {
+            margin: 0 auto;
+            text-align: center;
+        }
     }
 }
 .form__entry {
@@ -20,7 +59,7 @@
     border-radius: 10px;
     border: 3px solid $purple;
 
-    p:last-child {
+    p:nth-child( 3 ) {
         margin-top: $expander-0;
     }
 
@@ -30,6 +69,27 @@
 }
 .form__fieldset {
     margin-bottom: 20px;
+}
+.form__fieldset--inline {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include respond( $tablet-breakpoint ) {
+        justify-content: center;
+    }
+}
+.form__fieldset--title {
+    p {
+        margin-bottom: 20px;
+    }
+
+    p, div {
+        max-width: $form-width;
+
+        @include respond( $tablet-breakpoint ) {
+            display: inline-block;
+        }
+    }
 }
 .form__checks {
     label {

@@ -54,6 +54,9 @@
                 <div class="fallgirl">{@|apply svg-fallgirl.block}</div>
             </div>
             <div class="sqs-block-horizontalrule"><hr /></div>
+            <div class="footer__signup -wrap">
+                <squarespace:block-field id="boxen--footer-signup" columns="12" />
+            </div>
             <div class="footer__wrap -wrap">
                 <div class="footer__main">
                     <squarespace:block-field id="boxen--footer-main" columns="12" />

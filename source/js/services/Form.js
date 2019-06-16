@@ -1,6 +1,15 @@
 import $ from "properjs-hobo";
 import formView from "../views/form";
+import newsletterView from "../views/newsletter";
 import * as core from "../core";
+import router from "../router";
+
+
+
+const views = {
+    form: formView,
+    newsletter: newsletterView
+};
 
 
 
@@ -13,7 +22,8 @@ import * as core from "../core";
  *
  */
 class Form {
-    constructor ( element ) {
+    constructor ( element, data ) {
+        this.data = data;
         this.element = element;
         this.script = this.element.find( "script" ).detach();
         this.blockJson = JSON.parse( this.script[ 0 ].textContent );
@@ -25,7 +35,7 @@ class Form {
 
 
     init () {
-        this.element[ 0 ].innerHTML = formView( this );
+        this.element[ 0 ].innerHTML = views[ this.data.block ]( this );
         this.inputs = this.element.find( ".js-form-input" );
         this.selects = this.element.find( ".js-form-select" );
         this.selwraps = this.selects.parent();
@@ -95,6 +105,31 @@ class Form {
     }
 
 
+    getCollectionId () {
+        return this.blockJson.collectionId || "";
+    }
+
+
+    getPageId () {
+        return this.blockJson.collection ? this.blockJson.collection.id : router.doc.data.collectionId;
+    }
+
+
+    getPagePath () {
+        return this.blockJson.collection ? this.blockJson.collection.fullUrl : window.location.pathname;
+    }
+
+
+    getPageTitle () {
+        return this.blockJson.collection ? this.blockJson.collection.title : document.title;
+    }
+
+
+    getSubmitMessage () {
+        return this.blockJson.formSubmissionHTML || this.blockJson.form.submissionHTML;
+    }
+
+
     saveForm ( key ) {
         return $.ajax({
             url: "/api/form/SaveFormSubmission",
@@ -105,14 +140,14 @@ class Form {
             dataType: "text",
             payload: {
                 contentSource: "c",
-                collectionId: this.blockJson.collectionId,
+                collectionId: this.getCollectionId(),
                 form: JSON.stringify( this.formData ),
                 formId: this.blockJson.formId,
                 key,
                 objectName: this.blockJson.objectName,
-                pageId: this.blockJson.collection.id,
-                pagePath: this.blockJson.collection.fullUrl,
-                pageTitle: this.blockJson.collection.title
+                pageId: this.getPageId(),
+                pagePath: this.getPagePath(),
+                pageTitle: this.getPageTitle()
             }
         });
     }
@@ -174,7 +209,7 @@ class Form {
 
 
     handleSuccess () {
-        this.message[ 0 ].innerHTML = this.blockJson.formSubmissionHTML.replace( "{name}", this.getName() ).replace( "{select}", this.getSelect() );
+        this.message[ 0 ].innerHTML = this.getSubmitMessage().replace( "{name}", this.getName() ).replace( "{select}", this.getSelect() );
         this.element.addClass( "is-success" );
         this.clear();
     }
