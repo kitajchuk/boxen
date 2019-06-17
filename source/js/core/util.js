@@ -154,7 +154,7 @@ const loadImages = function ( images, handler ) {
     // Process the images
     images.forEach(( el, i ) => {
         const image = images.eq( i );
-        const parent = image.parent();
+        // const parent = image.parent();
         const data = image.data();
 
         // Normalize for mobile media asset
@@ -176,7 +176,7 @@ const loadImages = function ( images, handler ) {
             const dims = getOriginalDims( data.originalSize );
             const ratio = (dims.height / dims.width) * 100;
 
-            parent[ 0 ].style.paddingBottom = `${ratio}%`;
+            // parent[ 0 ].style.paddingBottom = `${ratio}%`;
 
             if ( ratio > 100 ) {
                 image.addClass( "image--tall" );

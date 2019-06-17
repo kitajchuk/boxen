@@ -3,15 +3,15 @@
 *******************************************************************************/
 .sqs-block-spacer {
     .sqs-block-content {
-        height: $expander-1 !important;
+        height: 0 !important;
+        @include spacer();
     }
 }
 .sqs-block-horizontalrule {
     hr {
         background-color: $grey-dark;
         height: 1px;
-        margin-top: $expander-1;
-        margin-bottom: $expander-1;
+        @include ruler();
     }
 }
 .sqs-block-form {

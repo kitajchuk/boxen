@@ -43,13 +43,16 @@ class Metrics {
         const mainData = doc.data.itemId ? { itemId: doc.data.itemId } : { collectionId: doc.data.collectionId };
 
         // Squarespace Metrics
-        if ( core.env.isProd() ) {
-            this.recordHit( websiteId, mainData, mainTitle ).then(( res ) => {
-                core.log( "Analytics", res );
+        this.recordHit( websiteId, mainData, mainTitle ).then(( res ) => {
+            core.log( "RecordHit", res );
 
-            }).catch(( error ) => {
-                core.log( "warn", error );
-            });
+        }).catch(( error ) => {
+            core.log( "warn", error );
+        });
+
+        // Google Analytics
+        if ( window.ga ) {
+            window.ga( "send", "pageview", window.location.href );
         }
 
         this.setDocumentTitle( mainTitle );
@@ -85,7 +88,7 @@ class Metrics {
      */
     recordHit ( websiteId, mainData, websiteTitle ) {
         const datas = {
-            url: window.location.href,
+            url: window.location.pathname,
             queryString: window.location.search,
             userAgent: window.navigator.userAgent,
             referrer: "",
@@ -97,6 +100,8 @@ class Metrics {
             title: websiteTitle,
             websiteId: websiteId,
             templateId: websiteId
+            website_locale: "en-US",
+            clientDate: Date.now()
         };
 
         if ( mainData.itemId ) {
@@ -110,8 +115,9 @@ class Metrics {
             url: `/api/census/RecordHit?crumb=${Store.crumb}`,
             method: "POST",
             data: {
-                event: "View",
-                data: JSON.stringify( datas )
+                event: 1,
+                data: JSON.stringify( datas ),
+                ss_cvr: Store.ss_cvr
             },
             dataType: "json",
             headers: {

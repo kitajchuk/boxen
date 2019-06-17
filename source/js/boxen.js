@@ -17,6 +17,7 @@ import navi from "./modules/navi";
 
 // Global components
 const socials = core.dom.footer.find( `.sqs-block-socialaccountlinks-v2` );
+const socials2 = core.dom.naviMobile.find( `.sqs-block-socialaccountlinks-v2` );
 const newsletter = core.dom.footer.find( `.js-form[data-block="newsletter"]` );
 
 
@@ -42,6 +43,10 @@ class Boxen {
 
         if ( socials.length ) {
             this.socials = new Socials( socials, socials.data() );
+        }
+
+        if ( socials2.length ) {
+            this.socials2 = new Socials( socials2, socials2.data() );
         }
 
         if ( newsletter.length ) {

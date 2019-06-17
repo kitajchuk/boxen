@@ -1,38 +1,39 @@
 /******************************************************************************
  * Search
 *******************************************************************************/
-.search {
-    @include wrap();
-}
-.search--block {
-    display: none;
-}
-.search__btn {
-    opacity: 0;
-    transition: opacity $base-duration $ease;
-    margin-left: $padding-m;
+$search-width: 375px;
 
-    &.is-active {
-        opacity: 1;
+
+
+.search {}
+.search__form {
+    @include wrap();
+    display: flex;
+    flex-wrap: wrap;
+
+    @include respond( $tablet-breakpoint ) {
+        max-width: $mobile-breakpoint;
+        margin: 0 auto;
+        justify-content: center;
     }
+}
+.search__input {
+    max-width: $search-width;
 
     @include respond( $mobile-breakpoint ) {
-        display: none;
+        display: block;
+        text-align: center;
+        max-width: $form-width;
     }
 }
-.results {
-    .results__loading {
-        @include wrap();
-        opacity: 0;
-        transition: opacity $base-duration $ease;
-        height: 0;
-
-        &.is-active {
-            opacity: 1;
-            height: auto;
-        }
+.search__btn {
+    @include respond( $mobile-breakpoint ) {
+        display: block;
+        width: 100%;
+        max-width: $form-width;
     }
-
+}
+.search__results {
     .lds-ellipsis {
         transform: translateX( -6px );
     }
@@ -49,30 +50,13 @@
         }
     }
 }
-.filters {
+.search__loading {
+    opacity: 0;
+    transition: opacity $base-duration $ease;
     @include wrap();
-    @include expt();
 
-    .is-tagged &,
-    .is-keytext & {
-        display: none;
-    }
-}
-.tags {}
-.tags__label {
-    color: $grey;
-    padding-bottom: $padding-m;
-}
-.tags__tag {
-    line-height: 1.65;
-
-    span {
-        display: inline-block;
-        cursor: pointer;
-        transition: color $base-duration $ease;
-
-        .is-hoverable &:hover {
-            color: $grey;
-        }
+    &.is-active {
+        opacity: 1;
+        height: auto;
     }
 }

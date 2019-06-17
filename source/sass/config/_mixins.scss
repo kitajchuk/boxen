@@ -273,14 +273,37 @@
         }
     }
 }
+@mixin spacer() {
+    padding-top: $expander-m;
+    padding-bottom: $expander-m;
+
+    @include respond( $mobile-breakpoint ) {
+        padding-top: $expander-0;
+        padding-bottom: $expander-0;
+    }
+}
+@mixin ruler() {
+    margin-top: $expander-1;
+    margin-bottom: $expander-1;
+
+    @include respond( $mobile-breakpoint ) {
+        margin-top: $expander-0 * 2;
+        margin-bottom: $expander-0 * 2;
+    }
+}
 
 
 /******************************************************************************
  * Layout: Containers
 *******************************************************************************/
 @mixin wrap() {
-    padding-left: $padding-1;
-    padding-right: $padding-1;
+    padding-left: $padding-v;
+    padding-right: $padding-v;
+
+    @include respond( $laptop-breakpoint ) {
+        padding-left: $padding-1;
+        padding-right: $padding-1;
+    }
 
     @include respond( $tablet-breakpoint ) {
         padding-left: $expander-0;
@@ -293,7 +316,11 @@
     }
 }
 @mixin wrapr() {
-    padding-right: $padding-1;
+    padding-right: $padding-v;
+
+    @include respond( $laptop-breakpoint ) {
+        padding-right: $padding-1;
+    }
 
     @include respond( $tablet-breakpoint ) {
         padding-right: $expander-0;
@@ -304,7 +331,11 @@
     }
 }
 @mixin wrapl() {
-    padding-left: $padding-1;
+    padding-left: $padding-v;
+
+    @include respond( $laptop-breakpoint ) {
+        padding-left: $padding-1;
+    }
 
     @include respond( $tablet-breakpoint ) {
         padding-left: $expander-0;
@@ -315,8 +346,13 @@
     }
 }
 @mixin wrap-imp() {
-    padding-left: $padding-1 !important;
-    padding-right: $padding-1 !important;
+    padding-left: $padding-v !important;
+    padding-right: $padding-v !important;
+
+    @include respond( $laptop-breakpoint ) {
+        padding-left: $padding-1 !important;
+        padding-right: $padding-1 !important;
+    }
 
     @include respond( $tablet-breakpoint ) {
         padding-left: $expander-0 !important;
@@ -332,6 +368,11 @@
     padding-top: $expander-1;
     padding-bottom: $expander-1;
 
+    @include respond( $laptop-breakpoint ) {
+        padding-top: $expander-v;
+        padding-bottom: $expander-v;
+    }
+
     @include respond( $mobile-breakpoint ) {
         padding-top: $expander-m;
         padding-bottom: $expander-m;
@@ -340,12 +381,20 @@
 @mixin expt() {
     padding-top: $expander-1;
 
+    @include respond( $laptop-breakpoint ) {
+        padding-top: $expander-v;
+    }
+
     @include respond( $mobile-breakpoint ) {
         padding-top: $expander-m;
     }
 }
 @mixin expb() {
     padding-bottom: $expander-1;
+
+    @include respond( $laptop-breakpoint ) {
+        padding-bottom: $expander-v;
+    }
 
     @include respond( $mobile-breakpoint ) {
         padding-bottom: $expander-m;

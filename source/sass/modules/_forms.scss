@@ -112,6 +112,9 @@ $email-width: 375px;
 .inp {
     @include input();
 }
+.inp--grey {
+    border-color: $grey-dark;
+}
 .area {
     @include textarea();
 }
@@ -216,5 +219,13 @@ $email-width: 375px;
 
     .is-hoverable &:hover {
         background-color: mix( black, $blue, 25% );
+    }
+}
+.btn--grey {
+    background-color: $grey-dark;
+    color: mix( black, $grey-dark, 90% );
+
+    .is-hoverable &:hover {
+        background-color: mix( black, $grey-dark, 25% );
     }
 }

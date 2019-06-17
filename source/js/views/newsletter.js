@@ -8,13 +8,13 @@ export default ( instance ) => {
         let ret = ``;
 
         if ( field.name ) {
-            ret = `<input type="${field.type}" class="inp js-form-input" ${field.required ? `required` : ``} placeholder="Your name" name="${field.id}" value="Automoton" />`;
+            ret = `<input type="${field.type}" class="inp inp--grey js-form-input" ${field.required ? `required` : ``} placeholder="Your name" name="${field.id}" value="Automoton" />`;
         }
 
         if ( field.email ) {
             ret = `
-                <input type="email" class="inp js-form-input" ${field.required ? `required` : ``} placeholder="Your email" name="${field.id}" />
-                <button type="submit" class="btn btn--purple js-form-submit">${instance.blockJson.form.submitButtonText}</button>
+                <input type="email" class="inp inp--grey js-form-input" ${field.required ? `required` : ``} placeholder="Your email" name="${field.id}" />
+                <button type="submit" class="btn btn--grey js-form-submit">${instance.blockJson.form.submitButtonText}</button>
             `;
         }
 

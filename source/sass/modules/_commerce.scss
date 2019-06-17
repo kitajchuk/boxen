@@ -7,96 +7,9 @@
         @include wrap();
     }
 }
-.stack {
-    @include wrap();
-
-    &.stack--sub {
-        background-color: $black;
-        color: $white;
-
-        .stack__info {
-            p {
-                @include a( $white );
-            }
-        }
-    }
-
-    & + .stack:not( .stack--sub ) {
-        .stack__wrap {
-            border-top: 2px solid $grey-dark;
-
-            @include respond( $break-tablet-small ) {
-                border-top: 0;
-            }
-        }
-    }
-
-    .stack__wrap {
-        padding-top: $expander-1;
-        padding-bottom: $expander-1;
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        align-items: center;
-        width: 100%;
-    }
-
-    .stack__image {
-        width: 670px;
-
-        @include respond( $laptop-breakpoint ) {
-            width: 470px;
-        }
-
-        @include respond( $tablet-breakpoint ) {
-            width: 320px;
-        }
-
-        @include respond( $break-tablet-small ) {
-            width: 100%;
-            max-width: 470px;
-        }
-    }
 
 
 
-    .stack__info {
-        padding-left: 200px;
-        max-width: $text-width;
-        width: sqs-calc( "100% - 670px" );
-
-        h3 {
-            .shop & {
-                margin-bottom: $padding-m;
-            }
-        }
-
-        p {
-            display: inline-block;
-            @include a( $black );
-        }
-
-        @include respond( $break-laptop-full ) {
-            padding-left: 7.8125vw;
-        }
-
-        @include respond( $laptop-breakpoint ) {
-            width: sqs-calc( "100% - 470px" );
-        }
-
-        @include respond( $tablet-breakpoint ) {
-            width: sqs-calc( "100% - 320px" );
-        }
-
-        @include respond( $break-tablet-small ) {
-            width: 100%;
-            max-width: 470px;
-            padding-left: 0;
-            padding-top: $padding-m;
-        }
-    }
-
-}
 .product {
     @include p1-cols();
 
@@ -265,12 +178,4 @@
             padding-left: $padding-m;
         }
     }
-}
-.issue {}
-.issue__button {
-    z-index: 1;
-}
-.issue__desc {
-    padding-top: $padding-1;
-    padding-bottom: $padding-1;
 }
