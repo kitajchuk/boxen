@@ -231,8 +231,8 @@ Store.isStorageSupported = (function () {
     let ret = true;
 
     try {
-        _session.setItem( "app-test", 1 );
-        _session.removeItem( "app-test" );
+        _session.setItem( "boxen-test", 1 );
+        _session.removeItem( "boxen-test" );
 
     } catch ( err ) {
         ret = false;

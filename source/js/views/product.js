@@ -1,49 +1,48 @@
 export default ( instance ) => {
+    console.log( instance );
+
     const item = instance.data.item;
-    const isOutOfStock = (item.structuredContent.variants[ 0 ].qtyInStock === 0);
-    const getAttributes = () => {
-        const attrs = [];
-
-        for ( const i in item.structuredContent.variants[ 0 ].attributes ) {
-            if ( item.structuredContent.variants[ 0 ].attributes.hasOwnProperty( i ) ) {
-                attrs.push( `<p>${item.structuredContent.variants[ 0 ].attributes[ i ]}</p>` );
-            }
-        }
-
-        return attrs.join( "" );
-    };
+    const variant = item.structuredContent.variants[ 0 ];
 
     return `
-        <div class="p1 ${isOutOfStock ? `is-out-of-stock` : ``}">
-            <div class="text-col">
-                <div class="p1__title">
-                    <h3>${item.isSubscribable ? item.title : (item.excerpt || item.title)}</h3>
-                </div>
-                <div class="p1__button sqs-row">
-                    <div class="_button js-button_" data-block-json="">${item.structuredContent.customAddButtonText}</div>
-                    <div class="sqs-block-content">
-                        <p class="p">$${item.structuredContent.variants[ 0 ].priceMoney.value}</p>
+        <div class="stack">
+            <div class="stack__item">
+                <div class="sqs-block-spacer"><div class="sqs-block-content"></div></div>
+                <div class="stack__link">
+                    <div class="stack__mast">
+                        <div class="stack__primo">
+                            <div class="stack__title" data-content-field="title">${item.title}</div>
+                            <div class="stack__meta">
+                                ${item.tags.map(( tag ) => {
+                                    return `<span class="teal">${tag}</span>`;
+
+                                }).join( ", " )}
+                            </div>
+                        </div>
+                        <div class="stack__bounce">
+                            <p class="green">$${variant.priceMoney.value}</p>
+                        </div>
                     </div>
-                </div>
-                <div class="p1__shipping">
-                    <p>Free standard <a href="#" target="_blank">domestic shipping</a></p>
-                </div>
-                <div class="p1__attributes">
-                    ${getAttributes()}
-                </div>
-            </div>
-            <div class="image-col">
-                <div class="media js-media">
-                    <div class="media__wrap">
-                        <img class="media__node image js-lazy-image" data-img-src="${item.assetUrl}" data-variants="${item.systemDataVariants}" data-original-size="${item.originalSize}" />
-                    </div>
+                    <img class="stack__image image js-lazy-image" data-img-src="${item.assetUrl}" data-variants="${item.systemDataVariants}" data-original-size="${item.originalSize}" />
                 </div>
             </div>
         </div>
-        <article data-item-id="${item.id}" class="story story--detail js-story">
-            <div class="story__blocks">
+        <div class="product__info cms">
+            <div class="product__about">
                 ${item.body}
             </div>
+            <div class="product__buy">
+                <a class="btn js-cart-add" href="#"><span class="btn__a">${item.structuredContent.customAddButtonText}</span></a>
+            </div>
+        </div>
+        <div class="product__photos">
+            ${item.items.map(( image ) => {
+                return `
+                    <div class="sqs-block-spacer"><div class="sqs-block-content"></div></div>
+                    <img class="stack__image image js-lazy-image" data-img-src="${image.assetUrl}" data-variants="${image.systemDataVariants}" data-original-size="${image.originalSize}" />
+                `;
+
+            }).join( "" )}
         </div>
     `;
 };

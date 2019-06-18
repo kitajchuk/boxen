@@ -1,3 +1,7 @@
+$mason-gap: 55px;
+
+
+
 .grid {
     align-items: flex-start;
     display: flex;
@@ -73,6 +77,30 @@
 
 
 
+.mason {
+    @include wrap();
+    column-count: 2;
+    column-gap: $mason-gap;
+}
+.mason__item {
+    display: inline-block;
+    vertical-align: top;
+    width: 100%;
+}
+.mason__title,
+.mason__meta {
+    @include p();
+}
+.mason__meta,
+.mason__info {
+    padding-top: 20px;
+}
+.mason__info {
+    padding-bottom: $padding-1;
+}
+
+
+
 .stack {}
 .stack__title {
     @include h2();
@@ -86,58 +114,36 @@
     @include wrap();
     padding-top: $expander-0;
 }
+.stack__mast {
+    @include wrap();
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-bottom: $expander-0;
 
+    .stack__title {
+        @include h1();
+    }
+    .stack__meta {
+        @include p();
+        padding-top: 20px;
+    }
 
+    .stack__primo {
+        @include respond( $tablet-breakpoint ) {
+            width: 100%;
+        }
+    }
 
-// .pinned {
-//     width: 100%;
-//     align-items: center;
-//     display: flex;
-//     justify-content: flex-start;
-//     flex-wrap: wrap;
-//
-//     .pinned__info {
-//         padding-left: $padding-1 / 2;
-//         padding-right: $padding-1 / 2;
-//         width: 33.333333%;
-//
-//         @include respond( $tablet-breakpoint ) {
-//             width: 100%;
-//             padding-top: $padding-m / 2;
-//             order: 2;
-//         }
-//
-//         @include respond( $mobile-breakpoint ) {
-//             padding-left: 0;
-//             padding-right: 0;
-//         }
-//     }
-//
-//     .pinned__image {
-//         padding-left: $padding-1 / 2;
-//         padding-right: $padding-1 / 2;
-//         width: 66.666666%;
-//
-//         @include respond( $tablet-breakpoint ) {
-//             width: 100%;
-//             order: 1;
-//         }
-//
-//         @include respond( $mobile-breakpoint ) {
-//             padding-left: 0;
-//             padding-right: 0;
-//         }
-//     }
-//
-//     .grid__title {
-//         padding-right: $padding-1;
-//
-//         @include respond( $tablet-breakpoint ) {
-//             padding-right: 0;
-//         }
-//
-//         @include respond( $mobile-breakpoint ) {
-//             @include p();
-//         }
-//     }
-// }
+    .stack__bounce {
+        @include respond( $tablet-breakpoint ) {
+            width: 100%;
+            margin-top: $expander-0;
+        }
+    }
+}
+.stack__bounce {
+    .btn {
+        width: 256px;
+    }
+}

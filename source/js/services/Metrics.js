@@ -99,7 +99,7 @@ class Metrics {
             screenWidth: window.screen.width,
             title: websiteTitle,
             websiteId: websiteId,
-            templateId: websiteId
+            templateId: websiteId,
             website_locale: "en-US",
             clientDate: Date.now()
         };

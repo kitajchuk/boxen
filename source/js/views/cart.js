@@ -13,13 +13,16 @@ export default ( shopJSON, cartJSON ) => {
 
     return `
         <div class="cart">
+            <div class="sqs-block-spacer"><div class="sqs-block-content"></div></div>
+            <h1 class="teal">Your cart</h1>
+            <div class="sqs-block-spacer"><div class="sqs-block-content"></div></div>
             ${cartJSON.message ? `
                 <p>${cartJSON.message}</p>
             ` : `
                 <div class="cart__tabular">
-                    <div>ITEM</div>
-                    <div>QTY</div>
-                    <div>PRICE</div>
+                    <div class="teal">Items</div>
+                    <div class="teal">Qty.</div>
+                    <div class="teal">Price</div>
                 </div>
                 ${cartJSON.entries.map(( entry ) => {
                     const item = shopJSON.items.find(( itm ) => {
@@ -44,22 +47,23 @@ export default ( shopJSON, cartJSON ) => {
                                 </div>
                             </div>
                             <div class="cart__qty js-cart-qty">
-                                <div class="p min js-cart-qty-min">-</div>
-                                <div class="p js-cart-qty-val">${entry.quantity}</div>
-                                <div class="p add js-cart-qty-add">+</div>
+                                <div class="m min red js-cart-qty-min">-</div>
+                                <div class="m js-cart-qty-val">${entry.quantity}</div>
+                                <div class="m add green js-cart-qty-add">+</div>
                             </div>
                             <div class="cart__price">
-                                <p class="js-cart-price">${window.Y.Squarespace.Commerce.moneyString( entry.subTotal )}</p>
+                                <p class="m green js-cart-price">${window.Y.Squarespace.Commerce.moneyString( entry.subTotal )}</p>
                             </div>
                         </div>
                     `;
 
                 }).join( "" )}
                 <div class="cart__subtotal">
-                    <div class="_button js-cart-checkout">Checkout</div>
-                    <p>Subtotal <span class="js-cart-subtotal">${window.Y.Squarespace.Commerce.moneyString( cartJSON.grandTotalCents )}</span></p>
+                    <div class="btn js-cart-checkout"><span class="btn__a">Checkout</span></div>
+                    <p class="m">Subtotal <span class="js-cart-subtotal">${window.Y.Squarespace.Commerce.moneyString( cartJSON.grandTotalCents )}</span></p>
                 </div>
             `}
+            <div class="sqs-block-spacer"><div class="sqs-block-content"></div></div>
         </div>
     `;
 };

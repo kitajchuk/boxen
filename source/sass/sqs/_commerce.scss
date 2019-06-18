@@ -2,7 +2,6 @@
  * SQS Commerce
 *******************************************************************************/
 #sqs-cart-root {
-    @include exp();
     @include wrap();
 }
 .sqs-widgets-confirmation {
@@ -14,4 +13,7 @@
     .confirmation-button {
         @include sqs-alert-button();
     }
+}
+.absolute-cart-box {
+    display: none !important;
 }

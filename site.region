@@ -43,7 +43,9 @@
             {# Main Content #}
                 {.or}
                     <squarespace:folder-navigation template="navi--cover" />
-                    {squarespace.main-content}
+                    <section class="cms">
+                        {squarespace.main-content}
+                    </section>
                     <squarespace:folder-navigation template="navi--sub" />
                 {.end}
         </main>
@@ -53,7 +55,7 @@
                 <div class="robot">{@|apply svg-robot.block}</div>
                 <div class="fallgirl">{@|apply svg-fallgirl.block}</div>
             </div>
-            <div class="sqs-block-horizontalrule"><hr /></div>
+            {@|apply ruler.block}
             <div class="footer__signup -wrap">
                 <squarespace:block-field id="boxen--footer-signup" columns="12" />
             </div>

@@ -1,56 +1,87 @@
 /******************************************************************************
  * Commerce
 *******************************************************************************/
-.shop {
-    .grid {
-        @include exp();
-        @include wrap();
+.shop {}
+.shop__mast {
+    h1 {
+        margin-bottom: $expander-0;
+    }
+}
+
+
+
+.starred {
+    @include wrap();
+    display: block;
+
+    .starred__title {
+        @include h1();
+    }
+
+    .starred__meta {
+        @include p();
+        margin-top: 20px;
+    }
+
+    .starred__info {
+        margin-top: $expander-0;
     }
 }
 
 
 
 .product {
-    @include p1-cols();
-
-    .p1 {
-        @include exp();
-        @include wrap();
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        align-items: center;
-    }
-
-    .p1__shipping {
-        padding-bottom: $padding-m;
-    }
-
-    .story {
-        padding-top: 0;
-        padding-bottom: $expander-1;
-    }
-
-    .cta--static {
-        padding-left: 0;
-        padding-right: 0;
-        @include exp();
-    }
-
-    .image-col {
-        @include respond( $mobile-breakpoint ) {
-            padding-top: $padding-m;
-        }
+    .btn {
+        width: 256px;
     }
 }
+.product__info {
+    @include wrap();
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding-top: $expander-0;
+
+    p {
+        @include m();
+    }
+
+    .sqs-block-content {
+        padding: 0 !important;
+    }
+}
+.product__about,
+.product__buy {
+    @include respond( $tablet-breakpoint ) {
+        width: 100%;
+    }
+}
+.product__buy {
+    @include respond( $tablet-breakpoint ) {
+        order: 1;
+        margin-bottom: $expander-0;
+    }
+}
+.product__about {
+    @include respond( $tablet-breakpoint ) {
+        order: 2;
+    }
+}
+
+
+
 .cart {
     .cart__tabular {
-        @include m();
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding-bottom: $padding-m;
-        border-bottom: 2px solid $grey-dark;
+        padding-bottom: $expander-0;
+        border-bottom: 1px solid $grey-dark;
+
+        div {
+            @include m();
+        }
     }
 
     .cart__tabular > div:nth-child( 1 ),
@@ -59,17 +90,17 @@
     }
 
     .cart__entry {
-        @include exp();
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        border-bottom: 2px solid $grey-dark;
+        border-bottom: 1px solid $grey-dark;
         user-select: none;
+        @include exp();
 
         @include respond( $tablet-breakpoint ) {
             flex-wrap: wrap;
-            justify-content: flex-end;
+            justify-content: flex-start;
         }
     }
 
@@ -109,27 +140,14 @@
             cursor: pointer;
         }
 
-        .min {
-            svg {
-                transform: rotate( 90deg );
-            }
-        }
+        .min {}
 
-        .add {
-            svg {
-                transform: rotate( -90deg );
-            }
-        }
+        .add {}
 
-        .p {
-            padding: 0 $padding-m;
+        .m {
+            padding: 0 8px;
             text-align: center;
-            width: 90px;
-
-            @include respond( $mobile-breakpoint ) {
-                padding: 0 ($padding-m / 2);
-                width: 60px;
-            }
+            width: 32px;
         }
     }
 
@@ -142,7 +160,7 @@
 
     .cart__thumb {
         width: 100%;
-        max-width: 310px;
+        max-width: 256px;
 
         @include respond( $mobile-breakpoint ) {
             max-width: 100%;
@@ -150,7 +168,7 @@
     }
 
     .cart__desc {
-        padding-left: $padding-1;
+        padding-left: $expander-0;
 
         @include respond( $mobile-breakpoint ) {
             width: 100%;
@@ -160,22 +178,22 @@
     }
 
     .cart__title {
-        p {}
+        @include p();
     }
 
     .cart__attrs {
         color: $grey;
-        padding-top: $padding-m;
+        padding-top: 10px;
     }
 
     .cart__subtotal {
-        padding-top: $padding-m * 2;
+        padding-top: $expander-0;
         display: flex;
-        justify-content: flex-end;
+        justify-content: space-between;
         align-items: center;
 
         p {
-            padding-left: $padding-m;
+            padding-left: $expander-0;
         }
     }
 }

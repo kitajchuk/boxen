@@ -105,6 +105,10 @@ const router = {
      *
      */
     initPage ( data ) {
+        if ( data.status === 404 ) {
+            core.dom.html.addClass( "is-404-page" );
+        }
+
         this.setDoc( data );
         this.setState( "now", data );
         this.setState( "future", data );
@@ -193,6 +197,8 @@ const router = {
 
 
     unsetClass () {
+        core.dom.html.removeClass( "is-404-page" );
+
         if ( this.state.now.view !== this.state.future.view ) {
             core.dom.html.removeClass( `is-${this.state.now.view}-page` );
         }

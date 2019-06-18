@@ -12,6 +12,7 @@ import Form from "./services/Form";
 import Socials from "./components/Socials";
 import intro from "./modules/intro";
 import navi from "./modules/navi";
+import Store from "./core/Store";
 
 
 
@@ -37,6 +38,7 @@ class Boxen {
         this.navi = navi;
         this.router = router;
         this.$ = $;
+        this.Store = Store;
 
         // Services
         this.metrics = new Metrics();

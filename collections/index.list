@@ -1,7 +1,7 @@
 {.section collection}
     {@|apply cover.block}
 {.end}
-<div class="sqs-block-horizontalrule"><hr /></div>
+{@|apply ruler.block}
 <nav class="navi-sub js-navi-sub -wrap" data-content-field="navigation-navi--sub">
     <ul class="navi-sub__ul">
         {.repeated section collection.collections}

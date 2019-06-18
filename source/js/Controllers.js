@@ -3,8 +3,6 @@ import debounce from "properjs-debounce";
 import ResizeController from "properjs-resizecontroller";
 import ImageController from "./controllers/ImageController";
 import BaseController from "./controllers/BaseController";
-// import Newsletter from "./services/Newsletter";
-// import Commerce from "./services/Commerce";
 // import Video from "./components/Video";
 // import Audio from "./components/Audio";
 // import Slider from "./components/Slider";
@@ -12,6 +10,7 @@ import BaseController from "./controllers/BaseController";
 import Socials from "./components/Socials";
 import Form from "./services/Form";
 import Search from "./services/Search";
+import Commerce from "./services/Commerce";
 
 
 
@@ -74,9 +73,9 @@ class Controllers {
         // this.push( "newsletter", this.element.find( ".js-newsletter" ), BaseController, Newsletter );
         // this.push( "audio", this.element.find( ".js-audio" ), BaseController, Audio );
         // this.push( "slider", this.element.find( ".js-slider" ), BaseController, Slider );
-        // this.push( "commerce", this.element.find( ".js-shop, .js-product, #sqs-cart-root" ), BaseController, Commerce );
         this.push( "forms", this.element.find( ".js-form" ), BaseController, Form );
         this.push( "search", this.element.find( ".js-search, .sqs-search-page" ), BaseController, Search );
+        this.push( "commerce", this.element.find( ".js-shop, .js-product, #sqs-cart-root" ), BaseController, Commerce );
 
         // Hinge on Squarespace selectors...
         // this.push( "video", this.element.find( ".sqs-block-video" ), BaseController, Video );

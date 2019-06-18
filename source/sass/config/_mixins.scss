@@ -177,6 +177,7 @@
     height: $input-height;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     box-sizing: border-box;
     position: relative;
     transition: background-color $base-duration $ease;
@@ -277,6 +278,11 @@
     padding-top: $expander-m;
     padding-bottom: $expander-m;
 
+    @include respond( $laptop-breakpoint ) {
+        padding-top: $expander-v2;
+        padding-bottom: $expander-v2;
+    }
+
     @include respond( $mobile-breakpoint ) {
         padding-top: $expander-0;
         padding-bottom: $expander-0;
@@ -285,6 +291,11 @@
 @mixin ruler() {
     margin-top: $expander-1;
     margin-bottom: $expander-1;
+
+    @include respond( $laptop-breakpoint ) {
+        margin-top: $expander-v;
+        margin-bottom: $expander-v;
+    }
 
     @include respond( $mobile-breakpoint ) {
         margin-top: $expander-0 * 2;
@@ -398,39 +409,6 @@
 
     @include respond( $mobile-breakpoint ) {
         padding-bottom: $expander-m;
-    }
-}
-@mixin p1-cols() {
-    .image-col {
-        @include diptych();
-
-        @include respond( $tablet-breakpoint ) {
-            width: 100%;
-        }
-    }
-
-    .text-col {
-        width: sqs-calc( "100% - #{$tall-width-0}" );
-
-        &:first-child {
-            @include wrapr();
-
-            @include respond( $mobile-breakpoint ) {
-                padding-right: 0;
-            }
-        }
-
-        &:last-child {
-            @include wrapl();
-
-            @include respond( $mobile-breakpoint ) {
-                padding-left: 0;
-            }
-        }
-
-        @include respond( $tablet-breakpoint ) {
-            width: 100%;
-        }
     }
 }
 

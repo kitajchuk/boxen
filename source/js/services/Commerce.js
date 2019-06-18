@@ -61,7 +61,7 @@ class Commerce {
         this.product = this.element.is( ".js-product" ) ? this.element : [];
         this.cart = this.element.is( "#sqs-cart-root" ) ? this.element : [];
         this.view = this.shop.length ? shopView : productView;
-        this.data = this.shop.length ? { items: this.parsed } : { item: this.parsed };
+        this.data = this.parsed;
         this.cartData = {};
 
         this.init();
@@ -71,7 +71,7 @@ class Commerce {
 
 
     bind () {
-        this.element.on( "click", ".js-button_", () => {
+        this.element.on( "click", ".js-cart-add", () => {
             const payload = {
                 sku: this.data.item.structuredContent.variants[ 0 ].sku,
                 itemId: this.data.item.id,
@@ -162,7 +162,7 @@ class Commerce {
     fetchShop () {
         return new Promise(( resolve, reject ) => {
             $.ajax({
-                url: "/shop/",
+                url: "/prints/",
                 method: "GET",
                 dataType: "json",
                 data: {

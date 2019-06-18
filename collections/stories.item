@@ -1,5 +1,31 @@
 <article data-item-id="{item.id}" class="story story--detail js-story">
-    <div class="story__blocks">
+    {.if item.customContent.coverImage}
+        {.var @image item.customContent.coverImage}
+    {.or}
+        {.var @image item}
+    {.end}
+    <div class="stack">
+        <div class="stack__item js-lazy-anim">
+            {@|apply expander.block}
+            <div class="stack__link">
+                <div class="stack__mast">
+                    <div class="stack__primo">
+                        <div class="stack__title" data-content-field="title">{item.title}</div>
+                        <div class="stack__meta">
+                            {.repeated section item.tags}<span class="teal">{@}</span>{.alternates with}, {.end}
+                        </div>
+                    </div>
+                    <div class="stack__bounce">
+                        {.if item.customContent.webUrl}
+                            <a class="btn js-btn" href="{item.customContent.webUrl}" target="_blank"><span class="btn__a">View site</span></a>
+                        {.end}
+                    </div>
+                </div>
+                <img class="stack__image image js-lazy-image" data-img-src="{@image.assetUrl}" data-variants="{@image.systemDataVariants}" data-original-size="{@image.originalSize}" />
+            </div>
+        </div>
+    </div>
+    <div class="story__blocks cms">
         {item.body}
     </div>
 </article>

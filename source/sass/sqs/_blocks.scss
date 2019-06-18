@@ -64,6 +64,12 @@
         blockquote + blockquote {
             margin-top: $expander-0;
         }
+
+        p[data-rte-preserve-empty] {
+            .cms & {
+                height: $expander-0;
+            }
+        }
     }
 }
 .sqs-block-button{
