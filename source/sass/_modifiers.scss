@@ -7,6 +7,15 @@
 .-exp {
     @include exp();
 }
+.-expt {
+    @include expt();
+}
+.-expb {
+    @include expb();
+}
+.-hr {
+    @include ruler();
+}
 
 
 

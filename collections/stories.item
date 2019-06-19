@@ -4,9 +4,8 @@
     {.or}
         {.var @image item}
     {.end}
-    <div class="stack">
+    <div class="stack -expt">
         <div class="stack__item js-lazy-anim">
-            {@|apply expander.block}
             <div class="stack__link">
                 <div class="stack__mast">
                     <div class="stack__primo">

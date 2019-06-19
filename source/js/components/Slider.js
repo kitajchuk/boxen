@@ -1,7 +1,6 @@
-// import * as core from "../core";
+import * as core from "../core";
 import $ from "properjs-hobo";
 import { TweenLite, Power3 } from "gsap/TweenMax";
-import ResizeController from "properjs-resizecontroller";
 
 
 /**
@@ -23,7 +22,6 @@ class Slider {
         this.time = 500;
         this.index = 0;
 
-        this.init();
         this.bind();
     }
 
@@ -35,10 +33,14 @@ class Slider {
             this.evaluate( target );
         });
 
-        this.resizer = new ResizeController();
-        this.resizer.on( "resize", () => {
-            this.evaluate( this.items.eq( this.index ) );
-        });
+        this.__appResize = this.doResize.bind( this );
+
+        core.emitter.on( "app--resize", this.__appResize );
+    }
+
+
+    doResize () {
+        this.evaluate( this.items.eq( this.index ) );
     }
 
 
@@ -95,13 +97,8 @@ class Slider {
     }
 
 
-    init () {}
-
-
     destroy () {
-        if ( this.resizer ) {
-            this.resizer.destroy();
-        }
+        core.emitter.off( "app--resize", this.__appResize );
     }
 }
 

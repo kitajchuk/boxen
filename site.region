@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="is-{collection.title|slugify}-page {.if item}is-uid-page{.end}">
+<html class="is-{collection.title|slugify}-page {.if item}is-uid-page{.end} is-site-intro">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -68,14 +68,7 @@
                 </div>
             </div>
         </footer>
-        <div class="intro js-intro screen screen--dark is-active">
-            <header class="header -wrap">
-                <div class="header__logo">
-                    {@|apply svg-logo.block}
-                </div>
-                <div class="header__navi">&nbsp;</div>
-            </header>
-        </div>
+        <div class="intro js-intro screen screen--dark is-active"></div>
         <script type="text/javascript" src="/scripts/boxen.js?v={squarespace.template-revision}"></script>
         {squarespace-footers}
     </body>

@@ -1,5 +1,4 @@
 import * as core from "../core";
-// import $ from "properjs-hobo";
 import Controller from "properjs-controller";
 import socialsView from "../views/socials";
 

@@ -30,7 +30,18 @@
         fill: $white;
         width: 114px;
         height: 96.19px;
+
+        @include respond( $mobile-breakpoint ) {
+            width: 64px;
+            height: 54px;
+        }
     }
+}
+._svg--play {
+    width: $input-height;
+    height: $input-height;
+    fill: $white;
+    pointer-events: none;
 }
 ._svg--npm {
     width: 64px;

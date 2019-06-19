@@ -289,6 +289,8 @@
     }
 }
 @mixin ruler() {
+    background-color: $grey-dark;
+    height: 1px;
     margin-top: $expander-1;
     margin-bottom: $expander-1;
 

@@ -1,15 +1,15 @@
 .header {
     position: relative;
     z-index: $z_layer_header;
-    background-color: $white;
     height: $header-height;
     padding-bottom: $header-padding;
     width: 100%;
-    z-index: $z_layer_header;
+    z-index: $z_layer_intro + 1;
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
     pointer-events: none;
+    overflow: hidden;
     transition: transform $base-duration $ease,
                 opacity $base-duration $ease,
                 background-color $base-duration $ease,
@@ -17,20 +17,38 @@
                 padding-bottom $base-duration $ease,
                 align-items $base-duration $ease;
 
-    .intro & {
-        background-color: transparent;
+    &:before {
+        content: "";
+        background-color: $white;
+        position: absolute;
+        left: 0;
+        width: 100%;
+        top: 0;
+        height: 100%;
+        z-index: 1;
+        transition: transform $base-duration $ease-menu-0;
+
+        .is-uid-page &,
+        .is-boxen-page &,
+        .is-navi-mobile & {
+            background-color: $black;
+        }
+
+        .is-site-intro & {
+            transform: translate3d( 0, 100%, 0 );
+        }
     }
 
-    .is-boxen-page &,
-    .is-uid-page & {
+    .is-uid-page &,
+    .is-boxen-page & {
         background-color: $black;
         height: $header-height-detail;
         padding-bottom: 0;
         align-items: center;
-    }
 
-    .is-navi-mobile & {
-        background-color: $black;
+        @include respond( $mobile-breakpoint ) {
+            height: $header-height-mobile;
+        }
     }
 
     @include respond( $mobile-breakpoint ) {
@@ -41,5 +59,12 @@
 }
 .header__logo,
 .header__navi {
+    position: relative;
     pointer-events: auto;
+    z-index: 2;
+    transition: opacity $base-duration $ease $base-duration;
+
+    .is-site-intro & {
+        opacity: 0;
+    }
 }

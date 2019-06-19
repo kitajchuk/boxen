@@ -1,5 +1,10 @@
 .footer {
     padding-bottom: $expander-1;
+    transition: opacity $fast-duration $ease;
+
+    .is-tranny & {
+        opacity: 0;
+    }
 
     .sqs-block-html .sqs-block-content {
         padding-left: 0;
@@ -85,7 +90,7 @@
         ._svg {
             @include respond( $tablet-breakpoint ) {
                 width: auto;
-                height: $break-mobile-small;
+                height: 256px;
             }
         }
     }

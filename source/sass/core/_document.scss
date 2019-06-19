@@ -7,9 +7,14 @@ html {
     transition: color $base-duration $ease,
                 background-color $base-duration $ease;
 
-    &.is-intro,
-    &.is-tranny {
+    &.is-tranny,
+    &.is-site-intro,
+    &.is-navi-mobile {
         overflow: hidden;
+    }
+
+    &.is-scrolling {
+        pointer-events: none;
     }
 }
 body {
@@ -21,8 +26,8 @@ body {
     -webkit-tap-highlight-color: rgba( 0, 0, 0, 0 );
     -webkit-touch-callout: none;
 
-    &.is-intro,
-    &.is-tranny {
+    &.is-tranny,
+    &.is-site-intro {
         overflow: hidden;
     }
 }

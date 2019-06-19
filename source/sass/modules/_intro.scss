@@ -8,4 +8,10 @@
     &.is-active {
         z-index: $z_layer_intro;
     }
+
+    .is-tranny & {
+        opacity: 1;
+        visibility: visible;
+        z-index: $z_layer_intro;
+    }
 }

@@ -1,17 +1,14 @@
 export default ( instance ) => {
-    console.log( instance );
-
     const starred = instance.data.items.find(( item ) => item.starred );
     const items = instance.data.items.filter(( item ) => !item.starred );
 
     return `
         <div class="shop__mast">
-            <div class="sqs-block-spacer"><div class="sqs-block-content"></div></div>
-            <div class="-wrap">
+            <div class="-wrap -expt">
                 <h1><em>${instance.data.collection.title}</em></h1>
                 ${instance.data.collection.description}
             </div>
-            <div class="sqs-block-horizontalrule"><hr /></div>
+            <div class="-hr"></div>
         </div>
         ${starred ? `
             <a class="shop__starred starred" href="${starred.fullUrl}">
@@ -27,8 +24,7 @@ export default ( instance ) => {
                 </div>
             </a>
         ` : ``}
-        <div class="sqs-block-spacer"><div class="sqs-block-content"></div></div>
-        <div class="shop__grid mason">
+        <div class="shop__grid mason -expt">
             ${items.map(( item ) => {
                 return `
                     <div class="mason__item">

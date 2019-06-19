@@ -7,7 +7,7 @@ let _initialized = false;
 
 // Session Storage
 let _cache = {};
-const _access = "app-cache";
+const _access = "boxen-cache";
 const _session = window.sessionStorage;
 
 

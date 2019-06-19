@@ -1,5 +1,4 @@
 import $ from "properjs-hobo";
-import Controller from "properjs-controller";
 import PageController from "properjs-pagecontroller";
 import Controllers from "./Controllers";
 import * as core from "./core";
@@ -25,7 +24,6 @@ const router = {
      */
     init () {
         this.element = core.dom.body.find( ".js-router" ).detach();
-        this.blit = new Controller();
         this.animDuration = 500;
         this.controllers = new Controllers({
             el: core.dom.main,
@@ -33,10 +31,6 @@ const router = {
                 this.topper();
             }
         });
-
-        // core.emitter.on( "app--intro-teardown", () => {
-        //     // Nothing?``
-        // });
 
         // Transition page state stuff
         this.state = {
@@ -224,22 +218,21 @@ const router = {
     changePageOut ( data ) {
         core.dom.html.addClass( "is-tranny" );
         this.setState( "future", data );
-        this.unsetClass();
-        this.setClass();
         navi.setActive( this.state.future.view );
         navi.close();
-        this.topper();
     },
 
 
     changeContent ( data ) {
         this.controllers.destroy();
         this.setDoc( data );
+        this.unsetClass();
+        this.setClass();
         this.setState( "now", data );
         core.dom.main[ 0 ].innerHTML = this.doc.html;
         this.topper();
         this.controllers.exec();
-        core.emitter.fire( "app--metrics-pageview", this.doc );
+        core.emitter.fire( "app--tracker", this.doc );
     },
 
 

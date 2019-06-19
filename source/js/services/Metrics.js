@@ -3,21 +3,23 @@ import $ from "properjs-hobo";
 import Store from "../core/Store";
 
 
+
 // Singleton
 let _instance = null;
+
 
 
 /**
  *
  * @public
  * @class Metrics
- * @classdesc Handles Squarespace Metrics ( Analytics ).
+ * @classdesc Squarespace Metrics ( Analytics ). Google GA if applicable.
  *
  */
 class Metrics {
     constructor () {
         if ( !_instance ) {
-            core.emitter.on( "app--metrics-pageview", this.pushTrack.bind( this ) );
+            core.emitter.on( "app--tracker", this.pushTrack.bind( this ) );
 
             core.log( "Metrics initialized" );
 
@@ -33,7 +35,7 @@ class Metrics {
      * @public
      * @method pushTrack
      * @param {object} doc The doc object created by router {$doc, $page, pageData, pageHtml}
-     * @memberof class.Analytics
+     * @memberof Metrics
      * @description Parse static context from responseText and track it.
      *
      */
@@ -64,7 +66,7 @@ class Metrics {
      * @public
      * @method setDocumentTitle
      * @param {string} title The new title for the document
-     * @memberof class.Analytics
+     * @memberof Metrics
      * @description Update the documents title.
      *
      */
@@ -80,7 +82,7 @@ class Metrics {
      * @param {string} websiteId The site ID
      * @param {object} mainData IDs for either collection or item
      * @param {string} websiteTitle Page title for tracking
-     * @memberof class.Analytics
+     * @memberof Metrics
      * @description Record sqs metrics for async page requests.
      *              Returned Promise resolves with a data {object}
      * @returns {Promise}

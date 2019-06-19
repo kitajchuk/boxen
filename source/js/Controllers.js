@@ -1,12 +1,9 @@
 import * as core from "./core";
 import debounce from "properjs-debounce";
-import ResizeController from "properjs-resizecontroller";
 import ImageController from "./controllers/ImageController";
 import BaseController from "./controllers/BaseController";
-// import Video from "./components/Video";
-// import Audio from "./components/Audio";
 // import Slider from "./components/Slider";
-// import Issue from "./components/Issue";
+import Video from "./components/Video";
 import Socials from "./components/Socials";
 import Form from "./services/Form";
 import Search from "./services/Search";
@@ -69,16 +66,13 @@ class Controllers {
     exec () {
         this.controllers = [];
 
-        // this.push( "issue", this.element.find( ".js-issue" ), BaseController, Issue );
-        // this.push( "newsletter", this.element.find( ".js-newsletter" ), BaseController, Newsletter );
-        // this.push( "audio", this.element.find( ".js-audio" ), BaseController, Audio );
         // this.push( "slider", this.element.find( ".js-slider" ), BaseController, Slider );
         this.push( "forms", this.element.find( ".js-form" ), BaseController, Form );
         this.push( "search", this.element.find( ".js-search, .sqs-search-page" ), BaseController, Search );
         this.push( "commerce", this.element.find( ".js-shop, .js-product, #sqs-cart-root" ), BaseController, Commerce );
 
         // Hinge on Squarespace selectors...
-        // this.push( "video", this.element.find( ".sqs-block-video" ), BaseController, Video );
+        this.push( "video", this.element.find( ".sqs-block-video" ), BaseController, Video );
         this.push( "socials", this.element.find( ".sqs-block-socialaccountlinks-v2" ), BaseController, Socials );
 
         this.init();
@@ -91,23 +85,22 @@ class Controllers {
             }
         });
 
-        this.resizeController = new ResizeController();
-        this.resizeController.on( "resize", debounce(() => {
+        this.__appResize = debounce(() => {
             this.images.removeAttr( core.config.imageLoaderAttr );
             this.imageController.destroy();
             this.imageController = new ImageController( this.images );
 
-        }, this.resizeBounce ));
+        }, this.resizeBounce );
+
+        core.emitter.on( "app--resize", this.__appResize );
     }
 
 
     destroy () {
+        core.emitter.off( "app--resize", this.__appResize );
+
         if ( this.imageController ) {
             this.imageController.destroy();
-        }
-
-        if ( this.resizeController ) {
-            this.resizeController.destroy();
         }
 
         this.kill();

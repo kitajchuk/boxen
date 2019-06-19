@@ -2,7 +2,7 @@
     <ul class="navi__ul">
         {.repeated section items}
             {.if collection}
-                {.var @title collection.title}
+                {.var @title collection.navigationTitle}
                 {.var @url collection.fullUrl}
             {.end}
             {.if collection.homepage}{.or}

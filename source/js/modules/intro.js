@@ -1,5 +1,5 @@
 import * as core from "../core";
-// import Controller from "properjs-controller";
+
 
 
 /**
@@ -10,19 +10,17 @@ import * as core from "../core";
  *
  */
 const intro = {
-    init () {
-        this.element = core.dom.body.find( ".js-intro" );
-    },
+    init () {},
 
 
     teardown () {
-        this.element.removeClass( "is-active" );
-        core.emitter.fire( "app--intro-teardown" );
+        core.dom.intro.removeClass( "is-active" );
 
         setTimeout(() => {
-            this.element[ 0 ].style.display = "none";
+            core.emitter.fire( "app--intro" );
+            core.dom.html.removeClass( "is-site-intro" );
 
-        }, 500 );
+        }, core.config.defaultDuration );
     }
 };
 

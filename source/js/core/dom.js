@@ -17,7 +17,8 @@ const dom = {
     header: $( ".js-header" ),
     footer: $( ".js-footer" ),
     navi: $( ".js-navi" ),
-    naviMobile: $( ".js-navi-mobile" )
+    naviMobile: $( ".js-navi-mobile" ),
+    intro: $( ".js-intro" )
 };
 
 

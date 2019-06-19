@@ -1,6 +1,4 @@
 export default ( instance ) => {
-    console.log( instance );
-
     const item = instance.data.item;
     const variant = item.structuredContent.variants[ 0 ];
 
@@ -30,6 +28,7 @@ export default ( instance ) => {
         <div class="product__info cms">
             <div class="product__about">
                 ${item.body}
+                <div class="product__limited m yellow">Prints are limited! I have <span class="green">${variant.qtyInStock}</span> remaining.</div>
             </div>
             <div class="product__buy">
                 <a class="btn js-cart-add" href="#"><span class="btn__a">${item.structuredContent.customAddButtonText}</span></a>

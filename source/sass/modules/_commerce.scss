@@ -14,6 +14,11 @@
     @include wrap();
     display: block;
 
+    @include respond( $mobile-breakpoint ) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
     .starred__title {
         @include h1();
     }
@@ -25,6 +30,10 @@
 
     .starred__info {
         margin-top: $expander-0;
+
+        @include respond( $mobile-breakpoint ) {
+            @include wrap();
+        }
     }
 }
 
@@ -33,7 +42,14 @@
 .product {
     .btn {
         width: 256px;
+
+        @include respond( $mobile-breakpoint ) {
+            width: 100%;
+        }
     }
+}
+.product__limited {
+    padding-top: $expander-0;
 }
 .product__info {
     @include wrap();
@@ -47,8 +63,9 @@
         @include m();
     }
 
-    .sqs-block-content {
-        padding: 0 !important;
+    .sqs-block-html .sqs-block-content {
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 .product__about,

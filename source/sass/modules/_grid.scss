@@ -81,15 +81,22 @@ $mason-gap: 55px;
     @include wrap();
     column-count: 2;
     column-gap: $mason-gap;
+
+    @include respond( $mobile-breakpoint ) {
+        column-count: 1;
+        column-gap: 0;
+    }
 }
 .mason__item {
     display: inline-block;
     vertical-align: top;
     width: 100%;
 }
-.mason__title,
-.mason__meta {
+.mason__title {
     @include p();
+}
+.mason__meta {
+    @include m();
 }
 .mason__meta,
 .mason__info {

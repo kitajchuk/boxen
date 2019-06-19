@@ -10,6 +10,7 @@
     right: 0;
     top: 0;
     transition: opacity $base-duration $ease,
+                z-index $base-duration $ease,
                 visibility $base-duration $ease;
     visibility: hidden;
     z-index: $z_layer_screen;
@@ -22,7 +23,7 @@
 }
 .screen--dark {
     background-color: $black;
-    }
+}
 .screen--light {
     background-color: $white;
-    }
+}

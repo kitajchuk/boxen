@@ -51,16 +51,19 @@
 /******************************************************************************
  * Video embed block
 *******************************************************************************/
-.embed {
+.embed {}
+.embed__aspect {
+    background-color: $black;
     overflow: hidden;
     position: relative;
     width: 100%;
-    text-align: left;
-}
-.embed__aspect {
-    background-color: $black;
-    position: relative;
-    width: 100%;
+    cursor: pointer;
+
+    .is-hoverable &:hover {
+        ._svg {
+            transform: scale( 1.10 );
+        }
+    }
 }
 .embed__poster,
 .embed__element {
@@ -72,6 +75,18 @@
 }
 .embed__poster {
     transition: opacity $base-duration $ease;
+    pointer-events: none;
+
+    &:before {
+        content: "";
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        background-color: $black;
+        opacity: 0.25;
+    }
 
     .is-embed-playing & {
         opacity: 0;
@@ -79,44 +94,19 @@
     }
 }
 .embed__playbtn {
-    cursor: pointer;
     left: 50%;
     position: absolute;
     top: 50%;
     transform: translate3d( -50%, -50%, 0 );
     transition: opacity $base-duration $ease;
+    pointer-events: none;
 
     ._svg {
         transition: transform $base-duration $ease;
     }
 
-    .is-hoverable &:hover {
-        ._svg {
-            transform: scale( 1.10 );
-        }
-    }
-
     .is-embed-playing & {
         opacity: 0;
         pointer-events: none;
-    }
-}
-.embed__metadata {
-    color: $white;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    padding-right: $padding-1;
-    padding-bottom: $padding-1;
-    transition: opacity $base-duration $ease;
-
-    .is-embed-playing & {
-        opacity: 0;
-        pointer-events: none;
-    }
-
-    @include respond( $mobile-breakpoint ) {
-        padding-right: $padding-m;
-        padding-bottom: $padding-m;
     }
 }

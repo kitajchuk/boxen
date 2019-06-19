@@ -2,7 +2,7 @@
     <ul class="navi-mobile__ul">
         {.repeated section items}
             {.if collection}
-                {.var @title collection.title}
+                {.var @title collection.navigationTitle}
                 {.var @url collection.fullUrl}
             {.end}
             {.if externalLink}

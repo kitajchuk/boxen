@@ -1,27 +1,21 @@
 .main {
-    transition: opacity $fast-duration $ease;
+    transition: opacity $base-duration $ease $base-duration;
 
-    .is-menu-open & {
-        pointer-events: none;
-    }
-
-    .is-tranny & {
+    .is-site-intro & {
         opacity: 0;
     }
 
-    .is-coverpage & {
-        padding-top: 0 !important;
+    .is-navi-mobile & {
+        pointer-events: none;
+    }
+
+    > .cms {
+        .is-404-page & {
+            @include wrap();
+            @include exp();
+        }
     }
 }
 .router {
     display: none;
-}
-
-
-
-.cover {}
-.cover__title {
-    h1 {
-        max-width: 100%;
-    }
 }
