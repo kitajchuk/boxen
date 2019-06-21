@@ -89,9 +89,7 @@
     @include diptych();
     width: sqs-calc( "100% - #{$tall-width-0}" );
 
-    h1, h3, h3 {
-        @include nbsp();
-    }
+    h1, h3, h3 {}
 
     &:first-child {
         @include wrapr();

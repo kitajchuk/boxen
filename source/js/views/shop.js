@@ -19,7 +19,7 @@ export default ( instance ) => {
                         ${starred.tags.map(( tag ) => {
                             return `<span class="teal">${tag}</span>`;
 
-                        }).join( ", " )}
+                        }).join( " " )}
                     </div>
                 </div>
             </a>
@@ -36,7 +36,7 @@ export default ( instance ) => {
                                     ${item.tags.map(( tag ) => {
                                         return `<span class="teal">${tag}</span>`;
 
-                                    }).join( ", " )}
+                                    }).join( " " )}
                                 </div>
                             </div>
                         </a>

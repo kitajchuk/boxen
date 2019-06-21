@@ -98,7 +98,9 @@ $mason-gap: 55px;
 .mason__meta {
     @include m();
 }
-.mason__meta,
+.mason__meta {
+    padding-top: 10px;
+}
 .mason__info {
     padding-top: 20px;
 }
@@ -114,7 +116,7 @@ $mason-gap: 55px;
 }
 .stack__meta {
     @include m();
-    padding-top: 20px;
+    padding-top: 10px;
 }
 .stack__info {
     @include expb();

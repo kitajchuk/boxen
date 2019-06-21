@@ -14,7 +14,7 @@ export default ( instance ) => {
                                 ${item.tags.map(( tag ) => {
                                     return `<span class="teal">${tag}</span>`;
 
-                                }).join( ", " )}
+                                }).join( " " )}
                             </div>
                         </div>
                         <div class="stack__bounce">
