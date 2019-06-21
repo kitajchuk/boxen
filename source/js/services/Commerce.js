@@ -73,11 +73,15 @@ class Commerce {
     bind () {
         this.element.on( "click", ".js-cart-add", () => {
             const payload = {
-                sku: this.data.item.structuredContent.variants[ 0 ].sku,
                 itemId: this.data.item.id,
                 quantity: 1,
                 additionalFields: null
             };
+
+            // digitalGoods will NOT have a sku NOR a variant object
+            if ( this.data.item.structuredContent.variants[ 0 ] ) {
+                payload.sku = this.data.item.structuredContent.variants[ 0 ].sku;
+            }
 
             this.addCart( payload, () => {
                 if ( window.Y.Squarespace.Commerce.isExpressCheckout() ) {

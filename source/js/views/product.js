@@ -1,6 +1,7 @@
 export default ( instance ) => {
     const item = instance.data.item;
     const variant = item.structuredContent.variants[ 0 ];
+    const digital = item.digitalGoods;
 
     return `
         <div class="stack">
@@ -18,7 +19,7 @@ export default ( instance ) => {
                             </div>
                         </div>
                         <div class="stack__bounce">
-                            <p class="green">$${variant.priceMoney.value}</p>
+                            <p class="green">$${digital ? item.structuredContent.priceMoney.value : variant.priceMoney.value}</p>
                         </div>
                     </div>
                     <img class="stack__image image js-lazy-image" data-img-src="${item.assetUrl}" data-variants="${item.systemDataVariants}" data-original-size="${item.originalSize}" />
@@ -28,20 +29,22 @@ export default ( instance ) => {
         <div class="product__info cms">
             <div class="product__about">
                 ${item.body}
-                <div class="product__limited m yellow">Prints are limited! I have <span class="green">${variant.qtyInStock}</span> remaining.</div>
+                ${digital ? `` : `<div class="product__limited m yellow">Prints are limited! I have <span class="green">${variant.qtyInStock}</span> remaining.</div>`}
             </div>
             <div class="product__buy">
                 <a class="btn js-cart-add" href="#"><span class="btn__a">${item.structuredContent.customAddButtonText}</span></a>
             </div>
         </div>
-        <div class="product__photos">
-            ${item.items.map(( image ) => {
-                return `
-                    <div class="sqs-block-spacer"><div class="sqs-block-content"></div></div>
-                    <img class="stack__image image js-lazy-image" data-img-src="${image.assetUrl}" data-variants="${image.systemDataVariants}" data-original-size="${image.originalSize}" />
-                `;
+        ${digital ? `` : `
+            <div class="product__photos">
+                ${item.items.map(( image ) => {
+                    return `
+                        <div class="sqs-block-spacer"><div class="sqs-block-content"></div></div>
+                        <img class="stack__image image js-lazy-image" data-img-src="${image.assetUrl}" data-variants="${image.systemDataVariants}" data-original-size="${image.originalSize}" />
+                    `;
 
-            }).join( "" )}
-        </div>
+                }).join( "" )}
+            </div>
+        `}
     `;
 };

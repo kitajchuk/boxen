@@ -2,10 +2,15 @@ export default ( shopJSON, cartJSON ) => {
     const getAttributes = ( item ) => {
         const attrs = [];
 
-        for ( const i in item.structuredContent.variants[ 0 ].attributes ) {
-            if ( item.structuredContent.variants[ 0 ].attributes.hasOwnProperty( i ) ) {
-                attrs.push( `<div class="m">${item.structuredContent.variants[ 0 ].attributes[ i ]}</div>` );
+        if ( item.structuredContent.variants[ 0 ] ) {
+            for ( const i in item.structuredContent.variants[ 0 ].attributes ) {
+                if ( item.structuredContent.variants[ 0 ].attributes.hasOwnProperty( i ) ) {
+                    attrs.push( `<div class="m">${item.structuredContent.variants[ 0 ].attributes[ i ]}</div>` );
+                }
             }
+
+        } else if ( item.digitalGoods ) {
+            attrs.push( `<div class="m">Digital Download</div>` );
         }
 
         return attrs.join( "" );
@@ -47,9 +52,9 @@ export default ( shopJSON, cartJSON ) => {
                                 </div>
                             </div>
                             <div class="cart__qty js-cart-qty">
-                                <div class="m min red js-cart-qty-min">-</div>
+                                ${item.digitalGoods ? `` : `<div class="m min red js-cart-qty-min">-</div>`}
                                 <div class="m js-cart-qty-val">${entry.quantity}</div>
-                                <div class="m add green js-cart-qty-add">+</div>
+                                ${item.digitalGoods ? `` : `<div class="m add green js-cart-qty-add">+</div>`}
                             </div>
                             <div class="cart__price">
                                 <p class="m green js-cart-price">${window.Y.Squarespace.Commerce.moneyString( entry.subTotal )}</p>

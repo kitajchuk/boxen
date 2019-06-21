@@ -8,7 +8,7 @@
                     <div class="stack__info">
                         <div class="stack__title" data-content-field="title">{title}</div>
                         <div class="stack__meta">
-                            {.repeated section tags}<span class="teal">{@}</span>{.alternates with}, {.end}
+                            {.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}
                         </div>
                     </div>
                 </a>

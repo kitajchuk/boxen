@@ -103,9 +103,7 @@ $mason-gap: 55px;
 }
 .mason__info {
     padding-top: 20px;
-}
-.mason__info {
-    padding-bottom: $padding-1;
+    @include expb();
 }
 
 
