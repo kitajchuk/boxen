@@ -22,19 +22,31 @@ export default ( instance ) => {
                             <p class="green">$${digital ? item.structuredContent.priceMoney.value : variant.priceMoney.value}</p>
                         </div>
                     </div>
+                    ${digital ? `
+                        <div class="product__info cms">
+                            <div class="product__about">
+                                ${item.body}
+                            </div>
+                            <div class="product__buy">
+                                <a class="btn js-cart-add" href="#"><span class="btn__a">${item.structuredContent.customAddButtonText}</span></a>
+                            </div>
+                        </div>
+                    ` : ``}
                     <img class="stack__image image js-lazy-image" data-img-src="${item.assetUrl}" data-variants="${item.systemDataVariants}" data-original-size="${item.originalSize}" />
                 </div>
             </div>
         </div>
-        <div class="product__info cms">
-            <div class="product__about">
-                ${item.body}
-                ${digital ? `` : `<div class="product__limited m yellow">Prints are limited! I have <span class="green">${variant.qtyInStock}</span> remaining.</div>`}
+        ${digital ? `` : `
+            <div class="product__info cms">
+                <div class="product__about">
+                    ${item.body}
+                    <div class="product__limited m yellow">Prints are limited! I have <span class="green">${variant.qtyInStock}</span> remaining.</div>
+                </div>
+                <div class="product__buy">
+                    <a class="btn js-cart-add" href="#"><span class="btn__a">${item.structuredContent.customAddButtonText}</span></a>
+                </div>
             </div>
-            <div class="product__buy">
-                <a class="btn js-cart-add" href="#"><span class="btn__a">${item.structuredContent.customAddButtonText}</span></a>
-            </div>
-        </div>
+        `}
         ${digital ? `` : `
             <div class="product__photos">
                 ${item.items.map(( image ) => {
