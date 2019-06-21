@@ -263,24 +263,19 @@
         color: $white;
     }
 }
-@mixin nbsp() {
-    &:before {
-        position: relative;
-        display: inline-block;
-        content: "\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0";
 
-        @include respond( $mobile-breakpoint ) {
-            content: "\00a0\00a0\00a0\00a0";
-        }
-    }
-}
+
+
+/******************************************************************************
+ * Layout: Spacers
+*******************************************************************************/
 @mixin spacer() {
-    padding-top: $expander-m;
-    padding-bottom: $expander-m;
+    padding-top: $expander-v2;
+    padding-bottom: $expander-v2;
 
     @include respond( $laptop-breakpoint ) {
-        padding-top: $expander-v2;
-        padding-bottom: $expander-v2;
+        padding-top: $expander-m;
+        padding-bottom: $expander-m;
     }
 
     @include respond( $mobile-breakpoint ) {
@@ -291,23 +286,60 @@
 @mixin ruler() {
     background-color: $grey-dark;
     height: 1px;
-    margin-top: $expander-1;
-    margin-bottom: $expander-1;
+    margin-top: $expander-v;
+    margin-bottom: $expander-v;
 
     @include respond( $laptop-breakpoint ) {
-        margin-top: $expander-v;
-        margin-bottom: $expander-v;
+        margin-top: $expander-1;
+        margin-bottom: $expander-1;
     }
 
     @include respond( $mobile-breakpoint ) {
-        margin-top: $expander-0 * 2;
-        margin-bottom: $expander-0 * 2;
+        margin-top: $expander-m;
+        margin-bottom: $expander-m;
+    }
+}
+@mixin exp() {
+    padding-top: $expander-v;
+    padding-bottom: $expander-v;
+
+    // @include respond( $laptop-breakpoint ) {
+    //     padding-top: $expander-v;
+    //     padding-bottom: $expander-v;
+    // }
+
+    @include respond( $mobile-breakpoint ) {
+        padding-top: $expander-m;
+        padding-bottom: $expander-m;
+    }
+}
+@mixin expt() {
+    padding-top: $expander-v;
+
+    // @include respond( $laptop-breakpoint ) {
+    //     padding-top: $expander-v;
+    // }
+
+    @include respond( $mobile-breakpoint ) {
+        padding-top: $expander-m;
+    }
+}
+@mixin expb() {
+    padding-bottom: $expander-v;
+
+    // @include respond( $laptop-breakpoint ) {
+    //     padding-bottom: $expander-v;
+    // }
+
+    @include respond( $mobile-breakpoint ) {
+        padding-bottom: $expander-m;
     }
 }
 
 
+
 /******************************************************************************
- * Layout: Containers
+ * Layout: Wrappers
 *******************************************************************************/
 @mixin wrap() {
     padding-left: $padding-v;
@@ -377,42 +409,7 @@
         padding-right: $padding-m !important;
     }
 }
-@mixin exp() {
-    padding-top: $expander-1;
-    padding-bottom: $expander-1;
 
-    @include respond( $laptop-breakpoint ) {
-        padding-top: $expander-v;
-        padding-bottom: $expander-v;
-    }
-
-    @include respond( $mobile-breakpoint ) {
-        padding-top: $expander-m;
-        padding-bottom: $expander-m;
-    }
-}
-@mixin expt() {
-    padding-top: $expander-1;
-
-    @include respond( $laptop-breakpoint ) {
-        padding-top: $expander-v;
-    }
-
-    @include respond( $mobile-breakpoint ) {
-        padding-top: $expander-m;
-    }
-}
-@mixin expb() {
-    padding-bottom: $expander-1;
-
-    @include respond( $laptop-breakpoint ) {
-        padding-bottom: $expander-v;
-    }
-
-    @include respond( $mobile-breakpoint ) {
-        padding-bottom: $expander-m;
-    }
-}
 
 
 /******************************************************************************
@@ -446,19 +443,6 @@
 @mixin diptych() {
     width: $tall-width-0;
     max-width: 100%;
-}
-
-
-/******************************************************************************
- * Layout: UI
-*******************************************************************************/
-@mixin icon-play-size() {
-    max-width: 23px;
-    width: 0.8984375vw;
-    min-width: 16px;
-    max-height: 27px;
-    height: 1.0546875vw;
-    min-height: 19px;
 }
 
 
