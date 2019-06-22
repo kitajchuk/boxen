@@ -10,7 +10,7 @@ export default ( instance ) => {
                 <div class="stack__link">
                     <div class="stack__mast">
                         <div class="stack__primo">
-                            <div class="stack__title" data-content-field="title">${item.title}</div>
+                            <h1 class="stack__title" data-content-field="title">${item.title}</h1>
                             <div class="stack__meta">
                                 ${item.tags.map(( tag ) => {
                                     return `<span class="teal">${tag}</span>`;

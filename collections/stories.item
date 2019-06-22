@@ -9,14 +9,14 @@
             <div class="stack__link">
                 <div class="stack__mast">
                     <div class="stack__primo">
-                        <div class="stack__title" data-content-field="title">{item.title}</div>
+                        <h1 class="stack__title" data-content-field="title">{item.title}</h1>
                         <div class="stack__meta">
-                            {.repeated section item.tags}<span class="teal">{@}</span>{.alternates with}, {.end}
+                            {.repeated section item.tags}<span class="teal">{@}</span>{.alternates with} {.end}
                         </div>
                     </div>
                     <div class="stack__bounce">
-                        {.if item.customContent.webUrl}
-                            <a class="btn js-btn" href="{item.customContent.webUrl}" target="_blank"><span class="btn__a">View site</span></a>
+                        {.if item.sourceUrl}
+                            <a class="btn js-btn" href="{item.sourceUrl}" target="_blank"><span class="btn__a">View site</span></a>
                         {.end}
                     </div>
                 </div>

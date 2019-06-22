@@ -6,7 +6,7 @@
                 <a class="stack__link" href="{fullUrl}" data-item-id="{id}">
                     <img class="stack__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
                     <div class="stack__info">
-                        <div class="stack__title" data-content-field="title">{title}</div>
+                        <h2 class="stack__title" data-content-field="title">{title}</h2>
                         <div class="stack__meta">
                             {.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}
                         </div>

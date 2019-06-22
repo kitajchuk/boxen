@@ -109,9 +109,7 @@ $mason-gap: 55px;
 
 
 .stack {}
-.stack__title {
-    @include h2();
-}
+.stack__title {}
 .stack__meta {
     @include m();
     padding-top: 10px;
@@ -128,12 +126,9 @@ $mason-gap: 55px;
     justify-content: space-between;
     padding-bottom: $expander-0;
 
-    .stack__title {
-        @include h1();
-    }
+    .stack__title {}
     .stack__meta {
         @include p();
-        padding-top: 20px;
     }
 
     .stack__primo {

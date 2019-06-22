@@ -20,7 +20,7 @@
     }
 
     .starred__title {
-        @include h1();
+        @include h2();
     }
 
     .starred__meta {
@@ -71,6 +71,9 @@
     .stack & {
         padding-bottom: $expander-0;
     }
+}
+.product__about {
+    width: 66.666666%;
 }
 .product__about,
 .product__buy {

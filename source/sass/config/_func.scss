@@ -303,11 +303,6 @@
     padding-top: $expander-v;
     padding-bottom: $expander-v;
 
-    // @include respond( $laptop-breakpoint ) {
-    //     padding-top: $expander-v;
-    //     padding-bottom: $expander-v;
-    // }
-
     @include respond( $mobile-breakpoint ) {
         padding-top: $expander-m;
         padding-bottom: $expander-m;
@@ -316,20 +311,12 @@
 @mixin expt() {
     padding-top: $expander-v;
 
-    // @include respond( $laptop-breakpoint ) {
-    //     padding-top: $expander-v;
-    // }
-
     @include respond( $mobile-breakpoint ) {
         padding-top: $expander-m;
     }
 }
 @mixin expb() {
     padding-bottom: $expander-v;
-
-    // @include respond( $laptop-breakpoint ) {
-    //     padding-bottom: $expander-v;
-    // }
 
     @include respond( $mobile-breakpoint ) {
         padding-bottom: $expander-m;
@@ -358,6 +345,18 @@
     @include respond( $mobile-breakpoint ) {
         padding-left: $padding-m;
         padding-right: $padding-m;
+    }
+}
+@mixin wrap-mobile-media() {
+    @include respond( $mobile-breakpoint ) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .media__cap {
+        @include respond( $mobile-breakpoint ) {
+            @include wrap();
+        }
     }
 }
 @mixin wrapr() {
