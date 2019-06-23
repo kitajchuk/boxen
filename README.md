@@ -1,4 +1,4 @@
 Boxen
 =====
 
-> A content-driven Squarespace developer SDK.
+> A Kit of Parts Squarespace developer SDK.
