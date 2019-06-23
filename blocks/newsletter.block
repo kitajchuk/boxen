@@ -1,3 +1,20 @@
 <form class="form js-form" data-block="newsletter">
     <script type="application/json">{@|json}</script>
 </form>
+<style class="js-sqs-config-style">
+    .squarespace-config .body-block .form {
+        height: 320px;
+        width: 100%;
+        background: black;
+        color: white;
+        border-bottom: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .squarespace-config .body-block .form:after {
+        position: relative;
+        font-size: 24px;
+        content: "Boxen Newsletter Block";
+    }
+</style>

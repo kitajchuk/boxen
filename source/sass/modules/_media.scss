@@ -1,16 +1,10 @@
 /******************************************************************************
- * Media
+ * Captions for Images, Videos etc...
 *******************************************************************************/
-.media {}
-.media__wrap {
-    position: relative;
-    width: 100%;
-}
-.media__node {}
-.media__cap {
+._cap {
     text-align: left;
     padding-top: $expander-0;
-    max-width: $text-width;
+    max-width: $cap-width;
     color: $grey-dark;
 }
 

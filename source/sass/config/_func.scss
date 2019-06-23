@@ -353,7 +353,7 @@
         padding-right: 0;
     }
 
-    .media__cap {
+    ._cap {
         @include respond( $mobile-breakpoint ) {
             @include wrap();
         }
@@ -412,36 +412,22 @@
 
 
 /******************************************************************************
- * Layout: Maximums
+ * Layout: Components
 *******************************************************************************/
-// @mixin text() {
-//     width: 100%;
-//     max-width: $text-width;
-//     position: relative;
-//
-//     @include respond( $text-breakpoint ) {
-//         left: auto;
-//         margin-left: auto;
-//         display: block;
-//     }
-//
-//     @include respond( $laptop-breakpoint ) {
-//         max-width: $text-width - 200px;
-//     }
-// }
-// @mixin media() {
-//     display: inline-block;
-//     max-width: $media-width-0;
-//     width: 100%;
-// }
-// @mixin media-tall() {
-//     display: inline-block;
-//     max-width: $text-width;
-//     width: 100%;
-// }
-@mixin diptych() {
-    width: $tall-width-0;
-    max-width: 100%;
+@mixin slider-margin() {
+    margin-left: $padding-v;
+
+    @include respond( $laptop-breakpoint ) {
+        margin-left: $padding-1;
+    }
+
+    @include respond( $tablet-breakpoint ) {
+        margin-left: $expander-0;
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        margin-left: $padding-m;
+    }
 }
 
 

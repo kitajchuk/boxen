@@ -2,7 +2,7 @@ import * as core from "./core";
 import debounce from "properjs-debounce";
 import ImageController from "./controllers/ImageController";
 import BaseController from "./controllers/BaseController";
-// import Slider from "./components/Slider";
+import Slider from "./components/Slider";
 import Video from "./components/Video";
 import Socials from "./components/Socials";
 import Form from "./services/Form";
@@ -66,7 +66,7 @@ class Controllers {
     exec () {
         this.controllers = [];
 
-        // this.push( "slider", this.element.find( ".js-slider" ), BaseController, Slider );
+        this.push( "slider", this.element.find( ".js-slider" ), BaseController, Slider );
         this.push( "forms", this.element.find( ".js-form" ), BaseController, Form );
         this.push( "search", this.element.find( ".js-search, .sqs-search-page" ), BaseController, Search );
         this.push( "commerce", this.element.find( ".js-shop, .js-product, #sqs-cart-root" ), BaseController, Commerce );

@@ -25,7 +25,7 @@
 
     .starred__meta {
         @include p();
-        margin-top: 20px;
+        margin-top: $meta-nudge-2;
     }
 
     .starred__info {

@@ -3,57 +3,6 @@
 
 
 
-.slider {
-    white-space: nowrap;
-    width: 100%;
-    overflow: hidden;
-    user-select: none;
-    @include exp();
-
-    .is-capillary & {
-        padding-bottom: $padding-m;
-    }
-}
-.slider__wrap {
-    position: relative;
-}
-.slider__item {
-    display: inline-block;
-    vertical-align: top;
-    margin-left: $padding-1;
-    white-space: normal;
-    cursor: pointer;
-
-    .media {
-        pointer-events: none;
-    }
-
-    .image {
-        width: $slider-width;
-        max-width: $slider-width;
-
-        &[data-imageloader] {
-            width: auto;
-            max-width: 100%;
-            height: $slider-height;
-        }
-    }
-
-    @include respond( $mobile-breakpoint ) {
-        margin-left: $padding-m;
-    }
-
-    &:last-child {
-        margin-right: $padding-1;
-
-        @include respond( $mobile-breakpoint ) {
-            margin-right: $padding-m;
-        }
-    }
-}
-
-
-
 ._card {
     display: flex;
     align-items: center;
@@ -86,7 +35,6 @@
     }
 }
 ._card__title {
-    @include diptych();
     width: sqs-calc( "100% - #{$tall-width-0}" );
 
     h1, h3, h3 {}
@@ -113,43 +61,9 @@
     }
 }
 ._card__media {
-    @include diptych();
-
     @include respond( $mobile-breakpoint ) {
         width: 100%;
     }
-}
-
-
-
-.diptych {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    @include exp();
-    @include wrap();
-
-    @include respond( $mobile-breakpoint ) {
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-}
-.diptych__item {
-    @include diptych();
-
-    @include respond( $mobile-breakpoint ) {
-        width: 100%;
-        padding: 0 0 $padding-m 0;
-    }
-}
-
-
-
-.tagcloud {}
-.tagcloud__link {}
-.tagcloud__label {
-    padding-bottom: $padding-m;
 }
 
 

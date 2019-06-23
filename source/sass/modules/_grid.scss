@@ -52,7 +52,6 @@ $mason-gap: 55px;
 .grid__info {
     padding-top: 20px;
     min-height: 132px;
-    @include m();
 
     @include respond( $break-tablet-full ) {
         min-height: 0;
@@ -63,15 +62,14 @@ $mason-gap: 55px;
     }
 }
 .grid__title {
-    p {
-        @include m();
-    }
+    @include p();
 }
 .grid__meta {
-    display: none;
+    @include m();
+    padding-top: $meta-nudge;
 
-    @include respond( $break-tablet-small ) {
-        display: block;
+    p {
+        @include m();
     }
 }
 
@@ -81,6 +79,37 @@ $mason-gap: 55px;
     @include wrap();
     column-count: 2;
     column-gap: $mason-gap;
+
+    &.mason--diptych {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .mason__item {
+            width: 50%;
+
+            @include respond( $mobile-breakpoint ) {
+                width: 100%;
+            }
+        }
+
+        .mason__item:first-child {
+            padding-right: $mason-gap / 2;
+
+            @include respond( $mobile-breakpoint ) {
+                padding-right: 0;
+            }
+        }
+
+        .mason__item:last-child {
+            padding-left: $mason-gap / 2;
+
+            @include respond( $mobile-breakpoint ) {
+                padding-left: 0;
+            }
+        }
+    }
 
     @include respond( $mobile-breakpoint ) {
         column-count: 1;
@@ -97,12 +126,15 @@ $mason-gap: 55px;
 }
 .mason__meta {
     @include m();
-}
-.mason__meta {
-    padding-top: 10px;
+    padding-top: $meta-nudge;
+
+    p {
+        @include m();
+        color: $grey-dark;
+    }
 }
 .mason__info {
-    padding-top: 20px;
+    padding-top: $meta-nudge-2;;
     @include expb();
 }
 
@@ -112,7 +144,8 @@ $mason-gap: 55px;
 .stack__title {}
 .stack__meta {
     @include m();
-    padding-top: 10px;
+    padding-top: $meta-nudge;
+    color: $grey-dark;
 }
 .stack__info {
     @include expb();
@@ -147,5 +180,119 @@ $mason-gap: 55px;
 .stack__bounce {
     .btn {
         width: 256px;
+    }
+}
+
+
+
+.slider {
+    white-space: nowrap;
+    width: 100%;
+    overflow: hidden;
+    user-select: none;
+}
+.slider__wrap {
+    position: relative;
+}
+.slider__item {
+    display: inline-block;
+    vertical-align: top;
+    white-space: normal;
+    cursor: pointer;
+    @include slider-margin();
+
+    .image {
+        width: $slider-width;
+        max-width: $slider-width;
+        pointer-events: none;
+
+        &[data-imageloader] {
+            width: auto;
+            max-width: 100%;
+            height: $slider-height;
+        }
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        margin-left: $padding-m;
+    }
+
+    &:last-child {
+        margin-right: $padding-1;
+
+        @include respond( $mobile-breakpoint ) {
+            margin-right: $padding-m;
+        }
+    }
+}
+.slider__info {
+    pointer-events: none;
+    padding-top: $expander-0;
+}
+.slider__meta {
+    @include m();
+    padding-top: $meta-nudge;
+}
+
+
+
+.slideshow {
+    width: 100%;
+    overflow: hidden;
+    user-select: none;
+    @include wrap();
+}
+.slideshow__wrap {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+}
+.slideshow__item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    z-index: -1;
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity $base-duration $ease,
+                z-index $base-duration $ease,
+                visibility $base-duration $ease;
+
+    &.is-active {
+        z-index: 1;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .image {
+        width: auto;
+        height: 100%;
+    }
+}
+.slideshow__thumbs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: $expander-0;
+}
+.slideshow__thumb {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 10px;
+    cursor: pointer;
+
+    &.is-active {
+        border: 3px solid $teal;
+    }
+
+    .image {
+        width: auto;
+        height: $thumb-height;
     }
 }

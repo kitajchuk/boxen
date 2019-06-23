@@ -1,10 +1,8 @@
-<div class="media {.if info.stretch}{.or}-wrap{.end}">
-    <div class="media__wrap">
-        <img class="media__node image js-lazy-image" data-img-src="{item.assetUrl}" data-variants="{item.systemDataVariants}" data-original-size="{item.originalSize}" />
-    </div>
+<div class="image-wrap {.if info.stretch}{.or}-wrap{.end}">
+    <img class="image js-lazy-image" data-img-src="{item.assetUrl}" data-variants="{item.systemDataVariants}" data-original-size="{item.originalSize}" />
     {.equal? info.layout "caption-hidden"}{.or}
         {.if info.description}
-            <div class="media__cap {.if info.stretch}-wrap{.or}{.end}">
+            <div class="_cap {.if info.stretch}-wrap{.or}{.end}">
                 <div class="m">{info.description|safe}</div>
             </div>
         {.end}

@@ -64,8 +64,10 @@
             p {
                 @include m();
 
-                @include respond( $mobile-breakpoint ) {
-                    display: inline;
+                &:not( [data-rte-preserve-empty] ) {
+                    @include respond( $mobile-breakpoint ) {
+                        display: inline;
+                    }
                 }
             }
         }

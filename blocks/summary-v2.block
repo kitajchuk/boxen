@@ -1,13 +1,18 @@
-{.var @length items|count}
-<div class="summary-v2 js-summary-v2">
-    <div class="grid grid--length-{@length}">
+{.equal? design "autogrid"}
+    <div class="grid">
         {.repeated section items}
-            <div class="grid__item js-summary-v2-item js-summary-v2-item--{id} js-lazy-anim">
-                <a class="grid__link grid__anim" href="{fullUrl}">
+            {.var @tags tags|count}
+            <div class="grid__item">
+                <a class="grid__link" href="{fullUrl}">
                     <img class="grid__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
                     <div class="js-sqs-config-image"></div>
                     <div class="grid__info">
-                        <div class="grid__title" data-content-field="title">{title}</div>
+                        {.if title}
+                            <div class="grid__title">{title}</div>
+                        {.end}
+                        {.if @tags}
+                            <div class="grid__meta">{.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}</div>
+                        {.end}
                     </div>
                 </a>
             </div>
@@ -46,4 +51,169 @@
             }
         {.end}
     </style>
-</div>
+{.or equal? design "carousel"}
+    <div class="slider js-slider">
+        <div class="slider__wrap js-slider-belt">
+            {.repeated section items}
+                {.var @tags tags|count}
+                <div class="slider__item js-slider-item">
+                    <img class="image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
+                    <div class="js-sqs-config-image"></div>
+                    <div class="slider__info">
+                        {.if title}
+                            <h3 class="slider__title">{title}</h3>
+                        {.end}
+                        {.if @tags}
+                            <div class="slider__meta">{.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}</div>
+                        {.end}
+                    </div>
+                </div>
+            {.end}
+        </div>
+    </div>
+    <style class="js-sqs-config-style">
+        .squarespace-config .body-block .slider {
+            white-space: nowrap;
+        }
+        .squarespace-config .body-block .slider__wrap {
+            font-size: 0;
+            margin: 0 -5px;
+        }
+        .squarespace-config .body-block .slider__item {
+            display: inline-block;
+            width: 33.333333%;
+            vertical-align: top;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        .squarespace-config .body-block .slider__item .js-sqs-config-image {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%;
+        }
+        .squarespace-config .body-block .slider__item .js-sqs-config-image:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+        {.repeated section items}
+            .squarespace-config .slider__item:nth-child( {@index} ) .js-sqs-config-image:after {
+                background-image: url( {assetUrl} );
+            }
+        {.end}
+    </style>
+{.or equal? design "list"}
+    <div class="stack">
+        {.repeated section items}
+            {.var @tags tags|count}
+            <div class="stack__item js-lazy-anim">
+                <a class="stack__link" href="{fullUrl}" data-item-id="{id}">
+                    <img class="stack__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
+                    <div class="js-sqs-config-image"></div>
+                    <div class="stack__info">
+                        {.if title}
+                            <h2 class="stack__title">{title}</h2>
+                        {.end}
+                        {.if @tags}
+                            <div class="stack__meta">{.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}</div>
+                        {.end}
+                        {.if body}
+                            <div class="stack__meta">{body}</div>
+                        {.end}
+                    </div>
+                </a>
+            </div>
+        {.end}
+    </div>
+    <style class="js-sqs-config-style">
+        .squarespace-config .body-block .stack {
+            white-space: nowrap;
+        }
+        .squarespace-config .body-block .stack__item {
+            display: block;
+            width: 100%;
+            padding: 5px 0;
+        }
+        .squarespace-config .body-block .stack__item .js-sqs-config-image {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+        }
+        .squarespace-config .body-block .stack__item .js-sqs-config-image:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+        {.repeated section items}
+            .squarespace-config .stack__item:nth-child( {@index} ) .js-sqs-config-image:after {
+                background-image: url( {assetUrl} );
+            }
+        {.end}
+    </style>
+{.or equal? design "autocolumns"}
+    <div class="mason">
+        {.repeated section items}
+            {.var @tags tags|count}
+            <div class="mason__item">
+                <a class="mason__link" href="{fullUrl}">
+                    <img class="mason__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
+                    <div class="js-sqs-config-image"></div>
+                    <div class="mason__info">
+                        {.if title}
+                            <div class="mason__title">{title}</div>
+                        {.end}
+                        {.if @tags}
+                            <div class="mason__meta">{.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}</div>
+                        {.end}
+                        {.if body}
+                            <div class="mason__meta">{body}</div>
+                        {.end}
+                    </div>
+                </a>
+            </div>
+        {.end}
+    </div>
+    <style class="js-sqs-config-style">
+        .squarespace-config .body-block .mason {
+            font-size: 0;
+            margin: 0 -5px;
+        }
+        .squarespace-config .body-block .mason__item {
+            display: inline-block;
+            width: 50%;
+            vertical-align: top;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        .squarespace-config .body-block .mason__item .js-sqs-config-image {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%;
+        }
+        .squarespace-config .body-block .mason__item .js-sqs-config-image:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 0;
+            top: 0;
+            background-size: cover;
+            background-position: 50% 50%;
+        }
+        {.repeated section items}
+            .squarespace-config .mason__item:nth-child( {@index} ) .js-sqs-config-image:after {
+                background-image: url( {assetUrl} );
+            }
+        {.end}
+    </style>
+{.end}

@@ -67,7 +67,6 @@ class Slider {
 
         } else if ( isLast ) {
             // First baseline right edge to left edge
-            // position = ((-bounds.width - margin) * index) - (margin * (index - 1));
             position += -offset;
 
             // Next baseline to right edge

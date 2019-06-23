@@ -21,7 +21,7 @@ export default ( blockJson, imageJson ) => {
                 ` : ``}
             </div>
             ${blockJson.description && (blockJson.layout !== "caption-hidden") ? `
-                <div class="media__cap">
+                <div class="_cap">
                     <div class="m">${blockJson.description.html}</div>
                 </div>
             ` : ``}

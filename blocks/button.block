@@ -1,7 +1,7 @@
 <a class="btn js-btn" href="{buttonLink}" {.if newWindow}target="_blank"{.end}><span class="btn__a">{buttonText}</span></a>
 <style class="js-sqs-config-style">
     .squarespace-config .body-block .btn {
-        height: 64px;
+        height: 60px;
         width: 256px;
         background: black;
         color: white;
