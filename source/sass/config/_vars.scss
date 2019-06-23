@@ -35,10 +35,10 @@ $padding-m: 20px;
 $padding-1: 65px;
 $padding-2: 130px;
 $padding-v: 4.5138888889vw;
-$expander-1: 100px;
 $expander-0: 36px;
-$expander-m: 50px;
-$expander-v: 6.9444444444vw;
+$expander-1: $expander-0 * 3; // 108
+$expander-m: $expander-1 / 2; // 54
+$expander-v: #{$expander-1 / 1440px * 100}vw; // 7.5vw
 $expander-v2: $expander-v / 2;
 
 
