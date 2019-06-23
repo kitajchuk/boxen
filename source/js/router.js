@@ -14,14 +14,6 @@ import navi from "./modules/navi";
  *
  */
 const router = {
-    /**
-     *
-     * @public
-     * @method init
-     * @memberof router
-     * @description Initialize the router module.
-     *
-     */
     init () {
         this.element = core.dom.body.find( ".js-router" ).detach();
         this.animDuration = 500;
@@ -76,28 +68,11 @@ const router = {
     },
 
 
-    /**
-     *
-     * @public
-     * @method bindEmpty
-     * @memberof router
-     * @description Suppress #hash links.
-     *
-     */
     bindEmpty () {
         core.dom.body.on( "click", "[href^='#']", ( e ) => e.preventDefault() );
     },
 
 
-    /**
-     *
-     * @public
-     * @method initPage
-     * @param {object} data The PageController data object
-     * @memberof router
-     * @description Cache the initial page load.
-     *
-     */
     initPage ( data ) {
         if ( data.status === 404 ) {
             core.dom.html.addClass( "is-404-page" );
@@ -118,16 +93,6 @@ const router = {
     },
 
 
-    /**
-     *
-     * @public
-     * @method parseDoc
-     * @param {string} html The responseText to parse out
-     * @memberof router
-     * @description Get the DOM information to cache for a request.
-     * @returns {object}
-     *
-     */
     parseDoc ( html ) {
         let doc = document.createElement( "html" );
         let virtual = null;
@@ -238,6 +203,7 @@ const router = {
 
     changePageIn ( /*data*/ ) {
         setTimeout(() => {
+            this.execSquarespace();
             core.dom.html.removeClass( "is-tranny" );
 
         }, this.animDuration );
@@ -256,6 +222,42 @@ const router = {
 
     topper () {
         window.scrollTo( 0, 0 );
+    },
+
+
+    // Initialize system-blocks after ProperJS PageController cycles.
+    execSquarespace () {
+        // Depending on your needs, you may have to turn some of these on:
+
+        // window.Squarespace.initializeAcuityBlocks( window.Y );
+        // window.Squarespace.initializeAspectRatioBlocks( window.Y );
+        // window.Squarespace.initializeChartBlock( window.Y );
+        // window.Squarespace.initializeCollectionPages( window.Y );
+        // window.Squarespace.initializeDisqusCommentLinks( window.Y );
+        // window.Squarespace.initializeDonationButton( window.Y );
+        // window.Squarespace.initializeGlobalLightbox( window.Y );
+        // window.Squarespace.initializeLayoutBlocks( window.Y );
+        // window.Squarespace.initializeOpenTableBlock( window.Y );
+        // window.Squarespace.initializeOpenTableV2Block( window.Y );
+        // window.Squarespace.initializePageContent( window.Y );
+        // window.Squarespace.initializeSocialLinks( window.Y );
+        // window.Squarespace.initializeSoundcloudBlock( window.Y );
+        // window.Squarespace.initializeSvgs( window.Y );
+        // window.Squarespace.initializeZolaBlocks( window.Y );
+
+
+        // Boxen core handles this stuff so you don't need to activate these:
+
+        // window.Squarespace.initializeCommerce( window.Y );
+        // window.Squarespace.initializeFormBlocks( window.Y );
+        // window.Squarespace.initializeImageBlockDynamicElements( window.Y );
+        // window.Squarespace.initializeNewsletterBlock( window.Y );
+        // window.Squarespace.initializeSummaryV2Block( window.Y );
+        // window.Squarespace.initializeVideo( window.Y );
+        // window.Squarespace.initializeVideoBlock( window.Y );
+        // window.Squarespace.initializeButtonBlock( window.Y );
+        // window.Squarespace.initializeCartPage( window.Y );
+        // window.Squarespace.initializeSearchBlock( window.Y );
     }
 };
 
