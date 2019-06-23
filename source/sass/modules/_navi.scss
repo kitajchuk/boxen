@@ -80,3 +80,14 @@
         text-align: right;
     }
 }
+
+
+
+.navi-sub {
+    @include expt();
+}
+.navi-sub__a {
+    &.is-active {
+        color: $teal;
+    }
+}
