@@ -1,10 +1,97 @@
-<div class="image-wrap {.if info.stretch}{.or}-wrap{.end}">
-    <img class="image js-lazy-image" data-img-src="{item.assetUrl}" data-variants="{item.systemDataVariants}" data-original-size="{item.originalSize}" />
-    {.equal? info.layout "caption-hidden"}{.or}
-        {.if info.description}
-            <div class="_cap {.if info.stretch}-wrap{.or}{.end}">
-                <div class="m">{info.description|safe}</div>
-            </div>
+{.equal? info.designLayout "inline"}
+    <div class="image-wrap {.if info.stretch}{.or}-wrap{.end}">
+        <img class="image js-lazy-image" data-img-src="{item.assetUrl}" data-variants="{item.systemDataVariants}" data-original-size="{item.originalSize}" />
+        {.equal? info.layout "caption-hidden"}{.or}
+            {.if info.description}
+                <div class="_cap {.if info.stretch}-wrap{.or}{.end}">
+                    <div class="m">{info.description|safe}</div>
+                </div>
+            {.end}
         {.end}
-    {.end}
-</div>
+    </div>
+{.or equal? info.designLayout "poster"}
+    <div class="image-wrap {.if info.stretch}{.or}-wrap{.end}">
+        <div class="image-poster">
+            <img class="image js-lazy-image" data-img-src="{item.assetUrl}" data-variants="{item.systemDataVariants}" data-original-size="{item.originalSize}" />
+            <div class="image-poster__info">
+                {.if info.hasTitle}
+                    <h2>{info.title|safe}</h2>
+                {.end}
+                {.if info.hasSubtitle}
+                    <p>{info.subtitle|safe}</p>
+                {.end}
+                {.equal? info.imageLink "button"}
+                    <a class="btn js-btn" href="{info.linkTo}"><span class="btn__a">{info.buttonText}</span></a>
+                {.end}
+            </div>
+        </div>
+    </div>
+{.or equal? info.designLayout "card"}
+    <div class="image-card {info.imagePosition}">
+        <div class="image-wrap">
+            <img class="image js-lazy-image" data-img-src="{item.assetUrl}" data-variants="{item.systemDataVariants}" data-original-size="{item.originalSize}" />
+        </div>
+        <div class="image-card__info">
+            {.if info.hasTitle}
+                <h2>{info.title|safe}</h2>
+            {.end}
+            {.if info.hasSubtitle}
+                <p>{info.subtitle|safe}</p>
+            {.end}
+            {.equal? info.imageLink "button"}
+                <a class="btn js-btn" href="{info.linkTo}"><span class="btn__a">{info.buttonText}</span></a>
+            {.end}
+        </div>
+    </div>
+{.or equal? info.designLayout "overlap"}
+    <div class="image-card {info.imagePosition} overlap">
+        <div class="image-wrap">
+            <img class="image js-lazy-image" data-img-src="{item.assetUrl}" data-variants="{item.systemDataVariants}" data-original-size="{item.originalSize}" />
+        </div>
+        <div class="image-card__info">
+            {.if info.hasTitle}
+                <h2>{info.title|safe}</h2>
+            {.end}
+            {.if info.hasSubtitle}
+                <p>{info.subtitle|safe}</p>
+            {.end}
+            {.equal? info.imageLink "button"}
+                <a class="btn js-btn" href="{info.linkTo}"><span class="btn__a">{info.buttonText}</span></a>
+            {.end}
+        </div>
+    </div>
+{.or equal? info.designLayout "collage"}
+    <div class="image-card {info.imagePosition} collage">
+        <div class="image-wrap">
+            <img class="image js-lazy-image" data-img-src="{item.assetUrl}" data-variants="{item.systemDataVariants}" data-original-size="{item.originalSize}" />
+        </div>
+        <div class="image-card__info">
+            {.if info.hasTitle}
+                <h2>{info.title|safe}</h2>
+            {.end}
+            {.if info.hasSubtitle}
+                <p>{info.subtitle|safe}</p>
+            {.end}
+            {.equal? info.imageLink "button"}
+                <a class="btn js-btn" href="{info.linkTo}"><span class="btn__a">{info.buttonText}</span></a>
+            {.end}
+        </div>
+    </div>
+{.or equal? info.designLayout "stack"}
+    <div class="stack">
+        <div class="stack__item">
+            <img class="stack__image image js-lazy-image" data-img-src="{item.assetUrl}" data-variants="{item.systemDataVariants}" data-original-size="{item.originalSize}" />
+            <div class="stack__info">
+                {.if info.hasTitle}
+                    <h2 class="stack__title">{info.title|safe}</h2>
+                {.end}
+                {.if info.hasSubtitle}
+                    <div class="stack__meta">{info.subtitle|safe}</div>
+                {.end}
+                {.equal? info.imageLink "button"}
+                    <a class="btn js-btn" href="{info.linkTo}"><span class="btn__a">{info.buttonText}</span></a>
+                {.end}
+            </div>
+        </div>
+    </div>
+{.end}

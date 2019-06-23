@@ -5,7 +5,7 @@
         {.var @image item}
     {.end}
     <div class="stack -expt">
-        <div class="stack__item js-lazy-anim">
+        <div class="stack__item">
             <div class="stack__link">
                 <div class="stack__mast">
                     <div class="stack__primo">

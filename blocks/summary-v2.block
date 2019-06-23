@@ -111,7 +111,7 @@
     <div class="stack">
         {.repeated section items}
             {.var @tags tags|count}
-            <div class="stack__item js-lazy-anim">
+            <div class="stack__item">
                 <a class="stack__link" href="{fullUrl}" data-item-id="{id}">
                     <img class="stack__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
                     <div class="js-sqs-config-image"></div>

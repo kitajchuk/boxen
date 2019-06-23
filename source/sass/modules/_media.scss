@@ -11,7 +11,7 @@
 
 
 /******************************************************************************
- * Image nodes
+ * Images
 *******************************************************************************/
 .image {
     max-width: 100%;
@@ -29,6 +29,92 @@
 
         &:before {
             content: "";
+        }
+    }
+}
+.image-wrap {}
+.image-poster {
+    position: relative;
+
+    .image {
+        position: relative;
+        z-index: 1;
+    }
+
+    .image-poster__info {
+        @include wrapl();
+        @include expb();
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 3;
+
+        .btn {
+            margin-top: $meta-nudge-2;
+        }
+    }
+
+    &:after {
+        content: "";
+        background-color: $black;
+        opacity: 0.35;
+        transition: opacity $base-duration $ease;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+    }
+}
+.image-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    @include wrap();
+
+    .image-wrap,
+    .image-card__info {
+        width: 50%;
+        display: inline-block;
+    }
+
+    &.overlap {}
+
+    .image-card__info {
+        h1, h2, h3 {
+            color: $teal;
+        }
+
+        p {
+            color: $grey-dark;
+        }
+
+        .btn {
+            margin-top: $meta-nudge-2;
+        }
+    }
+
+    &.left {
+        .image-wrap {
+            order: 1;
+        }
+
+        .image-card__info {
+            order: 2;
+            @include wrapl();
+        }
+    }
+
+    &.right {
+        .image-wrap {
+            order: 2;
+        }
+
+        .image-card__info {
+            order: 1;
+            @include wrapr();
         }
     }
 }
