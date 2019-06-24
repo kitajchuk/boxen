@@ -1,2 +1,155 @@
-// tweak: { "type" : "color", "title" : "Example Tweak Value", "js" : true }
-@exampleColor: #2AFFEA;
+// tweak: { "type" : "color", "title" : "Primary Background Color", "js" : true }
+@primaryBGColor: #000;
+
+html {
+    background-color: @primaryBGColor;
+}
+
+
+
+// tweak: { "type" : "color", "title" : "Primary Header Color", "js" : true }
+@primaryHeaderBGColor: #FFFDE4;
+
+.header:before {
+    background-color: @primaryHeaderBGColor;
+}
+
+
+
+// tweak: { "type" : "color", "title" : "Primary Text Color", "js" : true }
+@primaryTextColor: #FFFDE4;
+
+html {
+    color: @primaryTextColor;
+}
+.is-uid-page .header:before,
+.is-boxen-page .header:before,
+.is-navi-mobile .header:before {
+    background-color: @primaryBGColor;
+}
+
+
+
+// tweak: { "type" : "color", "title" : "Primary Navi Color", "js" : true }
+@primaryNaviColor: #000;
+// tweak: { "type" : "color", "title" : "Primary Navi Active Color", "js" : true }
+@primaryNaviActiveColor: #6441a4;
+
+.navi__a {
+    color: @primaryNaviColor;
+}
+.navi__a.is-active {
+    color: @primaryNaviActiveColor;
+}
+.is-boxen-page .navi__a,
+.is-uid-page .navi__a {
+    color: @primaryTextColor;
+}
+
+
+
+// tweak: { "type" : "color", "title" : "Primary Logo Color", "js" : true }
+@primaryLogoColor: #000;
+
+._svg--logo {
+    fill: @primaryLogoColor;
+}
+.is-boxen-page ._svg--logo,
+.is-uid-page ._svg--logo,
+.is-navi-mobile ._svg--logo  {
+    fill: @primaryTextColor;
+}
+
+
+
+// tweak: { "type" : "color", "title" : "Primary Button Color", "js" : true }
+@primaryButtonColor: #2AFFEA;
+
+.btn {
+    background-color: @primaryButtonColor;
+
+    .is-hoverable &:hover {
+        background-color: mix( black, @primaryButtonColor, 25% );
+    }
+}
+
+
+
+// tweak: { "type" : "color", "title" : "Primary Link Color", "js" : true }
+@primaryLinkColor: #2AFFEA;
+
+p, h1, h2, h3 {
+    a {
+        color: @primaryLinkColor;
+        border-bottom: 1px solid @primaryLinkColor;
+        transition: border-bottom-color 500ms ease,
+                    color 500ms ease;
+
+        &.is-active,
+        .is-hoverable &:hover,
+        .is-hoverable &.is-active:hover {
+            border-bottom-color: transparent;
+            color: mix( black, @primaryLinkColor, 25% );
+        }
+    }
+}
+
+
+
+// tweak: { "type" : "color", "title" : "Primary Emphasis Color", "js" : true }
+@primaryEmColor: #2AFFEA;
+
+p, h1, h2, h3 {
+    em {
+        color: @primaryEmColor;
+    }
+}
+
+
+
+// tweak: { "type" : "color", "title" : "Primary Bold Color", "js" : true }
+@primaryBoldColor: #959595;
+
+p, h1, h2, h3 {
+    strong {
+        color: @primaryBoldColor;
+    }
+}
+
+
+
+// tweak: { "type" : "color", "title" : "Primary Bold Emphasis Color", "js" : true }
+@primaryBoldEmColor: #F49AC1;
+
+p, h1, h2, h3 {
+    em {
+        strong {
+            color: @primaryBoldEmColor;
+        }
+    }
+
+    strong {
+        em {
+            color: @primaryBoldEmColor;
+        }
+    }
+}
+
+
+
+// tweak: { "type" : "color", "title" : "Primary Social Icon Color", "js" : true }
+@primarySocialColor: #2AFFEA;
+
+._svg--npm,
+._svg--tabi,
+.social-icons-color-white.social-icons-style-regular .sqs-use--icon {
+    fill: @primarySocialColor;
+}
+.social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
+.social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover ._svg {
+    fill: mix( black, @primarySocialColor, 50% );
+}
+.social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
+.social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg {
+    fill: @primarySocialColor;
+}

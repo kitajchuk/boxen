@@ -163,7 +163,7 @@
 *******************************************************************************/
 @mixin button() {
     @include m();
-    background-color: $teal;
+    // background-color: $teal;
     padding: 0 40px;
     line-height: 1;
     color: $black;
@@ -182,9 +182,9 @@
     position: relative;
     transition: background-color $base-duration $ease;
 
-    .is-hoverable &:hover {
-        background-color: mix( black, $teal, 25% );
-    }
+    // .is-hoverable &:hover {
+    //     background-color: mix( black, $teal, 25% );
+    // }
 
     @include respond( $mobile-breakpoint ) {
         height: $input-height-m;

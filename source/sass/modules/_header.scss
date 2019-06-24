@@ -19,7 +19,7 @@
 
     &:before {
         content: "";
-        background-color: $white;
+        // background-color: $white;
         position: absolute;
         left: 0;
         width: 100%;
@@ -28,11 +28,11 @@
         z-index: 1;
         transition: transform $base-duration $ease-menu-0;
 
-        .is-uid-page &,
-        .is-boxen-page &,
-        .is-navi-mobile & {
-            background-color: $black;
-        }
+        // .is-uid-page &,
+        // .is-boxen-page &,
+        // .is-navi-mobile & {
+        //     background-color: $black;
+        // }
 
         .is-site-intro & {
             transform: translate3d( 0, 100%, 0 );
@@ -41,7 +41,6 @@
 
     .is-uid-page &,
     .is-boxen-page & {
-        background-color: $black;
         height: $header-height-detail;
         padding-bottom: 0;
         align-items: center;

@@ -22,16 +22,16 @@
 }
 .navi__a {
     line-height: 1;
-    color: $black;
+    // color: $black;
 
-    .is-boxen-page &,
-    .is-uid-page & {
-        color: $white;
-    }
-
-    &.is-active {
-        color: $purple;
-    }
+    // .is-boxen-page &,
+    // .is-uid-page & {
+    //     color: $white;
+    // }
+    //
+    // &.is-active {
+    //     color: $purple;
+    // }
 }
 
 
