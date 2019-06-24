@@ -112,14 +112,12 @@ $email-width: 375px;
 .inp {
     @include input();
 }
-.inp--grey {
-    border-color: $grey-dark;
-}
-
-
-
 .area {
     @include textarea();
+}
+.inp.inp--grey,
+.area.inp--grey {
+    border-color: $grey-dark;
 }
 
 
@@ -184,7 +182,7 @@ $email-width: 375px;
 
     .btn__a {}
 }
-.btn--green {
+.btn.btn--green {
     background-color: $green;
     color: mix( black, $green, 90% );
 
@@ -192,7 +190,7 @@ $email-width: 375px;
         background-color: mix( black, $green, 25% );
     }
 }
-.btn--yellow {
+.btn.btn--yellow {
     background-color: $yellow;
     color: mix( black, $yellow, 90% );
 
@@ -200,7 +198,7 @@ $email-width: 375px;
         background-color: mix( black, $yellow, 25% );
     }
 }
-.btn--red {
+.btn.btn--red {
     background-color: $red;
     color: mix( black, $red, 90% );
 
@@ -208,7 +206,7 @@ $email-width: 375px;
         background-color: mix( black, $red, 25% );
     }
 }
-.btn--pink {
+.btn.btn--pink {
     background-color: $pink;
     color: mix( black, $pink, 90% );
 
@@ -216,7 +214,7 @@ $email-width: 375px;
         background-color: mix( black, $pink, 25% );
     }
 }
-.btn--purple {
+.btn.btn--purple {
     background-color: $purple;
     color: mix( black, $purple, 90% );
 
@@ -224,7 +222,7 @@ $email-width: 375px;
         background-color: mix( black, $purple, 25% );
     }
 }
-.btn--blue {
+.btn.btn--blue {
     background-color: $blue;
     color: mix( black, $blue, 90% );
 
@@ -232,7 +230,7 @@ $email-width: 375px;
         background-color: mix( black, $blue, 25% );
     }
 }
-.btn--grey {
+.btn.btn--grey {
     background-color: $grey-dark;
     color: mix( black, $grey-dark, 90% );
 
