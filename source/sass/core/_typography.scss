@@ -29,27 +29,28 @@ h3, .h3, h3 p {
 /******************************************************************************
  * Spans
 *******************************************************************************/
-// p, h1, h2, h3 {
-//     em {
-//         color: $teal;
-//
-//         strong {
-//             color: $pink;
-//         }
-//     }
-//
-//     strong {
-//         color: $grey;
-//
-//         em {
-//             color: $pink;
-//         }
-//     }
-//
-//     a {
-//         @include a( $teal );
-//     }
-// }
+// tweak
+p, h1, h2, h3 {
+    em {
+        color: $teal;
+
+        strong {
+            color: $pink;
+        }
+    }
+
+    strong {
+        color: $grey;
+
+        em {
+            color: $pink;
+        }
+    }
+
+    a {
+        @include a( $teal );
+    }
+}
 
 
 

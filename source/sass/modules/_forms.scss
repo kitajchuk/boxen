@@ -146,9 +146,11 @@ $email-width: 375px;
         right: 0;
         top: 50%;
         transform:translate3d( 0, -50%, 0 );
-        background-color: $purple;
         pointer-events: none;
         transition: background-color $base-duration $ease;
+
+        // tweak
+        background-color: $purple;
 
         @include respond( $mobile-breakpoint ) {
             height: $input-height-m;

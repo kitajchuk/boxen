@@ -1,4 +1,42 @@
-// tweak: { "type" : "color", "title" : "Primary Background Color", "js" : true }
+@boxenBlack: #000;
+@boxenWhite: #FFFDE4;
+@boxenTeal: #2AFFEA;
+@boxenPurple: #6441a4;
+@boxenGrey: #959595;
+@boxenPink: #F49AC1;
+@mobileWidth: 640px;
+
+
+
+
+// tweak: { "type" : "value", "title" : "Primary Header Height", "category" : "Sizes", "min" : 80, "max" : 400, "step" : 5, "js" : true }
+@primaryHeaderHeight: 315px;
+
+// tweak: { "type" : "value", "title" : "Primary Mobile Header Height", "category" : "Sizes", "min" : 80, "max" : 200, "step" : 5, "js" : true }
+@primaryHeaderHeightMobile: 100px;
+
+// tweak: { "type" : "value", "title" : "Primary Detail Page Header Height", "category" : "Sizes", "min" : 80, "max" : 200, "step" : 5, "js" : true }
+@primaryHeaderHeightDetail: 160px;
+
+.header {
+    height: @primaryHeaderHeight;
+
+    @media only screen and ( max-width: 640px ) {
+        height: @primaryHeaderHeightMobile;
+    }
+}
+.is-uid-page .header,
+.is-boxen-page .header {
+    height: @primaryHeaderHeightDetail;
+
+    @media only screen and ( max-width: 640px ) {
+        height: @primaryHeaderHeightMobile;
+    }
+}
+
+
+
+// tweak: { "type" : "color", "title" : "Primary Background Color", "category" : "Colors", "js" : true }
 @primaryBGColor: #000;
 
 html {
@@ -7,7 +45,7 @@ html {
 
 
 
-// tweak: { "type" : "color", "title" : "Primary Header Color", "js" : true }
+// tweak: { "type" : "color", "title" : "Primary Header Color", "category" : "Colors", "js" : true }
 @primaryHeaderBGColor: #FFFDE4;
 
 .header:before {
@@ -16,7 +54,7 @@ html {
 
 
 
-// tweak: { "type" : "color", "title" : "Primary Text Color", "js" : true }
+// tweak: { "type" : "color", "title" : "Primary Text Color", "category" : "Colors", "js" : true }
 @primaryTextColor: #FFFDE4;
 
 html {
@@ -30,9 +68,10 @@ html {
 
 
 
-// tweak: { "type" : "color", "title" : "Primary Navi Color", "js" : true }
+// tweak: { "type" : "color", "title" : "Primary Navi Color", "category" : "Colors", "js" : true }
 @primaryNaviColor: #000;
-// tweak: { "type" : "color", "title" : "Primary Navi Active Color", "js" : true }
+
+// tweak: { "type" : "color", "title" : "Primary Navi Active Color", "category" : "Colors", "js" : true }
 @primaryNaviActiveColor: #6441a4;
 
 .navi__a {
@@ -48,7 +87,7 @@ html {
 
 
 
-// tweak: { "type" : "color", "title" : "Primary Logo Color", "js" : true }
+// tweak: { "type" : "color", "title" : "Primary Logo Color", "category" : "Colors", "js" : true }
 @primaryLogoColor: #000;
 
 ._svg--logo {
@@ -62,7 +101,7 @@ html {
 
 
 
-// tweak: { "type" : "color", "title" : "Primary Button Color", "js" : true }
+// tweak: { "type" : "color", "title" : "Primary Button Color", "category" : "Colors", "js" : true }
 @primaryButtonColor: #2AFFEA;
 
 .btn {
@@ -75,7 +114,20 @@ html {
 
 
 
-// tweak: { "type" : "color", "title" : "Primary Link Color", "js" : true }
+// tweak: { "type" : "color", "title" : "Primary Input Border Color", "category" : "Colors", "js" : true }
+@primaryInputColor: #6441a4;
+
+.inp,
+.sel {
+    border-color: @primaryInputColor;
+}
+.sel-wrap:before {
+    background-color: @primaryInputColor;
+}
+
+
+
+// tweak: { "type" : "color", "title" : "Primary Link Color", "category" : "Colors", "js" : true }
 @primaryLinkColor: #2AFFEA;
 
 p, h1, h2, h3 {
@@ -96,7 +148,7 @@ p, h1, h2, h3 {
 
 
 
-// tweak: { "type" : "color", "title" : "Primary Emphasis Color", "js" : true }
+// tweak: { "type" : "color", "title" : "Primary Emphasis Color", "category" : "Colors", "js" : true }
 @primaryEmColor: #2AFFEA;
 
 p, h1, h2, h3 {
@@ -107,7 +159,7 @@ p, h1, h2, h3 {
 
 
 
-// tweak: { "type" : "color", "title" : "Primary Bold Color", "js" : true }
+// tweak: { "type" : "color", "title" : "Primary Bold Color", "category" : "Colors", "js" : true }
 @primaryBoldColor: #959595;
 
 p, h1, h2, h3 {
@@ -118,7 +170,7 @@ p, h1, h2, h3 {
 
 
 
-// tweak: { "type" : "color", "title" : "Primary Bold Emphasis Color", "js" : true }
+// tweak: { "type" : "color", "title" : "Primary Bold Emphasis Color", "category" : "Colors", "js" : true }
 @primaryBoldEmColor: #F49AC1;
 
 p, h1, h2, h3 {
@@ -137,7 +189,7 @@ p, h1, h2, h3 {
 
 
 
-// tweak: { "type" : "color", "title" : "Primary Social Icon Color", "js" : true }
+// tweak: { "type" : "color", "title" : "Primary Social Icon Color", "category" : "Colors", "js" : true }
 @primarySocialColor: #2AFFEA;
 
 ._svg--npm,

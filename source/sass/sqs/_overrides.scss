@@ -53,17 +53,20 @@ input.inp:focus {
 .sqs-use--icon, .sqs-use--mask {
     transition: fill $base-duration $ease;
 }
-// .social-icons-color-white.social-icons-style-regular .sqs-use--icon {
-//     fill: $teal;
-// }
-// .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
-// .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover ._svg {
-//     fill: mix( black, $teal, 50% );
-// }
-// .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
-// .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg {
-//     fill: $teal;
-// }
+// tweak
+.social-icons-color-white.social-icons-style-regular .sqs-use--icon {
+    fill: $teal;
+}
+// tweak
+.social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
+.social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover ._svg {
+    fill: mix( black, $teal, 50% );
+}
+// tweak
+.social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
+.social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg {
+    fill: $teal;
+}
 .social-icons-style-regular .sqs-svg-icon--wrapper.npm-unauth > div,
 .social-icons-style-regular .sqs-svg-icon--wrapper.tabi-unauth > div {
     transform: none !important;

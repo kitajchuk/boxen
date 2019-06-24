@@ -163,7 +163,6 @@
 *******************************************************************************/
 @mixin button() {
     @include m();
-    // background-color: $teal;
     padding: 0 40px;
     line-height: 1;
     color: $black;
@@ -182,9 +181,13 @@
     position: relative;
     transition: background-color $base-duration $ease;
 
-    // .is-hoverable &:hover {
-    //     background-color: mix( black, $teal, 25% );
-    // }
+    // tweak
+    background-color: $teal;
+
+    // tweak
+    .is-hoverable &:hover {
+        background-color: mix( black, $teal, 25% );
+    }
 
     @include respond( $mobile-breakpoint ) {
         height: $input-height-m;
@@ -197,7 +200,6 @@
     padding: 0 20px;
     -webkit-appearance: none;
     outline: 0;
-    border: 3px solid $purple;
     background-color: transparent;
     color: $white;
     width: 100%;
@@ -208,6 +210,9 @@
     vertical-align: middle;
     transition: color $base-duration $ease,
                 border-color $base-duration $ease;
+
+    // tweak
+    border: 3px solid $purple;
 
     &.is-error {
         border-color: $red;
@@ -237,7 +242,6 @@
     padding: 0 20px;
     -webkit-appearance: none;
     outline: 0;
-    border: 3px solid $purple;
     background-color: transparent;
     width: 100%;
     max-width: $form-width;
@@ -246,6 +250,9 @@
     display: inline-block;
     vertical-align: middle;
     position: relative;
+
+    // tweak
+    border: 3px solid $purple;
 
     @include respond( $mobile-breakpoint ) {
         height: $input-height-m;

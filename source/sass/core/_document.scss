@@ -2,8 +2,9 @@
  * Document
 *******************************************************************************/
 html {
-    // background-color: $black;
-    // color: $white;
+    // tweak
+    background-color: $black;
+    color: $white;
     transition: color $base-duration $ease,
                 background-color $base-duration $ease;
 

@@ -1,7 +1,8 @@
 .header {
+    // tweak
+    height: $header-height;
     position: relative;
     z-index: $z_layer_header;
-    height: $header-height;
     padding-bottom: $header-padding;
     width: 100%;
     z-index: $z_layer_intro + 1;
@@ -19,7 +20,8 @@
 
     &:before {
         content: "";
-        // background-color: $white;
+        // tweak
+        background-color: $white;
         position: absolute;
         left: 0;
         width: 100%;
@@ -28,11 +30,12 @@
         z-index: 1;
         transition: transform $base-duration $ease-menu-0;
 
-        // .is-uid-page &,
-        // .is-boxen-page &,
-        // .is-navi-mobile & {
-        //     background-color: $black;
-        // }
+        // tweak
+        .is-uid-page &,
+        .is-boxen-page &,
+        .is-navi-mobile & {
+            background-color: $black;
+        }
 
         .is-site-intro & {
             transform: translate3d( 0, 100%, 0 );
@@ -41,16 +44,19 @@
 
     .is-uid-page &,
     .is-boxen-page & {
+        // tweak
         height: $header-height-detail;
         padding-bottom: 0;
         align-items: center;
 
+        // tweak
         @include respond( $mobile-breakpoint ) {
             height: $header-height-mobile;
         }
     }
 
     @include respond( $mobile-breakpoint ) {
+        // tweak
         height: $header-height-mobile;
         padding-bottom: 0;
         align-items: center;

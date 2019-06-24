@@ -1,7 +1,6 @@
 ._svg {
     transition: fill $base-duration $ease;
     cursor: pointer;
-    // fill: $black;
 }
 ._svg--logo {
     width: 128px;
@@ -17,13 +16,15 @@
         }
     }
 
-    // .is-navi-mobile & {
-    //     fill: $white;
-    // }
+    // tweak
+    .is-navi-mobile & {
+        fill: $white;
+    }
 
     .is-boxen-page &,
     .is-uid-page & {
-        // fill: $white;
+        // tweak
+        fill: $white;
         width: 114px;
         height: 96.19px;
 
@@ -40,14 +41,16 @@
     pointer-events: none;
 }
 ._svg--npm {
+    // tweak
+    fill: $teal;
     width: 64px;
     height: 20.48px;
-    // fill: $teal;
 }
 ._svg--tabi {
+    // tweak
+    fill: $teal;
     width: 43px;
     height: 29px;
-    // fill: $teal;
 }
 ._svg--cyborg {
     width: 197px;
