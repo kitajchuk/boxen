@@ -232,6 +232,10 @@ $mason-gap: 55px;
 .slider__info {
     pointer-events: none;
     padding-top: $expander-0;
+
+    @include respond( $mobile-breakpoint ) {
+        display: none;
+    }
 }
 .slider__meta {
     @include m();
