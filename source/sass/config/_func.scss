@@ -57,16 +57,6 @@
         font-size: $p-size;
     }
 }
-@mixin p() {
-    font-size: $p-size-mobile;
-    line-height: $p-line;
-    @include font-family-sans-bold();
-    max-width: $text-width;
-
-    @include respond-min( $mobile-breakpoint ) {
-        font-size: $p-size;
-    }
-}
 @mixin m() {
     font-size: $m-size-mobile;
     line-height: $m-line;
@@ -77,6 +67,20 @@
         font-size: $m-size;
     }
 }
+@mixin p() {
+    font-size: $p-size-mobile;
+    line-height: $p-line;
+    @include font-family-sans-bold();
+    max-width: $text-width;
+
+    @include respond-min( $mobile-breakpoint ) {
+        font-size: $p-size-fluid;
+    }
+
+    @include respond-min( $laptop-breakpoint ) {
+        font-size: $p-size;
+    }
+}
 @mixin h1() {
     font-size: $h1-size-mobile;
     line-height: $h1-line;
@@ -84,6 +88,10 @@
     max-width: $text-width-2;
 
     @include respond-min( $mobile-breakpoint ) {
+        font-size: $h1-size-fluid;
+    }
+
+    @include respond-min( $laptop-breakpoint ) {
         font-size: $h1-size;
     }
 }
@@ -94,6 +102,10 @@
     max-width: $text-width;
 
     @include respond-min( $mobile-breakpoint ) {
+        font-size: $h2-size-fluid;
+    }
+
+    @include respond-min( $laptop-breakpoint ) {
         font-size: $h2-size;
     }
 }
@@ -104,6 +116,10 @@
     max-width: $text-width;
 
     @include respond-min( $mobile-breakpoint ) {
+        font-size: $h3-size-fluid;
+    }
+
+    @include respond-min( $laptop-breakpoint ) {
         font-size: $h3-size;
     }
 }

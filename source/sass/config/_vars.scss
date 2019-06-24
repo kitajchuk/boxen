@@ -70,18 +70,22 @@ $cap-width: 768px;
  * Typography
 *******************************************************************************/
 $h1-size-mobile: 26px;
+$h1-size-fluid: #{"~\"calc( #{$h1-size-mobile} + 0.695vw )\""};
 $h1-size: 36px;
 $h1-line: 52 / 36;
 
 $h2-size-mobile: 22px;
+$h2-size-fluid: #{"~\"calc( #{$h2-size-mobile} + 0.695vw )\""};
 $h2-size: 32px;
 $h2-line: 42 / 32;
 
 $h3-size-mobile: 18px;
+$h3-size-fluid: #{"~\"calc( #{$h3-size-mobile} + 0.695vw )\""};
 $h3-size: 28px;
 $h3-line: 38 / 28;
 
 $p-size-mobile: 18px;
+$p-size-fluid: #{"~\"calc( #{$p-size-mobile} + 0.4125vw )\""};
 $p-size: 24px;
 $p-line: 36 / 24;
 
