@@ -28,9 +28,9 @@ boxen init my-project
 
 
 ### Documentation
-That's it! Checkout the [boxen docs](https://kitajchuk.squarespace.com/boxen/readme) for complete info on developing with the SDK.
+That's it! Checkout the [boxen docs](https://kitajchuk.com/boxen/readme) for complete info on developing with the SDK.
 
 
 
 ### Kit of Parts
-You can also checkout the [Kit of Parts](https://kitajchuk.squarespace.com/boxen/kit-of-parts) you get out of the box with boxen. There's a lot of wild things you can do with 100% custom Squarespace template development. [Maybe get started with understanding how to develop custom system blocks :)](https://kitajchuk.squarespace.com/boxen/system-blocks)
+You can also checkout the [Kit of Parts](https://kitajchuk.com/boxen/kit-of-parts) you get out of the box with boxen. There's a lot of wild things you can do with 100% custom Squarespace template development. [Maybe get started with understanding how to develop custom system blocks :)](https://kitajchuk.com/boxen/system-blocks)
