@@ -125,7 +125,7 @@ const router = {
             raw: data && data || null,
             uid: data && data.request.params.uid || null,
             uid2: data && data.request.params.uid2 || null,
-            view: data && data.request.params.view || core.config.homepage,
+            view: data ? data.request.params.view || core.config.homepage : null,
             cat: data && data.request.query.category || null,
             tag: data && data.request.query.tag || null
         };
