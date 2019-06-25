@@ -48,13 +48,13 @@
  * Typography: Hierarchy
 *******************************************************************************/
 @mixin mono() {
-    font-size: $p-size-mobile;
-    line-height: $p-line;
+    font-size: $m-size-mobile;
+    line-height: $m-line;
     @include font-family-monospace-bold();
     max-width: $text-width;
 
     @include respond-min( $mobile-breakpoint ) {
-        font-size: $p-size;
+        font-size: $m-size;
     }
 }
 @mixin m() {
