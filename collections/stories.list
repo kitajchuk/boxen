@@ -1,4 +1,4 @@
-<div class="stories stories--{collection.urlId}" data-collection-id="{collection.id}">
+<div class="stories stories--{collection.urlId|slugify}" data-collection-id="{collection.id}">
     <squarespace:block-field id="boxen--stories--{collection.urlId}" columns="12" />
     <div class="stack">
         {.repeated section items}
