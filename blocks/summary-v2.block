@@ -2,7 +2,7 @@
     <div class="grid">
         {.repeated section items}
             {.var @tags tags|count}
-            <div class="grid__item">
+            <div class="grid__item" data-item-id="{id}">
                 <a class="grid__link" href="{fullUrl}">
                     <img class="grid__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
                     <div class="js-sqs-config-image"></div>
