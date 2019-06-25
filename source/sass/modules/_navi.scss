@@ -35,6 +35,12 @@
     // tweak
     &.is-active {
         color: $purple;
+
+        // tweak
+        .is-boxen-page &,
+        .is-uid-page & {
+            color: $purple;
+        }
     }
 }
 
