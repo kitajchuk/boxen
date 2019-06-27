@@ -1,0 +1,18 @@
+<div class="stories stories--{collection.urlId|slugify}" data-collection-id="{collection.id}">
+    <squarespace:block-field id="boxen--stories--{collection.urlId}" columns="12" />
+    <div class="stack">
+        {.repeated section items}
+            <div class="stack__item">
+                <a class="stack__link" href="{fullUrl}" data-item-id="{id}">
+                    <img class="stack__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
+                    <div class="stack__info">
+                        <h2 class="stack__title" data-content-field="title">{title}</h2>
+                        <div class="stack__meta">
+                            {.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}
+                        </div>
+                    </div>
+                </a>
+            </div>
+        {.end}
+    </div>
+</div>

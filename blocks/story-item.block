@@ -1,0 +1,37 @@
+<article data-item-id="{item.id}" class="story story--detail js-story" data-record="{item.recordTypeLabel}" {.if item.customContent}data-custom-type="{item.customContent.customType}"{.end}>
+    {.if item.customContent.coverImage}
+        {.var @image item.customContent.coverImage}
+    {.or}
+        {.var @image item}
+    {.end}
+    <div class="stack -expt">
+        <div class="stack__item">
+            <div class="stack__link">
+                <div class="stack__mast">
+                    <div class="stack__primo">
+                        <h1 class="stack__title" data-content-field="title">{item.title}</h1>
+                        <div class="stack__meta">
+                            {.repeated section item.tags}<span class="teal">{@}</span>{.alternates with} {.end}
+                        </div>
+                    </div>
+                </div>
+                <img class="stack__image image js-lazy-image" data-img-src="{@image.assetUrl}" data-variants="{@image.systemDataVariants}" data-original-size="{@image.originalSize}" />
+            </div>
+        </div>
+    </div>
+    <div class="product__info cms">
+        <div class="product__about">
+            {.if item.customContent.storyCredits}
+                {item.customContent.storyCredits.html}
+            {.end}
+        </div>
+        <div class="product__buy">
+            {.if item.sourceUrl}
+                <a class="btn js-btn" href="{item.sourceUrl}" target="_blank"><span class="btn__a">{.if item.customContent.buttonText}{item.customContent.buttonText}{.or}View site{.end}</span></a>
+            {.end}
+        </div>
+    </div>
+    <div class="story__blocks cms">
+        {item.body}
+    </div>
+</article>
