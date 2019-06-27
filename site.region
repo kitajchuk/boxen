@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="is-{collection.title|slugify}-page {.if item}is-uid-page{.end} is-site-intro">
+<html class="{.if collection.homepage}is-home-page{.end} is-{collection.title|slugify}-page {.if item}is-uid-page{.end} is-site-intro">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,7 +36,7 @@
         </header>
         {# Handled by ProperJS router #}
         <main class="main js-main" data-content-field="main-content"></main>
-        <main class="router js-router" style="display:none;" data-revision="{squarespace.template-revision}" data-website-id="{website.id}" {.section collection}data-collection-id="{collection.id}" data-collection-title="{.if collection.homepage}{website.siteTitle}{.or}{collection.title} – {website.siteTitle}{.end}"{.end} {.section item}data-item-id="{item.id}" data-item-title="{item.title} – {collection.title} – {website.siteTitle}"{.end}>
+        <main class="router js-router {squarespace.page-classes}" style="display:none;" data-revision="{squarespace.template-revision}" data-website-id="{website.id}" {.section collection}data-collection-id="{collection.id}" data-collection-title="{.if collection.homepage}{website.siteTitle}{.or}{collection.title} – {website.siteTitle}{.end}"{.end} {.section item}data-item-id="{item.id}" data-item-title="{item.title} – {collection.title} – {website.siteTitle}"{.end}>
             {# Dev Cart #}
                 {.equal? collection.urlId "dev-cart"}
                     {@|apply dev-cart.block}
