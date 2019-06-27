@@ -18,8 +18,7 @@ import Store from "./core/Store";
 
 
 // Global components
-const socials = core.dom.footer.find( `.sqs-block-socialaccountlinks-v2` );
-const socials2 = core.dom.naviMobile.find( `.sqs-block-socialaccountlinks-v2` );
+const socials = core.dom.body.find( `.sqs-block-socialaccountlinks-v2` );
 const newsletter = core.dom.footer.find( `.js-form[data-block="newsletter"]` );
 
 
@@ -44,6 +43,7 @@ class Boxen {
         this.scroller = new ScrollController();
         this.scrollBounce = 300;
         this.scrollTimeout = null;
+        this.socials = [];
 
         this.boot();
         this.init();
@@ -52,11 +52,11 @@ class Boxen {
 
     boot () {
         if ( socials.length ) {
-            this.socials = new Socials( socials, socials.data() );
-        }
+            socials.forEach(( el, i ) => {
+                const social = socials.eq( i );
 
-        if ( socials2.length ) {
-            this.socials2 = new Socials( socials2, socials2.data() );
+                this.socials.push( new Socials( social, social.data() ) );
+            });
         }
 
         if ( newsletter.length ) {

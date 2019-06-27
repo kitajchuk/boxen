@@ -8,12 +8,15 @@
 
 
 
-
 // tweak: { "type" : "value", "title" : "Primary Header Height", "category" : "Sizes", "min" : 80, "max" : 400, "step" : 5, "js" : true }
 @primaryHeaderHeight: 315px;
 
+
+
 // tweak: { "type" : "value", "title" : "Primary Mobile Header Height", "category" : "Sizes", "min" : 80, "max" : 200, "step" : 5, "js" : true }
 @primaryHeaderHeightMobile: 100px;
+
+
 
 // tweak: { "type" : "value", "title" : "Primary Detail Page Header Height", "category" : "Sizes", "min" : 80, "max" : 200, "step" : 5, "js" : true }
 @primaryHeaderHeightDetail: 160px;
@@ -70,6 +73,8 @@ html {
 
 // tweak: { "type" : "color", "title" : "Primary Navi Color", "category" : "Colors", "js" : true }
 @primaryNaviColor: #000;
+
+
 
 // tweak: { "type" : "color", "title" : "Primary Navi Active Color", "category" : "Colors", "js" : true }
 @primaryNaviActiveColor: #6441a4;
@@ -197,14 +202,78 @@ p, h1, h2, h3 {
 
 ._svg--npm,
 ._svg--tabi,
-.social-icons-color-white.social-icons-style-regular .sqs-use--icon {
+.social-icons-color-white.social-icons-style-regular .sqs-use--icon,
+.social-icons-color-black.social-icons-style-regular .sqs-use--icon,
+.is-uid-page .header ._svg--npm,
+.is-uid-page .header ._svg--tabi,
+.is-boxen-page .header ._svg--npm,
+.is-boxen-page .header ._svg--tabi,
+.is-navi-mobile .header ._svg--npm,
+.is-navi-mobile .header ._svg--tabi,
+.is-uid-page .header .social-icons-color-white.social-icons-style-regular .sqs-use--icon,
+.is-uid-page .header .social-icons-color-black.social-icons-style-regular .sqs-use--icon,
+.is-boxen-page .header .social-icons-color-white.social-icons-style-regular .sqs-use--icon,
+.is-boxen-page .header .social-icons-color-black.social-icons-style-regular .sqs-use--icon,
+.is-navi-mobile .header .social-icons-color-white.social-icons-style-regular .sqs-use--icon,
+.is-navi-mobile .header .social-icons-color-black.social-icons-style-regular .sqs-use--icon {
     fill: @primarySocialColor;
+}
+.header ._svg--npm,
+.header ._svg--tabi,
+.header .social-icons-color-white.social-icons-style-regular .sqs-use--icon,
+.header .social-icons-color-black.social-icons-style-regular .sqs-use--icon {
+    fill: @primaryLogoColor;
 }
 .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
-.social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover ._svg {
+.social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover ._svg,
+.social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
+.social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover ._svg,
+.is-uid-page .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
+.is-uid-page .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover ._svg,
+.is-uid-page .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
+.is-uid-page .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover ._svg,
+.is-boxen-page .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
+.is-boxen-page .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover ._svg,
+.is-boxen-page .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
+.is-boxen-page .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover ._svg,
+.is-navi-mobile .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
+.is-navi-mobile .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover ._svg,
+.is-navi-mobile .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
+.is-navi-mobile .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover ._svg {
     fill: mix( black, @primarySocialColor, 50% );
 }
+.header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
+.header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover ._svg,
+.header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
+.header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover ._svg {
+    fill: mix( white, @primaryLogoColor, 50% );
+}
 .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
-.social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg {
+.social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg,
+.social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
+.social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg,
+.is-uid-page .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
+.is-uid-page .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg,
+.is-uid-page .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
+.is-uid-page .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg,
+.is-boxen-page .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
+.is-boxen-page .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg,
+.is-boxen-page .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
+.is-boxen-page .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg,
+.is-navi-mobile .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
+.is-navi-mobile .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg,
+.is-navi-mobile .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
+.is-navi-mobile .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg {
     fill: @primarySocialColor;
 }
+.header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
+.header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg,
+.header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
+.header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg {
+    fill: @primaryLogoColor;
+}
+
+
+
+// tweak: { "type" : "checkbox", "title" : "Boxen Left Navi", "active" : false, "js" : true }
+.boxen-left-navi {}

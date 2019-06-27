@@ -55,12 +55,36 @@
     fill: $teal;
     width: 64px;
     height: 20.48px;
+
+    // tweak
+    .header & {
+        fill: $black;
+    }
+
+    // tweak
+    .is-uid-page .header &,
+    .is-boxen-page .header &,
+    .is-navi-mobile .header & {
+        fill: $teal;
+    }
 }
 ._svg--tabi {
     // tweak
     fill: $teal;
     width: 43px;
     height: 29px;
+
+    // tweak
+    .header & {
+        fill: $black;
+    }
+
+    // tweak
+    .is-uid-page .header &,
+    .is-boxen-page .header &,
+    .is-navi-mobile .header & {
+        fill: $teal;
+    }
 }
 ._svg--cyborg {
     width: 197px;

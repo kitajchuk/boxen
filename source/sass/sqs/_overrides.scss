@@ -49,23 +49,75 @@ input.inp:focus {
 
 /******************************************************************************
  * Social links...
+ * Supports Light/Dark Standard icons
 *******************************************************************************/
 .sqs-use--icon, .sqs-use--mask {
     transition: fill $base-duration $ease;
 }
 // tweak
-.social-icons-color-white.social-icons-style-regular .sqs-use--icon {
+.social-icons-color-white.social-icons-style-regular .sqs-use--icon,
+.social-icons-color-black.social-icons-style-regular .sqs-use--icon,
+.is-uid-page .header .social-icons-color-white.social-icons-style-regular .sqs-use--icon,
+.is-uid-page .header .social-icons-color-black.social-icons-style-regular .sqs-use--icon,
+.is-boxen-page .header .social-icons-color-white.social-icons-style-regular .sqs-use--icon,
+.is-boxen-page .header .social-icons-color-black.social-icons-style-regular .sqs-use--icon,
+.is-navi-mobile .header .social-icons-color-white.social-icons-style-regular .sqs-use--icon,
+.is-navi-mobile .header .social-icons-color-black.social-icons-style-regular .sqs-use--icon {
     fill: $teal;
+}
+.header .social-icons-color-white.social-icons-style-regular .sqs-use--icon,
+.header .social-icons-color-black.social-icons-style-regular .sqs-use--icon {
+    fill: $black;
 }
 // tweak
 .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
-.social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover ._svg {
+.social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover ._svg,
+.social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
+.social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover ._svg,
+.is-uid-page .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
+.is-uid-page .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover ._svg,
+.is-uid-page .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
+.is-uid-page .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover ._svg,
+.is-boxen-page .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
+.is-boxen-page .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover ._svg,
+.is-boxen-page .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
+.is-boxen-page .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover ._svg,
+.is-navi-mobile .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
+.is-navi-mobile .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover ._svg,
+.is-navi-mobile .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
+.is-navi-mobile .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover ._svg {
     fill: mix( black, $teal, 50% );
+}
+.header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
+.header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover ._svg,
+.header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-use--icon,
+.header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover ._svg  {
+    fill: mix( white, $black, 50% );
 }
 // tweak
 .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
-.social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg {
+.social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg,
+.social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
+.social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg,
+.is-uid-page .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
+.is-uid-page .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg,
+.is-uid-page .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
+.is-uid-page .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg,
+.is-boxen-page .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
+.is-boxen-page .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg,
+.is-boxen-page .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
+.is-boxen-page .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg,
+.is-navi-mobile .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
+.is-navi-mobile .header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg,
+.is-navi-mobile .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
+.is-navi-mobile .header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg {
     fill: $teal;
+}
+.header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
+.header .social-icons-color-white.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg,
+.header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover .sqs-use--icon,
+.header .social-icons-color-black.social-icons-style-regular .sqs-svg-icon--list:hover .sqs-svg-icon--wrapper:hover ._svg {
+    fill: $black;
 }
 .social-icons-style-regular .sqs-svg-icon--wrapper.npm-unauth > div,
 .social-icons-style-regular .sqs-svg-icon--wrapper.tabi-unauth > div {

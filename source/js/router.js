@@ -30,6 +30,11 @@ const router = {
             future: null
         };
 
+        // Tweaks
+        this.tweakStates = [
+            "boxen-left-navi"
+        ];
+
         this.bindEmpty();
 
         core.log( "[Router initialized]", this );
@@ -73,12 +78,22 @@ const router = {
     },
 
 
+    setTweaks ( /*data*/ ) {
+        this.tweakStates.forEach(( tweakState ) => {
+            if ( this.doc.virtual.is( `.${tweakState}` ) ) {
+                core.dom.html.addClass( tweakState );
+            }
+        });
+    },
+
+
     initPage ( data ) {
         if ( data.status === 404 ) {
             core.dom.html.addClass( "is-404-page" );
         }
 
         this.setDoc( data );
+        this.setTweaks( data );
         this.setState( "now", data );
         this.setState( "future", data );
         this.setClass();

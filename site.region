@@ -25,13 +25,18 @@
     <body class="-fzero">
         <squarespace:navigation navigationId="navi--mobile" template="navi--mobile" />
         <header class="header js-header -wrap">
-            <div class="header__logo">
-                <a href="/">
-                    {@|apply svg-logo.block}
-                </a>
+            <div class="header__primo">
+                <div class="header__logo">
+                    <a href="/">
+                        {@|apply svg-logo.block}
+                    </a>
+                </div>
+                <div class="header__navi">
+                    <squarespace:navigation navigationId="navi" template="navi" />
+                </div>
             </div>
-            <div class="header__navi">
-                <squarespace:navigation navigationId="navi" template="navi" />
+            <div class="header__socials">
+                <squarespace:block-field id="boxen--footer-socials" columns="12" />
             </div>
         </header>
         {# Handled by ProperJS router #}
