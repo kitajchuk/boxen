@@ -6,13 +6,19 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
-    "postinstall": "cd ./node_modules/properjs-hobo && npm install && npm run build -- 'is eq not one next prev attr last first index parent filter detach append remove trigger prepend closest children removeAttr toggleClass'",
-    "build": "./node_modules/.bin/squarespace assemble && ./node_modules/.bin/webpack --env.production --progress --profile --display-modules --colors -p",
-    "watch": "./node_modules/.bin/squarespace assemble --watch --trigger-reload & ./node_modules/.bin/webpack --env.sandbox --hide-modules --colors --watch",
+    "setup": "./node_modules/.bin/squarespace setup",
+    "start": "npm run setup && (npm run watch & npm run server:auth)",
+    "postinstall": "node ./boxen.install",
+    "build": "npm run assemble ; npm run boxen:scaffold ; npm run webpack",
+    "boxen:scaffold": "node ./boxen.scaffold",
+    "assemble": "./node_modules/.bin/squarespace assemble",
+    "assemble:watch": "./node_modules/.bin/squarespace assemble --watch --trigger-reload",
+    "webpack": "./node_modules/.bin/webpack --env.production --progress --profile --display-modules --colors -p",
+    "webpack:watch": "./node_modules/.bin/webpack --env.sandbox --hide-modules --colors --watch",
+    "watch": "npm run assemble:watch & npm run webpack:watch",
     "server": "./node_modules/.bin/squarespace runserver --trigger-reload --verbose --faster-less",
-    "authserver": "./node_modules/.bin/squarespace runserver --auth --trigger-reload --verbose --faster-less",
-    "start": "./node_modules/.bin/squarespace setup && (npm run watch & npm run authserver)",
-    "deploy": "npm run build && ./node_modules/.bin/squarespace setup && ./node_modules/.bin/squarespace deploy"
+    "server:auth": "./node_modules/.bin/squarespace runserver --auth --trigger-reload --verbose --faster-less",
+    "deploy": "npm run build && npm run setup && ./node_modules/.bin/squarespace deploy"
   },
   "repository": {
     "type": "git",

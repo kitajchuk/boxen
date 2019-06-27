@@ -7,20 +7,7 @@ const WebpackOnBuildPlugin = require( "on-build-webpack" );
 const request = require( "request" );
 const lager = require( "properjs-lager" );
 const open = require( "open" );
-
-
-
-// Load config
-let config = null;
-
-try {
-    config = JSON.parse( String( require( "fs" ).readFileSync( require( "path" ).join( __dirname, ".boxen" ) ) ) );
-
-} catch ( error ) {
-    lager.error( "Boxen config parse error!" );
-    throw error;
-    process.exit();
-}
+const config = require( "./boxen.config" );
 
 
 

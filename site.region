@@ -74,7 +74,7 @@
             </div>
         </footer>
         <div class="intro js-intro screen screen--dark is-active"></div>
-        <script type="text/javascript" src="/scripts/boxen.js?v={squarespace.template-revision}"></script>
+        <script src="/scripts/boxen.js?v={squarespace.template-revision}"></script>
         {squarespace-footers}
     </body>
 </html>
