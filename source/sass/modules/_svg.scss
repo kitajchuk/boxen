@@ -35,10 +35,20 @@
     }
 }
 ._svg--play {
-    width: $play-height;
-    height: $play-height;
+    width: $expander-m;
+    height: $expander-m;
     fill: $white;
     pointer-events: none;
+
+    @include respond-min( $mobile-breakpoint ) {
+        width: $padding-1;
+        height: $padding-1;
+    }
+
+    @include respond-min( $desktop-breakpoint ) {
+        width: $expander-1;
+        height: $expander-1;
+    }
 }
 ._svg--npm {
     // tweak

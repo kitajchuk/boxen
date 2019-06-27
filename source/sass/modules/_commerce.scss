@@ -24,7 +24,7 @@
     }
 
     .starred__meta {
-        @include p();
+        @include m();
         margin-top: $meta-nudge-2;
     }
 
@@ -39,15 +39,7 @@
 
 
 
-.product {
-    .btn {
-        width: 256px;
-
-        @include respond( $mobile-breakpoint ) {
-            width: 100%;
-        }
-    }
-}
+.product {}
 .product__limited {
     padding-top: $expander-0;
 }
@@ -74,6 +66,17 @@
 }
 .product__about {
     width: 66.666666%;
+
+    p strong {
+        .story & {
+            color: $grey-dark;
+        }
+    }
+    p + p {
+        .story & {
+            margin-top: $expander-0;
+        }
+    }
 }
 .product__about,
 .product__buy {
@@ -82,6 +85,14 @@
     }
 }
 .product__buy {
+    .btn {
+        width: 256px;
+
+        @include respond( $mobile-breakpoint ) {
+            width: 100%;
+        }
+    }
+
     @include respond( $tablet-breakpoint ) {
         order: 1;
         margin-bottom: $expander-0;

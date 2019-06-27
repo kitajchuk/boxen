@@ -109,6 +109,7 @@
 
         p {
             color: $grey-dark;
+            margin-top: $meta-nudge;
         }
 
         .btn {
@@ -170,13 +171,6 @@
     overflow: hidden;
     position: relative;
     width: 100%;
-    cursor: pointer;
-
-    .is-hoverable &:hover {
-        ._svg {
-            transform: scale( 1.10 );
-        }
-    }
 }
 .embed__poster,
 .embed__element {
@@ -212,10 +206,18 @@
     top: 50%;
     transform: translate3d( -50%, -50%, 0 );
     transition: opacity $base-duration $ease;
-    pointer-events: none;
+    pointer-events: auto;
+    cursor: pointer;
 
     ._svg {
         transition: transform $base-duration $ease;
+        pointer-events: none;
+    }
+
+    .is-hoverable &:hover {
+        ._svg {
+            transform: scale( 1.10 );
+        }
     }
 
     .is-embed-playing & {

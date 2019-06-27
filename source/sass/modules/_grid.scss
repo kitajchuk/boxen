@@ -163,23 +163,18 @@ $mason-gap: 55px;
     justify-content: space-between;
     padding-bottom: $expander-0;
 
-    .stack__title {}
-    .stack__meta {
-        @include p();
-    }
-
     .stack__primo {
         @include respond( $tablet-breakpoint ) {
             width: 100%;
         }
     }
 
-    .stack__bounce {
-        @include respond( $tablet-breakpoint ) {
-            width: 100%;
-            margin-top: $expander-0;
-        }
-    }
+    // .stack__bounce {
+    //     @include respond( $tablet-breakpoint ) {
+    //         width: 100%;
+    //         margin-top: $expander-0;
+    //     }
+    // }
 }
 .stack__bounce {
     .btn {
