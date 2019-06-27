@@ -1,0 +1,22 @@
+<div class="mason">
+    {.repeated section items}
+        {.var @tags tags|count}
+        <div class="mason__item">
+            <a class="mason__link" href="{fullUrl}">
+                <img class="mason__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
+                <div class="js-sqs-config-image"></div>
+                <div class="mason__info">
+                    {.if title}
+                        <div class="mason__title">{title}</div>
+                    {.end}
+                    {.if @tags}
+                        <div class="mason__meta">{.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}</div>
+                    {.end}
+                    {.if body}
+                        <div class="mason__meta">{body}</div>
+                    {.end}
+                </div>
+            </a>
+        </div>
+    {.end}
+</div>
