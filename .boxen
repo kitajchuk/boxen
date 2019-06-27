@@ -1,0 +1,13 @@
+{
+    "open": true,
+    "webpack": {
+        "entry": {
+            "boxen": "./source/js/boxen.js"
+        }
+    },
+    "postcss": {
+        "browsers": "last 2 versions"
+    },
+    "localUrl": "http://localhost:9000",
+    "reloadUrl": "http://localhost:9000/local-api/reload/trigger"
+}
