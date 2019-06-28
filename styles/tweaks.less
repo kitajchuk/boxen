@@ -97,6 +97,11 @@ html {
 // tweak: { "type" : "color", "title" : "Primary Logo Color", "category" : "Colors", "js" : true }
 @primaryLogoColor: #000;
 
+
+
+// tweak: { "type" : "color", "title" : "Primary Active Logo Color", "category" : "Colors", "js" : true }
+@primaryLogoActiveColor: #000;
+
 ._svg--logo {
     fill: @primaryLogoColor;
 }
@@ -104,6 +109,9 @@ html {
 .is-uid-page ._svg--logo,
 .is-navi-mobile ._svg--logo  {
     fill: @primaryTextColor;
+}
+.is-home-page ._svg--logo {
+    fill: @primaryLogoActiveColor;
 }
 
 

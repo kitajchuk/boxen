@@ -21,6 +21,11 @@
         fill: $white;
     }
 
+    // tweak
+    .is-home-page & {
+        fill: $black;
+    }
+
     .is-boxen-page &,
     .is-uid-page & {
         // tweak
