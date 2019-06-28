@@ -120,7 +120,8 @@ input.inp:focus {
     fill: $black;
 }
 .social-icons-style-regular .sqs-svg-icon--wrapper.npm-unauth > div,
-.social-icons-style-regular .sqs-svg-icon--wrapper.tabi-unauth > div {
+.social-icons-style-regular .sqs-svg-icon--wrapper.tabi-unauth > div,
+.social-icons-style-regular .sqs-svg-icon--wrapper.kickstarter-unauth > div {
     transform: none !important;
 }
 .social-icons-size-extra-large.social-icons-style-regular .sqs-svg-icon--wrapper.npm-unauth,
@@ -133,6 +134,11 @@ input.inp:focus {
     width: 43px !important;
     height: 29px !important;
 }
+.social-icons-size-extra-large.social-icons-style-regular .sqs-svg-icon--wrapper.kickstarter-unauth,
+.social-icons-size-medium:not(.social-icons-style-regular) .sqs-svg-icon--wrapper.kickstarter-unauth {
+    width: 25.18px !important;
+    height: 28px !important;
+}
 .sqs-svg-icon--wrapper {
     vertical-align: middle;
 }
@@ -140,4 +146,7 @@ input.inp:focus {
     @include respond( $mobile-breakpoint ) {
         margin: 9px;
     }
+}
+.social-icons-size-extra-large.social-icons-style-regular.social-icon-alignment-center .sqs-svg-icon--wrapper.kickstarter-unauth {
+    margin: 0 15px;
 }

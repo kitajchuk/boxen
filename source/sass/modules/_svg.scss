@@ -55,11 +55,11 @@
         height: $expander-1;
     }
 }
-._svg--npm {
+._svg--npm,
+._svg--tabi,
+._svg--kickstarter {
     // tweak
     fill: $teal;
-    width: 64px;
-    height: 20.48px;
 
     // tweak
     .header & {
@@ -73,23 +73,17 @@
         fill: $teal;
     }
 }
+._svg--npm {
+    width: 64px;
+    height: 20.48px;
+}
 ._svg--tabi {
-    // tweak
-    fill: $teal;
     width: 43px;
     height: 29px;
-
-    // tweak
-    .header & {
-        fill: $black;
-    }
-
-    // tweak
-    .is-uid-page .header &,
-    .is-boxen-page .header &,
-    .is-navi-mobile .header & {
-        fill: $teal;
-    }
+}
+._svg--kickstarter {
+    width: 25.18px;
+    height: 28px;
 }
 ._svg--cyborg {
     width: 197px;

@@ -24,6 +24,10 @@ class Socials {
             {
                 name: "tabi",
                 regex: /tabinohana\.com/
+            },
+            {
+                name: "kickstarter",
+                regex: /kickstarter\.com/
             }
         ];
 
