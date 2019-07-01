@@ -10,6 +10,22 @@
 
 
 
+// Empty Fields
+.sqs-layout.empty {
+    background-color: $red;
+    position: relative;
+    padding: 10px 20px;
+
+    &:after {
+        content: attr( id );
+        display: inline-block;
+        @include m();
+        color: $white;
+    }
+}
+
+
+
 .sqs-block-spacer {
     .sqs-block-content {
         height: 0 !important;

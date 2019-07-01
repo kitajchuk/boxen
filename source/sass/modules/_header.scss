@@ -73,6 +73,10 @@
     z-index: $z_layer_intro + 1;
     width: 100%;
 
+    @include respond( $mobile-breakpoint ) {
+        align-items: center;
+    }
+
     .boxen-left-navi & {
         justify-content: flex-start;
         align-items: center;
@@ -118,11 +122,5 @@
 
     .sqs-layout {
         display: inline-block;
-    }
-
-    .sqs-layout.empty {
-        width: 216px;
-        height: 36px;
-        outline: 1px solid red;
     }
 }

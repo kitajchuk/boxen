@@ -92,9 +92,11 @@ html {
 .is-uid-page .navi__a {
     color: @primaryTextColor;
 }
-.cssicon--list div,
-.is-navi-mobile .cssicon--list div {
+.cssicon--list div {
     background-color: @primaryNaviColor;
+}
+.is-navi-mobile .cssicon--list div {
+    background-color: @primaryTextColor;
 }
 
 
@@ -110,13 +112,14 @@ html {
 ._svg--logo {
     fill: @primaryLogoColor;
 }
-.is-boxen-page ._svg--logo,
-.is-uid-page ._svg--logo,
-.is-navi-mobile ._svg--logo  {
-    fill: @primaryTextColor;
-}
 .is-home-page ._svg--logo {
     fill: @primaryLogoActiveColor;
+}
+.is-boxen-page ._svg--logo,
+.is-uid-page ._svg--logo,
+.is-navi-mobile ._svg--logo,
+.is-home-page.is-navi-mobile ._svg--logo  {
+    fill: @primaryTextColor;
 }
 
 
