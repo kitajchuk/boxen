@@ -7,41 +7,6 @@ import Controllers from "../Controllers";
 import Store from "../core/Store";
 
 
-/*
-Y.Squarespace.Commerce:
-    COMMERCE_DATE_TIME_FORMAT: "lllLT"
-    capitalizeFirst: ƒ (t)
-    destroyCommerce: ƒ ()
-    dimensionUnit: ƒ ()
-    fromPrice: ƒ (t)
-    generateSKU: ƒ ()
-    generateVariantId: ƒ ()
-    getLabelForWorkflowState: ƒ (e)
-    getTotalStockRemaining: ƒ (e)
-    goToCheckoutPage: ƒ ()
-    goToDonatePage: ƒ (t)
-    goToGiftCardPage: ƒ (t,n)
-    goToSubscriptionPage: ƒ (e)
-    hasVariants: ƒ (e)
-    initializeCommerce: ƒ ()
-    isExpressCheckout: ƒ ()
-    isFiniteSubscriptionPlan: ƒ (e)
-    isValidUSZip: ƒ (e)
-    maxes: ƒ ()
-    measurementStandard: ƒ ()
-    merchantSubscriptionDetailsString: ƒ (e)
-    moneyString: ƒ (e,t)
-    normalPrice: ƒ (t)
-    onSale: ƒ (e)
-    priceString: ƒ (e)
-    salePrice: ƒ (t)
-    soldOut: ƒ (e)
-    summaryFormFieldString: ƒ (t)
-    variantFormat: ƒ (t,n)
-    variedPrices: ƒ (e)
-    weightUnit: ƒ ()
-*/
-
 
 /**
  *
@@ -166,7 +131,7 @@ class Commerce {
     fetchShop () {
         return new Promise(( resolve, reject ) => {
             $.ajax({
-                url: "/prints/",
+                url: `/${this.parsed.continueShoppingLinkUrl}/`,
                 method: "GET",
                 dataType: "json",
                 data: {
