@@ -169,16 +169,18 @@ $mason-gap: 55px;
         }
     }
 
-    // .stack__bounce {
-    //     @include respond( $tablet-breakpoint ) {
-    //         width: 100%;
-    //         margin-top: $expander-0;
-    //     }
-    // }
-}
-.stack__bounce {
-    .btn {
-        width: 256px;
+    .stack__bounce {
+        text-align: right;
+
+        .product__buy {
+            margin-top: $expander-0;
+        }
+
+        @include respond( $tablet-breakpoint ) {
+            text-align: left;
+            width: 100%;
+            margin-top: $expander-0;
+        }
     }
 }
 

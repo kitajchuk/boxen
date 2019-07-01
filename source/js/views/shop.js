@@ -24,7 +24,7 @@ export default ( instance ) => {
                 </div>
             </a>
         ` : ``}
-        <div class="shop__grid mason -expt">
+        <div class="shop__grid mason ${(items.length <= 2) ? `mason--diptych` : ``} ${starred ? `-expt` : ``}">
             ${items.map(( item ) => {
                 return `
                     <div class="mason__item">

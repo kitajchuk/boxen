@@ -1,6 +1,15 @@
 /******************************************************************************
  * SQS Blocks
 *******************************************************************************/
+// Block Fields
+#boxen--footer-socials {
+    .header & {
+        transform: translate3d( 16px, 0, 0 );
+    }
+}
+
+
+
 .sqs-block-spacer {
     .sqs-block-content {
         height: 0 !important;
