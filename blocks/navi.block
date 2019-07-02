@@ -4,10 +4,11 @@
             {.if collection}
                 {.var @title collection.navigationTitle}
                 {.var @url collection.fullUrl}
+                {.var @slug collection.urlId|slugify}
             {.end}
             {.if collection.homepage}{.or}
-                <li class="navi__li navi__li--{@title|slugify}">
-                    <a class="navi__a navi__a--{@title|slugify} js-navi-a js-navi--{@title|slugify} m" href="{@url}">{@title}</a>
+                <li class="navi__li navi__li--{@slug}">
+                    <a class="navi__a navi__a--{@slug} js-navi-a js-navi--{@slug} m" href="{@url}">{@title}</a>
                 </li>
             {.end}
         {.end}

@@ -20,9 +20,11 @@ export default ( instance ) => {
                         </div>
                         <div class="stack__bounce">
                             <p class="green">$${digital ? item.structuredContent.priceMoney.value : variant.priceMoney.value}</p>
-                            <div class="product__buy">
-                                <a class="btn js-cart-add" href="#"><span class="btn__a">${item.structuredContent.customAddButtonText}</span></a>
-                            </div>
+                            ${digital ? `` : `
+                                <div class="product__buy">
+                                    <a class="btn js-cart-add" href="#"><span class="btn__a">${item.structuredContent.customAddButtonText}</span></a>
+                                </div>
+                            `}
                         </div>
                     </div>
                     ${digital ? `
