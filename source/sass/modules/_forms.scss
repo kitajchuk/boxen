@@ -88,6 +88,7 @@ $email-width: 375px;
 
         @include respond( $tablet-breakpoint ) {
             display: inline-block;
+            width: 100%;
         }
     }
 }
