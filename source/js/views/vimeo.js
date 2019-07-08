@@ -10,8 +10,6 @@ export default ( blockJson, imageJson ) => {
     const original = `${width}x${height}`;
     const svgIcon = require( `../../../blocks/svg-play.block` );
 
-    // console.log( blockJson );
-
     return `
         <div class="embed js-embed">
             <div class="embed__aspect" style="padding-bottom:${aspect}%;">

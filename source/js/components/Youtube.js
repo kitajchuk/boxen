@@ -30,8 +30,6 @@ class Youtube {
 
         this.load();
         this.bind();
-
-        console.log( this );
     }
 
 
