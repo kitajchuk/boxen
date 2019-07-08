@@ -3,9 +3,11 @@
         <img class="image js-lazy-image" data-img-src="{item.assetUrl}" data-variants="{item.systemDataVariants}" data-original-size="{item.originalSize}" />
         {.equal? info.layout "caption-hidden"}{.or}
             {.if info.description}
-                <div class="_cap {.if info.stretch}-wrap{.or}{.end}">
-                    <div class="m">{info.description|safe}</div>
-                </div>
+                {.if info.stretch}<div class="_cap-wrap -wrap">{.end}
+                    <div class="_cap">
+                        <div class="m">{info.description}</div>
+                    </div>
+                {.if info.stretch}</div>{.end}
             {.end}
         {.end}
     </div>
