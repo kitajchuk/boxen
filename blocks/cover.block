@@ -1,5 +1,5 @@
 <div class="cover">
-    <div class="cover__title -wrap -exp">
+    <div class="cover__title -wrap -expt">
         <h1>{title} &mdash; {description|safe}</h1>
     </div>
     {.section mainImage}

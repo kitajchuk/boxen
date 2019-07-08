@@ -93,9 +93,7 @@
 
 
 
-.navi-sub {
-    @include expt();
-}
+.navi-sub {}
 .navi-sub__a {
     &.is-active {
         color: $teal;
