@@ -2,7 +2,8 @@
     padding-bottom: $expander-1;
     transition: opacity $fast-duration $ease;
 
-    .is-tranny & {
+    .is-tranny &,
+    .is-site-intro & {
         opacity: 0;
     }
 
@@ -42,82 +43,4 @@
 }
 .footer__signup {
     margin-bottom: $expander-0;
-}
-.footer__graphics {
-    display: none;
-
-    .robot,
-    .cyborg,
-    .fallgirl {
-        display: none;
-    }
-
-    .robot,
-    .cyborg {
-        @include wrap();
-    }
-
-    .cyborg {
-        .is-hire-page & {
-            display: flex;
-            justify-content: flex-end;
-
-            @include respond( $tablet-breakpoint ) {
-                margin-top: $expander-m;
-                justify-content: center;
-            }
-        }
-
-        ._svg {
-            @include respond( $tablet-breakpoint ) {
-                width: auto;
-                height: $break-mobile-small;
-            }
-        }
-    }
-
-    .robot {
-        .is-home-page & {
-            display: flex;
-            justify-content: flex-end;
-
-            @include respond( $tablet-breakpoint ) {
-                margin-top: $expander-m;
-                justify-content: center;
-            }
-        }
-
-        ._svg {
-            @include respond( $tablet-breakpoint ) {
-                width: auto;
-                height: 256px;
-            }
-        }
-    }
-
-    .fallgirl {
-        .is-colophon-page & {
-            display: flex;
-            justify-content: flex-end;
-            padding-top: $expander-1 * 2;
-            transform: translate3d( 1px, 1px, 0 );
-
-            @include respond( $mobile-breakpoint ) {
-                padding-top: $expander-1;
-            }
-        }
-
-        ._svg {
-            @include respond( $tablet-breakpoint ) {
-                width: auto;
-                height: $break-mobile-small;
-            }
-        }
-    }
-
-    .is-hire-page &,
-    .is-home-page &,
-    .is-colophon-page & {
-        display: block;
-    }
 }

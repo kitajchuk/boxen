@@ -2,8 +2,8 @@
     pointer-events: auto;
     z-index: $z_layer_intro;
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: center;
 
     &.is-active {
         z-index: $z_layer_intro;
@@ -14,4 +14,78 @@
         visibility: visible;
         z-index: $z_layer_intro;
     }
+}
+
+
+
+// CSS for the triforce loading icon
+// Sourced from: https://github.com/leviv/botw-loader
+#tri-loader {
+    position: absolute;
+    left: 48px;
+    bottom: 56px;
+
+    @include respond( $mobile-breakpoint ) {
+        left: $padding-m;
+    }
+
+    .circle {
+        transition: all .3s;
+        -webkit-transition: all .3s;
+        width: 6px;
+        height: 6px;
+        background-color: $white;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        position: absolute;
+        animation: tri-load .75s infinite;
+
+        &.glow {
+            box-shadow: 0px 0px 20px $white;
+        }
+    }
+
+    #circle1, #circle4, #circle5 {
+        animation-delay: .375s;
+    }
+}
+
+// top circle
+#circle1 {
+    left: 7px;
+}
+
+// top left
+#circle2 {
+    top: 5px;
+}
+
+// top right
+#circle3 {
+    top: 5px;
+    left: 14px;
+}
+
+// bottom left
+#circle4 {
+    top: 12px;
+}
+
+// bottom right
+#circle5 {
+    top: 12px;
+    left: 14px;
+}
+
+// bottom circle
+#circle6 {
+    top: 17px;
+    left: 7px;
+}
+
+// Animation for the tri-force loading symbol in the bottom left
+@keyframes tri-load {
+    0% {transform: scale(1);}
+    50% {transform: scale(.5);}
+    100% {transform: scale(1);}
 }

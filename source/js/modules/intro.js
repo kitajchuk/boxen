@@ -14,6 +14,8 @@ const intro = {
 
 
     teardown () {
+        core.log( "[Intro Teardown]" );
+
         core.dom.intro.removeClass( "is-active" );
 
         setTimeout(() => {

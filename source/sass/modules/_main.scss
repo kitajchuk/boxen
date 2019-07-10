@@ -1,6 +1,7 @@
 .main {
-    transition: opacity $base-duration $ease $base-duration;
+    transition: opacity $base-duration $ease;
 
+    .is-tranny &,
     .is-site-intro & {
         opacity: 0;
     }

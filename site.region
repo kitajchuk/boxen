@@ -55,11 +55,6 @@
                 {.end}
         </main>
         <footer class="footer js-footer">
-            <div class="footer__graphics">
-                <div class="cyborg">{@|apply svg-cyborg.block}</div>
-                <div class="robot">{@|apply svg-robot.block}</div>
-                <div class="fallgirl">{@|apply svg-fallgirl.block}</div>
-            </div>
             {@|apply ruler.block}
             <div class="footer__signup -wrap">
                 <squarespace:block-field id="boxen--footer-signup" columns="12" />
@@ -73,7 +68,16 @@
                 </div>
             </div>
         </footer>
-        <div class="intro js-intro screen screen--dark is-active"></div>
+        <div class="intro js-intro screen is-active">
+            <div id="tri-loader">
+                <div class="circle glow" id="circle1"></div>
+                <div class="circle glow" id="circle2"></div>
+                <div class="circle glow" id="circle3"></div>
+                <div class="circle glow" id="circle4"></div>
+                <div class="circle glow" id="circle5"></div>
+                <div class="circle glow" id="circle6"></div>
+            </div>
+        </div>
         <script src="/scripts/boxen.js?v={squarespace.template-revision}"></script>
         {squarespace-footers}
     </body>
