@@ -120,6 +120,7 @@ const router = {
         // Parse outside of virtual DOM ( SQS config stuff for block overrides )
         this.parseConfig( virtual );
         this.parseArticle( virtual );
+        this.parseImages( virtual );
 
         return {
             doc: doc,
@@ -147,6 +148,36 @@ const router = {
                 summaryGrid.find( `[data-item-id="${articleData.itemId}"]` ).remove();
             }
         }
+    },
+
+
+    parseImages ( virtual ) {
+        const images = virtual.find( ".js-lazy-image" );
+
+        images.forEach(( el, i ) => {
+            const wrapper = document.createElement( "div" );
+            const image = images.eq( i );
+            const data = image.data();
+            const dims = core.util.getOriginalDims( data.originalSize );
+            const ratio = (dims.height / dims.width) * 100;
+
+            el.parentNode.insertBefore( wrapper, el );
+
+            wrapper.style.paddingBottom = `${ratio}%`;
+            wrapper.className = "image-aspect";
+            wrapper.appendChild( el );
+        });
+    },
+
+
+    freeParseImages ( element, htmlString ) {
+        let virtual = document.createElement( "div" );
+
+        virtual = $( virtual );
+        virtual[ 0 ].innerHTML = htmlString;
+        this.parseImages( virtual );
+        element[ 0 ].innerHTML = virtual[ 0 ].innerHTML;
+        virtual = null;
     },
 
 

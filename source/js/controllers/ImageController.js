@@ -31,7 +31,7 @@ class ImageController extends Controller {
         }
 
         if ( this.$lazyload.length ) {
-            this.handleLoading( this.$lazyload, "lazyload", util.isElementLoadable );
+            this.handleLoading( this.$lazyload, "lazyload", util.isElementVisible );
         }
     }
 

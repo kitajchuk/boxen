@@ -33,6 +33,25 @@
     }
 }
 .image-wrap {}
+.image-aspect {
+    background-color: #111;
+    position: relative;
+    padding-bottom: $cinema-padding;
+
+    .image {
+        transition: opacity $base-duration $ease $base-duration;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+
+        &[data-imageloader="true"] {
+            opacity: 1;
+        }
+    }
+}
 .image-poster {
     position: relative;
 

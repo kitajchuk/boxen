@@ -1,3 +1,4 @@
+import router from "../router";
 import * as core from "../core";
 import $ from "properjs-hobo";
 import cartView from "../views/cart";
@@ -117,8 +118,8 @@ class Commerce {
             });
 
         } else {
+            router.freeParseImages( this.element, this.view( this ) );
             window.Squarespace.initializeCommerce( window.Y );
-            this.element[ 0 ].innerHTML = this.view( this );
         }
     }
 
