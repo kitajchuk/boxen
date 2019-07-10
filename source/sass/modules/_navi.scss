@@ -90,6 +90,15 @@
         text-align: right;
     }
 }
+.navi-mobile__ul,
+.navi-mobile__socials {
+    transition: opacity $base-duration $ease $base-duration;
+    opacity: 0;
+
+    .is-navi-mobile & {
+        opacity: 1;
+    }
+}
 
 
 

@@ -93,9 +93,11 @@
         }
     }
 
-    @include respond( $tablet-breakpoint ) {
-        order: 1;
-        margin-bottom: $expander-0;
+    .product__info & {
+        @include respond( $tablet-breakpoint ) {
+            order: 1;
+            margin-bottom: $expander-0;
+        }
     }
 }
 .product__about {

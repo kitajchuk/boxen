@@ -39,6 +39,7 @@
         -webkit-border-radius: 50%;
         position: absolute;
         animation: tri-load .75s infinite;
+        -webkit-animation: tri-load .75s infinite;
 
         &.glow {
             box-shadow: 0px 0px 20px $white;
@@ -47,6 +48,7 @@
 
     #circle1, #circle4, #circle5 {
         animation-delay: .375s;
+        -webkit-animation-delay: .375s;
     }
 }
 
@@ -85,6 +87,11 @@
 
 // Animation for the tri-force loading symbol in the bottom left
 @keyframes tri-load {
+    0% {transform: scale(1);}
+    50% {transform: scale(.5);}
+    100% {transform: scale(1);}
+}
+@-webkit-keyframes tri-load {
     0% {transform: scale(1);}
     50% {transform: scale(.5);}
     100% {transform: scale(1);}

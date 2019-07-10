@@ -51,6 +51,12 @@ input.inp:focus {
  * Social links...
  * Supports Light/Dark Standard icons
 *******************************************************************************/
+.social-icon-alignment-center .sqs-svg-icon--list {
+    @include respond( $mobile-breakpoint ) {
+        width: 270px;
+        display: inline-block;
+    }
+}
 .sqs-use--icon, .sqs-use--mask {
     transition: fill $base-duration $ease;
 }

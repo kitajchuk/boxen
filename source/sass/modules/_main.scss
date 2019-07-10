@@ -1,5 +1,9 @@
 .main {
-    transition: opacity $base-duration $ease;
+    transition: opacity $base-duration $ease $base-duration;
+
+    .is-tranny & {
+        transition-delay: 0ms;
+    }
 
     .is-tranny &,
     .is-site-intro & {
