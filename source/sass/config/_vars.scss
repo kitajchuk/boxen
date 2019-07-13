@@ -47,7 +47,8 @@ $expander-v2: $expander-v / 2;
  * Sizes
 *******************************************************************************/
 $text-width: 960px;
-$text-width-2: 1100px;
+$text-width-2: 1070px;
+$text-width-2-fluid: 81.25vw;
 $slider-width: 62.5vw;
 $slider-height: 41.40625vw;
 $input-height: 60px;
@@ -70,8 +71,8 @@ $cinema-padding: 56.25%;
 /******************************************************************************
  * Typography
 *******************************************************************************/
-$h1-size-mobile: 26px;
-$h1-size-fluid: #{"~\"calc( #{$h1-size-mobile} + 0.695vw )\""};
+$h1-size-mobile: 25px;
+$h1-size-fluid: #{"~\"calc( #{$h1-size-mobile} + 0.764vw )\""};
 $h1-size: 36px;
 $h1-line: 52 / 36;
 

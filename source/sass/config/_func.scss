@@ -86,9 +86,14 @@
     line-height: $h1-line;
     @include font-family-sans-bold();
     max-width: $text-width-2;
+    width: 100%;
 
     @include respond-min( $mobile-breakpoint ) {
         font-size: $h1-size-fluid;
+    }
+
+    @include respond-min( $text-width-2 ) {
+        width: $text-width-2-fluid;
     }
 
     @include respond-min( $laptop-breakpoint ) {
@@ -228,7 +233,7 @@
                 border-color $base-duration $ease;
 
     // tweak
-    border: 3px solid $purple;
+    border: 3px solid $grey-dark;
 
     &.is-error {
         border-color: $red;
@@ -268,7 +273,7 @@
     position: relative;
 
     // tweak
-    border: 3px solid $purple;
+    border: 3px solid $grey-dark;
 
     @include respond( $mobile-breakpoint ) {
         height: $input-height-m;
