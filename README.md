@@ -27,6 +27,15 @@ boxen init my-project
 ```
 
 
+### Troubleshooting the Squarespace Server?
+If you have startup issues with your server, it could be due to versioning issues with the [@squarespace/server](https://www.npmjs.com/package/@squarespace/server) module. This is because the [@squarespace/toolbelt](https://www.npmjs.com/package/@squarespace/toolbelt) module doesn't depend on the server as a package dependency but rather depends on YOU managing your global server installation. Try this if you're having issues or get a message like "This version of local developer is incompatible, please update to the latest version.":
+
+```shell
+# A fresh install will update you to the latest version
+npm i -g @squarespace/server
+```
+
+
 ### Documentation
 That's it! Checkout the [boxen docs](https://kitajchuk.com/boxen/readme) for complete info on developing with the SDK.
 
