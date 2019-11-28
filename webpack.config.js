@@ -68,11 +68,52 @@ module.exports = ( env ) => {
 
         module: {
             rules: [
-                { test: /source\/js\/.*\.js$/, exclude: /node_modules|\.config\.js/, use: ["eslint-loader"], enforce: "pre" },
-                { test: /source\/js\/.*\.js$/, exclude: /node_modules|\.config\.js/, use: [{ loader: "babel-loader", options: { presets: ["env"] } }] },
-                { test: /(hobo|hobo.build)\.js$/, use: ["expose-loader?hobo"] },
-                { test: /\.(sass|scss)$/, exclude: /node_modules/, use: ["file-loader?name=../styles/[name].css", "postcss-loader", "sass-loader"] },
-                { test: /svg-.*\.block$|\.svg$/, exclude: /node_modules/, use: ["svg-inline-loader"] }
+                {
+                    test: /source\/js\/.*\.js$/,
+                    exclude: /node_modules/,
+                    loader: "eslint-loader",
+                    enforce: "pre",
+                    options: {
+                        emitError: true,
+                        emitWarning: false,
+                        failOnError: true,
+                        quiet: true
+                    }
+                },
+                {
+                    test: /source\/js\/.*\.js$/,
+                    exclude: /node_modules|\.config\.js/,
+                    use: [
+                        {
+                            loader: "babel-loader",
+                            options: {
+                                presets: ["env"]
+                            }
+                        }
+                    ]
+                },
+                {
+                    test: /(hobo|hobo.build)\.js$/,
+                    use: [
+                        "expose-loader?hobo"
+                    ]
+                },
+                {
+                    test: /\.(sass|scss)$/,
+                    exclude: /node_modules/,
+                    use: [
+                        "file-loader?name=../styles/[name].css",
+                        "postcss-loader",
+                        "sass-loader"
+                    ]
+                },
+                {
+                    test: /svg-.*\.block$|\.svg$/,
+                    exclude: /node_modules/,
+                    use: [
+                        "svg-inline-loader"
+                    ]
+                }
             ]
         }
     };

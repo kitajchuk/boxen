@@ -98,7 +98,9 @@ const router = {
         this.setState( "future", data );
         this.setClass();
         navi.setActive( this.state.now.view );
-        core.dom.main[ 0 ].innerHTML = this.doc.html;
+        if ( !core.env.isConfig() ) {
+            core.dom.main[ 0 ].innerHTML = this.doc.html;
+        }
         this.topper();
         this.controllers.exec();
         setTimeout(() => {
@@ -157,15 +159,19 @@ const router = {
         images.forEach(( el, i ) => {
             const wrapper = document.createElement( "div" );
             const image = images.eq( i );
-            const data = image.data();
-            const dims = core.util.getOriginalDims( data.originalSize );
-            const ratio = (dims.height / dims.width) * 100;
+            const check = image.closest( ".js-slideshow-item, .js-slideshow-thumb, .js-slider-item" );
 
-            el.parentNode.insertBefore( wrapper, el );
+            if ( !check.length ) {
+                const data = image.data();
+                const dims = core.util.getOriginalDims( data.originalSize );
+                const ratio = (dims.height / dims.width) * 100;
 
-            wrapper.style.paddingBottom = `${ratio}%`;
-            wrapper.className = "image-aspect";
-            wrapper.appendChild( el );
+                el.parentNode.insertBefore( wrapper, el );
+
+                wrapper.style.paddingBottom = `${ratio}%`;
+                wrapper.className = "image-aspect";
+                wrapper.appendChild( el );
+            }
         });
     },
 

@@ -88,13 +88,17 @@
     max-width: $text-width-2;
     width: 100%;
 
+    .is-home-page & {
+        max-width: $text-width-3;
+    }
+
     @include respond-min( $mobile-breakpoint ) {
         font-size: $h1-size-fluid;
     }
 
-    @include respond-min( $text-width-2 ) {
-        width: $text-width-2-fluid;
-    }
+    // @include respond-min( $text-width-2 ) {
+    //     width: $text-width-2-fluid;
+    // }
 
     @include respond-min( $laptop-breakpoint ) {
         font-size: $h1-size;
@@ -216,7 +220,7 @@
 }
 @mixin input() {
     @include m();
-    @include placeholder( $grey-dark );
+    @include placeholder( $grey );
     line-height: 1;
     padding: 0 20px;
     -webkit-appearance: none;
@@ -258,7 +262,7 @@
 }
 @mixin select() {
     @include m();
-    color: $grey-dark;
+    color: $grey;
     line-height: 1;
     padding: 0 20px;
     -webkit-appearance: none;

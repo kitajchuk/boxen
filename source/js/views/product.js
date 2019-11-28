@@ -2,6 +2,9 @@ export default ( instance ) => {
     const item = instance.data.item;
     const variant = item.structuredContent.variants[ 0 ];
     const digital = item.digitalGoods;
+    const collection = instance.data.collection;
+    const isSoldOut = (variant.qtyInStock === 0);
+    const isOneLeft = (variant.qtyInStock === 1);
 
     return `
         <div class="stack">
@@ -19,10 +22,10 @@ export default ( instance ) => {
                             </div>
                         </div>
                         <div class="stack__bounce">
-                            <p class="green">$${digital ? item.structuredContent.priceMoney.value : variant.priceMoney.value}</p>
+                            ${isSoldOut ? `` : `<p class="green">$${digital ? item.structuredContent.priceMoney.value : variant.priceMoney.value}</p>`}
                             ${digital ? `` : `
                                 <div class="product__buy">
-                                    <a class="btn js-cart-add" href="#"><span class="btn__a">${item.structuredContent.customAddButtonText}</span></a>
+                                    <a class="btn ${isSoldOut ? "btn--red" : "js-cart-add"}" href="#"><span class="btn__a">${isSoldOut ? "Sold Out" : item.structuredContent.customAddButtonText}</span></a>
                                 </div>
                             `}
                         </div>
@@ -37,7 +40,7 @@ export default ( instance ) => {
                             </div>
                         </div>
                     ` : ``}
-                    <img class="stack__image image js-lazy-image" data-img-src="${item.assetUrl}" data-variants="${item.systemDataVariants}" data-original-size="${item.originalSize}" />
+                    <img class="stack__image image js-lazy-image ${isSoldOut ? "soldout" : ""}" data-img-src="${item.assetUrl}" data-variants="${item.systemDataVariants}" data-original-size="${item.originalSize}" />
                 </div>
             </div>
         </div>
@@ -45,15 +48,15 @@ export default ( instance ) => {
             <div class="product__info cms">
                 <div class="product__about">
                     ${item.body}
-                    <div class="product__limited m yellow">Prints are limited! I have <span class="green">${variant.qtyInStock}</span> remaining.</div>
+                    ${isSoldOut ? `<div class="product__limited m yellow">Someone already snagged this one!</div>` : isOneLeft ? `<div class="product__limited m yellow">There's only one of these in the world!</div>` : `<div class="product__limited m yellow">${collection.navigationTitle} are limited! I have <span class="green">${variant.qtyInStock}</span> remaining.</div>`}
                 </div>
                 <div class="product__buy">
-                    <a class="btn js-cart-add" href="#"><span class="btn__a">${item.structuredContent.customAddButtonText}</span></a>
+                    <a class="btn ${isSoldOut ? "btn--red" : "js-cart-add"}" href="#"><span class="btn__a">${isSoldOut ? "Sold Out" : item.structuredContent.customAddButtonText}</span></a>
                 </div>
             </div>
         `}
         ${digital ? `` : `
-            <div class="product__photos">
+            <div class="product__photos -wrap">
                 ${item.items.map(( image ) => {
                     return `
                         <div class="sqs-block-spacer"><div class="sqs-block-content"></div></div>

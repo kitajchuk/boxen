@@ -5,21 +5,32 @@
         <div class="mason mason--diptych">
             {.repeated section items}
                 {.var @tags tags|count}
-                <div class="mason__item">
+                {.if title}
+                    {.var @hasInfo title}
+                {.end}
+                {.if @tags}
+                    {.var @hasInfo @tags}
+                {.end}
+                {.if body}
+                    {.var @hasInfo body}
+                {.end}
+                <div class="mason__item {.if @hasInfo}{.or}mason__item--noinfo{.end}">
                     <a class="mason__link" href="{fullUrl}">
                         <img class="mason__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
                         <div class="js-sqs-config-image"></div>
-                        <div class="mason__info">
-                            {.if title}
-                                <div class="mason__title">{title}</div>
-                            {.end}
-                            {.if @tags}
-                                <div class="mason__meta">{.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}</div>
-                            {.end}
-                            {.if body}
-                                <div class="mason__meta">{body}</div>
-                            {.end}
-                        </div>
+                        {.if @hasInfo}
+                            <div class="mason__info">
+                                {.if title}
+                                    <div class="mason__title">{title}</div>
+                                {.end}
+                                {.if @tags}
+                                    <div class="mason__meta">{.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}</div>
+                                {.end}
+                                {.if body}
+                                    <div class="mason__meta">{body}</div>
+                                {.end}
+                            </div>
+                        {.end}
                     </a>
                 </div>
             {.end}
@@ -62,18 +73,26 @@
         <div class="grid">
             {.repeated section items}
                 {.var @tags tags|count}
+                {.if title}
+                    {.var @hasInfo title}
+                {.end}
+                {.if @tags}
+                    {.var @hasInfo @tags}
+                {.end}
                 <div class="grid__item">
                     <a class="grid__link" href="{fullUrl}">
                         <img class="grid__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
                         <div class="js-sqs-config-image"></div>
-                        <div class="grid__info">
-                            {.if title}
-                                <div class="grid__title">{title}</div>
-                            {.end}
-                            {.if @tags}
-                                <div class="grid__meta">{.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}</div>
-                            {.end}
-                        </div>
+                        {.if @hasInfo}
+                            <div class="grid__info">
+                                {.if title}
+                                    <div class="grid__title">{title}</div>
+                                {.end}
+                                {.if @tags}
+                                    <div class="grid__meta">{.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}</div>
+                                {.end}
+                            </div>
+                        {.end}
                     </a>
                 </div>
             {.end}
@@ -117,17 +136,25 @@
         <div class="slider__wrap js-slider-belt">
             {.repeated section items}
                 {.var @tags tags|count}
+                {.if title}
+                    {.var @hasInfo title}
+                {.end}
+                {.if @tags}
+                    {.var @hasInfo @tags}
+                {.end}
                 <div class="slider__item js-slider-item">
                     <img class="image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
                     <div class="js-sqs-config-image"></div>
-                    <div class="slider__info">
-                        {.if title}
-                            <h3 class="slider__title">{title}</h3>
-                        {.end}
-                        {.if @tags}
-                            <div class="slider__meta">{.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}</div>
-                        {.end}
-                    </div>
+                    {.if @hasInfo}
+                        <div class="slider__info">
+                            {.if title}
+                                <h3 class="slider__title">{title}</h3>
+                            {.end}
+                            {.if @tags}
+                                <div class="slider__meta">{.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}</div>
+                            {.end}
+                        </div>
+                    {.end}
                 </div>
             {.end}
         </div>
@@ -169,24 +196,35 @@
         {.end}
     </style>
 {.or equal? options.design "stacked"}
-    <div class="stack">
+    <div class="stack -wrap">
         {.repeated section items}
             {.var @tags tags|count}
+            {.if title}
+                {.var @hasInfo title}
+            {.end}
+            {.if @tags}
+                {.var @hasInfo @tags}
+            {.end}
+            {.if body}
+                {.var @hasInfo body}
+            {.end}
             <div class="stack__item">
                 <a class="stack__link" href="{fullUrl}" data-item-id="{id}">
                     <img class="stack__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
                     <div class="js-sqs-config-image"></div>
-                    <div class="stack__info">
-                        {.if title}
-                            <h2 class="stack__title">{title}</h2>
-                        {.end}
-                        {.if @tags}
-                            <div class="stack__meta">{.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}</div>
-                        {.end}
-                        {.if body}
-                            <div class="stack__meta">{body}</div>
-                        {.end}
-                    </div>
+                    {.if @hasInfo}
+                        <div class="stack__info">
+                            {.if title}
+                                <h2 class="stack__title">{title}</h2>
+                            {.end}
+                            {.if @tags}
+                                <div class="stack__meta">{.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}</div>
+                            {.end}
+                            {.if body}
+                                <div class="stack__meta">{body}</div>
+                            {.end}
+                        </div>
+                    {.end}
                 </a>
             </div>
         {.end}

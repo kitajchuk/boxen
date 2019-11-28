@@ -19,18 +19,47 @@
             </div>
         </div>
     </div>
-    <div class="product__info cms">
-        <div class="product__about">
-            {.if item.customContent.storyCredits}
-                {item.customContent.storyCredits.html}
-            {.end}
-        </div>
-        <div class="product__buy">
+    {.if item.customContent.storyCredits}
+        {.var @hasInfo item.customContent.storyCredits.html}
+    {.end}
+    {.if item.customContent.githubUrl}
+        {.var @hasInfo item.customContent.githubUrl}
+    {.end}
+    {.if @hasInfo}
+        <div class="product__info cms">
+            <div class="product__about">
+                {.if item.customContent.githubUrl}
+                    <div class="sqs-svg-icon--outer social-icon-alignment-left social-icons-color-black social-icons-size-extra-large social-icons-style-regular">
+                        <nav class="sqs-svg-icon--list">
+                            <a href="{item.customContent.githubUrl}" target="_blank" class="sqs-svg-icon--wrapper github-unauth">
+                                <div>
+                                    <svg class="sqs-svg-icon--social" viewBox="0 0 64 64">
+                                        <use class="sqs-use--icon" xlink:href="#github-unauth-icon"></use>
+                                        <use class="sqs-use--mask" xlink:href="#github-unauth-mask"></use>
+                                    </svg>
+                                </div>
+                            </a>
+                            {.if item.customContent.npmUrl}
+                                <a href="{item.customContent.npmUrl}" target="_blank" class="sqs-svg-icon--wrapper url npm-unauth">
+                                    <div>
+                                        <svg class="_svg _svg--npm" x="0px" y="0px" viewBox="0 0 780 250" style="enable-background:new 0 0 780 250;"><polygon points="0,200 100,200 100,50 150,50 150,200 200,200 200,0 0,0"></polygon><polygon points="480,0 480,200 580,200 580,50 630,50 630,200 680,200 680,50 730,50 730,200 780,200 780,0"></polygon><path d="M240,250h100v-50h100V0H240V250z M340,50h50v100h-50V50z"></path></svg>
+                                    </div>
+                                </a>
+                            {.end}
+                        </nav>
+                    </div>
+                {.end}
+                {.if item.customContent.storyCredits}
+                    {item.customContent.storyCredits.html}
+                {.end}
+            </div>
             {.if item.sourceUrl}
-                <a class="btn js-btn" href="{item.sourceUrl}" target="_blank"><span class="btn__a">{.if item.customContent.buttonText}{item.customContent.buttonText}{.or}View site{.end}</span></a>
+                <div class="product__buy">
+                    <a class="btn js-btn" href="{item.sourceUrl}" target="_blank"><span class="btn__a">{.if item.customContent.buttonText}{item.customContent.buttonText}{.or}View site{.end}</span></a>
+                </div>
             {.end}
         </div>
-    </div>
+    {.end}
     <div class="story__blocks cms">
         {item.body}
     </div>

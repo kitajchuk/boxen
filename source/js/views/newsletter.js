@@ -24,7 +24,7 @@ export default ( instance ) => {
     return `
         <div class="form__entry">
             <div class="form__fieldset form__fieldset--title">
-                <p class="grey">${instance.blockJson.title}</p>
+                <p class="teal">${instance.blockJson.title}</p>
                 <div class="m dark">${instance.blockJson.description.html}</div>
             </div>
             ${instance.blockJson.form.parsedFields.map(( field ) => {

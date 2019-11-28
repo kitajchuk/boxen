@@ -118,7 +118,7 @@ $email-width: 375px;
 }
 .inp.inp--grey,
 .area.inp--grey {
-    border-color: $grey-dark;
+    border-color: $grey;
 }
 
 
@@ -232,10 +232,10 @@ $email-width: 375px;
     }
 }
 .btn.btn--grey {
-    background-color: $grey-dark;
-    color: mix( black, $grey-dark, 90% );
+    background-color: $grey;
+    color: mix( black, $grey, 90% );
 
     .is-hoverable &:hover {
-        background-color: mix( black, $grey-dark, 25% );
+        background-color: mix( black, $grey, 25% );
     }
 }

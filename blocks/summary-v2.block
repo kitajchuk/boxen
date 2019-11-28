@@ -108,7 +108,7 @@
         {.end}
     </style>
 {.or equal? design "list"}
-    <div class="stack">
+    <div class="stack -wrap">
         {.repeated section items}
             {.var @tags tags|count}
             <div class="stack__item">

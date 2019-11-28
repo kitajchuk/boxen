@@ -11,7 +11,7 @@
             {.end}
             {.if collection.homepage}{.or}
                 <li class="navi-mobile__li navi-mobile__li--{@title|slugify}">
-                    <a class="navi-mobile__a navi-mobile__a--{@title|slugify} js-navi-a js-navi--{@title|slugify} h2" href="{@url}">{@title}</a>
+                    <a class="navi-mobile__a navi-mobile__a--{@title|slugify} js-navi-a js-navi--{@title|slugify} h2" href="{@url}" {.if externalLink}target="_blank"{.end}>{@title}</a>
                 </li>
             {.end}
         {.end}

@@ -6,9 +6,14 @@
                 {.var @url collection.fullUrl}
                 {.var @slug collection.urlId|slugify}
             {.end}
+            {.if externalLink}
+                {.var @title externalLink.title}
+                {.var @url externalLink.url}
+                {.var @slug externalLink.title|slugify}
+            {.end}
             {.if collection.homepage}{.or}
                 <li class="navi__li navi__li--{@slug}">
-                    <a class="navi__a navi__a--{@slug} js-navi-a js-navi--{@slug} m" href="{@url}">{@title}</a>
+                    <a class="navi__a navi__a--{@slug} js-navi-a js-navi--{@slug} m" href="{@url}" {.if externalLink}target="_blank"{.end}>{@title}</a>
                 </li>
             {.end}
         {.end}

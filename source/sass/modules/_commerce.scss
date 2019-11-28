@@ -69,10 +69,11 @@
 
     p strong {
         .story & {
-            color: $grey-dark;
+            color: $grey;
         }
     }
-    p + p {
+    p + p,
+    div + p, {
         .story & {
             margin-top: $expander-0;
         }
