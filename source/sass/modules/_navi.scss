@@ -102,9 +102,17 @@
 
 
 
-.navi-sub {}
+.navi-sub {
+    margin-top: $expander-0;
+}
 .navi-sub__a {
     &.is-active {
         color: $teal;
+    }
+}
+.navi-sub__li {
+    @include respond( $mobile-breakpoint ) {
+        display: block;
+        margin-left: 0;
     }
 }
