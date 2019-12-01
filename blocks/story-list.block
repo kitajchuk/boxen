@@ -1,48 +1,35 @@
 <div class="stories stories--{collection.urlId|slugify}" data-collection-id="{collection.id}">
-    <squarespace:block-field id="boxen--stories--{collection.urlId}" columns="12" />
-    {.equal? collection.urlId "boxen/registry"}
-        <div class="grid">
-            {.repeated section items}
-                {.var @tags tags|count}
-                {.if title}
-                    {.var @hasInfo title}
-                {.end}
-                {.if @tags}
-                    {.var @hasInfo @tags}
-                {.end}
-                <div class="grid__item">
-                    <a class="grid__link" href="{fullUrl}">
-                        <img class="grid__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
-                        <div class="js-sqs-config-image"></div>
-                        {.if @hasInfo}
-                            <div class="grid__info">
-                                {.if title}
-                                    <div class="grid__title">{title}</div>
-                                {.end}
-                                {.if @tags}
-                                    <div class="grid__meta">{.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}</div>
-                                {.end}
-                            </div>
-                        {.end}
-                    </a>
+    <div class="stories__mast">
+        <squarespace:block-field id="boxen--stories--{collection.urlId}" columns="12" />
+    </div>
+    {.repeated section items}
+        {.if starred}
+            <a class="stories__starred starred" href="{fullUrl}">
+                <img class="image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
+                <div class="starred__info">
+                    <div class="starred__title" data-content-field="title">{title}</div>
+                    <div class="starred__meta">
+                        {.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}
+                    </div>
                 </div>
-            {.end}
-        </div>
-    {.or}
-        <div class="stack -wrap">
-            {.repeated section items}
-                <div class="stack__item">
-                    <a class="stack__link" href="{fullUrl}" data-item-id="{id}">
-                        <img class="stack__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
-                        <div class="stack__info">
-                            <h2 class="stack__title" data-content-field="title">{title}</h2>
-                            <div class="stack__meta">
+            </a>
+        {.end}
+    {.end}
+    <div class="stories__grid mason -expt">
+        {.repeated section items}
+            {.if starred}{.or}
+                <div class="mason__item">
+                    <a class="mason__link" href="{fullUrl}" data-item-id="{id}">
+                        <img class="mason__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
+                        <div class="mason__info">
+                            <h2 class="mason__title" data-content-field="title">{title}</h2>
+                            <div class="mason__meta">
                                 {.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}
                             </div>
                         </div>
                     </a>
                 </div>
             {.end}
-        </div>
-    {.end}
+        {.end}
+    </div>
 </div>
