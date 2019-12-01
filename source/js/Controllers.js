@@ -5,6 +5,7 @@ import BaseController from "./controllers/BaseController";
 import Slider from "./components/Slider";
 import Video from "./components/Video";
 import Socials from "./components/Socials";
+import Reader from "./components/Reader";
 import Form from "./services/Form";
 import Search from "./services/Search";
 import Commerce from "./services/Commerce";
@@ -74,6 +75,7 @@ class Controllers {
         // Hinge on Squarespace selectors...
         this.push( "video", this.element.find( ".sqs-block-video" ), BaseController, Video );
         this.push( "socials", this.element.find( ".sqs-block-socialaccountlinks-v2" ), BaseController, Socials );
+        this.push( "reader", this.element.find( "#page-5925b6cb03596e075b56bff3" ), BaseController, Reader );
 
         this.init();
 
