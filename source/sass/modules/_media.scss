@@ -38,11 +38,6 @@
     position: relative;
     padding-bottom: $cinema-padding;
 
-    .is-boxen-page &,
-    .is-clutch-page & {
-        padding-bottom: 0 !important;
-    }
-
     .image {
         transition: opacity $base-duration $ease $base-duration;
         position: absolute;
