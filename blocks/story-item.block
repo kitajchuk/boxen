@@ -25,6 +25,9 @@
     {.if item.customContent.githubUrl}
         {.var @hasInfo item.customContent.githubUrl}
     {.end}
+    {.if item.sourceUrl}
+        {.var @hasInfo item.sourceUrl}
+    {.end}
     {.if @hasInfo}
         <div class="product__info cms">
             <div class="product__about">
