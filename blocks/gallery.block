@@ -21,10 +21,15 @@
                         {.if @hasInfo}
                             <div class="mason__info">
                                 {.if title}
-                                    <div class="mason__title">{title}</div>
+                                    <div class="mason__title">
+                                        <div>{title}</div>
+                                        {.if excerpt}
+                                            <div class="teal">{excerpt}</div>
+                                        {.end}
+                                    </div>
                                 {.end}
                                 {.if @tags}
-                                    <div class="mason__meta">{.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}</div>
+                                    <div class="mason__meta">{.repeated section tags}<span class="grey">{@}</span>{.alternates with} {.end}</div>
                                 {.end}
                                 {.if body}
                                     <div class="mason__meta">{body}</div>
@@ -86,10 +91,15 @@
                         {.if @hasInfo}
                             <div class="grid__info">
                                 {.if title}
-                                    <div class="grid__title">{title}</div>
+                                    <div class="grid__title">
+                                        <div>{title}</div>
+                                        {.if excerpt}
+                                            <div class="teal">{excerpt}</div>
+                                        {.end}
+                                    </div>
                                 {.end}
                                 {.if @tags}
-                                    <div class="grid__meta">{.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}</div>
+                                    <div class="grid__meta">{.repeated section tags}<span class="grey">{@}</span>{.alternates with} {.end}</div>
                                 {.end}
                             </div>
                         {.end}
@@ -148,10 +158,15 @@
                     {.if @hasInfo}
                         <div class="slider__info">
                             {.if title}
-                                <h3 class="slider__title">{title}</h3>
+                                <h3 class="slider__title">
+                                    <div>{title}</div>
+                                    {.if excerpt}
+                                        <div class="teal">{excerpt}</div>
+                                    {.end}
+                                </h3>
                             {.end}
                             {.if @tags}
-                                <div class="slider__meta">{.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}</div>
+                                <div class="slider__meta">{.repeated section tags}<span class="grey">{@}</span>{.alternates with} {.end}</div>
                             {.end}
                         </div>
                     {.end}
@@ -215,10 +230,15 @@
                     {.if @hasInfo}
                         <div class="stack__info">
                             {.if title}
-                                <h2 class="stack__title">{title}</h2>
+                                <h2 class="stack__title">
+                                    <div>{title}</div>
+                                    {.if excerpt}
+                                        <div class="teal">{excerpt}</div>
+                                    {.end}
+                                </h2>
                             {.end}
                             {.if @tags}
-                                <div class="stack__meta">{.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}</div>
+                                <div class="stack__meta">{.repeated section tags}<span class="grey">{@}</span>{.alternates with} {.end}</div>
                             {.end}
                             {.if body}
                                 <div class="stack__meta">{body}</div>

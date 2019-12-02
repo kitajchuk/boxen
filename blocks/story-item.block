@@ -9,9 +9,14 @@
             <div class="stack__link">
                 <div class="stack__mast">
                     <div class="stack__primo">
-                        <h1 class="stack__title" data-content-field="title">{item.title}</h1>
+                        <h1 class="stack__title" data-content-field="title">
+                            <div>{item.title}</div>
+                            {.if item.excerpt}
+                                <div class="teal">{item.excerpt|safe}</div>
+                            {.end}
+                        </h1>
                         <div class="stack__meta">
-                            {.repeated section item.tags}<span class="teal">{@}</span>{.alternates with} {.end}
+                            {.repeated section item.tags}<span class="grey">{@}</span>{.alternates with} {.end}
                         </div>
                     </div>
                 </div>

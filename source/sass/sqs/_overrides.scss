@@ -48,6 +48,38 @@ input.inp:focus {
 
 
 /******************************************************************************
+ * Announcement Bar
+*******************************************************************************/
+.sqs-announcement-bar {
+    background-color: $purple;
+
+    p {
+        @include m();
+        width: auto;
+        color: $white;
+        display: inline-block;
+    }
+
+    .sqs-announcement-bar-close {
+        height: 100%;
+        width: 50px;
+        background-color: mix( black, $purple, 25% );
+
+        &:after {
+            @include m();
+            line-height: 1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: auto;
+            transform: translateY(-55%)  translateX(-50%);
+        }
+    }
+}
+
+
+
+/******************************************************************************
  * Social links...
  * Supports Light/Dark Standard icons
 *******************************************************************************/

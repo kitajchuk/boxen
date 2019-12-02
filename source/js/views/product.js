@@ -2,6 +2,7 @@ export default ( instance ) => {
     const item = instance.data.item;
     const variant = item.structuredContent.variants[ 0 ];
     const digital = item.digitalGoods;
+    const percent = Math.round( ((variant.price - variant.salePrice) / variant.price) * 100 );
     const collection = instance.data.collection;
     const isSoldOut = (variant.qtyInStock === 0);
     const isOneLeft = (variant.qtyInStock === 1);
@@ -16,13 +17,21 @@ export default ( instance ) => {
                             <h1 class="stack__title" data-content-field="title">${item.title}</h1>
                             <div class="stack__meta">
                                 ${item.tags.map(( tag ) => {
-                                    return `<span class="teal">${tag}</span>`;
+                                    return `<span class="grey">${tag}</span>`;
 
                                 }).join( " " )}
                             </div>
                         </div>
                         <div class="stack__bounce">
-                            ${isSoldOut ? `` : `<p class="green">$${digital ? item.structuredContent.priceMoney.value : variant.priceMoney.value}</p>`}
+                            ${isSoldOut ? `` : `
+                                <p class="green">
+                                    <span class="${variant.onSale ? `red -strike` : ``}">$${digital ? item.structuredContent.priceMoney.value : variant.priceMoney.value}</span>
+                                    ${variant.onSale ? `
+                                        <span>$${variant.salePriceMoney.value} <span class="m grey">(You save ${percent}%)</span></span>
+
+                                    ` : ``}
+                                </p>
+                            `}
                             ${digital ? `` : `
                                 <div class="product__buy">
                                     <a class="btn ${isSoldOut ? "btn--red" : "js-cart-add"}" href="#"><span class="btn__a">${isSoldOut ? "Sold Out" : item.structuredContent.customAddButtonText}</span></a>

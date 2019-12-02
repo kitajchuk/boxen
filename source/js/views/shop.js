@@ -18,7 +18,7 @@ export default ( instance ) => {
                     <div class="starred__title" data-content-field="title">${starred.title}</div>
                     <div class="starred__meta">
                         ${starred.tags.map(( tag ) => {
-                            return `<span class="teal">${tag}</span>`;
+                            return `<span class="grey">${tag}</span>`;
 
                         }).join( " " )}
                     </div>
@@ -35,7 +35,7 @@ export default ( instance ) => {
                                 <div class="mason__title">${item.title}${item.structuredContent ? item.structuredContent.variants[ 0 ].qtyInStock === 0 ? ` &mdash; <span class="red">Sold Out</span>` : "" : ""}</div>
                                 <div class="mason__meta">
                                     ${item.tags.map(( tag ) => {
-                                        return `<span class="teal">${tag}</span>`;
+                                        return `<span class="grey">${tag}</span>`;
 
                                     }).join( " " )}
                                 </div>
