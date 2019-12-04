@@ -12,7 +12,7 @@
                         <h1 class="stack__title" data-content-field="title">
                             <div>{item.title}</div>
                             {.if item.excerpt}
-                                <div class="teal">{item.excerpt|safe}</div>
+                                <div class="h3 teal">{item.excerpt|safe}</div>
                             {.end}
                         </h1>
                         <div class="stack__meta">

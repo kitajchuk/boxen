@@ -7,7 +7,12 @@
             <a class="stories__starred starred" href="{fullUrl}">
                 <img class="image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
                 <div class="starred__info">
-                    <div class="starred__title" data-content-field="title">{title}</div>
+                    <div class="starred__title" data-content-field="title">
+                        {title}
+                        {.if excerpt}
+                            <div class="p teal">{excerpt|safe}</div>
+                        {.end}
+                    </div>
                     <div class="starred__meta">
                         {.repeated section tags}<span class="grey">{@}</span>{.alternates with} {.end}
                     </div>
@@ -25,7 +30,7 @@
                             <h2 class="mason__title" data-content-field="title">
                                 <div>{title}</div>
                                 {.if excerpt}
-                                    <div class="teal">{excerpt|safe}</div>
+                                    <div class="m teal">{excerpt|safe}</div>
                                 {.end}
                             </h2>
                             <div class="mason__meta">
