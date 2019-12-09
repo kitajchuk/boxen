@@ -57,6 +57,7 @@
 }
 ._svg--npm,
 ._svg--tabi,
+._svg--patreon,
 ._svg--kickstarter {
     // tweak
     fill: $teal;
@@ -83,5 +84,11 @@
 }
 ._svg--kickstarter {
     width: 25.18px;
+    height: 28px;
+}
+._svg--patreon {
+    // tweak
+    fill: $teal;
+    width: 29.197px;
     height: 28px;
 }

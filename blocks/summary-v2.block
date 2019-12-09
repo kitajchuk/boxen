@@ -51,7 +51,7 @@
             background-position: 50% 50%;
         }
         {.repeated section items}
-            .squarespace-config .grid__item:nth-child( {@index} ) .js-sqs-config-image:after {
+            .squarespace-config .grid__item[data-item-id="{id}"] .js-sqs-config-image:after {
                 background-image: url( {assetUrl} );
             }
         {.end}
@@ -112,7 +112,7 @@
             background-position: 50% 50%;
         }
         {.repeated section items}
-            .squarespace-config .slider__item:nth-child( {@index} ) .js-sqs-config-image:after {
+            .squarespace-config .slider__item[data-item-id="{id}"] .js-sqs-config-image:after {
                 background-image: url( {assetUrl} );
             }
         {.end}
@@ -121,8 +121,8 @@
     <div class="stack -wrap">
         {.repeated section items}
             {.var @tags tags|count}
-            <div class="stack__item">
-                <a class="stack__link" href="{fullUrl}" data-item-id="{id}">
+            <div class="stack__item" data-item-id="{id}">
+                <a class="stack__link" href="{fullUrl}">
                     <img class="stack__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
                     <div class="js-sqs-config-image"></div>
                     <div class="stack__info">
@@ -170,7 +170,7 @@
             background-position: 50% 50%;
         }
         {.repeated section items}
-            .squarespace-config .stack__item:nth-child( {@index} ) .js-sqs-config-image:after {
+            .squarespace-config .stack__item[data-item-id="{id}"] .js-sqs-config-image:after {
                 background-image: url( {assetUrl} );
             }
         {.end}
@@ -231,7 +231,7 @@
             background-position: 50% 50%;
         }
         {.repeated section items}
-            .squarespace-config .mason__item:nth-child( {@index} ) .js-sqs-config-image:after {
+            .squarespace-config .mason__item[data-item-id="{id}"] .js-sqs-config-image:after {
                 background-image: url( {assetUrl} );
             }
         {.end}

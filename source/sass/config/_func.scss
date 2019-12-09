@@ -88,7 +88,8 @@
     max-width: $text-width-2;
     width: 100%;
 
-    .is-home-page & {
+    .is-home-page &,
+    .is-hire-page & {
         max-width: $text-width-3;
     }
 

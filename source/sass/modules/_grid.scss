@@ -82,7 +82,7 @@ $mason-gap: 55px;
 
     &.mason--diptych {
         display: flex;
-        align-items: flex-start;
+        align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
 
@@ -122,10 +122,18 @@ $mason-gap: 55px;
     width: 100%;
 }
 .mason__item--noinfo {
-    & + .mason__item--noinfo {
+    margin-bottom: $padding-1;
+
+    .mason--diptych & {
+        margin-bottom: 0;
+
         @include respond( $mobile-breakpoint ) {
-            margin-top: $expander-0;
+            margin-bottom: $expander-0;
         }
+    }
+
+    @include respond( $mobile-breakpoint ) {
+        margin-bottom: $expander-0;
     }
 }
 .mason__title {

@@ -28,6 +28,10 @@ class Socials {
             {
                 name: "kickstarter",
                 regex: /kickstarter\.com/
+            },
+            {
+                name: "patreon",
+                regex: /patreon\.com/
             }
         ];
 

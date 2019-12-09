@@ -34,13 +34,13 @@
 
     // tweak
     &.is-active {
-        color: $purple;
+        text-decoration: line-through;
 
         // tweak
-        .is-boxen-page &,
-        .is-uid-page & {
-            color: $purple;
-        }
+        // .is-boxen-page &,
+        // .is-uid-page & {
+        //     border-bottom: 2px solid $white;
+        // }
     }
 }
 
@@ -78,9 +78,10 @@
 .navi-mobile__a {
     color: $white;
     line-height: 42 / 24;
+    border-bottom: 2px solid transparent;
 
     &.is-active {
-        color: $purple;
+        border-bottom: 2px solid $white;
     }
 }
 .navi-mobile__socials {

@@ -32,11 +32,6 @@ export default ( instance ) => {
                                     ` : ``}
                                 </p>
                             `}
-                            ${digital ? `` : `
-                                <div class="product__buy">
-                                    <a class="btn ${isSoldOut ? "btn--red" : "js-cart-add"}" href="#"><span class="btn__a">${isSoldOut ? "Sold Out" : item.structuredContent.customAddButtonText}</span></a>
-                                </div>
-                            `}
                         </div>
                     </div>
                     ${digital ? `
