@@ -27,19 +27,14 @@ boxen init my-project
 ```
 
 
-### Troubleshooting the Squarespace Server?
-If you have startup issues with your server, it could be due to versioning issues with the [@squarespace/server](https://www.npmjs.com/package/@squarespace/server) module. This is because the [@squarespace/toolbelt](https://www.npmjs.com/package/@squarespace/toolbelt) module doesn't depend on the server as a package dependency but rather depends on YOU managing your global server installation. Try this if you're having issues or get a message like "This version of local developer is incompatible, please update to the latest version.":
-
-```shell
-# A fresh install will update you to the latest version
-npm i -g @squarespace/server
-```
-
-
 ### Documentation
 That's it! Checkout the [boxen docs](https://kitajchuk.com/boxen/readme) for complete info on developing with the SDK.
 
 
 
-### Kit of Parts
-You can also checkout the [Kit of Parts](https://kitajchuk.com/boxen/kit-of-parts) you get out of the box with boxen. There's a lot of wild things you can do with 100% custom Squarespace template development. [Maybe get started with understanding how to develop custom system blocks :)](https://kitajchuk.com/boxen/system-blocks)
+### Trouble shooting
+Trouble shooting
+
+The Squarespace server won't work anymore for older versions due to updates with the developer license agreement. If you get the following message: "This version of local developer is incompatible, please update to the latest version."", do just that and update.
+
+You'll need to provide an authentication token for the server. Use the npm script `npm run server:auth` to prompt this message: "Please navigate to the following URL:"" followed by a complicated looking URL. Dump that URL in a browser and copy the token from the Command-line Authorization page. Paste that token into the sqs command-line. Ctrl+D and `npm start`.

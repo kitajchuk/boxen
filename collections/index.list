@@ -1,3 +1,13 @@
-{.section collection}
-    {@|apply cover.block}
-{.end}
+{.var @itemsCount collection.collections|count}
+<div class="cover">
+    <div class="cover__title -wrap -expt">
+        <h1>{collection.title}</h1>
+        <h3 class="teal">{collection.description|safe}</h3>
+    </div>
+    {.section collection.collections}
+        {@|apply navi--sub.block}
+    {.end}
+    <div class="cover__image">
+        <img class="image js-lazy-image" data-img-src="{collection.mainImage.assetUrl}" data-variants="{collection.mainImage.systemDataVariants}" data-original-size="{collection.mainImage.originalSize}" />
+    </div>
+</div>

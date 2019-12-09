@@ -1,6 +1,0 @@
-{.var @itemsCount items|count}
-{.if @itemsCount}
-    {.section collection}
-        {@|apply cover.block}
-    {.end}
-{.end}

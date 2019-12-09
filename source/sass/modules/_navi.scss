@@ -81,7 +81,7 @@
     border-bottom: 2px solid transparent;
 
     &.is-active {
-        border-bottom: 2px solid $white;
+        text-decoration: line-through;
     }
 }
 .navi-mobile__socials {

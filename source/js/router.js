@@ -15,7 +15,6 @@ import navi from "./modules/navi";
  */
 const router = {
     init () {
-        this.element = core.dom.body.find( ".js-router" ).detach();
         this.animDuration = 500;
         this.controllers = new Controllers({
             el: core.dom.main,
@@ -98,9 +97,7 @@ const router = {
         this.setState( "future", data );
         this.setClass();
         navi.setActive( this.state.now.view );
-        if ( !core.env.isConfig() ) {
-            core.dom.main[ 0 ].innerHTML = this.doc.html;
-        }
+        navi.setActive( this.state.now.uid );
         this.topper();
         this.controllers.exec();
         setTimeout(() => {
@@ -117,7 +114,7 @@ const router = {
         doc.innerHTML = html;
 
         doc = $( doc );
-        virtual = doc.find( ".js-router" );
+        virtual = doc.find( ".js-main" );
 
         // Parse outside of virtual DOM ( SQS config stuff for block overrides )
         this.parseConfig( virtual );
@@ -256,6 +253,7 @@ const router = {
         core.dom.html.addClass( "is-tranny" );
         this.setState( "future", data );
         navi.setActive( this.state.future.view );
+        navi.setActive( this.state.future.uid );
         navi.close();
     },
 

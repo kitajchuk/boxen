@@ -33,8 +33,35 @@
     }
 }
 .sqs-block-horizontalrule {
+    &:first-child {
+        .navi-sub & {
+            margin-top: 0 !important;
+        }
+    }
+
+    &:last-child {
+        .navi-sub & {
+            margin-bottom: 0 !important;
+        }
+    }
+
     hr {
         @include ruler();
+
+        .navi-sub & {
+            margin-top: $padding-m;
+            margin-bottom: $padding-m;
+
+            @include respond( $laptop-breakpoint ) {
+                margin-top: $padding-m;
+                margin-bottom: $padding-m;
+            }
+
+            @include respond( $mobile-breakpoint ) {
+                margin-top: $padding-m;
+                margin-bottom: $padding-m;
+            }
+        }
     }
 }
 .sqs-block-form {

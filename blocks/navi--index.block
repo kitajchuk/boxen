@@ -1,0 +1,10 @@
+<div class="cover">
+    <div class="cover__title -wrap -expt">
+        <h1>{collection.title}</h1>
+        <h3 class="teal">{collection.description|safe}</h3>
+    </div>
+    {.section items}
+        {@|apply navi--sub.block}
+    {.end}
+    {@|apply expander.block}
+</div>
