@@ -10,8 +10,18 @@
     </div>
     {# Shop Index? #}
     {.equal? @itemsType "products"}
-        <div class="cover__image">
-            <img class="image js-lazy-image" data-img-src="{collection.mainImage.assetUrl}" data-variants="{collection.mainImage.systemDataVariants}" data-original-size="{collection.mainImage.originalSize}" />
+        <div class="cover__index -wrap">
+            {.repeated section collection.collections}
+                <a class="cover__image" href="{fullUrl}">
+                    <img class="image js-lazy-image" data-img-src="{mainImage.assetUrl}" data-variants="{mainImage.systemDataVariants}" data-original-size="{mainImage.originalSize}" />
+                    <div class="cover__hover">
+                        <div>
+                            <h3 class="">{title}</h3>
+                            <div class="btn">Shop now</div>
+                        </div>
+                    </div>
+                </a>
+            {.end}
         </div>
     {.or}
         <div class="cover__image">

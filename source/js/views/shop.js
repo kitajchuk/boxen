@@ -4,13 +4,7 @@ export default ( instance ) => {
     const sysDataVars = "100w,300w,500w,750w,1000w,1500w,2500w";
 
     return `
-        <!--<div class="shop__mast">
-            <div class="-wrap -expt">
-                <h1><em>${instance.data.collection.title}</em></h1>
-                ${instance.data.collection.description}
-            </div>
-            <div class="-hr"></div>
-        </div>-->
+        <div class="sqs-block-spacer"><div class="sqs-block-content"></div></div>
         ${starred ? `
             <a class="shop__starred starred" href="${starred.fullUrl}">
                 <img class="image js-lazy-image" data-img-src="${starred.assetUrl}" data-variants="${starred.systemDataVariants}" data-original-size="${starred.originalSize}" />

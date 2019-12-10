@@ -1,14 +1,33 @@
 .cover {
-    .cover__title {
-        h1 {
-            max-width: 100%;
-        }
 
-        .is-level3-page & {
-            display: none;
-        }
+}
+.cover__title {
+    h1 {
+        max-width: 100%;
     }
-    .cover__image {
-        margin: $expander-0 0;
+
+    .is-level3-page & {
+        display: none;
+    }
+}
+.cover__image {
+    margin: $expander-0 0;
+    position: relative;
+    display: block;
+}
+.cover__hover {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba( 0, 0, 0, 0.25 );
+    text-align: center;
+
+    .btn {
+        margin-top: $expander-0;
     }
 }

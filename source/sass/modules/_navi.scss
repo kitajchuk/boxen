@@ -36,6 +36,13 @@
     &.is-active {
         text-decoration: line-through;
     }
+
+    // tweak
+    .is-index-page &.is-active,
+    .is-level2-page &.is-active {
+        color: $teal;
+        text-decoration: none;
+    }
 }
 
 
@@ -75,7 +82,7 @@
     border-bottom: 2px solid transparent;
 
     &.is-active {
-        text-decoration: line-through;
+        color: $teal;
     }
 }
 .navi-mobile__socials {

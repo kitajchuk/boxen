@@ -8,6 +8,7 @@ export default ( instance ) => {
     const isOneLeft = (variant.qtyInStock === 1);
 
     return `
+        <div class="sqs-block-spacer"><div class="sqs-block-content"></div></div>
         <div class="stack">
             <div class="stack__item">
                 <div class="stack__link">
