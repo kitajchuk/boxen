@@ -34,14 +34,18 @@
 }
 .sqs-block-horizontalrule {
     &:first-child {
-        .navi-sub & {
-            margin-top: 0 !important;
+        hr {
+            .navi-sub & {
+                margin-top: 0 !important;
+            }
         }
     }
 
     &:last-child {
-        .navi-sub & {
-            margin-bottom: 0 !important;
+        hr {
+            .navi-sub & {
+                margin-bottom: 0 !important;
+            }
         }
     }
 

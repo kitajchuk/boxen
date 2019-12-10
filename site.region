@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="{.if collection.homepage}is-home-page{.end} is-{collection.title|slugify}-page {.if item}is-uid-page{.end} is-site-intro">
+<html class="is-site-intro">
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -54,6 +54,7 @@
                     </section>
                 {.end}
         </main>
+        <div class="router js-router" data-classes="{squarespace.page-classes}" style="display:none;"></div>
         <footer class="footer js-footer">
             {@|apply ruler.block}
             <div class="footer__signup -wrap">

@@ -27,20 +27,14 @@
     color: $black;
 
     // tweak
-    .is-boxen-page &,
-    .is-uid-page & {
+    .is-index-page &,
+    .is-level2-page & {
         color: $white;
     }
 
     // tweak
     &.is-active {
         text-decoration: line-through;
-
-        // tweak
-        // .is-boxen-page &,
-        // .is-uid-page & {
-        //     border-bottom: 2px solid $white;
-        // }
     }
 }
 
@@ -103,8 +97,14 @@
 
 
 
-.navi-sub {
-    margin-top: $expander-0;
+.navi-sub {}
+.navi-sub__ul {
+    overflow-x: auto;
+    white-space: nowrap;
+
+    @include respond( $mobile-breakpoint ) {
+        -webkit-overflow-scrolling: touch;
+    }
 }
 .navi-sub__a {
     &.is-active {
@@ -113,7 +113,6 @@
 }
 .navi-sub__li {
     @include respond( $mobile-breakpoint ) {
-        display: block;
-        margin-left: 0;
+        display: inline-block;
     }
 }

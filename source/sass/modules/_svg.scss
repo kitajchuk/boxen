@@ -26,8 +26,8 @@
         fill: $black;
     }
 
-    .is-boxen-page &,
-    .is-uid-page & {
+    .is-index-page &,
+    .is-level2-page & {
         // tweak
         fill: $white;
         width: 114px;
@@ -68,8 +68,8 @@
     }
 
     // tweak
-    .is-uid-page .header &,
-    .is-boxen-page .header &,
+    .is-level2-page .header &,
+    .is-index-page .header &,
     .is-navi-mobile .header & {
         fill: $teal;
     }

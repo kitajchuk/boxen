@@ -1,9 +1,14 @@
-.cover {}
-.cover__title {
-    h1 {
-        max-width: 100%;
+.cover {
+    .cover__title {
+        h1 {
+            max-width: 100%;
+        }
+
+        .is-level3-page & {
+            display: none;
+        }
     }
-}
-.cover__image {
-    margin: $expander-0 0;
+    .cover__image {
+        margin: $expander-0 0;
+    }
 }

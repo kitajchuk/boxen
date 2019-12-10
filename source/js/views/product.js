@@ -10,7 +10,6 @@ export default ( instance ) => {
     return `
         <div class="stack">
             <div class="stack__item">
-                <div class="sqs-block-spacer"><div class="sqs-block-content"></div></div>
                 <div class="stack__link">
                     <div class="stack__mast">
                         <div class="stack__primo">

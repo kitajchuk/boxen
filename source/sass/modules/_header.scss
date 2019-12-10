@@ -34,8 +34,8 @@
         transition: transform $base-duration $ease-menu-0;
 
         // tweak
-        .is-uid-page &,
-        .is-boxen-page &,
+        .is-level2-page &,
+        .is-index-page &,
         .is-navi-mobile & {
             background-color: $black;
         }
@@ -45,8 +45,8 @@
         }
     }
 
-    .is-uid-page &,
-    .is-boxen-page & {
+    .is-level2-page &,
+    .is-index-page & {
         // tweak
         height: $header-height-detail;
         padding-bottom: 0;

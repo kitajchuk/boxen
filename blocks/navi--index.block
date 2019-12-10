@@ -1,10 +1,33 @@
-<div class="cover">
-    <div class="cover__title -wrap -expt">
-        <h1>{collection.title}</h1>
-        <h3 class="teal">{collection.description|safe}</h3>
+{.if @}
+    {.var @itemsType items.0.collection.typeName}
+    <div class="cover">
+        {.section items}
+            {@|apply navi--sub.block}
+        {.end}
+        <div class="cover__title -wrap -expt">
+            <h1>
+                {.equal? @itemsType "products"}
+                    {.repeated section @.items}
+                        {.if @.active}
+                            {@.collection.title}
+                        {.end}
+                    {.end}
+                {.or}
+                    {collection.title}
+                {.end}
+            </h1>
+            <h3 class="teal">
+                {.equal? @itemsType "products"}
+                    {.repeated section @.items}
+                        {.if @.active}
+                            {@.collection.description}
+                        {.end}
+                    {.end}
+                {.or}
+                    {collection.description|safe}
+                {.end}
+            </h3>
+        </div>
+        {@|apply expander.block}
     </div>
-    {.section items}
-        {@|apply navi--sub.block}
-    {.end}
-    {@|apply expander.block}
-</div>
+{.end}

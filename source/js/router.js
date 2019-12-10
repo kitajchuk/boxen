@@ -15,6 +15,8 @@ import navi from "./modules/navi";
  */
 const router = {
     init () {
+        this.element = core.dom.body.find( ".js-router" ).detach();
+        this.classes = this.element.data().classes.split( " " );
         this.animDuration = 500;
         this.controllers = new Controllers({
             el: core.dom.main,
@@ -53,13 +55,12 @@ const router = {
 
             this.controller.setConfig([
                 "/",
-                ":view",
-                ":view/:uid",
-                ":view/:uid/:uid2"
+                ":level1",
+                ":level1/:level2",
+                ":level1/:level2/:level3"
             ]);
 
             // this.controller.setModules( [] );
-
             //this.controller.on( "page-controller-router-samepage", () => {} );
             this.controller.on( "page-controller-router-transition-out", this.changePageOut.bind( this ) );
             this.controller.on( "page-controller-router-refresh-document", this.changeContent.bind( this ) );
@@ -96,8 +97,7 @@ const router = {
         this.setState( "now", data );
         this.setState( "future", data );
         this.setClass();
-        navi.setActive( this.state.now.view );
-        navi.setActive( this.state.now.uid );
+        navi.setActive( this.state.now.level1, this.state.now.level2, this.state.now.level3 );
         this.topper();
         this.controllers.exec();
         setTimeout(() => {
@@ -115,6 +115,10 @@ const router = {
 
         doc = $( doc );
         virtual = doc.find( ".js-main" );
+
+        // Parse squarespace classes
+        this.element = doc.find( ".js-router" );
+        this.classes = this.element.data().classes.split( " " );
 
         // Parse outside of virtual DOM ( SQS config stuff for block overrides )
         this.parseConfig( virtual );
@@ -192,9 +196,9 @@ const router = {
     setState ( time, data ) {
         this.state[ time ] = {
             raw: data && data || null,
-            uid: data && data.request.params.uid || null,
-            uid2: data && data.request.params.uid2 || null,
-            view: data ? data.request.params.view || core.config.homepage : null,
+            level1: data && data.request.params.level1 || null,
+            level2: data && data.request.params.level2 || null,
+            level3: data && data.request.params.level3 || null,
             cat: data && data.request.query.category || null,
             tag: data && data.request.query.tag || null
         };
@@ -202,49 +206,79 @@ const router = {
 
 
     setClass () {
-        if ( this.state.future.view ) {
-            core.dom.html.addClass( `is-${this.state.future.view}-page` );
+        if ( this.state.future.level1 ) {
+            core.dom.html.addClass( `is-level1-page is-${this.state.future.level1}-page` );
         }
 
-        if ( this.state.future.uid ) {
-            core.dom.html.addClass( `is-uid-page` );
+        if ( this.state.future.level2 ) {
+            core.dom.html.addClass( `is-level2-page is-${this.state.future.level2}-page` );
         }
 
-        if ( this.state.future.uid2 ) {
-            core.dom.html.addClass( `is-uid2-page` );
+        if ( this.state.future.level3 ) {
+            core.dom.html.addClass( `is-level3-page is-${this.state.future.level3}-page` );
         }
 
         if ( this.state.future.cat ) {
-            core.dom.html.addClass( `is-cat-page` );
+            core.dom.html.addClass( "is-cat-page" );
         }
 
         if ( this.state.future.tag ) {
-            core.dom.html.addClass( `is-tag-page` );
+            core.dom.html.addClass( "is-tag-page" );
+        }
+
+        if ( !this.state.future.level1 && !this.state.future.level2 && !this.state.future.level3 ) {
+            core.dom.html.addClass( "is-home-page" );
+        }
+
+        if ( this.classes.indexOf( "collection-type-index" ) !== -1 ) {
+            core.dom.html.addClass( "is-index-page" );
         }
     },
 
 
     unsetClass () {
+        // Always kill possible 404s
         core.dom.html.removeClass( "is-404-page" );
 
-        if ( this.state.now.view !== this.state.future.view ) {
-            core.dom.html.removeClass( `is-${this.state.now.view}-page` );
+        // Now vs Future
+        if ( this.state.now.level1 ) {
+            core.dom.html.removeClass( `is-${this.state.now.level1}-page` );
         }
 
-        if ( this.state.now.uid && !this.state.future.uid ) {
-            core.dom.html.removeClass( `is-uid-page` );
+        if ( this.state.now.level2 ) {
+            core.dom.html.removeClass( `is-${this.state.now.level2}-page` );
         }
 
-        if ( this.state.now.uid2 && !this.state.future.uid2 ) {
-            core.dom.html.removeClass( `is-uid2-page` );
+        if ( this.state.now.level3 ) {
+            core.dom.html.removeClass( `is-${this.state.now.level3}-page` );
         }
 
-        if ( this.state.now.cat && !this.state.future.cat ) {
-            core.dom.html.removeClass( `is-cat-page` );
+        if ( !this.state.future.level1 ) {
+            core.dom.html.removeClass( "is-level1-page" );
         }
 
-        if ( this.state.now.tag && !this.state.future.tag ) {
-            core.dom.html.removeClass( `is-tag-page` );
+        if ( !this.state.future.level2 ) {
+            core.dom.html.removeClass( "is-level2-page" );
+        }
+
+        if ( !this.state.future.level3 ) {
+            core.dom.html.removeClass( "is-level3-page" );
+        }
+
+        if ( !this.state.future.cat ) {
+            core.dom.html.removeClass( "is-cat-page" );
+        }
+
+        if ( !this.state.future.tag ) {
+            core.dom.html.removeClass( "is-tag-page" );
+        }
+
+        if ( this.state.future.level1 ) {
+            core.dom.html.removeClass( "is-home-page" );
+        }
+
+        if ( this.classes.indexOf( "collection-type-index" ) === -1 ) {
+            core.dom.html.removeClass( "is-index-page" );
         }
     },
 
@@ -252,8 +286,7 @@ const router = {
     changePageOut ( data ) {
         core.dom.html.addClass( "is-tranny" );
         this.setState( "future", data );
-        navi.setActive( this.state.future.view );
-        navi.setActive( this.state.future.uid );
+        navi.setActive( this.state.future.level1, this.state.future.level2, this.state.future.level3 );
         navi.close();
     },
 

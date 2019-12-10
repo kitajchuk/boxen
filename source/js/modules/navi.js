@@ -68,9 +68,24 @@ const navi = {
     },
 
 
-    setActive ( view ) {
+    setActive ( level1, level2, level3 ) {
         this.navItems.removeClass( "is-active" );
-        this.navItems.filter( `.js-navi--${view}` ).addClass( "is-active" );
+
+        level1 = this.navItems.filter( `.js-navi--${level1}` );
+        level2 = this.navItems.filter( `.js-navi--${level2}` );
+        level3 = this.navItems.filter( `.js-navi--${level3}` );
+
+        if ( level1.length ) {
+            level1.addClass( "is-active" );
+        }
+
+        if ( level2.length ) {
+            level2.addClass( "is-active" );
+        }
+
+        if ( level3.length ) {
+            level3.addClass( "is-active" );
+        }
     }
 };
 

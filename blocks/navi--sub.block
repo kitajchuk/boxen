@@ -3,10 +3,10 @@
     <ul class="navi-sub__ul -wrap">
         {.repeated section @}
             {.if @.collection}
-                {.var @title @.collection.title}
+                {.var @title @.collection.navigationTitle}
                 {.var @url @.collection.fullUrl}
             {.or}
-                {.var @title @.title}
+                {.var @title @.navigationTitle}
                 {.var @url @.fullUrl}
             {.end}
             <li class="navi-sub__li navi__li--{@title|slugify}">
