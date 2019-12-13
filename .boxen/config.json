@@ -2,13 +2,13 @@
     "open": true,
     "webpack": {
         "entry": {
-            "boxen": "./source/js/boxen.js"
+            "boxen": "./source/js/properjs/boxen.js"
         }
     },
     "postcss": {
         "browsers": "last 2 versions"
     },
-    "localUrl": "http://localhost:9000",
+    "browserUrl": "http://localhost:9000",
     "reloadUrl": "http://localhost:9000/local-api/reload/trigger",
     "properjs": {
         "hobo": "is eq not one next prev attr last first index parent filter detach append remove trigger prepend closest children removeAttr toggleClass"

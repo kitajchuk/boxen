@@ -6,27 +6,25 @@
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
-    "setup": "./node_modules/.bin/squarespace setup",
-    "start": "npm run setup && (npm run watch & npm run server:auth)",
     "postinstall": "node ./boxen.install",
-    "build": "npm run assemble ; npm run boxen:scaffold ; npm run webpack",
+    "start": "npm run sqs:setup && (npm run watch & npm run sqs:server:auth)",
+    "build": "npm run sqs:assemble ; npm run boxen:scaffold ; npm run boxen:build",
+    "watch": "npm run sqs:assemble:watch & ./node_modules/.bin/webpack --env.sandbox --hide-modules --colors --watch",
+    "boxen:build": "./node_modules/.bin/webpack --env.production --progress --profile --display-modules --colors -p",
     "boxen:scaffold": "node ./boxen.scaffold",
-    "assemble": "./node_modules/.bin/squarespace assemble",
-    "assemble:watch": "./node_modules/.bin/squarespace assemble --watch --trigger-reload",
-    "webpack": "./node_modules/.bin/webpack --env.production --progress --profile --display-modules --colors -p",
-    "webpack:watch": "./node_modules/.bin/webpack --env.sandbox --hide-modules --colors --watch",
-    "watch": "npm run assemble:watch & npm run webpack:watch",
-    "server": "./node_modules/.bin/squarespace runserver --trigger-reload --verbose --faster-less",
-    "server:auth": "./node_modules/.bin/squarespace runserver --auth --trigger-reload --verbose --faster-less",
-    "deploy": "npm run build && npm run setup && ./node_modules/.bin/squarespace deploy"
+    "sqs:setup": "./node_modules/.bin/squarespace setup",
+    "sqs:assemble": "./node_modules/.bin/squarespace assemble",
+    "sqs:assemble:watch": "./node_modules/.bin/squarespace assemble --watch --trigger-reload",
+    "sqs:server": "./node_modules/.bin/squarespace runserver --trigger-reload --verbose --faster-less",
+    "sqs:server:auth": "./node_modules/.bin/squarespace runserver --auth --trigger-reload --verbose --faster-less",
+    "sqs:deploy": "npm run build && npm run setup && ./node_modules/.bin/squarespace deploy"
   },
   "repository": {
     "type": "git",
     "url": "ssh://git@github.com:kitajchuk/boxen.git"
   },
   "dependencies": {
-    "@squarespace/core": "^1.1.0",
-    "gsap": "^2.0.1"
+    "@squarespace/core": "^1.1.0"
   },
   "devDependencies": {
     "@squarespace/toolbelt": "^0.8.4",
@@ -34,13 +32,15 @@
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.7.0",
+    "browser-sync": "^2.24.4",
+    "browser-sync-webpack-plugin": "^2.2.2",
     "css-loader": "^0.28.11",
     "eslint": "^4.19.1",
     "eslint-loader": "^2.0.0",
     "expose-loader": "^0.7.5",
     "fg-loadjs": "^1.0.0",
     "file-loader": "^1.1.11",
-    "node-sass": "^4.9.0",
+    "node-sass": "^4.13.0",
     "on-build-webpack": "^0.1.0",
     "open": "0.0.5",
     "paramalama": "~0.2",
@@ -53,6 +53,7 @@
     "properjs-easing": "~0.2",
     "properjs-hobo": "^0.3.26",
     "properjs-imageloader": ">=0.3.1",
+    "properjs-jscroll": "^0.1.0",
     "properjs-lager": "^0.1.2",
     "properjs-mediabox": "~0.3",
     "properjs-pagecontroller": "~0.4",

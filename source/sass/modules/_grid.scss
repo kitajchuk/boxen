@@ -209,6 +209,7 @@ $mason-gap: 55px;
 }
 .slider__wrap {
     position: relative;
+    transition: transform $base-duration $ease;
 }
 .slider__item {
     display: inline-block;

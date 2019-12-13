@@ -1,11 +1,13 @@
 // Load the SASS
-require( "../sass/screen.scss" );
+require( "../../sass/screen.scss" );
 
 
 
 // Load the JS
+// import Store from "./core/Store";
 import ResizeController from "properjs-resizecontroller";
 import ScrollController from "properjs-scrollcontroller";
+import debounce from "properjs-debounce";
 import router from "./router";
 import * as core from "./core";
 import Metrics from "./services/Metrics";
@@ -13,13 +15,7 @@ import Form from "./services/Form";
 import Socials from "./components/Socials";
 import intro from "./modules/intro";
 import navi from "./modules/navi";
-import Store from "./core/Store";
-
-
-
-// Global components
-const socials = core.dom.body.find( `.sqs-block-socialaccountlinks-v2` );
-const newsletter = core.dom.footer.find( `.js-form[data-block="newsletter"]` );
+import Controllers from "./Controllers";
 
 
 
@@ -32,25 +28,40 @@ const newsletter = core.dom.footer.find( `.js-form[data-block="newsletter"]` );
  */
 class Boxen {
     constructor () {
-        // Modules
+        // this.Store = Store;
         this.core = core;
         this.intro = intro;
         this.navi = navi;
         this.router = router;
-        this.Store = Store;
         this.metrics = new Metrics();
         this.resizer = new ResizeController();
         this.scroller = new ScrollController();
         this.scrollBounce = 300;
         this.scrollTimeout = null;
         this.socials = [];
+        this.controllers = new Controllers({
+            el: core.dom.main
+        });
 
         this.boot();
-        this.init();
     }
 
 
     boot () {
+        this.intro.init();
+        this.navi.init();
+        this.router.init().load().then(() => {
+            this.bind();
+            this.init();
+
+        }).catch(( error ) => {
+            this.core.log( "warn", error );
+        });
+
+        // Global components
+        const socials = core.dom.body.find( `.sqs-block-socialaccountlinks-v2` );
+        const newsletter = core.dom.footer.find( `.js-form[data-block="newsletter"]` );
+
         if ( socials.length ) {
             socials.forEach(( el, i ) => {
                 const social = socials.eq( i );
@@ -66,25 +77,20 @@ class Boxen {
 
 
     init () {
-        this.core.detect.init();
-        this.intro.init();
-        this.navi.init();
-        this.router.init();
-        this.router.load().then(() => {
-            this.bind();
-            this.intro.teardown();
-
-        }).catch(( error ) => {
-            this.core.log( "warn", error );
-        });
+        this.intro.teardown();
     }
 
 
     bind () {
-        this.resizer.on( "resize", () => {
-            core.emitter.fire( "app--resize" );
-        });
+        // RESIZE
+        this._onResize = debounce(() => {
+            this.core.emitter.fire( "app--resize" );
 
+        }, this.deBounce );
+
+        this.resizer.on( "resize", this._onResize );
+
+        // SCROLL
         this.scroller.on( "scroll", () => {
             core.emitter.fire( "app--scroll", this.scroller.getScrollY() );
 
@@ -112,6 +118,7 @@ class Boxen {
             }
         });
 
+        // TWEAKS
         window.Y.Global.on( "tweak:change", () => {
             window.location.reload();
         });

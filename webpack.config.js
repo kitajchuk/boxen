@@ -4,17 +4,18 @@ const path = require( "path" );
 const webpack = require( "webpack" );
 const autoprefixer = require( "autoprefixer" );
 const WebpackOnBuildPlugin = require( "on-build-webpack" );
+const BrowserSyncPlugin = require( "browser-sync-webpack-plugin" );
 const request = require( "request" );
 const lager = require( "properjs-lager" );
 const open = require( "open" );
+const root = path.resolve( __dirname );
+const source = path.join( root, "source" );
+const nodeModules = "node_modules";
 const config = require( "./boxen.config" );
 
 
 
 // Define after config loads
-const root = path.resolve( __dirname );
-const source = path.join( root, "source" );
-const nodeModules = "node_modules";
 const plugins = [
     new webpack.LoaderOptionsPlugin({
         options: {
@@ -22,23 +23,26 @@ const plugins = [
         }
     })
 ];
+const pluginOnBuild = new WebpackOnBuildPlugin(() => {
+    // First build opens localhost for you
+    if ( config.open ) {
+        config.open = false;
+        open( `${config.browserUrl}` );
+
+    // Subsequent builds trigger SQS reloads
+    } else {
+        request( { url: config.reloadUrl }, () => {
+            lager.server( "sqs local-api reload trigger" );
+        });
+    }
+});
 
 
 
 module.exports = ( env ) => {
     // Only handle builds for sandbox dev environment
     if ( env.sandbox ) {
-        plugins.push(new WebpackOnBuildPlugin(() => {
-            // First build opens localhost for you
-            if ( config.open ) {
-                config.open = false;
-                open( `${config.localUrl}` );
-
-            // Subsequent builds trigger SQS reloads
-            } else {
-                request( { url: config.reloadUrl }, () => lager.server( "sqs local-api reload trigger" ) );
-            }
-        }));
+        plugins.push( pluginOnBuild );
     }
 
     return {

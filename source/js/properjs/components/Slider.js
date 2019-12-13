@@ -1,6 +1,5 @@
 import * as core from "../core";
 import $ from "properjs-hobo";
-import { TweenLite, Power3 } from "gsap/TweenMax";
 
 
 /**
@@ -89,10 +88,12 @@ class Slider {
 
 
     move ( position ) {
-        this.tween = new TweenLite.to( this.belt[ 0 ], (this.time / 1000), {
-            x: position,
-            ease: Power3.easeOut
-        });
+        core.util.translate3d(
+            this.belt[ 0 ],
+            `${position}px`,
+            `0`,
+            `0`
+        );
     }
 
 

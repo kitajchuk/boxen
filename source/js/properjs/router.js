@@ -1,8 +1,10 @@
 import $ from "properjs-hobo";
 import PageController from "properjs-pagecontroller";
-import Controllers from "./Controllers";
 import * as core from "./core";
 import navi from "./modules/navi";
+import scroll2 from "properjs-scroll2";
+import Easing from "properjs-easing";
+import boxen from "./boxen";
 
 
 
@@ -17,21 +19,11 @@ const router = {
     init () {
         this.element = core.dom.body.find( ".js-router" ).detach();
         this.classes = this.element.data().classes.split( " " );
-        this.animDuration = 500;
-        this.controllers = new Controllers({
-            el: core.dom.main,
-            cb: () => {
-                this.topper();
-            }
-        });
-
-        // Transition page state stuff
+        this.duration = 500;
         this.state = {
             now: null,
             future: null
         };
-
-        // Tweaks
         this.tweakStates = [
             "boxen-left-navi"
         ];
@@ -39,6 +31,8 @@ const router = {
         this.bindEmpty();
 
         core.log( "[Router initialized]", this );
+
+        return this;
     },
 
 
@@ -47,7 +41,7 @@ const router = {
             this._resolve = resolve;
             this._reject = reject;
             this.controller = new PageController({
-                transitionTime: this.animDuration,
+                transitionTime: this.duration,
                 routerOptions: {
                     async: true
                 }
@@ -61,6 +55,7 @@ const router = {
             ]);
 
             // this.controller.setModules( [] );
+
             //this.controller.on( "page-controller-router-samepage", () => {} );
             this.controller.on( "page-controller-router-transition-out", this.changePageOut.bind( this ) );
             this.controller.on( "page-controller-router-refresh-document", this.changeContent.bind( this ) );
@@ -99,7 +94,7 @@ const router = {
         this.setClass();
         navi.setActive( this.state.now.level1, this.state.now.level2, this.state.now.level3 );
         this.topper();
-        this.controllers.exec();
+        boxen.controllers.exec();
         setTimeout(() => {
             this._resolve();
 
@@ -288,18 +283,26 @@ const router = {
         this.setState( "future", data );
         navi.setActive( this.state.future.level1, this.state.future.level2, this.state.future.level3 );
         navi.close();
+
+        setTimeout(() => {
+            scroll2({
+                y: 0,
+                ease: Easing.easeOutQuad,
+                duration: this.duration
+            });
+
+        }, this.duration );
     },
 
 
     changeContent ( data ) {
-        this.controllers.destroy();
+        boxen.controllers.destroy();
         this.setDoc( data );
         this.unsetClass();
         this.setClass();
         this.setState( "now", data );
         core.dom.main[ 0 ].innerHTML = this.doc.html;
-        this.topper();
-        this.controllers.exec();
+        boxen.controllers.exec();
         core.emitter.fire( "app--tracker", this.doc );
     },
 
@@ -309,7 +312,7 @@ const router = {
             this.execSquarespace();
             core.dom.html.removeClass( "is-tranny" );
 
-        }, this.animDuration );
+        }, this.duration );
     },
 
 
