@@ -34,14 +34,13 @@
 
     // tweak
     &.is-active {
-        text-decoration: line-through;
+        color: $blue;
     }
 
     // tweak
     .is-index-page &.is-active,
     .is-level2-page &.is-active {
         color: $teal;
-        text-decoration: none;
     }
 }
 

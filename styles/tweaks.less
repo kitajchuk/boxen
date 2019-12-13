@@ -77,10 +77,13 @@ html {
 
 
 // tweak: { "type" : "color", "title" : "Primary Navi Active Color", "category" : "Colors", "js" : true }
-@primaryNaviActiveColor: #6441a4;
+@primaryNaviActiveColor: #1795D4;
 
 .navi__a {
     color: @primaryNaviColor;
+}
+.navi__a.is-active {
+    color: @primaryNaviActiveColor;
 }
 .navi-mobile__a.is-active,
 .is-index-page .navi__a.is-active,
