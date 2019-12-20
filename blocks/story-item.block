@@ -1,8 +1,8 @@
 <article data-item-id="{item.id}" class="story story--detail js-story" data-record="{item.recordTypeLabel}" {.if item.customContent}data-custom-type="{item.customContent.customType}"{.end}>
-    {## Feature > Cover ##}
     {.if item.customContent.featureImage}
         {.var @image item.customContent.featureImage}
-    {.or if item.customContent.coverImage}
+    {.end}
+    {.if item.customContent.coverImage}
         {.var @image item.customContent.coverImage}
     {.end}
     <div class="stack -expt">

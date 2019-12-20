@@ -37,6 +37,8 @@ class Blitz {
     load () {
         let idx = 0;
 
+        core.dom.html.addClass( "is-loader" );
+
         return new Promise(( resolve ) => {
             const _load = () => {
                 const image = new Image();
@@ -45,10 +47,13 @@ class Blitz {
                 image.src = this.assets[ idx ];
                 image.onload = () => {
                     idx++;
+
                     this.aspect.appendChild( image );
+                    this.loading.innerHTML = `<p>Sequencing <em>${idx}</em> of <em>${this.total}</em> PNGs</p>`;
 
                     if ( idx === this.total ) {
                         this.element.append( this.aspect );
+                        core.dom.html.removeClass( "is-loader" );
                         resolve();
 
                     } else {
@@ -72,6 +77,9 @@ class Blitz {
     make () {
         this.assets = [];
         this.aspect = document.createElement( "div" );
+        this.loading = document.createElement( "span" );
+        this.loading.innerHTML = `<p>Sequencing ${this.total} PNGs</p>`;
+        this.element.append( this.loading );
 
         for ( let i = 1; i <= this.total; i++ ) {
             let idx = i;
