@@ -24,3 +24,24 @@
 .router {
     display: none;
 }
+
+
+
+/******************************************************************************
+ * Experimental stuff...
+*******************************************************************************/
+.blitz {
+    width: 100%;
+    white-space: nowrap;
+    font-size: 0;
+    overflow: hidden;
+
+    > div {
+        width: 100%;
+
+        > img {
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+}

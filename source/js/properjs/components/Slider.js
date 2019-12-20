@@ -1,5 +1,7 @@
 import * as core from "../core";
 import $ from "properjs-hobo";
+import Tween from "properjs-tween";
+import Easing from "properjs-easing";
 
 
 /**
@@ -88,12 +90,29 @@ class Slider {
 
 
     move ( position ) {
-        core.util.translate3d(
-            this.belt[ 0 ],
-            `${position}px`,
-            `0`,
-            `0`
-        );
+        if ( window.innerWidth <= core.config.mobileMediaHack ) {
+            const handler = ( t ) => {
+                this.element[ 0 ].scrollLeft = t;
+            };
+
+            this.tween = new Tween({
+                ease: Easing.easeOutCubic,
+                delay: 0,
+                duration: core.config.defaultDuration,
+                from: this.element[ 0 ].scrollLeft,
+                to: Math.abs( position ),
+                update: handler,
+                complete: handler
+            });
+
+        } else {
+            core.util.translate3d(
+                this.belt[ 0 ],
+                `${position}px`,
+                `0`,
+                `0`
+            );
+        }
     }
 
 

@@ -187,7 +187,7 @@
             "expression"
         ],
         "id-length": [
-            2,
+            0,
             {
                 "min": 2,
                 "max": 37,

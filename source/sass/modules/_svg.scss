@@ -3,36 +3,16 @@
     cursor: pointer;
 }
 ._svg--logo {
-    width: 128px;
-    height: 108px;
+    // width: 128px;
+    // height: 108px;
+    fill: $white;
+    width: 114px;
+    height: 96.19px;
     transition: fill $base-duration $ease,
                 width $base-duration $ease,
                 height $base-duration $ease;
 
     .header & {
-        @include respond( $mobile-breakpoint ) {
-            width: 64px;
-            height: 54px;
-        }
-    }
-
-    // tweak
-    .is-navi-mobile & {
-        fill: $white;
-    }
-
-    // tweak
-    .is-home-page & {
-        fill: $black;
-    }
-
-    .is-index-page &,
-    .is-level2-page & {
-        // tweak
-        fill: $white;
-        width: 114px;
-        height: 96.19px;
-
         @include respond( $mobile-breakpoint ) {
             width: 64px;
             height: 54px;

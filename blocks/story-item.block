@@ -1,8 +1,9 @@
 <article data-item-id="{item.id}" class="story story--detail js-story" data-record="{item.recordTypeLabel}" {.if item.customContent}data-custom-type="{item.customContent.customType}"{.end}>
-    {.if item.customContent.coverImage}
+    {## Feature > Cover ##}
+    {.if item.customContent.featureImage}
+        {.var @image item.customContent.featureImage}
+    {.or if item.customContent.coverImage}
         {.var @image item.customContent.coverImage}
-    {.or}
-        {.var @image item}
     {.end}
     <div class="stack -expt">
         <div class="stack__item">
@@ -20,7 +21,9 @@
                         </div>
                     </div>
                 </div>
-                <img class="stack__image image js-lazy-image" data-img-src="{@image.assetUrl}" data-variants="{@image.systemDataVariants}" data-original-size="{@image.originalSize}" />
+                {.if @image}
+                    <img class="stack__image image js-lazy-image" data-img-src="{@image.assetUrl}" data-variants="{@image.systemDataVariants}" data-original-size="{@image.originalSize}" />
+                {.end}
             </div>
         </div>
     </div>

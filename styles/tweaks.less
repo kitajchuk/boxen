@@ -16,21 +16,8 @@
 // tweak: { "type" : "value", "title" : "Primary Mobile Header Height", "category" : "Sizes", "min" : 80, "max" : 200, "step" : 5, "js" : true }
 @primaryHeaderHeightMobile: 100px;
 
-
-
-// tweak: { "type" : "value", "title" : "Primary Detail Page Header Height", "category" : "Sizes", "min" : 80, "max" : 200, "step" : 5, "js" : true }
-@primaryHeaderHeightDetail: 160px;
-
 .header {
     height: @primaryHeaderHeight;
-
-    @media only screen and ( max-width: 640px ) {
-        height: @primaryHeaderHeightMobile;
-    }
-}
-.is-level2-page .header,
-.is-index-page .header {
-    height: @primaryHeaderHeightDetail;
 
     @media only screen and ( max-width: 640px ) {
         height: @primaryHeaderHeightMobile;
@@ -44,15 +31,6 @@
 
 html {
     background-color: @primaryBGColor;
-}
-
-
-
-// tweak: { "type" : "color", "title" : "Primary Header Color", "category" : "Colors", "js" : true }
-@primaryHeaderBGColor: #FFFDE4;
-
-.header:before {
-    background-color: @primaryHeaderBGColor;
 }
 
 
@@ -72,56 +50,36 @@ html {
 
 
 // tweak: { "type" : "color", "title" : "Primary Navi Color", "category" : "Colors", "js" : true }
-@primaryNaviColor: #000;
+@primaryNaviColor: #FFFDE4;
 
 
 
 // tweak: { "type" : "color", "title" : "Primary Navi Active Color", "category" : "Colors", "js" : true }
-@primaryNaviActiveColor: #1795D4;
+@primaryNaviActiveColor: #2AFFEA;
 
 .navi__a {
     color: @primaryNaviColor;
 }
-.navi__a.is-active {
+.navi__a.is-active,
+.navi-mobile__a.is-active {
     color: @primaryNaviActiveColor;
-}
-.navi-mobile__a.is-active,
-.is-index-page .navi__a.is-active,
-.is-level2-page .navi__a.is-active {
-    color: @primaryNaviActiveColor;
-}
-.is-index-page .navi__a,
-.is-level2-page .navi__a {
-    color: @primaryTextColor;
 }
 .cssicon--list div {
     background-color: @primaryNaviColor;
-}
-.is-navi-mobile .cssicon--list div {
-    background-color: @primaryTextColor;
 }
 
 
 
 // tweak: { "type" : "color", "title" : "Primary Logo Color", "category" : "Colors", "js" : true }
-@primaryLogoColor: #000;
+@primaryLogoColor: #FFFDE4;
 
 
 
 // tweak: { "type" : "color", "title" : "Primary Active Logo Color", "category" : "Colors", "js" : true }
-@primaryLogoActiveColor: #000;
+@primaryLogoActiveColor: #FFFDE4;
 
 ._svg--logo {
     fill: @primaryLogoColor;
-}
-.is-home-page ._svg--logo {
-    fill: @primaryLogoActiveColor;
-}
-.is-index-page ._svg--logo,
-.is-level2-page ._svg--logo,
-.is-navi-mobile ._svg--logo,
-.is-home-page.is-navi-mobile ._svg--logo  {
-    fill: @primaryTextColor;
 }
 
 
@@ -146,7 +104,7 @@ html {
 
 
 // tweak: { "type" : "color", "title" : "Primary Input Border Color", "category" : "Colors", "js" : true }
-@primaryInputColor: #6441A4;
+@primaryInputColor: #959595;
 
 .inp,
 .sel,

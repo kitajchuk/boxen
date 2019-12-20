@@ -6,6 +6,7 @@ import Slider from "./components/Slider";
 import Video from "./components/Video";
 import Socials from "./components/Socials";
 import Reader from "./components/Reader";
+import Blitz from "./components/Blitz";
 import Form from "./services/Form";
 import Search from "./services/Search";
 import Commerce from "./services/Commerce";
@@ -71,6 +72,7 @@ class Controllers {
         this.push( "forms", this.element.find( ".js-form" ), BaseController, Form );
         this.push( "search", this.element.find( ".js-search, .sqs-search-page" ), BaseController, Search );
         this.push( "commerce", this.element.find( ".js-shop, .js-product, #sqs-cart-root" ), BaseController, Commerce );
+        this.push( "blitz", this.element.find( ".js-blitz" ), BaseController, Blitz );
 
         // Hinge on Squarespace selectors...
         this.push( "video", this.element.find( ".sqs-block-video" ), BaseController, Video );

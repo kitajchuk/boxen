@@ -8,7 +8,6 @@
  * @global
  * @class Reader
  * @param {Hobo} element The ProperJS Hobo instance
- * @classdesc Use social SVGs that Squarespace doesn't have defaults for
  *
  */
 class Reader {

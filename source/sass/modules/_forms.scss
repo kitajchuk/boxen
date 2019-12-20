@@ -149,7 +149,7 @@ $email-width: 375px;
         transition: background-color $base-duration $ease;
 
         // tweak
-        background-color: $purple;
+        background-color: $grey;
 
         @include respond( $mobile-breakpoint ) {
             height: $input-height-m;

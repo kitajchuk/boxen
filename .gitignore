@@ -5,18 +5,25 @@
 # git config --global core.excludesfile ~/.gitignore_global
 
 
-# Boxen
+
+# OS / cache
 .DS_Store
 .sass-cache
-.notes
-tmp
-local
+
+
+
+# Node / npm
 node_modules
 npm-debug.log
 npm-debug.log*
-sandbox
+
+
+
+# Boxen
+.notes
 tester.js
-pdf
+assets/pdf
+assets/img
 
 
 

@@ -238,7 +238,7 @@
                 border-color $base-duration $ease;
 
     // tweak
-    border: 3px solid $grey-dark;
+    border: 3px solid $grey;
 
     &.is-error {
         border-color: $red;
@@ -278,7 +278,7 @@
     position: relative;
 
     // tweak
-    border: 3px solid $grey-dark;
+    border: 3px solid $grey;
 
     @include respond( $mobile-breakpoint ) {
         height: $input-height-m;

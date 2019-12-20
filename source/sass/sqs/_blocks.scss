@@ -84,6 +84,10 @@
         @include wrap();
     }
 
+    .source {
+        text-align: left;
+    }
+
     blockquote {
         @include h1();
         color: $pink;
@@ -154,6 +158,12 @@
     .sqs-block-content {
         @include wrap();
 
+        // Art School
+        #item-5dfc29d8f0c1a626de637d3f & {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
         .btn {
             margin-top: $expander-0;
         }
@@ -166,11 +176,27 @@
             padding-bottom: $expander-0;
             background-color: #111;
             border: 1px solid $grey-dark;
+
+            @include respond( $mobile-breakpoint ) {
+                padding-top: $padding-m;
+                padding-bottom: $padding-m;
+                border-left: 0;
+                border-right: 0;
+            }
+        }
+
+        @include respond( $mobile-breakpoint ) {
+            padding-left: 0;
+            padding-right: 0;
         }
     }
 
     & + .sqs-block .sqs-block-content {
         margin-top: $padding-1;
+
+        @include respond( $mobile-breakpoint ) {
+            margin-top: 0;
+        }
     }
 }
 .sqs-block + .sqs-block-code {

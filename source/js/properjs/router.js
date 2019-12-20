@@ -2,8 +2,8 @@ import $ from "properjs-hobo";
 import PageController from "properjs-pagecontroller";
 import * as core from "./core";
 import navi from "./modules/navi";
-import scroll2 from "properjs-scroll2";
-import Easing from "properjs-easing";
+// import scroll2 from "properjs-scroll2";
+// import Easing from "properjs-easing";
 import boxen from "./boxen";
 
 
@@ -94,6 +94,9 @@ const router = {
         this.setClass();
         navi.setActive( this.state.now.level1, this.state.now.level2, this.state.now.level3 );
         this.topper();
+        this.parseConfig( core.dom.main );
+        this.parseArticle( core.dom.main );
+        this.parseImages( core.dom.main );
         boxen.controllers.exec();
         setTimeout(() => {
             this._resolve();
@@ -285,11 +288,7 @@ const router = {
         navi.close();
 
         setTimeout(() => {
-            scroll2({
-                y: 0,
-                ease: Easing.easeOutQuad,
-                duration: this.duration
-            });
+            this.topper();
 
         }, this.duration );
     },

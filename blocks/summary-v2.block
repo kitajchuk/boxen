@@ -60,23 +60,9 @@
     <div class="slider js-slider">
         <div class="slider__wrap js-slider-belt">
             {.repeated section items}
-                {.var @tags tags|count}
                 <div class="slider__item js-slider-item" data-item-id="{id}">
                     <img class="image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
                     <div class="js-sqs-config-image"></div>
-                    <div class="slider__info">
-                        {.if title}
-                            <h3 class="slider__title">
-                                <div>{title}</div>
-                                {.if excerpt}
-                                    <div class="teal">{excerpt}</div>
-                                {.end}
-                            </h3>
-                        {.end}
-                        {.if @tags}
-                            <div class="slider__meta">{.repeated section tags}<span class="grey">{@}</span>{.alternates with} {.end}</div>
-                        {.end}
-                    </div>
                 </div>
             {.end}
         </div>
@@ -121,26 +107,38 @@
     <div class="stack -wrap">
         {.repeated section items}
             {.var @tags tags|count}
+            {.if title}
+                {.var @hasInfo title}
+            {.end}
+            {.if @tags}
+                {.var @hasInfo @tags}
+            {.end}
+            {.if body}
+                {.var @hasInfo body}
+            {.end}
+            {.if excerpt}
+                {.var @hasInfo excerpt}
+            {.end}
             <div class="stack__item" data-item-id="{id}">
                 <a class="stack__link" href="{fullUrl}">
                     <img class="stack__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
                     <div class="js-sqs-config-image"></div>
-                    <div class="stack__info">
-                        {.if title}
-                            <h2 class="stack__title">
-                                <div>{title}</div>
-                                {.if excerpt}
-                                    <div class="teal">{excerpt}</div>
-                                {.end}
-                            </h2>
-                        {.end}
-                        {.if @tags}
-                            <div class="stack__meta">{.repeated section tags}<span class="grey">{@}</span>{.alternates with} {.end}</div>
-                        {.end}
-                        {.if body}
-                            <div class="stack__meta">{body}</div>
-                        {.end}
-                    </div>
+                    {.if @hasInfo}
+                        <div class="stack__info">
+                            {.if title}
+                                <h3 class="stack__title">{title}</h3>
+                            {.end}
+                            {.if body}
+                                <div class="stack__meta">{body}</div>
+                            {.end}
+                            {.if excerpt}
+                                <div class="stack__meta">{excerpt}</div>
+                            {.end}
+                            {.if @tags}
+                                <div class="stack__meta">{.repeated section tags}<span class="grey">{@}</span>{.alternates with} {.end}</div>
+                            {.end}
+                        </div>
+                    {.end}
                 </a>
             </div>
         {.end}
