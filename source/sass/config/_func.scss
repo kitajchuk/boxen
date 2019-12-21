@@ -88,18 +88,20 @@
     max-width: $text-width-2;
     width: 100%;
 
+    .is-dev-page &,
+    .is-art-page &,
     .is-home-page &,
     .is-hire-page & {
         max-width: $text-width-3;
     }
 
+    .is-level2-page & {
+        max-width: $text-width-2;
+    }
+
     @include respond-min( $mobile-breakpoint ) {
         font-size: $h1-size-fluid;
     }
-
-    // @include respond-min( $text-width-2 ) {
-    //     width: $text-width-2-fluid;
-    // }
 
     @include respond-min( $laptop-breakpoint ) {
         font-size: $h1-size;

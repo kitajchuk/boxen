@@ -11,15 +11,14 @@
     pointer-events: none;
     overflow: hidden;
     background-color: transparent;
-    transition: transform $base-duration $ease,
-                opacity $base-duration $ease,
-                background-color $base-duration $ease,
-                height $base-duration $ease,
-                padding-bottom $base-duration $ease,
-                align-items $base-duration $ease;
 
     .boxen-left-navi & {
         align-items: center;
+    }
+
+    @include respond( $laptop-breakpoint ) {
+        // tweak
+        height: $header-height-tablet;
     }
 
     @include respond( $mobile-breakpoint ) {

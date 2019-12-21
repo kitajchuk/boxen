@@ -1,9 +1,6 @@
 {.if @}
     {.var @itemsType items.0.collection.typeName}
     <div class="cover">
-        {.section items}
-            {@|apply navi--sub.block}
-        {.end}
         <div class="cover__title -wrap -expt">
             <h1>
                 {.equal? @itemsType "products"}
@@ -28,5 +25,8 @@
                 {.end}
             </h3>
         </div>
+        {.section items}
+            {@|apply navi--sub.block}
+        {.end}
     </div>
 {.end}

@@ -209,7 +209,7 @@ class Form {
 
 
     handleSuccess () {
-        this.message[ 0 ].innerHTML = this.getSubmitMessage().replace( "{name}", this.getName() ).replace( "{select}", this.getSelect() );
+        this.message[ 0 ].innerHTML = this.getSubmitMessage().replace( "{name}", this.getName() );
         this.element.addClass( "is-success" );
         this.clear();
     }
@@ -237,11 +237,6 @@ class Form {
         const name = this.inputs.filter( `[type="name"]` );
 
         return name[ 0 ] ? name[ 0 ].value : "";
-    }
-
-
-    getSelect () {
-        return this.selects[ 0 ] ? this.selects[ 0 ].value : "";
     }
 
 

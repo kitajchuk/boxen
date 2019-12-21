@@ -103,7 +103,9 @@
 
 
 
-.navi-sub {}
+.navi-sub {
+    padding-top: $expander-0;
+}
 .navi-sub__ul {
     overflow-x: auto;
     white-space: nowrap;

@@ -8,16 +8,21 @@
 
 
 
-// tweak: { "type" : "value", "title" : "Primary Header Height", "category" : "Sizes", "min" : 80, "max" : 400, "step" : 5, "js" : true }
+// tweak: { "type" : "value", "title" : "Primary Header Height", "category" : "Sizes", "min" : 96, "max" : 315, "step" : 5, "js" : true }
 @primaryHeaderHeight: 315px;
 
+// tweak: { "type" : "value", "title" : "Primary Tablet Header Height", "category" : "Sizes", "min" : 96, "max" : 315, "step" : 5, "js" : true }
+@primaryHeaderHeightTablet: 224px;
 
-
-// tweak: { "type" : "value", "title" : "Primary Mobile Header Height", "category" : "Sizes", "min" : 80, "max" : 200, "step" : 5, "js" : true }
-@primaryHeaderHeightMobile: 100px;
+// tweak: { "type" : "value", "title" : "Primary Mobile Header Height", "category" : "Sizes", "min" : 96, "max" : 315, "step" : 5, "js" : true }
+@primaryHeaderHeightMobile: 96px;
 
 .header {
     height: @primaryHeaderHeight;
+
+    @media only screen and ( max-width: 1024px ) {
+        height: @primaryHeaderHeightTablet;
+    }
 
     @media only screen and ( max-width: 640px ) {
         height: @primaryHeaderHeightMobile;
