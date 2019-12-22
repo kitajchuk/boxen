@@ -158,8 +158,7 @@
     .sqs-block-content {
         @include wrap();
 
-        // Art School
-        #item-5dfc29d8f0c1a626de637d3f & {
+        .is-kickflip-page & {
             padding-left: 0;
             padding-right: 0;
         }
