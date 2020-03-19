@@ -106,6 +106,7 @@ $mason-gap: 55px;
         align-items: center;
         justify-content: space-between;
         flex-wrap: wrap;
+        column-gap: 0;
 
         .mason__item {
             width: 50%;
