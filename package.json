@@ -27,7 +27,7 @@
     "@squarespace/core": "^1.1.0"
   },
   "devDependencies": {
-    "@squarespace/toolbelt": "^0.8.4",
+    "@squarespace/toolbelt": "^0.10.3",
     "autoprefixer": "^8.6.2",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",

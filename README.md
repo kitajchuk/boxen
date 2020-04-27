@@ -10,10 +10,20 @@ Boxen
 
 ### Getting started
 
+These are the stable versions of Squarespace packages the SDK uses. The toolbelt and core packages are included in the `package.json` dependencies. Those rely on a global install of the Squarespace server via npm.
+
+- [@squarespace/server@v1.6.2](https://www.npmjs.com/package/@squarespace/server)
+- [@squarespace/toolbelt@v0.10.3](https://www.npmjs.com/package/@squarespace/toolbelt)
+- [@squarespace/core@v1.1.0](https://www.npmjs.com/package/@squarespace/core)
+
 Install the `boxen` command line interface:
 
 ```shell
+# Boxen CLI
 npm i boxen-sqs -g
+
+# Global sqs server
+npm i -g @squarespace/server
 ```
 
 You can initialize boxen in your current working directory, or pass a folder name you would like boxen to create and initialize within:
@@ -35,6 +45,6 @@ That's it! Checkout the [boxen docs](https://kitajchuk.com/boxen/readme) for com
 ### Trouble shooting
 Trouble shooting
 
-The Squarespace server won't work anymore for older versions due to updates with the developer license agreement. If you get the following message: "This version of local developer is incompatible, please update to the latest version."", do just that and update.
+The Squarespace server won't work anymore for older versions due to updates with the developer license agreement. If you get the following message: "This version of local developer is incompatible, please update to the latest version.", do just that and update.
 
-You'll need to provide an authentication token for the server. Use the npm script `npm run server:auth` to prompt this message: "Please navigate to the following URL:"" followed by a complicated looking URL. Dump that URL in a browser and copy the token from the Command-line Authorization page. Paste that token into the sqs command-line. Ctrl+D and `npm start`.
+You'll need to provide an authentication token for the server. Use the npm script `npm run sqs:server:auth` to prompt this message: "Please navigate to the following URL:"" followed by a complicated looking URL. Dump that URL in a browser and copy the token from the Command-line Authorization page. Paste that token into the sqs command-line. Ctrl+D and `npm start`.
