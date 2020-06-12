@@ -9,11 +9,9 @@
                 {.var @title externalLink.title}
                 {.var @url externalLink.url}
             {.end}
-            {.if collection.homepage}{.or}
-                <li class="navi-mobile__li navi-mobile__li--{@title|slugify}">
-                    <a class="navi-mobile__a navi-mobile__a--{@title|slugify} js-navi-a js-navi--{@title|slugify} h2" href="{@url}">{@title}</a>
-                </li>
-            {.end}
+            <li class="navi-mobile__li navi-mobile__li--{@title|slugify}">
+                <a class="navi-mobile__a navi-mobile__a--{@title|slugify} js-navi-a js-navi--{@title|slugify} h2" href="{@url}">{@title}</a>
+            </li>
         {.end}
     </ul>
     <div class="navi-mobile__socials">

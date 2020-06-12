@@ -29,6 +29,18 @@
     }
 }
 
+.navi-mobile {
+    padding-top: @primaryHeaderHeight;
+
+    @media only screen and ( max-width: 1440px ) {
+        padding-top: @primaryHeaderHeightTablet;
+    }
+
+    @media only screen and ( max-width: 640px ) {
+        padding-top: @primaryHeaderHeightMobile;
+    }
+}
+
 
 
 // tweak: { "type" : "color", "title" : "Primary Background Color", "category" : "Colors", "js" : true }
