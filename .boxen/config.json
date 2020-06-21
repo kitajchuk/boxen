@@ -2,7 +2,7 @@
     "open": true,
     "webpack": {
         "entry": {
-            "boxen": "./source/js/properjs/boxen.js"
+            "boxen": "./source/js/boxen.js"
         }
     },
     "postcss": {

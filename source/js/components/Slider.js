@@ -1,7 +1,6 @@
 import * as core from "../core";
 import $ from "properjs-hobo";
-import Tween from "properjs-tween";
-import Easing from "properjs-easing";
+import Controller from "properjs-controller";
 
 
 /**
@@ -22,6 +21,7 @@ class Slider {
         this.data = data;
         this.time = 500;
         this.index = 0;
+        this.controller = new Controller();
 
         this.bind();
     }
@@ -95,9 +95,7 @@ class Slider {
                 this.element[ 0 ].scrollLeft = t;
             };
 
-            this.tween = new Tween({
-                ease: Easing.easeOutCubic,
-                delay: 0,
+            this.controller.tween({
                 duration: core.config.defaultDuration,
                 from: this.element[ 0 ].scrollLeft,
                 to: Math.abs( position ),

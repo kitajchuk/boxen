@@ -2,9 +2,7 @@
 const fs = require( "fs" );
 const path = require( "path" );
 const webpack = require( "webpack" );
-const autoprefixer = require( "autoprefixer" );
 const WebpackOnBuildPlugin = require( "on-build-webpack" );
-const BrowserSyncPlugin = require( "browser-sync-webpack-plugin" );
 const request = require( "request" );
 const lager = require( "properjs-lager" );
 const open = require( "open" );
@@ -16,13 +14,7 @@ const config = require( "./boxen.config" );
 
 
 // Define after config loads
-const plugins = [
-    new webpack.LoaderOptionsPlugin({
-        options: {
-            postcss: [autoprefixer( { browsers: [config.postcss.browsers] } )]
-        }
-    })
-];
+const plugins = [];
 const pluginOnBuild = new WebpackOnBuildPlugin(() => {
     // First build opens localhost for you
     if ( config.open ) {
@@ -73,7 +65,7 @@ module.exports = ( env ) => {
         module: {
             rules: [
                 {
-                    test: /source\/js\/.*\.js$/,
+                    test: /source\/.*\.js$/i,
                     exclude: /node_modules/,
                     loader: "eslint-loader",
                     enforce: "pre",
@@ -81,43 +73,41 @@ module.exports = ( env ) => {
                         emitError: true,
                         emitWarning: false,
                         failOnError: true,
-                        quiet: true
-                    }
+                        quiet: true,
+                    },
                 },
                 {
-                    test: /source\/js\/.*\.js$/,
-                    exclude: /node_modules|\.config\.js/,
+                    // test: /source\/.*\.js$/i,
+                    // exclude: /node_modules/,
+                    test: /source\/.*\.js$|node_modules\/[properjs-|konami-|paramalama].*/i,
                     use: [
                         {
                             loader: "babel-loader",
                             options: {
-                                presets: ["env"]
-                            }
-                        }
-                    ]
+                                presets: ["@babel/preset-env"],
+                            },
+                        },
+                    ],
                 },
                 {
-                    test: /(hobo|hobo.build)\.js$/,
-                    use: [
-                        "expose-loader?hobo"
-                    ]
+                    test: /(hobo|hobo.build)\.js$/i,
+                    use: ["expose-loader?hobo"],
                 },
                 {
-                    test: /\.(sass|scss)$/,
+                    test: /\.s[ac]ss$/i,
                     exclude: /node_modules/,
                     use: [
                         "file-loader?name=../styles/[name].css",
-                        "postcss-loader",
-                        "sass-loader"
-                    ]
+                        "sass-loader",
+                    ],
                 },
                 {
-                    test: /svg-.*\.block$|\.svg$/,
+                    test: /svg-.*\.block$|\.svg$/i,
                     exclude: /node_modules/,
                     use: [
-                        "svg-inline-loader"
-                    ]
-                }
+                        "svg-inline-loader",
+                    ],
+                },
             ]
         }
     };

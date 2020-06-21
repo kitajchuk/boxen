@@ -2,8 +2,6 @@ import $ from "properjs-hobo";
 import PageController from "properjs-pagecontroller";
 import * as core from "./core";
 import navi from "./modules/navi";
-// import scroll2 from "properjs-scroll2";
-// import Easing from "properjs-easing";
 import boxen from "./boxen";
 
 
@@ -42,28 +40,20 @@ const router = {
             this._reject = reject;
             this.controller = new PageController({
                 transitionTime: this.duration,
-                routerOptions: {
-                    async: true
-                }
+                routes: [
+                    "/",
+                    ":level1",
+                    ":level1/:level2",
+                    ":level1/:level2/:level3"
+                ],
             });
-
-            this.controller.setConfig([
-                "/",
-                ":level1",
-                ":level1/:level2",
-                ":level1/:level2/:level3"
-            ]);
-
-            // this.controller.setModules( [] );
-
-            //this.controller.on( "page-controller-router-samepage", () => {} );
-            this.controller.on( "page-controller-router-transition-out", this.changePageOut.bind( this ) );
-            this.controller.on( "page-controller-router-refresh-document", this.changeContent.bind( this ) );
-            this.controller.on( "page-controller-router-transition-in", this.changePageIn.bind( this ) );
-            this.controller.on( "page-controller-initialized-page", ( data ) => {
+            this.controller.on( "transition-out", this.changePageOut.bind( this ) );
+            this.controller.on( "document", this.changeContent.bind( this ) );
+            this.controller.on( "transition-in", this.changePageIn.bind( this ) );
+            this.controller.on( "initialized", ( data ) => {
                 this.initPage( data );
             });
-            this.controller.initPage();
+            this.controller.bind();
         });
     },
 

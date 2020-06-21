@@ -4,9 +4,7 @@ export default ( shopJSON, cartJSON ) => {
 
         if ( item.structuredContent.variants[ 0 ] ) {
             for ( const i in item.structuredContent.variants[ 0 ].attributes ) {
-                if ( item.structuredContent.variants[ 0 ].attributes.hasOwnProperty( i ) ) {
-                    attrs.push( `<div class="m">${item.structuredContent.variants[ 0 ].attributes[ i ]}</div>` );
-                }
+                attrs.push( `<div class="m">${item.structuredContent.variants[ 0 ].attributes[ i ]}</div>` );
             }
 
         } else if ( item.digitalGoods ) {

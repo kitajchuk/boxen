@@ -217,14 +217,12 @@ class Form {
 
     handleErrors ( response ) {
         for ( const i in response.errors ) {
-            if ( response.errors.hasOwnProperty( i ) ) {
-                const elem = this.inputs.filter( `[name='${i}']` );
+            const elem = this.inputs.filter( `[name='${i}']` );
 
-                elem.addClass( "is-error" );
+            elem.addClass( "is-error" );
 
-                if ( /^select/.test( elem[ 0 ].name ) ) {
-                    elem.parent().addClass( "is-error" );
-                }
+            if ( /^select/.test( elem[ 0 ].name ) ) {
+                elem.parent().addClass( "is-error" );
             }
         }
 
