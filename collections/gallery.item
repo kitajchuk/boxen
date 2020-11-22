@@ -1,21 +1,18 @@
-<div class="stack -expt -wrap">
-    {.section item}
-        {.var @tags tags|count}
-        <div class="stack__item">
-            <div class="stack__link" data-item-id="{id}">
-                <img class="stack__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
-                <div class="stack__info">
-                    {.if title}
-                        <h2 class="stack__title">{title}</h2>
-                    {.end}
-                    {.if body}
-                        <div class="stack__meta">{body}</div>
-                    {.end}
-                    {.if @tags}
-                        <div class="stack__meta">{.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}</div>
-                    {.end}
-                </div>
+{.section item}
+    <div class="starred -expt">
+        <div class="starred__link">
+            <img class="image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
+        </div>
+        <div class="starred__info">
+            <div class="starred__title" data-content-field="title">
+                {title}
+                {.if body}
+                    <div class="p teal">{body}</div>
+                {.end}
+            </div>
+            <div class="starred__meta">
+                {.repeated section tags}<span class="tag"><a href="{collection.fullUrl}?tag={@}">{@}</a></span>{.alternates with} {.end}
             </div>
         </div>
-    {.end}
-</div>
+    </div>
+{.end}

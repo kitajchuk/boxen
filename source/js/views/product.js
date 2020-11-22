@@ -17,7 +17,7 @@ export default ( instance ) => {
                             <h1 class="stack__title" data-content-field="title">${item.title}</h1>
                             <div class="stack__meta">
                                 ${item.tags.map(( tag ) => {
-                                    return `<span class="grey">${tag}</span>`;
+                                    return `<span class="tag"><a href="${collection.fullUrl}?tag=${tag}">${tag}</a></span>`;
 
                                 }).join( " " )}
                             </div>

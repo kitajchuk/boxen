@@ -284,7 +284,7 @@
                 <a class="stack__link" href="{fullUrl}">
                     <img class="stack__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
                     <div class="js-sqs-config-image"></div>
-                    {.if @hasInfo}
+                    <!-- {.if @hasInfo}
                         <div class="stack__info">
                             {.if title}
                                 <h3 class="stack__title">{title}</h3>
@@ -299,7 +299,7 @@
                                 <div class="stack__meta">{.repeated section tags}<span class="grey">{@}</span>{.alternates with} {.end}</div>
                             {.end}
                         </div>
-                    {.end}
+                    {.end} -->
                 </a>
             </div>
         {.end}

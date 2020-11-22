@@ -51,6 +51,28 @@ p, h1, h2, h3 {
         @include a( $teal );
     }
 }
+.tag {
+    color: $grey;
+
+    &.hi {
+        color: $pink;
+
+        a {
+            @include a( $pink );
+        }
+    }
+
+    a {
+        @include a( $grey );
+    }
+
+    &:before {
+        content: "#";
+    }
+}
+.filters {
+    margin-bottom: $expander-0;
+}
 
 
 

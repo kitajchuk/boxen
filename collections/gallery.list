@@ -1,25 +1,30 @@
-<div class="stack -expt">
-    <div class="stack__item">
-        <div class="stack__link">
-            <div class="stack__mast">
-                <div class="stack__primo">
-                    <h1 class="stack__title" data-content-field="title">{collection.title}</h1>
-                    {.if collection.description}
-                        <div class="stack__meta">{collection.description}</div>
-                    {.end}
+<div class="gallery stack -expt">
+    <div class="gallery__mast">
+        <div class="stack__mast">
+            <div class="stack__primo">
+                <h1 class="stack__title" data-content-field="title">{collection.title}</h1>
+                {.if collection.description}
+                    <div class="h3 teal">{collection.description}</div>
+                {.end}
+                <div class="stack__meta">
+                    {.repeated section collection.tags}<span class="tag {.equal? @ tagFilter}hi{.end}">{.equal? @ tagFilter}{@}{.or}<a href="{collection.fullUrl}?tag={@}">{@}</a>{.end}</span>{.alternates with} {.end}
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="mason mason--gallery">
-    {.repeated section items}
-        {.var @tags tags|count}
-        <div class="mason__item mason__item--noinfo">
-            <a class="mason__link" href="{fullUrl}">
-                <img class="mason__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
-                <div class="js-sqs-config-image"></div>
-            </a>
+    {.if tagFilter}
+        <div class="gallery__filters filters -wrap">
+            <p>Tag filter: <span class="tag pink">{tagFilter}</span></p>
         </div>
     {.end}
+    <div class="gallery__grid mason mason--gallery">
+        {.repeated section items}
+            <div class="mason__item mason__item--noinfo">
+                <a class="mason__link" href="{fullUrl}">
+                    <img class="mason__image image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
+                    <div class="js-sqs-config-image"></div>
+                </a>
+            </div>
+        {.end}
+    </div>
 </div>

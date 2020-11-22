@@ -12,11 +12,14 @@
 
 .starred {
     @include wrap();
-    display: block;
 
     @include respond( $mobile-breakpoint ) {
         padding-left: 0;
         padding-right: 0;
+    }
+
+    .starred__link {
+        display: block;
     }
 
     .starred__title {
