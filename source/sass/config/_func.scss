@@ -473,12 +473,12 @@
  * @see ../config/_variables.scss for Breakpoints
 *******************************************************************************/
 @mixin respond( $width ) {
-    @media only screen and ( max-width: $width ) {
+    @media ( max-width: $width ) {
         @content;
     }
 }
 @mixin respond-min( $width ) {
-    @media only screen and ( min-width: $width ) {
+    @media ( min-width: $width ) {
         @content;
     }
 }
