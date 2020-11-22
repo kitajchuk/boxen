@@ -8,18 +8,7 @@
     &:nth-child( 1 ) {
         margin-left: 0;
     }
-
-    // @include respond( $mobile-breakpoint ) {
-    //     display: none;
-    // }
 }
-// .navi__li--mobile {
-//     display: none;
-//
-//     @include respond( $mobile-breakpoint ) {
-//         display: block;
-//     }
-// }
 .navi__a {
     line-height: 1;
 
@@ -48,8 +37,7 @@
 
 .navi-mobile {
     @include wrap();
-    // display: none;
-    background-color: $black;
+    background-color: rgba( 0, 0, 0, 0.9 );
     position: fixed;
     top: 0;
     left: 0;
@@ -63,7 +51,6 @@
     opacity: 0;
     text-align: right;
     padding-top: $header-height;
-    //padding-top: $header-height-mobile + $expander-0;
 
     .is-navi-mobile & {
         opacity: 1;
@@ -71,10 +58,6 @@
         -webkit-overflow-scrolling: touch;
         pointer-events: auto;
     }
-
-    // @include respond( $mobile-breakpoint ) {
-    //     display: block;
-    // }
 
     @include respond( $laptop-breakpoint ) {
         // tweak
@@ -90,6 +73,11 @@
     color: $white;
     line-height: 42 / 24;
     border-bottom: 2px solid transparent;
+    transition: color $base-duration $ease;
+
+    &:hover {
+        color: $teal;
+    }
 
     &.is-active {
         color: $teal;
