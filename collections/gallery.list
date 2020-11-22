@@ -3,12 +3,10 @@
         <div class="stack__link">
             <div class="stack__mast">
                 <div class="stack__primo">
-                    <h1 class="stack__title" data-content-field="title">
-                        <div>{collection.title}</div>
-                        {.if collection.description}
-                            <div class="h3 teal">{collection.description|safe}</div>
-                        {.end}
-                    </h1>
+                    <h1 class="stack__title" data-content-field="title">{collection.title}</h1>
+                    {.if collection.description}
+                        <div class="stack__meta">{collection.description}</div>
+                    {.end}
                 </div>
             </div>
         </div>
