@@ -1,4 +1,4 @@
-<div class="stack">
+<div class="stack -expt -wrap">
     {.section item}
         {.var @tags tags|count}
         <div class="stack__item">
@@ -8,11 +8,11 @@
                     {.if title}
                         <h2 class="stack__title">{title}</h2>
                     {.end}
-                    {.if @tags}
-                        <div class="stack__meta">{.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}</div>
-                    {.end}
                     {.if body}
                         <div class="stack__meta">{body}</div>
+                    {.end}
+                    {.if @tags}
+                        <div class="stack__meta">{.repeated section tags}<span class="teal">{@}</span>{.alternates with} {.end}</div>
                     {.end}
                 </div>
             </a>
