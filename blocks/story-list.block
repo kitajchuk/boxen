@@ -4,8 +4,13 @@
     </div>
     {.repeated section items}
         {.if starred}
+            {.if customContent.featureImage}
+                {.var @image customContent.featureImage}
+            {.or}
+                {.var @image @}
+            {.end}
             <a class="stories__starred starred" href="{fullUrl}">
-                <img class="image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" />
+                <img class="image js-lazy-image" data-img-src="{@image.assetUrl}" data-variants="{@image.systemDataVariants}" data-original-size="{@image.originalSize}" />
                 <div class="starred__info">
                     <div class="starred__title" data-content-field="title">
                         {title}
