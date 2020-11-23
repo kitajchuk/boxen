@@ -7,7 +7,7 @@
             <div class="starred__title" data-content-field="title">
                 {title}
                 {.if body}
-                    <div class="p teal">{body}</div>
+                    <div class="p grey">{body}</div>
                 {.end}
             </div>
             <div class="starred__meta">
