@@ -39,16 +39,16 @@ export default ( instance ) => {
                     <div class="mason__item">
                         <a class="mason__link" href="${item.itemUrl || item.fullUrl}">
                             <img class="mason__image image js-lazy-image ${item.structuredContent ? item.structuredContent.variants[ 0 ].qtyInStock === 0 ? "soldout" : "" : ""}" data-img-src="${item.imageUrl || item.assetUrl}" data-variants="${item.systemDataVariants || sysDataVars}" data-original-size="${item.originalSize ? item.originalSize : ``}" />
-                            <div class="mason__info">
-                                <div class="mason__title">${item.title}${item.structuredContent ? item.structuredContent.variants[ 0 ].qtyInStock === 0 ? ` &mdash; <span class="red">Sold Out</span>` : "" : ""}</div>
-                                <div class="mason__meta">
-                                    ${item.tags.map(( tag ) => {
-                                        return `<span class="tag ${hi( tag )}">${hi( tag ) ? tag : `<a href="${collection.fullUrl}?tag=${tag}">${tag}</a>`}</span>`;
-
-                                    }).join( " " )}
-                                </div>
-                            </div>
                         </a>
+                        <div class="mason__info">
+                            <div class="mason__title">${item.title}${item.structuredContent ? item.structuredContent.variants[ 0 ].qtyInStock === 0 ? ` &mdash; <span class="red">Sold Out</span>` : "" : ""}</div>
+                            <div class="mason__meta">
+                                ${item.tags.map(( tag ) => {
+                                    return `<span class="tag ${hi( tag )}">${hi( tag ) ? tag : `<a href="${collection.fullUrl}?tag=${tag}">${tag}</a>`}</span>`;
+
+                                }).join( " " )}
+                            </div>
+                        </div>
                     </div>
                 `;
 
