@@ -17,7 +17,7 @@ const router = {
     init () {
         this.element = core.dom.body.find( ".js-router" ).detach();
         this.classes = this.element.data().classes.split( " " );
-        this.duration = 500;
+        this.duration = 0;
         this.state = {
             now: null,
             future: null
