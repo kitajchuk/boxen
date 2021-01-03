@@ -39,7 +39,7 @@
     padding-bottom: $cinema-padding;
 
     .image {
-        transition: opacity $base-duration $ease $base-duration;
+        transition: opacity $ease ($base-duration / 2);
         position: absolute;
         left: 0;
         top: 0;

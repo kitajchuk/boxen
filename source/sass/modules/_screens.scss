@@ -9,10 +9,10 @@
     position: fixed;
     right: 0;
     top: 0;
-    transition: opacity $base-duration $ease,
-                z-index $base-duration $ease,
-                transform $base-duration $ease-lift,
-                visibility $base-duration $ease;
+    transition: opacity ($base-duration / 2) $ease,
+                z-index ($base-duration / 2) $ease,
+                transform ($base-duration / 2) $ease-lift,
+                visibility ($base-duration / 2) $ease;
     visibility: hidden;
     z-index: $z_layer_screen;
 
