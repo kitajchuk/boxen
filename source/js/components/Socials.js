@@ -19,19 +19,19 @@ class Socials {
         this.tests = [
             {
                 name: "npm",
-                regex: /npmjs\.com/
+                regex: /npmjs/
             },
             {
                 name: "tabi",
-                regex: /tabinohana\.com/
+                regex: /tabi/
             },
             {
                 name: "kickstarter",
-                regex: /kickstarter\.com/
+                regex: /kickstarter/
             },
             {
                 name: "patreon",
-                regex: /patreon\.com/
+                regex: /patreon/
             }
         ];
 
