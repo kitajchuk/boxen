@@ -68,3 +68,22 @@
     width: 29.197px;
     height: 28px;
 }
+._svg--tabinohana {
+    fill: $white;
+    width: 440px;
+    height: 120px;
+
+    @include respond( $mobile-breakpoint ) {
+        height: auto;
+        width: 80%;
+    }
+}
+._svg--rainbowpop {
+    width: 96px;
+    height: 88.41px;
+
+    @include respond( $mobile-breakpoint ) {
+        height: auto;
+        width: 72px;
+    }
+}

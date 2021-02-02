@@ -1,0 +1,53 @@
+{.var @desc collection.description}
+{.var @title collection.title|slugify}
+{.section item}
+    <div class="tabi js-tabi">
+        {@|apply expander.block}
+        <div class="tabi__page -wrap -text--center">
+            <div class="tabi__comic">
+                <img class="image js-lazy-image" data-img-src="{assetUrl}" data-variants="{systemDataVariants}" data-original-size="{originalSize}" alt="Tabi No Hana - {collection.title} - {title}" />
+            </div>
+        </div>
+        <div class="tabi__controls -wrap -text--center">
+            {.if pagination.prevItem}
+                <a class="btn" href="{pagination.prevItem.fullUrl}">Prev</a>
+            {.or}
+                {.equal? @title "in-all-its-forms"}
+                    <a class="btn btn--grey" disabled href="#">Prev</a>
+                {.or equal? @title "and-then-there-were-two"}
+                    <a class="btn" href="/tabi/in-all-its-forms/front-cover">Prev</a>
+                {.or equal? @title "and-so-it-will-be"}
+                    <a class="btn" href="/tabi/and-then-there-were-two/front-cover">Prev</a>
+                {.or equal? @title "a-day-in-her-life"}
+                    <a class="btn" href="/tabi/and-so-it-will-be/front-cover">Prev</a>
+                {.or}
+                {.end}
+            {.end}
+            {.if pagination.nextItem}
+                <a class="btn" href="{pagination.nextItem.fullUrl}">Next</a>
+            {.or}
+                {.equal? @title "in-all-its-forms"}
+                    <a class="btn" href="/tabi/and-then-there-were-two/front-cover">Next</a>
+                {.or equal? @title "and-then-there-were-two"}
+                    <a class="btn" href="/tabi/and-so-it-will-be/front-cover">Next</a>
+                {.or equal? @title "and-so-it-will-be"}
+                    <a class="btn" href="/tabi/a-day-in-her-life/front-cover">Next</a>
+                {.or equal? @title "a-day-in-her-life"}
+                    <a class="btn btn--grey" disabled href="#">Next</a>
+                {.or}
+                    <a class="btn btn--grey disabled" href="#">Next</a>
+                {.end}
+            {.end}
+        </div>
+        <div class="tabi__title -wrap -center-text">
+            <div class="m teal">{collection.navigationTitle}</div>
+            <p>{collection.title}</p>
+        </div>
+        {.if @desc}
+            <div class="tabi__text -wrap -expt -text--center">
+                {@desc}
+            </div>
+        {.end}
+        {@|apply expander.block}
+    </div>
+{.end}

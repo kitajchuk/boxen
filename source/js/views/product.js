@@ -6,6 +6,7 @@ export default ( instance ) => {
     const collection = instance.data.collection;
     const isSoldOut = (variant.qtyInStock === 0);
     const isOneLeft = (variant.qtyInStock === 1);
+    const isUnlimited = variant.unlimited;
 
     return `
         <div class="sqs-block-spacer"><div class="sqs-block-content"></div></div>
@@ -52,7 +53,7 @@ export default ( instance ) => {
             <div class="product__info cms">
                 <div class="product__about">
                     ${item.body}
-                    ${isSoldOut ? `<div class="product__limited m yellow">Someone already snagged this one!</div>` : isOneLeft ? `<div class="product__limited m yellow">There's only one of these in the world!</div>` : `<div class="product__limited m yellow">${collection.navigationTitle} are limited! I have <span class="green">${variant.qtyInStock}</span> remaining.</div>`}
+                    ${isSoldOut ? `<div class="product__limited m yellow">Someone already snagged this one!</div>` : isOneLeft ? `<div class="product__limited m yellow">There's only one of these in the world!</div>` : isUnlimited ? `` : `<div class="product__limited m yellow">${collection.navigationTitle} are limited! I have <span class="green">${variant.qtyInStock}</span> remaining.</div>`}
                 </div>
                 <div class="product__buy">
                     <a class="btn ${isSoldOut ? "btn--red" : "js-cart-add"}" href="#"><span class="btn__a">${isSoldOut ? "Sold Out" : item.structuredContent.customAddButtonText}</span></a>

@@ -213,6 +213,11 @@
     // tweak
     background-color: $teal;
 
+    &[disabled] {
+        cursor: default;
+        pointer-events: none;
+    }
+
     // tweak
     .is-hoverable &:hover {
         background-color: mix( black, $teal, 25% );
