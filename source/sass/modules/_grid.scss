@@ -179,6 +179,11 @@ $mason-gap: 55px;
 
 .stack {}
 .stack__title {}
+.stack__item {
+    & + .stack__item {
+        @include expt();
+    }
+}
 .stack__meta {
     @include m();
     padding-top: $meta-nudge;
