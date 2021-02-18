@@ -194,7 +194,15 @@
         margin-top: $padding-1;
 
         @include respond( $mobile-breakpoint ) {
-            margin-top: 0;
+            margin-top: $expander-0;
+        }
+    }
+}
+// Buttons on boxen kit of parts page...
+#block-yui_3_17_2_1_1560381733076_16267 {
+    .sqs-block-content {
+        @include respond( $mobile-breakpoint ) {
+            @include wrap();
         }
     }
 }
