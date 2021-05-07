@@ -7,7 +7,8 @@
   "private": true,
   "scripts": {
     "postinstall": "node ./boxen.install",
-    "start": "npm run sqs:setup && (npm run watch & npm run sqs:server:auth)",
+    "start": "npm run sqs:setup",
+    "poststart": "(npm run watch & npm run sqs:server:auth)",
     "build": "npm run sqs:assemble ; npm run boxen:scaffold ; npm run boxen:build",
     "watch": "npm run sqs:assemble:watch & ./node_modules/.bin/webpack --env.sandbox --hide-modules --colors --watch",
     "boxen:build": "./node_modules/.bin/webpack --env.production --progress --profile --display-modules --colors -p",
@@ -43,7 +44,7 @@
     "node-sass": "^4.13.1",
     "open": "^7.4.0",
     "paramalama": "^0.3.0",
-    "properjs-blit": "^0.2.0",
+    "properjs-blit": "^0.3.2",
     "properjs-controller": "^0.3.1",
     "properjs-debounce": "^0.3.0",
     "properjs-hobo": "^0.3.26",
