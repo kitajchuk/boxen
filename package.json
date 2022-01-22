@@ -40,7 +40,7 @@
     "expose-loader": "^0.7.5",
     "fg-loadjs": "^1.0.0",
     "file-loader": "^6.0.0",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.1.1",
     "node-sass": "^4.13.1",
     "open": "^7.4.0",
     "paramalama": "^0.3.0",
