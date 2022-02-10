@@ -41,7 +41,7 @@
     "fg-loadjs": "^1.0.0",
     "file-loader": "^6.0.0",
     "node-fetch": "^2.6.1",
-    "node-sass": "^4.13.1",
+    "node-sass": "^7.0.0",
     "open": "^7.4.0",
     "paramalama": "^0.3.0",
     "properjs-blit": "^0.3.2",
